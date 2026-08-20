@@ -42,6 +42,8 @@ describe("AzureRealtimeProvider", () => {
     expect(body.session.model).toBe("gpt-realtime-2.1");
     expect(body.session.instructions).toBe("Tu es SUTA.");
     expect(body.session.tools).toBeUndefined();
+    expect(body.session.turn_detection).toEqual({ type: "server_vad" });
+    expect(body.session.input_audio_transcription).toEqual({ model: "whisper-1" });
   });
 
   it("maps the ephemeral client_secret response to a RealtimeSession", async () => {
@@ -59,6 +61,9 @@ describe("AzureRealtimeProvider", () => {
     expect(session.model).toBe("gpt-realtime-2.1");
     expect(session.expiresAt).toBe(new Date(1_800_000_060 * 1000).toISOString());
     expect(session.sessionId).toMatch(/^azure_/);
+    expect(session.webrtcUrl).toBe(
+      "https://dtdi-openai-audio-01.openai.azure.com/openai/v1/realtime/calls",
+    );
   });
 
   it("includes flat function-tool descriptors when tools are provided", async () => {

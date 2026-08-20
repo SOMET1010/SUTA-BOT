@@ -78,12 +78,32 @@ Implémentations (`packages/ai/src/realtime`) :
   session à fermer côté serveur, c'est le navigateur qui ferme sa propre
   connexion WebRTC.
 
-  **Ce qui reste à faire (hors backend)** : la connexion WebRTC réelle
-  côté navigateur (capture micro, lecture audio, échange SDP avec
-  `POST {endpoint}/openai/v1/realtime/calls` en utilisant le
-  `clientSecret`, gestion des événements Realtime — `response.audio.delta`,
-  `input_audio_buffer.*`, `function_call`, interruption) n'est pas encore
-  implémentée dans `apps/web`. C'est un chantier frontend à part entière.
+  **Connexion WebRTC navigateur — implémentée** (`apps/web/src/lib/realtime/`) :
+  - `events.ts` : normalisation pure et testée des événements du canal de
+    données GA (`input_audio_buffer.speech_started/stopped`,
+    `conversation.item.input_audio_transcription.delta/completed`,
+    `response.output_audio_transcript.delta/done`,
+    `response.function_call_arguments.done`, `response.created/done`,
+    `error`) — contrat vérifié par recherche documentaire (voir
+    l'avertissement ci-dessous), pas contre une session live.
+  - `RealtimeClient.ts` : `getUserMedia` (micro), `RTCPeerConnection`,
+    piste audio distante jouée via `ontrack` → `<audio>` (jamais de
+    décodage manuel de chunks base64 — l'audio transite par la piste média
+    WebRTC, pas par le canal de données), canal de données `oai-events`,
+    échange SDP contre `session.webrtcUrl` (`Authorization: Bearer
+    <clientSecret>`), exécution des appels d'outils (`function_call_output`
+    + `response.create`), interruption (`response.cancel` déclenché sur
+    `speech_started` pendant que SUTA parle, `turn_detection: server_vad`
+    côté session).
+  - `useRealtimeSession.ts` : pont React — appelle `/api/realtime/session`,
+    puis soit connecte une vraie session WebRTC (si `webrtcUrl` présent),
+    soit signale un repli vers le flux simulé existant (`MockRealtimeProvider`).
+  - `apps/web/src/app/page.tsx` : le bouton micro déclenche une session
+    live continue (écoute en continu via VAD serveur, pas de
+    « push-to-talk » par tour) quand un fournisseur réel est actif ; sinon
+    le flux simulé du Lot 1/7 reste inchangé. Transcription utilisateur et
+    SUTA affichée en direct, sources jointes au message final quand
+    `search_knowledge` a été appelé.
 - `OpenAIRealtimeProvider` — squelette, pour un environnement de
   développement autorisé en attendant.
 
@@ -323,13 +343,12 @@ Elle ne doit être ni supprimée ni modifiée par ce projet.
 
 ## Ce qui n'est pas encore implémenté (lots suivants)
 
-- Connexion WebRTC réelle côté navigateur (voix, interruption temps réel,
-  mémoire conversationnelle, exécution effective des outils pendant une
-  conversation vocale) — le backend `AzureRealtimeProvider` est fait, la
-  partie `apps/web` (capture micro, lecture audio, échange SDP, gestion
-  des événements Realtime) reste à construire — suite du Lot 3.
-- Validation contre la ressource Azure réelle (non testable depuis ce
-  sandbox de développement, accès réseau restreint) — suite du Lot 3.
+- Validation contre la ressource Azure réelle avec la clé API (non
+  testable depuis ce sandbox de développement, accès réseau restreint vers
+  `*.openai.azure.com`) — le code (backend + WebRTC navigateur) est écrit
+  et unit-testé avec des mocks, mais **jamais exécuté contre une session
+  live**. À faire en priorité dans un environnement avec accès réseau réel
+  avant toute démonstration Salon.
 - Outils additionnels (`get_program`, `get_service`, `get_contact`, ...) —
   Lot 5, à mesure des besoins.
 - Authentification Entra ID, profils utilisateurs — phase 2 (section 57).

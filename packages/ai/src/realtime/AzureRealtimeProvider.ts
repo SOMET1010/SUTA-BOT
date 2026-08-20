@@ -65,6 +65,13 @@ export class AzureRealtimeProvider implements RealtimeProvider {
           type: "realtime",
           model: this.config.deployment,
           instructions: options?.instructions,
+          // server_vad : détection automatique de la fin de prise de parole
+          // et de l'interruption naturelle (cahier des charges, section 13).
+          turn_detection: { type: "server_vad" },
+          // Transcription de la voix de l'utilisateur, pour l'affichage à
+          // l'écran (section 37) — sans cela, seule la réponse de SUTA
+          // serait transcrite.
+          input_audio_transcription: { model: "whisper-1" },
           ...(tools && tools.length > 0 ? { tools } : {}),
         },
       }),
@@ -85,6 +92,7 @@ export class AzureRealtimeProvider implements RealtimeProvider {
       model: this.config.model || this.config.deployment,
       clientSecret: data.value,
       expiresAt: new Date(data.expires_at * 1000).toISOString(),
+      webrtcUrl: new URL("/openai/v1/realtime/calls", this.config.endpoint).toString(),
     };
   }
 

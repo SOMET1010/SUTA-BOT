@@ -152,10 +152,11 @@ dataset, script, kiosque, reset, fallback : fait)** → Lot 8
 (durcissement).
 
 **Lot 3** (connexion Realtime Azure réelle) : les informations IT/PIE
-(section 67) ont été communiquées et le **backend** `AzureRealtimeProvider`
-est implémenté. Reste à faire : la connexion WebRTC côté navigateur (micro,
-audio, interruption temps réel, mémoire conversationnelle) dans `apps/web`,
-et la validation contre la ressource Azure réelle avec la clé API (non
-testable depuis cet environnement de développement — accès réseau
-restreint). Voir `docs/demo-script.md` pour ce qui est démontrable en
-attendant.
+(section 67) ont été communiquées. Le **backend** `AzureRealtimeProvider`
+et la **connexion WebRTC navigateur** (`apps/web/src/lib/realtime/` — micro,
+audio, transcription live, interruption naturelle, appel d'outils) sont
+implémentés. **Non vérifié contre la ressource Azure réelle** — cet
+environnement de développement n'a pas d'accès réseau sortant vers
+`*.openai.azure.com` ; à valider avec la clé API dans un environnement qui
+y a accès avant toute démonstration Salon. Voir `docs/architecture.md` et
+`docs/demo-script.md`.

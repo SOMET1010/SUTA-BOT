@@ -4,11 +4,17 @@ interface MicButtonProps {
   state: ConversationState;
   onPress: () => void;
   disabled?: boolean;
+  /**
+   * Un appel Realtime réel est en cours : le bouton doit toujours permettre
+   * de raccrocher, même pendant THINKING/SEARCHING (pas de blocage lié à
+   * l'état de la conversation simulée).
+   */
+  liveCallActive?: boolean;
 }
 
-export function MicButton({ state, onPress, disabled }: MicButtonProps) {
-  const isListening = state === "LISTENING";
-  const isBusy = state === "THINKING" || state === "SEARCHING";
+export function MicButton({ state, onPress, disabled, liveCallActive }: MicButtonProps) {
+  const isListening = state === "LISTENING" || liveCallActive;
+  const isBusy = !liveCallActive && (state === "THINKING" || state === "SEARCHING");
 
   return (
     <button
@@ -17,7 +23,11 @@ export function MicButton({ state, onPress, disabled }: MicButtonProps) {
       disabled={disabled || isBusy}
       aria-pressed={isListening}
       aria-label={
-        isListening ? "Arrêter l'écoute" : "Activer le microphone pour parler à SUTA"
+        liveCallActive
+          ? "Raccrocher"
+          : isListening
+            ? "Arrêter l'écoute"
+            : "Activer le microphone pour parler à SUTA"
       }
       className={`flex h-16 w-16 items-center justify-center rounded-full text-2xl shadow-lg transition-transform focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-secondary disabled:cursor-not-allowed disabled:opacity-40 ${
         isListening

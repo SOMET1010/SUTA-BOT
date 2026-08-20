@@ -31,6 +31,7 @@ export async function POST(request: Request) {
       model: session.model,
       clientSecret: session.clientSecret,
       expiresAt: session.expiresAt,
+      webrtcUrl: session.webrtcUrl ?? null,
     });
   } catch (error) {
     console.error("[api/realtime/session] échec de création de session", error);

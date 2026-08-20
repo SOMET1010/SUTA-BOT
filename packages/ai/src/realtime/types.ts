@@ -42,6 +42,14 @@ export interface RealtimeSession {
   clientSecret: string;
   /** Date d'expiration ISO 8601 du jeton temporaire. */
   expiresAt: string;
+  /**
+   * URL à laquelle le navigateur doit envoyer son offre SDP pour établir la
+   * connexion WebRTC (`Authorization: Bearer <clientSecret>`, voir
+   * `docs/architecture.md`). Absente si le fournisseur ne supporte pas de
+   * connexion WebRTC réelle (ex. `MockRealtimeProvider`) — dans ce cas
+   * l'appelant doit rester sur une démonstration simulée.
+   */
+  webrtcUrl?: string;
 }
 
 export interface RealtimeProvider {

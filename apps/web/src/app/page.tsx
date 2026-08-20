@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState, type RefObject } from "react";
 import { DEMO_QUESTIONS, type ConversationState } from "@suta/shared";
 import { BrandHeader } from "@/components/BrandHeader";
 import {
@@ -15,6 +15,7 @@ import { TextComposer } from "@/components/TextComposer";
 import { getIdentityResponse } from "@/lib/identity-response";
 import { useIdleReset } from "@/lib/use-idle-reset";
 import { useKioskMode } from "@/lib/use-kiosk-mode";
+import { useRealtimeSession } from "@/lib/realtime/useRealtimeSession";
 
 const NO_INFO_ANSWER =
   "Je n'ai pas encore suffisamment d'informations fiables dans ma base pour répondre à cette question.";
@@ -30,25 +31,43 @@ interface SearchResult {
 }
 
 /**
- * Écran principal SUTA (cahier des charges, section 22). Le canal texte
- * appelle réellement l'outil `search_knowledge` (Lot 4/5) — seule la
- * question d'identité (section 4, Démonstration 1) reste une réponse
- * scriptée, à la manière du prompt système une fois un modèle connecté.
- * La voix (WebRTC, interruption temps réel) reste simulée en attendant le
- * Lot 3 (connexion Realtime Azure/OpenAI réelle).
+ * Écran principal SUTA (cahier des charges, section 22).
+ *
+ * Deux chemins selon le fournisseur Realtime réellement actif
+ * (`session.webrtcUrl` renvoyé par `/api/realtime/session`) :
+ * - Fournisseur réel (Azure) : connexion WebRTC live (micro, audio,
+ *   transcription, interruption naturelle, appel d'outils) —
+ *   `useRealtimeSession` / `RealtimeClient`. ⚠️ Non testable contre Azure
+ *   depuis cet environnement de développement (accès réseau restreint),
+ *   voir docs/architecture.md.
+ * - `MockRealtimeProvider` (pas de `webrtcUrl`) : repli simulé, où le canal
+ *   texte appelle réellement `search_knowledge` (Lot 4/5) pour rester
+ *   honnête sur ce qui est démontrable sans Realtime.
  */
 export default function Home() {
   const kiosk = useKioskMode();
   const [state, setState] = useState<ConversationState>("IDLE");
   const [messages, setMessages] = useState<TranscriptMessage[]>([]);
+  const [isLive, setIsLive] = useState(false);
   const demoTimeouts = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const expectedDisconnect = useRef(false);
+  const currentUserMsgId = useRef<string | null>(null);
+  const currentAssistantMsgId = useRef<string | null>(null);
+  const pendingSources = useRef<TranscriptMessage["sources"]>(undefined);
+
+  const { start, stop, isActive } = useRealtimeSession();
 
   const resetDemo = useCallback(() => {
     demoTimeouts.current.forEach(clearTimeout);
     demoTimeouts.current = [];
+    if (isActive()) {
+      expectedDisconnect.current = true;
+      stop();
+    }
+    setIsLive(false);
     setState("IDLE");
     setMessages([]);
-  }, []);
+  }, [isActive, stop]);
 
   useIdleReset(kiosk, resetDemo);
 
@@ -114,19 +133,138 @@ export default function Home() {
     [respond],
   );
 
+  /** Ajoute un delta au message en cours (id mémorisé dans `idRef`), ou en crée un. */
+  const appendDelta = useCallback(
+    (role: TranscriptMessage["role"], idRef: RefObject<string | null>, delta: string) => {
+      setMessages((prev) => {
+        if (idRef.current) {
+          return prev.map((m) => (m.id === idRef.current ? { ...m, text: m.text + delta } : m));
+        }
+        const id = `${role}-${Date.now()}`;
+        idRef.current = id;
+        return [...prev, { id, role, text: delta }];
+      });
+    },
+    [],
+  );
+
+  /** Fixe le texte final du message en cours et le referme (nouveau tour ensuite). */
+  const finalizeMessage = useCallback(
+    (
+      role: TranscriptMessage["role"],
+      idRef: RefObject<string | null>,
+      text: string,
+      sources?: TranscriptMessage["sources"],
+    ) => {
+      setMessages((prev) => {
+        if (idRef.current) {
+          return prev.map((m) => (m.id === idRef.current ? { ...m, text, sources } : m));
+        }
+        return [...prev, { id: `${role}-${Date.now()}`, role, text, sources }];
+      });
+      idRef.current = null;
+    },
+    [],
+  );
+
+  const endLiveCall = useCallback(() => {
+    expectedDisconnect.current = true;
+    stop();
+    setIsLive(false);
+    setState("IDLE");
+  }, [stop]);
+
+  const startLiveOrSimulated = useCallback(async () => {
+    setState("LISTENING");
+
+    try {
+      const result = await start({
+        onConnectionStateChange: (connState) => {
+          if (connState === "disconnected") {
+            setIsLive(false);
+            if (!expectedDisconnect.current) {
+              setState("OFFLINE");
+            }
+            expectedDisconnect.current = false;
+          }
+        },
+        onSpeechStarted: () => {
+          currentUserMsgId.current = null;
+          setState((prev) => (prev === "SPEAKING" ? "INTERRUPTED" : "LISTENING"));
+        },
+        onSpeechStopped: () => {
+          setState("THINKING");
+        },
+        onUserTranscriptDelta: (delta) => appendDelta("user", currentUserMsgId, delta),
+        onUserTranscriptDone: (transcript) =>
+          finalizeMessage("user", currentUserMsgId, transcript),
+        onAssistantTranscriptDelta: (delta) => {
+          setState("SPEAKING");
+          appendDelta("suta", currentAssistantMsgId, delta);
+        },
+        onAssistantTranscriptDone: (transcript) => {
+          finalizeMessage("suta", currentAssistantMsgId, transcript, pendingSources.current);
+          pendingSources.current = undefined;
+        },
+        onResponseDone: () => {
+          setState((prev) => (prev === "ERROR" || prev === "OFFLINE" ? prev : "LISTENING"));
+        },
+        onToolResult: (name, result) => {
+          if (
+            name === "search_knowledge" &&
+            result &&
+            typeof result === "object" &&
+            "results" in result
+          ) {
+            setState("SEARCHING");
+            const results = (result as { results: SearchResult[] }).results;
+            pendingSources.current = results.map((r) => ({ title: r.title, source: r.source }));
+          }
+        },
+        onError: (message) => {
+          setState("ERROR");
+          setMessages((prev) => [...prev, { id: `s-${Date.now()}`, role: "suta", text: message }]);
+          endLiveCall();
+        },
+      });
+
+      if (result.simulated) {
+        const listenTimeout = setTimeout(() => {
+          runDemoTurn("Bonjour SUTA, qui es-tu ?");
+        }, 1800);
+        demoTimeouts.current.push(listenTimeout);
+        return;
+      }
+
+      setIsLive(true);
+    } catch (error) {
+      setState("ERROR");
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: `s-${Date.now()}`,
+          role: "suta",
+          text: error instanceof Error ? error.message : TECHNICAL_ERROR_ANSWER,
+        },
+      ]);
+      const t = setTimeout(() => setState("IDLE"), 3000);
+      demoTimeouts.current.push(t);
+    }
+  }, [start, runDemoTurn, appendDelta, finalizeMessage, endLiveCall]);
+
   const handleMicPress = useCallback(() => {
+    if (isLive) {
+      endLiveCall();
+      return;
+    }
     if (state === "LISTENING") {
       setState("IDLE");
       return;
     }
-    setState("LISTENING");
-    const listenTimeout = setTimeout(() => {
-      runDemoTurn("Bonjour SUTA, qui es-tu ?");
-    }, 1800);
-    demoTimeouts.current.push(listenTimeout);
-  }, [state, runDemoTurn]);
+    void startLiveOrSimulated();
+  }, [isLive, state, endLiveCall, startLiveOrSimulated]);
 
-  const isBusy = state === "THINKING" || state === "SEARCHING" || state === "SPEAKING";
+  const isBusy = !isLive && (state === "THINKING" || state === "SEARCHING" || state === "SPEAKING");
 
   return (
     <div className="flex flex-1 flex-col bg-brand-background">
@@ -144,14 +282,14 @@ export default function Home() {
 
         <ConversationTranscript messages={messages} />
 
-        <MicButton state={state} onPress={handleMicPress} />
+        <MicButton state={state} onPress={handleMicPress} liveCallActive={isLive} />
 
-        <TextComposer onSubmit={runDemoTurn} disabled={isBusy} />
+        <TextComposer onSubmit={runDemoTurn} disabled={isBusy || isLive} />
 
         <ExampleQuestions
           questions={DEMO_QUESTIONS}
           onSelect={runDemoTurn}
-          disabled={isBusy}
+          disabled={isBusy || isLive}
         />
       </main>
 
