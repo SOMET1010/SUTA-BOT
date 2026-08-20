@@ -6,14 +6,20 @@
 
   /*
    * Variables de marque ANSUT CONNECTE (cahier des charges, section 52).
-   * Valeurs provisoires en attendant la charte officielle : ne jamais coder
-   * les couleurs en dur ailleurs, toujours passer par ces variables.
+   * Palette bleu/orange alignée sur la nouvelle identité publique de
+   * l'ANSUT (source : ansut.ci, "La nouvelle identité de l'ANSUT" — bleu
+   * pour l'engagement TIC, orange dynamique pour le drapeau/la jeunesse/la
+   * fibre). Les codes hexadécimaux exacts n'ont PAS pu être vérifiés
+   * (charte officielle non fournie) : ce sont des valeurs approximatives,
+   * à remplacer par les codes exacts dès que la charte graphique ou les
+   * fichiers de marque officiels seront communiqués. Ne jamais coder les
+   * couleurs en dur ailleurs, toujours passer par ces variables.
    */
-  --brand-primary: #0a5c8a;
-  --brand-secondary: #00a99d;
-  --brand-background: #061a26;
+  --brand-primary: #0a5fa0;
+  --brand-secondary: #f5850d;
+  --brand-background: #071b29;
   --brand-text: #f4f8fb;
-  --brand-accent: #f4a300;
+  --brand-accent: #00a99d;
 }
 
 @theme inline {

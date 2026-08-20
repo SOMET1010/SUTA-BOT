@@ -13,13 +13,24 @@ export interface AzureRealtimeProviderConfig {
   model?: string;
 }
 
+interface AzureClientSecretResponse {
+  value: string;
+  expires_at: number;
+}
+
 /**
- * Squelette du RealtimeProvider Azure OpenAI / Azure AI Foundry.
+ * RealtimeProvider Azure OpenAI (API GA `/openai/v1/realtime/client_secrets`,
+ * confirmée par l'équipe IT/PIE — cahier des charges section 67 : ressource
+ * `dtdi-openai-audio-01`, modèle/déploiement `gpt-realtime-2.1`,
+ * authentification par clé API).
  *
- * Non implémenté tant que les informations de la section 67 du cahier des
- * charges (nom exact du modèle Realtime, deployment, quota, mode
- * d'authentification) n'ont pas été communiquées par l'équipe IT/PIE. Ne
- * suppose aucune valeur par défaut pour le modèle ou le deployment.
+ * Ne fait que créer une session éphémère côté serveur (clé temporaire
+ * `client_secret`, valable une minute) : la connexion WebRTC réelle
+ * (échange SDP, capture micro, lecture audio) est établie directement par
+ * le navigateur avec le `clientSecret` retourné — jamais par ce backend
+ * (cahier des charges, section 11). Cette connexion navigateur elle-même
+ * (WebRTC, interruption, lecture des événements Realtime) reste à
+ * implémenter côté `apps/web`.
  */
 export class AzureRealtimeProvider implements RealtimeProvider {
   readonly name = "azure";
@@ -33,18 +44,52 @@ export class AzureRealtimeProvider implements RealtimeProvider {
     }
   }
 
-  async createSession(
-    _options?: CreateRealtimeSessionOptions,
-  ): Promise<RealtimeSession> {
-    throw new Error(
-      "AzureRealtimeProvider.createSession n'est pas encore implémenté : " +
-        "en attente de la confirmation du modèle Realtime Azure par l'équipe " +
-        "IT/PIE (cahier des charges, section 67). Utiliser AI_PROVIDER=mock " +
-        "en attendant.",
-    );
+  async createSession(options?: CreateRealtimeSessionOptions): Promise<RealtimeSession> {
+    const url = new URL("/openai/v1/realtime/client_secrets", this.config.endpoint);
+
+    const tools = options?.tools?.map((tool) => ({
+      type: "function" as const,
+      name: tool.name,
+      description: tool.description,
+      parameters: tool.parameters,
+    }));
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "api-key": this.config.apiKey,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        session: {
+          type: "realtime",
+          model: this.config.deployment,
+          instructions: options?.instructions,
+          ...(tools && tools.length > 0 ? { tools } : {}),
+        },
+      }),
+    });
+
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      throw new Error(
+        `AzureRealtimeProvider: échec de création de session (HTTP ${response.status}). ${detail}`.trim(),
+      );
+    }
+
+    const data = (await response.json()) as AzureClientSecretResponse;
+
+    return {
+      sessionId: `azure_${crypto.randomUUID()}`,
+      provider: this.name,
+      model: this.config.model || this.config.deployment,
+      clientSecret: data.value,
+      expiresAt: new Date(data.expires_at * 1000).toISOString(),
+    };
   }
 
   async disconnect(_sessionId: string): Promise<void> {
-    throw new Error("AzureRealtimeProvider.disconnect n'est pas encore implémenté.");
+    // Le modèle de clé éphémère n'a pas de session à fermer côté serveur :
+    // c'est le navigateur qui ferme la connexion WebRTC réelle. Rien à faire.
   }
 }

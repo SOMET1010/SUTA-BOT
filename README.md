@@ -20,10 +20,14 @@ des charges (`docs/cahier-des-charges.md` si présent, sinon voir
   d'accueil SUTA, la machine à états visuelle, le mode kiosque
   (`?mode=kiosk`) et un endpoint `/api/health` qui vérifie réellement la
   base de données, le fournisseur Realtime et le fournisseur d'embeddings.
-- `packages/ai` — abstraction `RealtimeProvider` avec une implémentation
-  `MockRealtimeProvider` fonctionnelle, ainsi que des squelettes
-  `AzureRealtimeProvider` / `OpenAIRealtimeProvider` en attente des
-  informations Azure (voir section 67 du cahier des charges).
+- `packages/ai` — abstraction `RealtimeProvider` avec `MockRealtimeProvider`
+  fonctionnel et `AzureRealtimeProvider` **implémenté** (backend) contre la
+  ressource confirmée par IT/PIE (section 67) : endpoint
+  `dtdi-openai-audio-01.openai.azure.com`, modèle/déploiement
+  `gpt-realtime-2.1`, authentification par clé API. Non testé contre la
+  ressource réelle (accès réseau restreint dans l'environnement de
+  développement) — voir `docs/architecture.md`. `OpenAIRealtimeProvider`
+  reste un squelette.
 - `packages/database` — schéma PostgreSQL/pgvector (Prisma 7) : `users`,
   `conversations`, `messages`, `documents`, `document_chunks`,
   `knowledge_sources`, `tool_calls`, `feedback`, `system_events`.
@@ -145,8 +149,13 @@ section 62) : Lot 0 (init) → Lot 1 (interface) → Lot 2 (abstraction
 Realtime) → **Lot 4 (base de connaissances, fait)** → **Lot 5 (tool
 calling, fait)** → **Lot 6 (administration, fait)** → **Lot 7 (Salon —
 dataset, script, kiosque, reset, fallback : fait)** → Lot 8
-(durcissement). Le Lot 3 (connexion Realtime Azure réelle — et donc la
-voix, l'interruption temps réel, et l'exécution effective des outils
-pendant une conversation vocale) reste bloqué tant que l'équipe IT/PIE
-n'a pas communiqué le modèle/deployment Realtime ; voir
-`docs/demo-script.md` pour ce qui est démontrable en attendant.
+(durcissement).
+
+**Lot 3** (connexion Realtime Azure réelle) : les informations IT/PIE
+(section 67) ont été communiquées et le **backend** `AzureRealtimeProvider`
+est implémenté. Reste à faire : la connexion WebRTC côté navigateur (micro,
+audio, interruption temps réel, mémoire conversationnelle) dans `apps/web`,
+et la validation contre la ressource Azure réelle avec la clé API (non
+testable depuis cet environnement de développement — accès réseau
+restreint). Voir `docs/demo-script.md` pour ce qui est démontrable en
+attendant.

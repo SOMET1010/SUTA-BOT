@@ -1,8 +1,22 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { createResilientRealtimeProvider, FallbackRealtimeProvider } from "../src/realtime/factory";
 import { MockRealtimeProvider } from "../src/realtime/MockRealtimeProvider";
 
 describe("createResilientRealtimeProvider", () => {
+  const fetchMock = vi.fn();
+
+  beforeEach(() => {
+    vi.stubGlobal("fetch", fetchMock);
+    fetchMock.mockReset();
+    // Simule une panne réseau/Azure indisponible pour AzureRealtimeProvider,
+    // sans dépendre d'un accès réseau réel dans les tests.
+    fetchMock.mockRejectedValue(new Error("network unreachable (test)"));
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
   it("returns MockRealtimeProvider directly when AI_PROVIDER=mock (nothing to wrap)", () => {
     const provider = createResilientRealtimeProvider({ AI_PROVIDER: "mock" });
     expect(provider).toBeInstanceOf(MockRealtimeProvider);
@@ -29,8 +43,7 @@ describe("createResilientRealtimeProvider", () => {
       DEMO_FALLBACK_MODE: "true",
     });
 
-    // AzureRealtimeProvider.createSession is a not-yet-implemented skeleton
-    // that always throws — this exercises the real fallback path.
+    // fetch échoue (mocké ci-dessus) — exerce le vrai chemin de fallback.
     const session = await provider.createSession();
     expect(session.provider).toBe("mock");
   });
@@ -53,7 +66,7 @@ describe("createResilientRealtimeProvider", () => {
       REALTIME_DEPLOYMENT: "fake-deployment",
       DEMO_FALLBACK_MODE: "false",
     });
-    await expect(provider.createSession()).rejects.toThrow(/pas encore implémenté/);
+    await expect(provider.createSession()).rejects.toThrow(/network unreachable/);
   });
 
   it("does not fall back when DEMO_FALLBACK_MODE=false: invalid config throws at creation", () => {

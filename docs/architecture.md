@@ -55,20 +55,50 @@ interface RealtimeProvider {
 }
 ```
 
-Implémentations prévues (`packages/ai/src/realtime`) :
+Implémentations (`packages/ai/src/realtime`) :
 
-- `MockRealtimeProvider` — fonctionnelle dès ce commit, permet de développer
+- `MockRealtimeProvider` — fonctionnelle dès le Lot 0, permet de développer
   et démontrer sans dépendance réseau externe.
-- `AzureRealtimeProvider` — squelette, lira `AZURE_OPENAI_*` /
-  `REALTIME_MODEL` / `REALTIME_DEPLOYMENT` une fois ces informations
-  communiquées par l'équipe IT/PIE (section 67 du cahier des charges).
+- `AzureRealtimeProvider` — **implémentée** (Lot 3, backend). Ressource
+  confirmée par l'équipe IT/PIE (cahier des charges, section 67) :
+  - Endpoint : `https://dtdi-openai-audio-01.openai.azure.com/`
+  - Modèle / déploiement : `gpt-realtime-2.1`
+  - Authentification : clé API (`AZURE_OPENAI_API_KEY`, jamais committée)
+
+  `createSession()` appelle l'API GA Azure OpenAI Realtime
+  (`POST {endpoint}/openai/v1/realtime/client_secrets`, en-tête `api-key`)
+  pour obtenir une clé éphémère (`client_secret.value`, préfixe `ek_`,
+  expire en ~1 minute) et la renvoie telle quelle au navigateur — jamais la
+  clé API permanente. Les instructions système et les descripteurs d'outils
+  (`RealtimeToolDescriptor[]`) sont transmis dans la configuration de
+  session (`session.instructions`, `session.tools`, format
+  `{ type: "function", name, description, parameters }`).
+
+  `disconnect()` est un no-op : le modèle de clé éphémère n'a pas de
+  session à fermer côté serveur, c'est le navigateur qui ferme sa propre
+  connexion WebRTC.
+
+  **Ce qui reste à faire (hors backend)** : la connexion WebRTC réelle
+  côté navigateur (capture micro, lecture audio, échange SDP avec
+  `POST {endpoint}/openai/v1/realtime/calls` en utilisant le
+  `clientSecret`, gestion des événements Realtime — `response.audio.delta`,
+  `input_audio_buffer.*`, `function_call`, interruption) n'est pas encore
+  implémentée dans `apps/web`. C'est un chantier frontend à part entière.
 - `OpenAIRealtimeProvider` — squelette, pour un environnement de
-  développement autorisé en attendant Azure.
+  développement autorisé en attendant.
 
 La sélection se fait uniquement par variable d'environnement
 (`AI_PROVIDER=mock|azure|openai`), jamais par une condition codée en dur.
 Le nom du modèle et du déploiement sont également externalisés
-(`REALTIME_MODEL`, `REALTIME_DEPLOYMENT`) : aucune valeur n'est supposée.
+(`REALTIME_MODEL`, `REALTIME_DEPLOYMENT`).
+
+> ⚠️ Le sandbox de développement utilisé pour cette implémentation a un
+> accès réseau sortant restreint (seuls npm/PyPI/GitHub/Anthropic sont
+> autorisés) : `AzureRealtimeProvider` a été validée par des tests
+> unitaires avec `fetch` simulé (contrat de requête/réponse conforme à la
+> documentation Microsoft Learn), mais **pas testée contre la ressource
+> Azure réelle**. À valider dans un environnement disposant d'un accès
+> réseau à `*.openai.azure.com` et de la clé API réelle.
 
 ## Base de connaissances (RAG) — Lot 4
 
@@ -286,15 +316,20 @@ ERROR, OFFLINE (états transverses)
 ## Ressource Azure Speech existante
 
 La ressource `DTDI-AZURESPEECH-Julaba-01` (Resource Group `ANSUT-DTDI`,
-région `westeurope`) est identifiée mais **non utilisée** par le MVP tant
-que le modèle Realtime speech-to-speech n'est pas confirmé et provisionné.
+région `westeurope`) reste **non utilisée** par le MVP — elle est
+distincte de la ressource Realtime confirmée (`dtdi-openai-audio-01`,
+voir plus haut) et n'a pas vocation à porter la conversation principale.
 Elle ne doit être ni supprimée ni modifiée par ce projet.
 
 ## Ce qui n'est pas encore implémenté (lots suivants)
 
-- Connexion Realtime réelle (Azure/OpenAI), et donc la voix, l'interruption
-  temps réel, la mémoire conversationnelle (questions contextuelles) et
-  l'exécution effective des outils pendant une conversation vocale — Lot 3.
+- Connexion WebRTC réelle côté navigateur (voix, interruption temps réel,
+  mémoire conversationnelle, exécution effective des outils pendant une
+  conversation vocale) — le backend `AzureRealtimeProvider` est fait, la
+  partie `apps/web` (capture micro, lecture audio, échange SDP, gestion
+  des événements Realtime) reste à construire — suite du Lot 3.
+- Validation contre la ressource Azure réelle (non testable depuis ce
+  sandbox de développement, accès réseau restreint) — suite du Lot 3.
 - Outils additionnels (`get_program`, `get_service`, `get_contact`, ...) —
   Lot 5, à mesure des besoins.
 - Authentification Entra ID, profils utilisateurs — phase 2 (section 57).
