@@ -176,7 +176,7 @@ calcule l'embedding de la question, recherche les fragments les plus
 proches (visibilité `PUBLIC`/`DEMO` par défaut pour le MVP Salon, section
 19), et retourne `{ results: [{ title, content, source, score }] }`. Si
 aucun résultat n'est suffisamment pertinent, `results` est vide — c'est au
-prompt SUTA (`packages/ai/src/prompts/suta-system.md`, règles 6-7)
+prompt SUTA (`packages/ai/src/prompts/suta-system.ts`, règles 6-7)
 d'indiquer qu'il ne dispose pas de l'information plutôt que d'inventer une
 réponse (section 58).
 
@@ -391,6 +391,30 @@ Le cahier des charges (section 23) mentionne un QR code « éventuellement
 » vers ANSUT CONNECTE. Aucune URL réelle n'est disponible à ce stade ;
 générer un QR code vers un placeholder serait trompeur pour un visiteur
 de salon. À ajouter lorsque l'URL cible réelle sera communiquée.
+
+## Déploiement (Vercel)
+
+Premier déploiement en ligne réalisé sur Vercel (racine du projet Vercel :
+`apps/web`, preset Next.js). Variables d'environnement requises côté
+Vercel (Project Settings → Environment Variables), en plus de celles déjà
+documentées dans `.env.example` : `DATABASE_URL` est lue au niveau module
+par `packages/database` et fait échouer le build si elle est absente, même
+si la base de connaissances n'est pas utilisée dans la démonstration en
+cours (une valeur "vide" type `postgresql://user:password@localhost:5432/suta`
+suffit à faire passer le build sans base réelle connectée).
+
+**Leçon retenue (bug réel rencontré en production, pas seulement en
+théorie)** : `packages/ai/src/prompts/suta-system.md` était chargé via
+`fs.readFileSync` au runtime. Fonctionnait en local (`npm run dev`/`npm run
+start`, arborescence source complète sur disque) mais échouait sur Vercel
+avec `ENOENT` — le *file tracing* des fonctions serverless n'embarque pas
+fiablement un fichier lu dynamiquement au runtime depuis un package du
+monorepo. Corrigé en remplaçant le `.md` par une constante TypeScript
+(`packages/ai/src/prompts/suta-system.ts`) : plus aucune lecture disque au
+runtime, donc aucun risque de ce type d'écart environnement local/serverless.
+Règle à retenir pour tout futur asset texte chargé par le backend : préférer
+une constante importée à une lecture fichier runtime, sauf si l'asset est
+volumineux et versionné en base/stockage externe.
 
 ## Sécurité — aucun secret côté navigateur
 
