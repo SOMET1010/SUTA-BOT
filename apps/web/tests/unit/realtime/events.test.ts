@@ -85,6 +85,21 @@ describe("normalizeServerEvent", () => {
     });
   });
 
+  it("ignores benign cancellation-race errors instead of treating them as fatal", () => {
+    expect(
+      normalizeServerEvent({
+        type: "error",
+        error: { message: "Cancellation failed: no active response found" },
+      }),
+    ).toBeNull();
+    expect(
+      normalizeServerEvent({
+        type: "error",
+        error: { message: "cancellation failed: no active response found" },
+      }),
+    ).toBeNull();
+  });
+
   it("ignores events it doesn't recognize or care about", () => {
     expect(normalizeServerEvent({ type: "session.created", session: {} })).toBeNull();
     expect(normalizeServerEvent({ type: "rate_limits.updated" })).toBeNull();

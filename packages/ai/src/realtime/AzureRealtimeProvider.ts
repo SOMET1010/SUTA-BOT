@@ -74,8 +74,10 @@ export class AzureRealtimeProvider implements RealtimeProvider {
             input: {
               // Transcription de la voix de l'utilisateur, pour l'affichage
               // à l'écran (section 37) — sans cela, seule la réponse de
-              // SUTA serait transcrite.
-              transcription: { model: "whisper-1" },
+              // SUTA serait transcrite. `language: "fr"` fixe la langue
+              // attendue (sinon le modèle peut dériver vers une autre
+              // langue en cours de conversation si l'audio est ambigu).
+              transcription: { model: "whisper-1", language: "fr" },
               // server_vad : détection automatique de la fin de prise de
               // parole et de l'interruption naturelle (section 13).
               turn_detection: { type: "server_vad" },

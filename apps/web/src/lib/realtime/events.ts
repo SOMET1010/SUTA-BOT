@@ -87,6 +87,19 @@ export function normalizeServerEvent(raw: unknown): NormalizedRealtimeEvent | nu
       const message =
         (errorDetail && asString(errorDetail.message)) ||
         "Le moteur Realtime a signalé une erreur.";
+
+      // "Cancellation failed: no active response found" — course
+      // inoffensive : notre client envoie `response.cancel` dès que
+      // l'utilisateur recommence à parler (interruption naturelle), mais
+      // la réponse peut déjà s'être terminée côté serveur entre-temps
+      // (`response.done` arrivé juste avant). Observé en conditions
+      // réelles (validation Azure) : sans ce filtre, cette race
+      // inoffensive raccrochait l'appel entier. Ne jamais traiter comme
+      // une erreur fatale pour l'utilisateur.
+      if (/cancellation failed/i.test(message)) {
+        return null;
+      }
+
       return { type: "error", message };
     }
 
