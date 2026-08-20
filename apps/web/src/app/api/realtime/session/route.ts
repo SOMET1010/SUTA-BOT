@@ -1,4 +1,4 @@
-import { createRealtimeProvider, loadSutaSystemPrompt } from "@suta/ai";
+import { createResilientRealtimeProvider, loadSutaSystemPrompt } from "@suta/ai";
 import { SUTA_TOOLS, describeTool } from "@suta/tools";
 
 /**
@@ -18,7 +18,7 @@ export async function POST(request: Request) {
       : undefined;
 
   try {
-    const provider = createRealtimeProvider();
+    const provider = createResilientRealtimeProvider();
     const session = await provider.createSession({
       conversationId,
       instructions: loadSutaSystemPrompt(),

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@suta/ai": "*",
+    "@suta/auth": "*",
     "@suta/database": "*",
     "@suta/knowledge": "*",
     "@suta/shared": "*",

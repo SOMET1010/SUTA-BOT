@@ -12,8 +12,8 @@ des charges (`docs/cahier-des-charges.md` si présent, sinon voir
 ## État actuel du projet
 
 **Lot 0** (initialisation), squelette du **Lot 1** (interface SUTA),
-**Lot 4** (base de connaissances) et **Lot 5** (tool calling) sont
-implémentés :
+**Lot 4** (base de connaissances), **Lot 5** (tool calling), **Lot 6**
+(administration) et l'essentiel du **Lot 7** (Salon) sont implémentés :
 
 - Monorepo npm workspaces (`apps/*`, `packages/*`).
 - `apps/web` — application Next.js / TypeScript / Tailwind avec l'écran
@@ -41,10 +41,28 @@ implémentés :
   `RealtimeProvider` à la création de session
   (`apps/web/src/app/api/realtime/session/route.ts`) ; testable
   directement via `POST /api/tools/search-knowledge`.
+- `packages/auth` — contrôle d'accès minimal à `/admin` (mot de passe
+  partagé, session signée HMAC) — pas encore l'authentification Entra ID
+  de la phase 2 (section 57).
+- `/admin` (`apps/web`) — tableau de bord, `/admin/knowledge` (documents,
+  upload, suppression, réindexation, test d'une question),
+  `/admin/diagnostics` (état des services, compteurs), `/admin/settings`
+  (configuration en lecture seule, aucun secret). Protégé par
+  `apps/web/src/proxy.ts` (Next.js 16 — anciennement Middleware) +
+  vérification côté serveur sur chaque page/route.
+- Écran d'accueil branché sur le vrai `search_knowledge` : les questions
+  tapées au clavier interrogent réellement la base de connaissances
+  (réponse construite uniquement à partir des sources trouvées, jamais
+  inventée — section 58), avec affichage des sources.
+- Fallback Salon : si le fournisseur Realtime configuré échoue et que
+  `DEMO_FALLBACK_MODE=true`, une session `MockRealtimeProvider` est créée
+  automatiquement (section 24).
 - `data/demo/` — corpus d'exemple **fictif** pour le Salon (clairement
-  signalé comme tel ; à remplacer par un corpus validé par l'ANSUT).
-- `packages/auth`, `packages/observability` — réservés aux lots suivants
-  (authentification, observabilité), non implémentés dans ce commit.
+  signalé comme tel ; à remplacer par un corpus validé par l'ANSUT avant
+  toute démonstration publique — voir `docs/demo-script.md` et
+  `docs/salon-checklist.md`).
+- `packages/observability` — réservé au Lot 8, non implémenté dans ce
+  commit.
 
 Aucune clé Azure/OpenAI n'est requise pour lancer le projet : les
 fournisseurs par défaut (`AI_PROVIDER=mock`, `EMBEDDINGS_PROVIDER=mock`)
@@ -65,6 +83,9 @@ npm run dev
 L'application est accessible sur http://localhost:3000.
 
 Mode kiosque (Salon) : http://localhost:3000/?mode=kiosk
+
+Administration : http://localhost:3000/admin (nécessite `ADMIN_PASSWORD`
+dans `.env.local` — laissé vide, `/admin` est désactivé par défaut).
 
 ### Base de données locale
 
@@ -101,6 +122,14 @@ Voir [`docs/architecture.md`](docs/architecture.md) pour le détail de
 l'organisation du monorepo, de l'abstraction du fournisseur IA Realtime, et
 des principes de sécurité (aucun secret côté navigateur).
 
+## Documentation Salon
+
+- [`docs/demo-script.md`](docs/demo-script.md) — script de démonstration
+  (3-5 min), avec un état honnête de ce qui est réellement démontrable
+  aujourd'hui vs ce qui nécessite le Lot 3.
+- [`docs/salon-checklist.md`](docs/salon-checklist.md) — checklist à
+  dérouler avant toute démonstration publique (section 48).
+
 ## Sécurité — principe fondamental
 
 Le frontend (`apps/web`) ne doit **jamais** contenir de clé Azure/OpenAI, de
@@ -114,8 +143,10 @@ autorisations temporaires pour établir une session Realtime (voir
 Le développement procède par lots indépendants (voir cahier des charges,
 section 62) : Lot 0 (init) → Lot 1 (interface) → Lot 2 (abstraction
 Realtime) → **Lot 4 (base de connaissances, fait)** → **Lot 5 (tool
-calling, fait)** → Lot 6 (administration) → Lot 7 (Salon) → Lot 8
-(durcissement). Le Lot 3 (connexion Realtime Azure réelle — et donc
-l'exécution effective des outils pendant une conversation vocale) reste
-bloqué tant que l'équipe IT/PIE n'a pas communiqué le modèle/deployment
-Realtime.
+calling, fait)** → **Lot 6 (administration, fait)** → **Lot 7 (Salon —
+dataset, script, kiosque, reset, fallback : fait)** → Lot 8
+(durcissement). Le Lot 3 (connexion Realtime Azure réelle — et donc la
+voix, l'interruption temps réel, et l'exécution effective des outils
+pendant une conversation vocale) reste bloqué tant que l'équipe IT/PIE
+n'a pas communiqué le modèle/deployment Realtime ; voir
+`docs/demo-script.md` pour ce qui est démontrable en attendant.

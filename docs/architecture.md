@@ -18,7 +18,8 @@ suta-bot/
 │   ├── database/                Schéma PostgreSQL/pgvector (Prisma) — Lot 4, fait
 │   ├── knowledge/                 RAG : ingestion, embeddings, retrieval — Lot 4, fait
 │   ├── tools/                       Outils appelables par SUTA — Lot 5, fait
-│   ├── auth/                         Authentification (Lot 4+)
+│   ├── auth/                         Accès /admin (mot de passe) — Lot 6, fait
+│   │                                  (pas Entra ID, voir phase 2 / section 57)
 │   └── observability/                 Logs, métriques (Lot 8)
 │
 ├── data/
@@ -183,6 +184,78 @@ résultat au modèle) nécessite une connexion Realtime réelle et arrivera
 avec le Lot 3. En attendant, l'outil reste testable directement via
 `POST /api/tools/search-knowledge`.
 
+## Administration — Lot 6
+
+`/admin/*` (`apps/web/src/app/admin`) : tableau de bord,
+`/admin/knowledge` (liste des documents, upload, suppression,
+réindexation, test d'une question — réutilise
+`POST /api/tools/search-knowledge`), `/admin/diagnostics` (statut des
+services, compteurs documents/fragments, dernière indexation) et
+`/admin/settings` (configuration en lecture seule, jamais de secret).
+
+### Contrôle d'accès
+
+`/admin` n'implémente **pas** l'authentification Entra ID de la phase 2
+(section 57) : `packages/auth` fournit un contrôle d'accès minimal à mot
+de passe partagé (`ADMIN_PASSWORD`), pensé pour un seul opérateur pendant
+le Salon.
+
+- Session signée par HMAC-SHA256 (`packages/auth/src/admin-session.ts`),
+  sans état côté serveur, cookie `HttpOnly; Secure; SameSite=lax`.
+- Désactivé par défaut : sans `ADMIN_PASSWORD`, aucune session ne peut
+  être émise ni validée (échec sûr).
+- Vérification en deux temps, conformément à la documentation Next.js sur
+  l'authentification (« Proxy should not be your only line of defense ») :
+  `apps/web/src/proxy.ts` (Next.js 16 a renommé Middleware en Proxy) fait
+  une vérification optimiste sur toutes les routes `/admin` et
+  `/api/admin`, et chaque page/route revérifie la session côté serveur
+  (`hasValidAdminSession()`, `apps/web/src/lib/admin-auth.ts`).
+
+### Upload de documents
+
+`POST /api/admin/documents` écrit le fichier envoyé dans un dossier
+temporaire (`os.tmpdir()`), appelle `ingestDocument` (le même pipeline que
+`npm run knowledge:ingest`), puis supprime le fichier temporaire — aucune
+duplication de la logique d'ingestion entre le CLI et l'admin.
+
+## Résilience Salon — Lot 7
+
+### Fallback automatique (`DEMO_FALLBACK_MODE`)
+
+`createResilientRealtimeProvider` (`packages/ai/src/realtime/factory.ts`)
+enveloppe le fournisseur configuré (`AI_PROVIDER`) dans un
+`FallbackRealtimeProvider` : si la création de session échoue — panne
+réseau, quota, configuration invalide — et que `DEMO_FALLBACK_MODE=true`
+(défaut), une session `MockRealtimeProvider` est créée à la place plutôt
+que de faire échouer la démonstration (section 24). Utilisé par
+`apps/web/src/app/api/realtime/session/route.ts` ; désactivable avec
+`DEMO_FALLBACK_MODE=false` pour forcer l'échec (utile en test).
+
+### Écran d'accueil branché sur la vraie recherche
+
+Contrairement au squelette du Lot 1, le canal texte de l'écran d'accueil
+(`apps/web/src/app/page.tsx`) appelle réellement `POST
+/api/tools/search-knowledge` : la réponse affichée est un extrait du
+fragment le plus pertinent réellement récupéré, avec ses sources
+(section 38). Seule la question d'identité (« Qui es-tu ? », section 4
+Démonstration 1) reste une réponse scriptée
+(`apps/web/src/lib/identity-response.ts`) — elle relève de la
+personnalité de l'agent, pas de la base de connaissances, et sera portée
+par le prompt système une fois un modèle réellement connecté (Lot 3).
+
+### Reset et mode kiosque
+
+Le mode kiosque (`?mode=kiosk`, Lot 1) efface automatiquement la
+conversation après inactivité (`useIdleReset`) et affiche désormais un
+bouton discret « Réinitialiser » en bas à droite de l'écran (section 23).
+
+### QR code — décision : non implémenté
+
+Le cahier des charges (section 23) mentionne un QR code « éventuellement
+» vers ANSUT CONNECTE. Aucune URL réelle n'est disponible à ce stade ;
+générer un QR code vers un placeholder serait trompeur pour un visiteur
+de salon. À ajouter lorsque l'URL cible réelle sera communiquée.
+
 ## Sécurité — aucun secret côté navigateur
 
 Le frontend ne reçoit jamais de clé Azure/OpenAI, de secret API, de mot de
@@ -219,11 +292,11 @@ Elle ne doit être ni supprimée ni modifiée par ce projet.
 
 ## Ce qui n'est pas encore implémenté (lots suivants)
 
-- Connexion Realtime réelle (Azure/OpenAI), et donc exécution effective
-  des outils pendant une conversation vocale — Lot 3.
+- Connexion Realtime réelle (Azure/OpenAI), et donc la voix, l'interruption
+  temps réel, la mémoire conversationnelle (questions contextuelles) et
+  l'exécution effective des outils pendant une conversation vocale — Lot 3.
 - Outils additionnels (`get_program`, `get_service`, `get_contact`, ...) —
   Lot 5, à mesure des besoins.
-- Administration documentaire (`/admin/knowledge`, `/admin/diagnostics`) —
-  Lot 6.
-- Dataset et script de démonstration Salon, fallback, reset — Lot 7.
+- Authentification Entra ID, profils utilisateurs — phase 2 (section 57).
+- Feedback 👍/👎, métriques post-salon détaillées — reste du Lot 8.
 - Durcissement (tests étendus, observabilité, sécurité) — Lot 8.

@@ -12,16 +12,30 @@ import { MicButton } from "@/components/MicButton";
 import { StateIndicator } from "@/components/StateIndicator";
 import { SutaOrb } from "@/components/SutaOrb";
 import { TextComposer } from "@/components/TextComposer";
-import { getDemoResponse } from "@/lib/demo-responses";
+import { getIdentityResponse } from "@/lib/identity-response";
 import { useIdleReset } from "@/lib/use-idle-reset";
 import { useKioskMode } from "@/lib/use-kiosk-mode";
 
+const NO_INFO_ANSWER =
+  "Je n'ai pas encore suffisamment d'informations fiables dans ma base pour répondre à cette question.";
+const TECHNICAL_ERROR_ANSWER =
+  "Je rencontre momentanément une difficulté technique. Vous pouvez réessayer.";
+const ANSWER_PREVIEW_MAX_CHARS = 400;
+
+interface SearchResult {
+  title: string;
+  content: string;
+  source: string;
+  score: number;
+}
+
 /**
- * Écran principal SUTA (Lot 1 — squelette d'interface, cahier des charges
- * section 22). Aucune connexion Realtime réelle n'est établie ici : les
- * transitions d'état sont simulées localement pour démontrer la machine à
- * états et la mise en page. Le branchement à un `RealtimeProvider` réel
- * (voix, interruption, `searchKnowledge`) arrive aux lots 2 à 5.
+ * Écran principal SUTA (cahier des charges, section 22). Le canal texte
+ * appelle réellement l'outil `search_knowledge` (Lot 4/5) — seule la
+ * question d'identité (section 4, Démonstration 1) reste une réponse
+ * scriptée, à la manière du prompt système une fois un modèle connecté.
+ * La voix (WebRTC, interruption temps réel) reste simulée en attendant le
+ * Lot 3 (connexion Realtime Azure/OpenAI réelle).
  */
 export default function Home() {
   const kiosk = useKioskMode();
@@ -38,31 +52,67 @@ export default function Home() {
 
   useIdleReset(kiosk, resetDemo);
 
-  const runDemoTurn = useCallback((question: string) => {
-    demoTimeouts.current.forEach(clearTimeout);
-    demoTimeouts.current = [];
-
-    const userMessage: TranscriptMessage = {
-      id: `u-${Date.now()}`,
-      role: "user",
-      text: question,
-    };
-    setMessages((prev) => [...prev, userMessage]);
-    setState("THINKING");
-
-    const searchTimeout = setTimeout(() => setState("SEARCHING"), 500);
-    const answerTimeout = setTimeout(() => {
-      setState("SPEAKING");
-      setMessages((prev) => [
-        ...prev,
-        { id: `s-${Date.now()}`, role: "suta", text: getDemoResponse(question) },
-      ]);
-      const idleTimeout = setTimeout(() => setState("IDLE"), 2200);
-      demoTimeouts.current.push(idleTimeout);
-    }, 1300);
-
-    demoTimeouts.current.push(searchTimeout, answerTimeout);
+  const respond = useCallback((text: string, sources?: TranscriptMessage["sources"]) => {
+    setState("SPEAKING");
+    setMessages((prev) => [...prev, { id: `s-${Date.now()}`, role: "suta", text, sources }]);
+    const idleTimeout = setTimeout(() => setState("IDLE"), 2500);
+    demoTimeouts.current.push(idleTimeout);
   }, []);
+
+  const runDemoTurn = useCallback(
+    async (question: string) => {
+      demoTimeouts.current.forEach(clearTimeout);
+      demoTimeouts.current = [];
+
+      setMessages((prev) => [...prev, { id: `u-${Date.now()}`, role: "user", text: question }]);
+      setState("THINKING");
+
+      const identityAnswer = getIdentityResponse(question);
+      if (identityAnswer) {
+        const t = setTimeout(() => respond(identityAnswer), 500);
+        demoTimeouts.current.push(t);
+        return;
+      }
+
+      const searchTimeout = setTimeout(async () => {
+        setState("SEARCHING");
+        try {
+          const response = await fetch("/api/tools/search-knowledge", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query: question }),
+          });
+          const body = await response.json().catch(() => ({}));
+
+          if (!response.ok) {
+            respond(body.error ?? TECHNICAL_ERROR_ANSWER);
+            return;
+          }
+
+          const results = body.results as SearchResult[];
+          if (results.length === 0) {
+            respond(NO_INFO_ANSWER);
+            return;
+          }
+
+          const [top] = results;
+          const answer =
+            top.content.length > ANSWER_PREVIEW_MAX_CHARS
+              ? `${top.content.slice(0, ANSWER_PREVIEW_MAX_CHARS).trim()}…`
+              : top.content;
+          respond(
+            answer,
+            results.map((result) => ({ title: result.title, source: result.source })),
+          );
+        } catch {
+          respond(TECHNICAL_ERROR_ANSWER);
+        }
+      }, 400);
+
+      demoTimeouts.current.push(searchTimeout);
+    },
+    [respond],
+  );
 
   const handleMicPress = useCallback(() => {
     if (state === "LISTENING") {
@@ -107,9 +157,20 @@ export default function Home() {
 
       {!kiosk && (
         <footer className="px-6 pb-6 text-center text-xs text-brand-text/30">
-          Démonstration locale — aucune donnée n&apos;est envoyée à un service
-          externe à ce stade (Lot 1).
+          Réponses issues de la base de connaissances de démonstration
+          (voir data/demo/ — contenu fictif, non validé par l&apos;ANSUT).
         </footer>
+      )}
+
+      {kiosk && (
+        <button
+          type="button"
+          onClick={resetDemo}
+          aria-label="Réinitialiser la démonstration"
+          className="fixed bottom-3 right-3 rounded-full bg-white/5 px-3 py-1.5 text-[10px] text-brand-text/25 transition-colors hover:bg-white/10 hover:text-brand-text/60"
+        >
+          Réinitialiser
+        </button>
       )}
     </div>
   );
