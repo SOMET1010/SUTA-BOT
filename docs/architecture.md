@@ -15,11 +15,14 @@ suta-bot/
 ├── packages/
 │   ├── ai/                   Abstraction fournisseur Realtime, prompts
 │   ├── shared/                Types partagés (machine à états, constantes)
-│   ├── knowledge/              RAG : ingestion, embeddings, retrieval (Lot 4)
-│   ├── tools/                   Outils appelables par SUTA (Lot 5)
-│   ├── auth/                     Authentification (Lot 4+)
-│   ├── database/                  Accès base de données / Prisma (Lot 4)
-│   └── observability/              Logs, métriques (Lot 8)
+│   ├── database/                Schéma PostgreSQL/pgvector (Prisma) — Lot 4, fait
+│   ├── knowledge/                 RAG : ingestion, embeddings, retrieval — Lot 4, fait
+│   ├── tools/                       Outils appelables par SUTA (Lot 5)
+│   ├── auth/                         Authentification (Lot 4+)
+│   └── observability/                 Logs, métriques (Lot 8)
+│
+├── data/
+│   └── demo/                 Corpus d'exemple fictif pour le Salon (section 49)
 │
 ├── docs/
 ├── scripts/
@@ -66,6 +69,74 @@ La sélection se fait uniquement par variable d'environnement
 Le nom du modèle et du déploiement sont également externalisés
 (`REALTIME_MODEL`, `REALTIME_DEPLOYMENT`) : aucune valeur n'est supposée.
 
+## Base de connaissances (RAG) — Lot 4
+
+Sur le même principe que `RealtimeProvider`, le fournisseur d'embeddings
+est abstrait (`packages/knowledge/src/embeddings`) :
+
+```ts
+interface EmbeddingsProvider {
+  readonly name: string;
+  readonly dimensions: number;
+  embed(texts: string[]): Promise<number[][]>;
+}
+```
+
+- `MockEmbeddingsProvider` — fonctionnel dès ce commit : vecteurs
+  déterministes (hash du texte, normalisés), sans appel réseau. Utile pour
+  le développement et le fallback Salon, mais **sémantiquement dénué de
+  sens** — voir `packages/knowledge/README.md`.
+- `AzureEmbeddingsProvider` / `OpenAIEmbeddingsProvider` — squelettes, en
+  attente du déploiement d'embeddings confirmé par l'équipe IT/PIE.
+
+Sélection par `EMBEDDINGS_PROVIDER=mock|azure|openai` ; dimension des
+vecteurs par `EMBEDDING_DIMENSIONS` (doit correspondre à la colonne
+pgvector `document_chunks.embedding`, par défaut `vector(1536)`).
+
+### Pipeline d'ingestion
+
+```
+Fichier (PDF/DOCX/TXT/MD)
+  → extraction de texte (pdf-parse / mammoth / lecture directe)
+  → nettoyage (packages/knowledge/src/ingestion/clean.ts)
+  → découpage en fragments, ~1000 caractères, chevauchement ~150 (chunk.ts)
+  → embeddings (EmbeddingsProvider, par lot)
+  → stockage (Document + DocumentChunk, @suta/database)
+```
+
+`npm run knowledge:ingest` ingère `data/demo/` ; `npm run knowledge:reindex`
+recalcule les embeddings de tous les fragments existants (utile après un
+changement de fournisseur/modèle).
+
+### Stockage pgvector et requêtes brutes
+
+La colonne `document_chunks.embedding` est déclarée `Unsupported("vector(1536)")`
+dans le schéma Prisma (pgvector n'a pas de type Prisma natif) : elle est
+absente des opérations typées du client et n'est lue/écrite que via
+`packages/database/src/chunks.ts` (`setDocumentChunkEmbedding`,
+`findSimilarChunks`, requêtes SQL paramétrées avec l'opérateur pgvector
+`<=>`). Aucun autre package n'écrit de SQL brut directement sur cette
+table — `packages/knowledge` passe uniquement par ces fonctions.
+
+### Recherche
+
+`searchDocuments(query)` (`packages/knowledge/src/retrieval/search.ts`)
+calcule l'embedding de la question, recherche les fragments les plus
+proches (visibilité `PUBLIC`/`DEMO` par défaut pour le MVP Salon, section
+19), et retourne `{ results: [{ title, content, source, score }] }`. Si
+aucun résultat n'est suffisamment pertinent, `results` est vide — c'est au
+prompt SUTA (Lot 5) d'indiquer qu'il ne dispose pas de l'information
+plutôt que d'inventer une réponse (section 58).
+
+### Variables d'environnement partagées avec Next.js
+
+`apps/web` (Next.js) ne charge par défaut que ses propres fichiers
+`.env*`. Comme la convention du monorepo place `.env.local` à la racine du
+dépôt, `apps/web/next.config.ts` charge explicitement `.env.local` puis
+`.env` depuis la racine au démarrage (build et dev), pour que
+`DATABASE_URL` et les autres variables partagées soient disponibles au
+runtime de `apps/web` sans dupliquer le fichier.
+
 ## Sécurité — aucun secret côté navigateur
 
 Le frontend ne reçoit jamais de clé Azure/OpenAI, de secret API, de mot de
@@ -103,7 +174,6 @@ Elle ne doit être ni supprimée ni modifiée par ce projet.
 ## Ce qui n'est pas encore implémenté (lots suivants)
 
 - Connexion Realtime réelle (Azure/OpenAI) — Lot 3.
-- Base de connaissances, ingestion, retrieval (RAG) — Lot 4.
 - Outil `searchKnowledge` et function calling — Lot 5.
 - Administration documentaire (`/admin/knowledge`, `/admin/diagnostics`) —
   Lot 6.

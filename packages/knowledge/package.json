@@ -1,0 +1,28 @@
+{
+  "name": "@suta/knowledge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Base de connaissances SUTA : ingestion, embeddings, retrieval (RAG)",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "ingest": "tsx scripts/ingest.ts",
+    "reindex": "tsx scripts/reindex.ts"
+  },
+  "dependencies": {
+    "@suta/database": "*",
+    "@suta/shared": "*",
+    "mammoth": "^1.12.1",
+    "pdf-parse": "^1.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/pdf-parse": "^1.1.5",
+    "dotenv": "^16.4.7",
+    "tsx": "^4.23.12",
+    "typescript": "^5",
+    "vitest": "^3.2.4"
+  }
+}

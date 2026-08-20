@@ -39,3 +39,6 @@ next-env.d.ts
 
 # Local database data
 data/postgres/
+
+# Prisma generated client (regenerated via `prisma generate`)
+packages/database/generated/

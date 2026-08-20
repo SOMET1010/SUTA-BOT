@@ -1,4 +1,6 @@
 import { createRealtimeProvider } from "@suta/ai";
+import { prisma } from "@suta/database";
+import { createEmbeddingsProvider } from "@suta/knowledge";
 
 /**
  * Endpoint de santé (cahier des charges, section 28). Ne révèle jamais de
@@ -12,13 +14,28 @@ export async function GET() {
     realtimeStatus = "error";
   }
 
+  let knowledgeStatus: "ok" | "error" = "ok";
+  try {
+    createEmbeddingsProvider();
+  } catch {
+    knowledgeStatus = "error";
+  }
+
+  let databaseStatus: "ok" | "error" = "ok";
+  try {
+    await prisma.$queryRaw`SELECT 1`;
+  } catch {
+    databaseStatus = "error";
+  }
+
+  const allOk = realtimeStatus === "ok" && knowledgeStatus === "ok" && databaseStatus === "ok";
+
   return Response.json({
-    status: realtimeStatus === "ok" ? "ok" : "degraded",
+    status: allOk ? "ok" : "degraded",
     services: {
-      // La base de données et la base de connaissances seront ajoutées au Lot 4.
-      database: "not_configured",
+      database: databaseStatus,
       realtime: realtimeStatus,
-      knowledge: "not_configured",
+      knowledge: knowledgeStatus,
     },
   });
 }

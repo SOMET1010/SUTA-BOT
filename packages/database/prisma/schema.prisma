@@ -1,0 +1,202 @@
+// Schéma PostgreSQL du projet SUTA (cahier des charges, sections 39-41).
+// L'extension pgvector est requise (voir docker-compose.yml à la racine du
+// monorepo, image `pgvector/pgvector:pg16`).
+
+generator client {
+  provider        = "prisma-client"
+  output          = "../generated/client"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  extensions = [vector]
+}
+
+// --- Visibilité (section 19) -----------------------------------------------
+// Le MVP Salon n'utilise que PUBLIC et DEMO ; les autres niveaux sont
+// réservés aux phases suivantes (authentification Entra ID).
+enum Visibility {
+  PUBLIC
+  DEMO
+  AUTHENTICATED
+  EMPLOYEE
+  MANAGER
+  ADMIN
+}
+
+enum Channel {
+  VOICE
+  TEXT
+  MIXED
+}
+
+enum MessageRole {
+  USER
+  ASSISTANT
+  SYSTEM
+  TOOL
+}
+
+enum SourceType {
+  PDF
+  DOCX
+  TXT
+  MARKDOWN
+  MANUAL
+}
+
+enum DocumentStatus {
+  PENDING
+  INDEXED
+  FAILED
+}
+
+enum ToolCallStatus {
+  SUCCESS
+  ERROR
+}
+
+enum FeedbackRating {
+  UP
+  DOWN
+}
+
+model User {
+  id          String   @id @default(cuid())
+  email       String?  @unique
+  displayName String?
+  createdAt   DateTime @default(now())
+
+  conversations Conversation[]
+
+  @@map("users")
+}
+
+model Conversation {
+  id        String    @id @default(cuid())
+  userId    String?
+  user      User?     @relation(fields: [userId], references: [id])
+  channel   Channel   @default(TEXT)
+  provider  String?
+  startedAt DateTime  @default(now())
+  endedAt   DateTime?
+  context   Json?
+
+  messages  Message[]
+  toolCalls ToolCall[]
+  feedback  Feedback[]
+
+  @@index([userId])
+  @@map("conversations")
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  role           MessageRole
+  content        String
+  latencyMs      Int?
+  createdAt      DateTime     @default(now())
+
+  toolCalls ToolCall[]
+  feedback  Feedback[]
+
+  @@index([conversationId])
+  @@map("messages")
+}
+
+model KnowledgeSource {
+  id          String   @id @default(cuid())
+  name        String
+  type        String   @default("manual")
+  description String?
+  createdAt   DateTime @default(now())
+
+  documents Document[]
+
+  @@map("knowledge_sources")
+}
+
+model Document {
+  id         String         @id @default(cuid())
+  title      String
+  filename   String
+  mimeType   String
+  sourceType SourceType
+  sourceId   String?
+  source     KnowledgeSource? @relation(fields: [sourceId], references: [id])
+  visibility Visibility     @default(DEMO)
+  status     DocumentStatus @default(PENDING)
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+  indexedAt  DateTime?
+
+  chunks DocumentChunk[]
+
+  @@index([sourceId])
+  @@map("documents")
+}
+
+model DocumentChunk {
+  id         String   @id @default(cuid())
+  documentId String
+  document   Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  content    String
+  // Les embeddings ne sont pas un type Prisma natif : colonne pgvector gérée
+  // via Unsupported, lue/écrite par requêtes SQL brutes (voir
+  // packages/knowledge/src/embeddings). Dimension par défaut : 1536
+  // (courante pour les modèles d'embedding OpenAI/Azure text-embedding-ada-002
+  // et text-embedding-3-small) ; à faire évoluer par migration si le modèle
+  // confirmé par l'équipe IT/PIE utilise une autre dimension.
+  embedding  Unsupported("vector(1536)")?
+  page       Int?
+  section    String?
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  @@index([documentId])
+  @@map("document_chunks")
+}
+
+model ToolCall {
+  id             String          @id @default(cuid())
+  conversationId String
+  conversation   Conversation    @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  messageId      String?
+  message        Message?        @relation(fields: [messageId], references: [id])
+  toolName       String
+  input          Json
+  output         Json?
+  status         ToolCallStatus  @default(SUCCESS)
+  latencyMs      Int?
+  createdAt      DateTime        @default(now())
+
+  @@index([conversationId])
+  @@map("tool_calls")
+}
+
+model Feedback {
+  id             String         @id @default(cuid())
+  conversationId String
+  conversation   Conversation   @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  messageId      String?
+  message        Message?       @relation(fields: [messageId], references: [id])
+  rating         FeedbackRating
+  comment        String?
+  createdAt      DateTime       @default(now())
+
+  @@index([conversationId])
+  @@map("feedback")
+}
+
+model SystemEvent {
+  id        String   @id @default(cuid())
+  type      String
+  payload   Json?
+  createdAt DateTime @default(now())
+
+  @@index([type])
+  @@map("system_events")
+}

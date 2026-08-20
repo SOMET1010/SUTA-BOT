@@ -15,12 +15,19 @@
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "test:e2e": "npm run test:e2e --workspace=web --if-present",
-    "db:migrate": "echo 'db:migrate sera implémenté au Lot 4 (packages/database)' ",
-    "db:seed": "echo 'db:seed sera implémenté au Lot 4 (packages/database)'",
-    "knowledge:ingest": "echo 'knowledge:ingest sera implémenté au Lot 4 (packages/knowledge)'",
-    "knowledge:reindex": "echo 'knowledge:reindex sera implémenté au Lot 4 (packages/knowledge)'"
+    "postinstall": "npm run generate --workspace=@suta/database --if-present",
+    "db:migrate": "dotenv -e .env.local -- npm run db:migrate --workspace=@suta/database",
+    "db:seed": "dotenv -e .env.local -- npm run db:seed --workspace=@suta/database",
+    "knowledge:ingest": "dotenv -e .env.local -- npm run ingest --workspace=@suta/knowledge",
+    "knowledge:reindex": "dotenv -e .env.local -- npm run reindex --workspace=@suta/knowledge"
   },
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^7.4.4"
+  },
+  "overrides": {
+    "deepmerge-ts": "^8.0.1"
   }
 }
