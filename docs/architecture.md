@@ -323,11 +323,11 @@ de l'afficher.
 ### Composants (`apps/web/src/components/`)
 
 - `layout/SutaHeader.tsx`, `layout/SutaFooter.tsx` — en-tête et pied de
-  page publics (thème clair). Le logo officiel ANSUT n'ayant pas été
-  fourni, le header affiche un **placeholder explicite** (bordure
-  pointillée, `aria-label` dédié) plutôt qu'une recréation approximative
-  du logo — voir `public/suta/brand/README.md`. Le wordmark texte « ANSUT
-  CONNECTE » n'est pas concerné par cette limitation.
+  page publics (thème clair). Le header affiche le **logo officiel ANSUT**
+  (`public/suta/brand/logo-ansut.png`, extrait du fichier vecteur
+  `logo_ANSUT_def.pdf` communiqué par l'équipe) via `next/image` — voir
+  `public/suta/brand/README.md`. Le wordmark texte « ANSUT CONNECTE »
+  reste distinct de ce logo graphique.
 - `suta/SutaOrb.tsx` — avatar (halo, anneaux, ondes), entièrement
   CSS/SVG, sans image ni vidéo, piloté par `ConversationState`.
 - `suta/VoiceVisualizer.tsx`, `MicrophoneButton.tsx`, `VoiceStatus.tsx` —
@@ -368,8 +368,14 @@ fournie par l'ANSUT pour ce MVP).
   structure de composants, contraintes explicites) plutôt que d'un import
   pixel-perfect ; une comparaison visuelle directe avec la maquette reste
   à faire par un humain ayant le fichier original.
-- **Logo ANSUT officiel manquant** — placeholder explicite en attendant
-  (voir ci-dessus et `public/suta/brand/README.md`).
+- **Logo ANSUT officiel intégré, mais variante différente de la
+  maquette** — le seul fichier logo réellement communiqué
+  (`logo_ANSUT_def.pdf`) est un lockup vertical (icône « éventail » de
+  points + sigle) différent du lockup horizontal visible sur la maquette
+  de référence (icône « combiné téléphonique »). C'est le fichier
+  effectivement livré qui est utilisé — voir `public/suta/brand/README.md`
+  pour le détail et pour intégrer la variante horizontale si elle est
+  fournie un jour.
 - **Visualiseur vocal stylisé, pas une amplitude micro réelle** — un vrai
   visualiseur (Web Audio API `AnalyserNode` sur le flux micro pendant un
   appel live) n'a pas été implémenté dans ce lot ; `VoiceVisualizer.tsx`
