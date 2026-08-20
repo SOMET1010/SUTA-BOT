@@ -17,7 +17,7 @@ suta-bot/
 │   ├── shared/                Types partagés (machine à états, constantes)
 │   ├── database/                Schéma PostgreSQL/pgvector (Prisma) — Lot 4, fait
 │   ├── knowledge/                 RAG : ingestion, embeddings, retrieval — Lot 4, fait
-│   ├── tools/                       Outils appelables par SUTA (Lot 5)
+│   ├── tools/                       Outils appelables par SUTA — Lot 5, fait
 │   ├── auth/                         Authentification (Lot 4+)
 │   └── observability/                 Logs, métriques (Lot 8)
 │
@@ -125,8 +125,9 @@ calcule l'embedding de la question, recherche les fragments les plus
 proches (visibilité `PUBLIC`/`DEMO` par défaut pour le MVP Salon, section
 19), et retourne `{ results: [{ title, content, source, score }] }`. Si
 aucun résultat n'est suffisamment pertinent, `results` est vide — c'est au
-prompt SUTA (Lot 5) d'indiquer qu'il ne dispose pas de l'information
-plutôt que d'inventer une réponse (section 58).
+prompt SUTA (`packages/ai/src/prompts/suta-system.md`, règles 6-7)
+d'indiquer qu'il ne dispose pas de l'information plutôt que d'inventer une
+réponse (section 58).
 
 ### Variables d'environnement partagées avec Next.js
 
@@ -136,6 +137,51 @@ dépôt, `apps/web/next.config.ts` charge explicitement `.env.local` puis
 `.env` depuis la racine au démarrage (build et dev), pour que
 `DATABASE_URL` et les autres variables partagées soient disponibles au
 runtime de `apps/web` sans dupliquer le fichier.
+
+## Outils SUTA / function calling — Lot 5
+
+Chaque outil est décrit par une interface générique
+(`packages/tools/src/types.ts`) indépendante de tout moteur Realtime :
+
+```ts
+interface ToolDefinition<TInput, TOutput> {
+  name: string;
+  description: string;
+  inputSchema: z.ZodType<TInput>;   // validation (section 31)
+  execute(input: TInput): Promise<TOutput>;
+}
+```
+
+`runTool(tool, rawInput)` valide l'entrée brute avec le schéma zod avant
+d'exécuter l'outil, et rejette (`ToolInputError`) toute entrée invalide —
+y compris les clés inconnues, silencieusement supprimées par zod plutôt
+que transmises. `describeTool(tool)` génère la description JSON Schema
+(`z.toJSONSchema`) attendue par un moteur Realtime.
+
+Seul `search_knowledge` (enveloppe de `searchDocuments`) est implémenté et
+activé. **Sa visibilité de recherche n'est jamais un paramètre exposé au
+modèle** : elle est fixée côté serveur à `PUBLIC`/`DEMO` pour le MVP
+Salon, afin qu'aucune instruction dans la conversation (ni un contenu de
+document, section 32) ne puisse élargir l'accès à des informations non
+publiques. Voir `packages/tools/README.md`.
+
+### Composition avec le RealtimeProvider
+
+`packages/ai` ne dépend jamais de `packages/tools` — l'interface
+`RealtimeToolDescriptor` (JSON Schema générique) découple les deux.
+`CreateRealtimeSessionOptions.tools` transporte ces descripteurs jusqu'au
+provider. Le point de composition est
+`apps/web/src/app/api/realtime/session/route.ts`, qui convertit
+`SUTA_TOOLS` (`packages/tools`) en `RealtimeToolDescriptor[]` avant
+`provider.createSession({ tools })`.
+
+`MockRealtimeProvider` mémorise les outils reçus (sans les exécuter) pour
+permettre de vérifier leur enregistrement. L'exécution réelle d'un appel
+d'outil pendant une conversation (réception d'un événement
+`function_call` depuis une session Realtime live, exécution, retour du
+résultat au modèle) nécessite une connexion Realtime réelle et arrivera
+avec le Lot 3. En attendant, l'outil reste testable directement via
+`POST /api/tools/search-knowledge`.
 
 ## Sécurité — aucun secret côté navigateur
 
@@ -173,8 +219,10 @@ Elle ne doit être ni supprimée ni modifiée par ce projet.
 
 ## Ce qui n'est pas encore implémenté (lots suivants)
 
-- Connexion Realtime réelle (Azure/OpenAI) — Lot 3.
-- Outil `searchKnowledge` et function calling — Lot 5.
+- Connexion Realtime réelle (Azure/OpenAI), et donc exécution effective
+  des outils pendant une conversation vocale — Lot 3.
+- Outils additionnels (`get_program`, `get_service`, `get_contact`, ...) —
+  Lot 5, à mesure des besoins.
 - Administration documentaire (`/admin/knowledge`, `/admin/diagnostics`) —
   Lot 6.
 - Dataset et script de démonstration Salon, fallback, reset — Lot 7.

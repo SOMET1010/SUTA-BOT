@@ -1,4 +1,5 @@
 import { createRealtimeProvider, loadSutaSystemPrompt } from "@suta/ai";
+import { SUTA_TOOLS, describeTool } from "@suta/tools";
 
 /**
  * Crée une session Realtime temporaire (cahier des charges, section 11).
@@ -21,6 +22,7 @@ export async function POST(request: Request) {
     const session = await provider.createSession({
       conversationId,
       instructions: loadSutaSystemPrompt(),
+      tools: SUTA_TOOLS.map(describeTool),
     });
 
     return Response.json({

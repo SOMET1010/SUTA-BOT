@@ -7,11 +7,25 @@
  * clé permanente).
  */
 
+/**
+ * Description d'un outil (function calling) au format JSON Schema,
+ * indépendante de tout package d'implémentation d'outils : `packages/ai`
+ * ne dépend jamais de `packages/tools`, seul le point de composition
+ * (`apps/web`) relie les deux (cahier des charges, section 18).
+ */
+export interface RealtimeToolDescriptor {
+  name: string;
+  description: string;
+  parameters: Record<string, unknown>;
+}
+
 export interface CreateRealtimeSessionOptions {
   /** Instructions système à injecter dans la session (prompt SUTA). */
   instructions?: string;
   /** Identifiant de conversation, pour la journalisation (section 29). */
   conversationId?: string;
+  /** Outils (function calling) disponibles pour cette session (section 17-18). */
+  tools?: RealtimeToolDescriptor[];
 }
 
 export interface RealtimeSession {

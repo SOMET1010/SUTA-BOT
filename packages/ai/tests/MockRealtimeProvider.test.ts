@@ -30,4 +30,21 @@ describe("MockRealtimeProvider", () => {
     expect(session.clientSecret).not.toMatch(/sk-/);
     expect(session.clientSecret.startsWith("mock_")).toBe(true);
   });
+
+  it("registers the tools passed to createSession", async () => {
+    const provider = new MockRealtimeProvider();
+    const tools = [
+      { name: "search_knowledge", description: "...", parameters: { type: "object" } },
+    ];
+    const session = await provider.createSession({ tools });
+
+    expect(provider.getRegisteredTools(session.sessionId)).toEqual(tools);
+  });
+
+  it("registers an empty tool list when none is provided", async () => {
+    const provider = new MockRealtimeProvider();
+    const session = await provider.createSession();
+
+    expect(provider.getRegisteredTools(session.sessionId)).toEqual([]);
+  });
 });

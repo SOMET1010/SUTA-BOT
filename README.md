@@ -11,8 +11,9 @@ des charges (`docs/cahier-des-charges.md` si présent, sinon voir
 
 ## État actuel du projet
 
-**Lot 0** (initialisation), squelette du **Lot 1** (interface SUTA) et
-**Lot 4** (base de connaissances) sont implémentés :
+**Lot 0** (initialisation), squelette du **Lot 1** (interface SUTA),
+**Lot 4** (base de connaissances) et **Lot 5** (tool calling) sont
+implémentés :
 
 - Monorepo npm workspaces (`apps/*`, `packages/*`).
 - `apps/web` — application Next.js / TypeScript / Tailwind avec l'écran
@@ -33,11 +34,17 @@ des charges (`docs/cahier-des-charges.md` si présent, sinon voir
   similarité cosinus (pgvector).
 - `packages/shared` — types partagés (machine à états de la conversation,
   questions de démonstration).
+- `packages/tools` — outil `search_knowledge` (function calling), entrée
+  validée par zod, résultats restreints côté serveur à la visibilité
+  `PUBLIC`/`DEMO` (la visibilité n'est jamais un paramètre laissé au
+  modèle — voir sécurité ci-dessous). Enregistré automatiquement auprès du
+  `RealtimeProvider` à la création de session
+  (`apps/web/src/app/api/realtime/session/route.ts`) ; testable
+  directement via `POST /api/tools/search-knowledge`.
 - `data/demo/` — corpus d'exemple **fictif** pour le Salon (clairement
   signalé comme tel ; à remplacer par un corpus validé par l'ANSUT).
-- `packages/tools`, `packages/auth`, `packages/observability` — réservés
-  aux lots suivants (outils SUTA/function calling, authentification,
-  observabilité), non implémentés dans ce commit.
+- `packages/auth`, `packages/observability` — réservés aux lots suivants
+  (authentification, observabilité), non implémentés dans ce commit.
 
 Aucune clé Azure/OpenAI n'est requise pour lancer le projet : les
 fournisseurs par défaut (`AI_PROVIDER=mock`, `EMBEDDINGS_PROVIDER=mock`)
@@ -106,7 +113,9 @@ autorisations temporaires pour établir une session Realtime (voir
 
 Le développement procède par lots indépendants (voir cahier des charges,
 section 62) : Lot 0 (init) → Lot 1 (interface) → Lot 2 (abstraction
-Realtime) → **Lot 4 (base de connaissances, fait)** → Lot 5 (tool calling)
-→ Lot 6 (administration) → Lot 7 (Salon) → Lot 8 (durcissement). Le Lot 3
-(connexion Realtime Azure réelle) reste bloqué tant que l'équipe IT/PIE
-n'a pas communiqué le modèle/deployment Realtime.
+Realtime) → **Lot 4 (base de connaissances, fait)** → **Lot 5 (tool
+calling, fait)** → Lot 6 (administration) → Lot 7 (Salon) → Lot 8
+(durcissement). Le Lot 3 (connexion Realtime Azure réelle — et donc
+l'exécution effective des outils pendant une conversation vocale) reste
+bloqué tant que l'équipe IT/PIE n'a pas communiqué le modèle/deployment
+Realtime.
