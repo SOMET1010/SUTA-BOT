@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /*
+   * Variables de marque ANSUT CONNECTE (cahier des charges, section 52).
+   * Valeurs provisoires en attendant la charte officielle : ne jamais coder
+   * les couleurs en dur ailleurs, toujours passer par ces variables.
+   */
+  --brand-primary: #0a5c8a;
+  --brand-secondary: #00a99d;
+  --brand-background: #061a26;
+  --brand-text: #f4f8fb;
+  --brand-accent: #f4a300;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-background: var(--brand-background);
+  --color-brand-text: var(--brand-text);
+  --color-brand-accent: var(--brand-accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* --- Animations de l'avatar SUTA (section 53) --------------------------- */
+
+@keyframes suta-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes suta-listen {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand-secondary) 55%, transparent);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 18px color-mix(in srgb, var(--brand-secondary) 0%, transparent);
+  }
+}
+
+@keyframes suta-speak {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.03);
+  }
+  50% {
+    transform: scale(0.98);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes suta-think {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-suta-breathe {
+  animation: suta-breathe 3.2s ease-in-out infinite;
+}
+
+.animate-suta-listen {
+  animation: suta-listen 1.4s ease-in-out infinite;
+}
+
+.animate-suta-speak {
+  animation: suta-speak 0.9s ease-in-out infinite;
+}
+
+.animate-suta-think {
+  animation: suta-think 1.6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-suta-breathe,
+  .animate-suta-listen,
+  .animate-suta-speak,
+  .animate-suta-think {
+    animation: none;
+  }
+}

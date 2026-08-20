@@ -1,0 +1,26 @@
+{
+  "name": "suta-bot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SUTA — agent conversationnel vocal d'ANSUT CONNECTE",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=web",
+    "build": "npm run build --workspace=web",
+    "start": "npm run start --workspace=web",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "test:e2e": "npm run test:e2e --workspace=web --if-present",
+    "db:migrate": "echo 'db:migrate sera implémenté au Lot 4 (packages/database)' ",
+    "db:seed": "echo 'db:seed sera implémenté au Lot 4 (packages/database)'",
+    "knowledge:ingest": "echo 'knowledge:ingest sera implémenté au Lot 4 (packages/knowledge)'",
+    "knowledge:reindex": "echo 'knowledge:reindex sera implémenté au Lot 4 (packages/knowledge)'"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
