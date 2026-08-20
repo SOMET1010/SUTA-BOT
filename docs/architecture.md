@@ -299,6 +299,86 @@ Le mode kiosque (`?mode=kiosk`, Lot 1) efface automatiquement la
 conversation après inactivité (`useIdleReset`) et affiche désormais un
 bouton discret « Réinitialiser » en bas à droite de l'écran (section 23).
 
+## Interface publique — thème clair ANSUT (redesign UI Salon)
+
+Refonte visuelle de l'écran public (`apps/web/src/app/page.tsx`), demandée
+sur la base d'une maquette de référence fournie en cours de conversation.
+Objectifs : image de marque ANSUT explicite (palette bleu marine/orange
+`--ansut-*`, `apps/web/src/app/globals.css`), disposition 3 colonnes
+adaptée à un affichage Salon 1920×1080 (suggestions / expérience vocale /
+sources), et séparation stricte entre les composants graphiques et le
+moteur de conversation.
+
+### Séparation moteur/UI : `useSutaConversation`
+
+`apps/web/src/lib/suta/useSutaConversation.ts` expose un
+`SutaConversationController` (`state`, `messages`, `isLive`,
+`startListening`, `stopListening`, `interrupt`, `sendText`, `reset`) :
+c'est le **seul** point d'entrée vers `useRealtimeSession` /
+`RealtimeClient` et `/api/tools/search-knowledge`. Aucun composant
+graphique n'appelle Azure/OpenAI ou une route API directement — voir
+`SutaVoiceExperience.tsx`, qui reçoit le contrôleur en prop et se contente
+de l'afficher.
+
+### Composants (`apps/web/src/components/`)
+
+- `layout/SutaHeader.tsx`, `layout/SutaFooter.tsx` — en-tête et pied de
+  page publics (thème clair). Le logo officiel ANSUT n'ayant pas été
+  fourni, le header affiche un **placeholder explicite** (bordure
+  pointillée, `aria-label` dédié) plutôt qu'une recréation approximative
+  du logo — voir `public/suta/brand/README.md`. Le wordmark texte « ANSUT
+  CONNECTE » n'est pas concerné par cette limitation.
+- `suta/SutaOrb.tsx` — avatar (halo, anneaux, ondes), entièrement
+  CSS/SVG, sans image ni vidéo, piloté par `ConversationState`.
+- `suta/VoiceVisualizer.tsx`, `MicrophoneButton.tsx`, `VoiceStatus.tsx` —
+  visualiseur d'activité (animation stylisée, pas une amplitude micro
+  réelle), bouton micro/raccrocher, pastille de statut.
+- `suta/SutaIntroduction.tsx`, `SuggestionGrid.tsx` — écran d'accueil
+  (avant toute question) et questions suggérées.
+- `suta/ConversationTranscript.tsx`, `SourceDrawer.tsx` — transcription
+  « sous-titres » (dernier échange en évidence + historique repliable,
+  volontairement pas un fil de discussion façon chat empilé) et panneau
+  des sources de la dernière réponse (colonne latérale, jamais de source
+  inventée).
+- `suta/SutaVoiceExperience.tsx` — composition centrale de la colonne du
+  milieu (avatar, statut, transcription, saisie).
+
+Les anciens composants thème sombre (`components/BrandHeader.tsx`,
+`SutaOrb.tsx`, `StateIndicator.tsx`, `MicButton.tsx`, `TextComposer.tsx`,
+`ExampleQuestions.tsx`, `ConversationTranscript.tsx` à la racine de
+`components/`) ont été supprimés — remplacés par leurs équivalents
+`layout/`/`suta/` ci-dessus. `/admin` conserve son propre thème sombre
+(`--brand-*`), indépendant de cette refonte.
+
+### Encart événement (`lib/event-config.ts`)
+
+`SALON_EVENT_ENABLED`/`SALON_EVENT_NAME`/`SALON_EVENT_LOCATION`/
+`SALON_EVENT_START_DATE`/`SALON_EVENT_END_DATE` (`.env.example`) pilotent
+un encart optionnel dans `SutaIntroduction` — masqué par défaut, jamais de
+date/lieu d'événement codé en dur (aucune donnée événementielle n'a été
+fournie par l'ANSUT pour ce MVP).
+
+### Limitations connues de ce lot UI
+
+- **Maquette de référence non disponible dans ce dépôt** : l'image fournie
+  en cours de conversation n'a pas pu être enregistrée par cet agent
+  (pas d'accès fichier à une pièce jointe de conversation) — voir
+  `public/suta/reference/README.md`. La refonte a donc été conçue à partir
+  de la description textuelle détaillée de la maquette (palette exacte,
+  structure de composants, contraintes explicites) plutôt que d'un import
+  pixel-perfect ; une comparaison visuelle directe avec la maquette reste
+  à faire par un humain ayant le fichier original.
+- **Logo ANSUT officiel manquant** — placeholder explicite en attendant
+  (voir ci-dessus et `public/suta/brand/README.md`).
+- **Visualiseur vocal stylisé, pas une amplitude micro réelle** — un vrai
+  visualiseur (Web Audio API `AnalyserNode` sur le flux micro pendant un
+  appel live) n'a pas été implémenté dans ce lot ; `VoiceVisualizer.tsx`
+  anime des barres en fonction de l'état de conversation uniquement.
+- Cette refonte ne modifie ni le backend Realtime ni `/admin` (thème
+  sombre volontairement conservé, hors périmètre de la charte ANSUT
+  définie pour l'écran public) — voir « Ce qui n'est pas encore
+  implémenté » ci-dessous pour le reste du périmètre non couvert.
+
 ### QR code — décision : non implémenté
 
 Le cahier des charges (section 23) mentionne un QR code « éventuellement

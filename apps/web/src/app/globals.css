@@ -5,15 +5,32 @@
   --foreground: #171717;
 
   /*
-   * Variables de marque ANSUT CONNECTE (cahier des charges, section 52).
-   * Palette bleu/orange alignée sur la nouvelle identité publique de
-   * l'ANSUT (source : ansut.ci, "La nouvelle identité de l'ANSUT" — bleu
-   * pour l'engagement TIC, orange dynamique pour le drapeau/la jeunesse/la
-   * fibre). Les codes hexadécimaux exacts n'ont PAS pu être vérifiés
-   * (charte officielle non fournie) : ce sont des valeurs approximatives,
-   * à remplacer par les codes exacts dès que la charte graphique ou les
-   * fichiers de marque officiels seront communiqués. Ne jamais coder les
-   * couleurs en dur ailleurs, toujours passer par ces variables.
+   * Design tokens ANSUT — écran public SUTA (thème clair). Valeurs
+   * exactes fournies par l'équipe produit : ne jamais coder de valeur
+   * hexadécimale arbitraire ailleurs dans les composants, toujours passer
+   * par ces variables (ou les classes Tailwind générées ci-dessous :
+   * bg-ansut-blue, text-ansut-orange, bg-ansut-background, ...).
+   */
+  --ansut-blue: #1f3864;
+  --ansut-orange: #f58220;
+  --ansut-background: #f5f7fa;
+  --ansut-surface: #ffffff;
+  --status-success: #2e7d32;
+  --status-warning: #f58220;
+  --status-error: #c62828;
+
+  /* Nuances dérivées (halos, dégradés, bordures) — mêmes teintes de base. */
+  --ansut-blue-light: #35548c;
+  --ansut-blue-deep: #101d35;
+  --ansut-orange-light: #ffab5c;
+  --ansut-border: #e2e7ef;
+  --ansut-text-muted: #5b6b85;
+
+  /*
+   * Variables de marque héritées (thème sombre) — utilisées uniquement par
+   * l'administration (/admin), hors périmètre de la charte ci-dessus.
+   * Valeurs toujours approximatives (charte graphique non fournie pour
+   * cette partie interne).
    */
   --brand-primary: #0a5fa0;
   --brand-secondary: #f5850d;
@@ -25,20 +42,28 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-ansut-blue: var(--ansut-blue);
+  --color-ansut-orange: var(--ansut-orange);
+  --color-ansut-background: var(--ansut-background);
+  --color-ansut-surface: var(--ansut-surface);
+  --color-status-success: var(--status-success);
+  --color-status-warning: var(--status-warning);
+  --color-status-error: var(--status-error);
+  --color-ansut-blue-light: var(--ansut-blue-light);
+  --color-ansut-blue-deep: var(--ansut-blue-deep);
+  --color-ansut-orange-light: var(--ansut-orange-light);
+  --color-ansut-border: var(--ansut-border);
+  --color-ansut-text-muted: var(--ansut-text-muted);
+
   --color-brand-primary: var(--brand-primary);
   --color-brand-secondary: var(--brand-secondary);
   --color-brand-background: var(--brand-background);
   --color-brand-text: var(--brand-text);
   --color-brand-accent: var(--brand-accent);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -47,49 +72,21 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-/* --- Animations de l'avatar SUTA (section 53) --------------------------- */
+/* --- Animations SUTA Orb (section 53, écran public) --------------------- */
 
-@keyframes suta-breathe {
+@keyframes suta-halo-breathe {
   0%,
   100% {
     transform: scale(1);
-    opacity: 0.9;
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: 1;
-  }
-}
-
-@keyframes suta-listen {
-  0%,
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand-secondary) 55%, transparent);
+    opacity: 0.55;
   }
   50% {
     transform: scale(1.08);
-    box-shadow: 0 0 0 18px color-mix(in srgb, var(--brand-secondary) 0%, transparent);
+    opacity: 0.85;
   }
 }
 
-@keyframes suta-speak {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  25% {
-    transform: scale(1.03);
-  }
-  50% {
-    transform: scale(0.98);
-  }
-  75% {
-    transform: scale(1.05);
-  }
-}
-
-@keyframes suta-think {
+@keyframes suta-ring-rotate {
   0% {
     transform: rotate(0deg);
   }
@@ -98,27 +95,90 @@ body {
   }
 }
 
-.animate-suta-breathe {
-  animation: suta-breathe 3.2s ease-in-out infinite;
+@keyframes suta-wave-expand {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
 }
 
-.animate-suta-listen {
-  animation: suta-listen 1.4s ease-in-out infinite;
+@keyframes suta-core-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.035);
+  }
 }
 
-.animate-suta-speak {
-  animation: suta-speak 0.9s ease-in-out infinite;
+@keyframes suta-search-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
-.animate-suta-think {
-  animation: suta-think 1.6s linear infinite;
+@keyframes suta-bar {
+  0%,
+  100% {
+    transform: scaleY(0.25);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.animate-suta-halo-breathe {
+  animation: suta-halo-breathe 4s ease-in-out infinite;
+}
+
+.animate-suta-ring-slow {
+  animation: suta-ring-rotate 40s linear infinite;
+}
+
+.animate-suta-ring-fast {
+  animation: suta-ring-rotate 6s linear infinite;
+}
+
+.animate-suta-wave {
+  animation: suta-wave-expand 2.2s ease-out infinite;
+}
+
+.animate-suta-core-pulse {
+  animation: suta-core-pulse 2.4s ease-in-out infinite;
+}
+
+.animate-suta-search-pulse {
+  animation: suta-search-pulse 1.1s ease-in-out infinite;
+}
+
+.animate-suta-bar {
+  animation: suta-bar 1.1s ease-in-out infinite;
+  transform-origin: bottom;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-suta-breathe,
-  .animate-suta-listen,
-  .animate-suta-speak,
-  .animate-suta-think {
+  .animate-suta-halo-breathe,
+  .animate-suta-ring-slow,
+  .animate-suta-ring-fast,
+  .animate-suta-wave,
+  .animate-suta-core-pulse,
+  .animate-suta-search-pulse,
+  .animate-suta-bar {
     animation: none;
   }
 }
+
+/*
+ * Remarque : les tons `--brand-*` ci-dessus restent utilisés par /admin
+ * (thème sombre interne), mais ses écrans n'utilisent aucune animation
+ * dédiée — seul l'avatar SUTA (public, thème clair) en a besoin.
+ */

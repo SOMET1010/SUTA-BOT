@@ -160,3 +160,12 @@ environnement de développement n'a pas d'accès réseau sortant vers
 `*.openai.azure.com` ; à valider avec la clé API dans un environnement qui
 y a accès avant toute démonstration Salon. Voir `docs/architecture.md` et
 `docs/demo-script.md`.
+
+**Interface publique — thème clair ANSUT (fait)** : refonte visuelle de
+l'écran public sur la base d'une maquette de référence (palette ANSUT
+bleu/orange, disposition 3 colonnes 1920×1080, avatar/anneaux/ondes,
+séparation moteur/UI via `useSutaConversation`). Voir
+`docs/architecture.md` (« Interface publique — thème clair ANSUT ») pour
+le détail des composants et les limitations connues (logo officiel et
+image de maquette non disponibles dans ce dépôt). `/admin` conserve son
+thème sombre existant, hors périmètre de cette refonte.

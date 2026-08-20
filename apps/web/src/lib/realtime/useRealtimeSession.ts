@@ -77,7 +77,11 @@ export function useRealtimeSession() {
     clientRef.current?.interrupt();
   }, []);
 
+  const sendText = useCallback((text: string) => {
+    clientRef.current?.sendUserText(text);
+  }, []);
+
   const isActive = useCallback(() => clientRef.current !== null, []);
 
-  return { start, stop, interrupt, isActive };
+  return { start, stop, interrupt, sendText, isActive };
 }

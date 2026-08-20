@@ -141,6 +141,23 @@ export class RealtimeClient {
     this.setConnectionState("disconnected");
   }
 
+  /**
+   * Envoie un message texte de l'utilisateur pendant une session live
+   * (repli clavier, cahier des charges section 54 : la voix ne doit pas
+   * être le seul moyen d'utiliser SUTA) et demande une réponse.
+   */
+  sendUserText(text: string): void {
+    this.send({
+      type: "conversation.item.create",
+      item: {
+        type: "message",
+        role: "user",
+        content: [{ type: "input_text", text }],
+      },
+    });
+    this.send({ type: "response.create" });
+  }
+
   /** Interrompt la réponse en cours (cahier des charges, section 13). */
   interrupt(): void {
     if (this.hasActiveResponse) {

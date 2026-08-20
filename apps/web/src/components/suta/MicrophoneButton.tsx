@@ -1,6 +1,6 @@
 import type { ConversationState } from "@suta/shared";
 
-interface MicButtonProps {
+interface MicrophoneButtonProps {
   state: ConversationState;
   onPress: () => void;
   disabled?: boolean;
@@ -12,7 +12,8 @@ interface MicButtonProps {
   liveCallActive?: boolean;
 }
 
-export function MicButton({ state, onPress, disabled, liveCallActive }: MicButtonProps) {
+/** Bouton micro — thème clair ANSUT. Remplace `components/MicButton.tsx`. */
+export function MicrophoneButton({ state, onPress, disabled, liveCallActive }: MicrophoneButtonProps) {
   const isListening = state === "LISTENING" || liveCallActive;
   const isBusy = !liveCallActive && (state === "THINKING" || state === "SEARCHING");
 
@@ -29,10 +30,10 @@ export function MicButton({ state, onPress, disabled, liveCallActive }: MicButto
             ? "Arrêter l'écoute"
             : "Activer le microphone pour parler à SUTA"
       }
-      className={`flex h-16 w-16 items-center justify-center rounded-full text-2xl shadow-lg transition-transform focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-secondary disabled:cursor-not-allowed disabled:opacity-40 ${
+      className={`flex h-16 w-16 items-center justify-center rounded-full text-2xl shadow-lg transition-transform focus-visible:outline focus-visible:outline-2 focus-visible:outline-ansut-orange focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-40 ${
         isListening
-          ? "bg-emerald-500 scale-110"
-          : "bg-brand-secondary hover:scale-105"
+          ? "scale-110 bg-status-error"
+          : "bg-ansut-orange hover:scale-105"
       }`}
     >
       <MicIcon />
@@ -52,7 +53,7 @@ function MicIcon() {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      className="text-brand-background"
+      className="text-white"
     >
       <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3Z" />
       <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
