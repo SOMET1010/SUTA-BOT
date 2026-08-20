@@ -65,13 +65,22 @@ export class AzureRealtimeProvider implements RealtimeProvider {
           type: "realtime",
           model: this.config.deployment,
           instructions: options?.instructions,
-          // server_vad : détection automatique de la fin de prise de parole
-          // et de l'interruption naturelle (cahier des charges, section 13).
-          turn_detection: { type: "server_vad" },
-          // Transcription de la voix de l'utilisateur, pour l'affichage à
-          // l'écran (section 37) — sans cela, seule la réponse de SUTA
-          // serait transcrite.
-          input_audio_transcription: { model: "whisper-1" },
+          // Schéma GA : les réglages audio d'entrée (transcription, détection
+          // de tour de parole) sont imbriqués sous `audio.input`, pas au
+          // niveau racine de `session` (l'ancien schéma preview à plat —
+          // `session.turn_detection` — est rejeté avec "unknown_parameter"
+          // par le endpoint GA `/openai/v1/realtime/client_secrets`).
+          audio: {
+            input: {
+              // Transcription de la voix de l'utilisateur, pour l'affichage
+              // à l'écran (section 37) — sans cela, seule la réponse de
+              // SUTA serait transcrite.
+              transcription: { model: "whisper-1" },
+              // server_vad : détection automatique de la fin de prise de
+              // parole et de l'interruption naturelle (section 13).
+              turn_detection: { type: "server_vad" },
+            },
+          },
           ...(tools && tools.length > 0 ? { tools } : {}),
         },
       }),

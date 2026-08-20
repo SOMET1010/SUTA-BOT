@@ -42,8 +42,8 @@ describe("AzureRealtimeProvider", () => {
     expect(body.session.model).toBe("gpt-realtime-2.1");
     expect(body.session.instructions).toBe("Tu es SUTA.");
     expect(body.session.tools).toBeUndefined();
-    expect(body.session.turn_detection).toEqual({ type: "server_vad" });
-    expect(body.session.input_audio_transcription).toEqual({ model: "whisper-1" });
+    expect(body.session.audio.input.turn_detection).toEqual({ type: "server_vad" });
+    expect(body.session.audio.input.transcription).toEqual({ model: "whisper-1" });
   });
 
   it("maps the ephemeral client_secret response to a RealtimeSession", async () => {
