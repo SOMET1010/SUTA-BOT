@@ -1,0 +1,230 @@
+[
+ {
+  "id": "roadmap-mtnit-01",
+  "title": "La feuille de route du numérique de la Côte d'Ivoire",
+  "content": "Le ministère de la Transition Numérique et de l'Innovation Technologique a arrêté une feuille de route du numérique qui rassemble quarante projets structurants. Dans sa version de août 2026, elle organise ces projets en sept piliers et confie chacun à une entité de l'État : l'ANSUT, l'ARTCI, la SNDI, l'ANSSI, le VITIB, les écoles du numérique, La Poste ou le ministère lui-même. Il s'agit d'un document de programmation : il énonce ce que l'État entend entreprendre, les moyens qu'il estime nécessaires et l'ordre dans lequel les chantiers doivent s'enchaîner. Il ne rend pas compte de résultats déjà obtenus. La feuille de route s'inscrit dans le Plan National de Développement 2026-2030 et dans la Stratégie Nationale de Transformation Numérique 2025-2035, aux côtés de la Stratégie Nationale de Cybersécurité, de la Stratégie Nationale de Gouvernance des Données, de la Stratégie Nationale de l'Intelligence Artificielle et de l'objectif « Zéro papier » à l'horizon 2030.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "cadre general",
+   "pilier": null,
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-02",
+  "title": "Les sept piliers de la feuille de route du numérique",
+  "content": "Dans sa version de août 2026, la feuille de route du numérique du ministère de la Transition Numérique répartit ses quarante projets en sept piliers. Le pilier 1, connectivité, accès et accessibilité à internet, compte six projets. Le pilier 2, transformation de l'administration, en compte neuf. Le pilier 3, innovation, en compte six. Le pilier 4, intelligence artificielle, en compte cinq. Le pilier 5, cybersécurité et confiance numérique, en compte quatre. Le pilier 6, compétences numériques et inclusion, en compte six. Le pilier 7, modernisation de La Poste, en compte quatre. La feuille de route présente le pilier 1 comme le plus fondamental de l'ensemble, au motif que tous les autres piliers reposent sur son succès : sans connectivité, ni l'administration numérique, ni la cybersécurité, ni l'intelligence artificielle, ni les compétences numériques ne peuvent atteindre leur plein potentiel.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "piliers",
+   "pilier": "1 a 7",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-04",
+  "title": "Comment la feuille de route s'articule au Plan National de Développement 2026-2030",
+  "content": "La feuille de route du numérique du ministère de la Transition Numérique rattache chacun de ses projets au Plan National de Développement 2026-2030, au moyen des codes de la chaîne de résultats du PND : un produit, une ou plusieurs actions, puis des activités précises. Dans sa version de août 2026, la quasi-totalité des projets se rattache au programme 5.03 du PND. Trois produits reviennent le plus souvent. Le produit 5.03.1.1 porte sur le déploiement de technologies modernes — fibre optique, satellites, centres de données — résilientes au changement climatique sur tout le territoire, ainsi que sur leur mutualisation. Le produit 5.03.2.2 porte sur l'accroissement de l'usage des technologies numériques par l'ensemble de la population. Le produit 5.03.2.4 porte sur l'amélioration de l'accès aux services publics numériques et sur l'inclusion. Cet ancrage permet de suivre chaque projet du ministère à l'intérieur du plan national.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "alignement PND",
+   "pilier": null,
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-06",
+  "title": "Le pilier connectivité, accès et accessibilité à internet",
+  "content": "Dans sa version de août 2026, la feuille de route du numérique du ministère de la Transition Numérique consacre son premier pilier à la connectivité, à l'accès et à l'accessibilité à internet. Ce pilier poursuit trois orientations : démocratiser la connectivité, l'accès aux terminaux et aux données à l'échelle nationale ; favoriser l'accessibilité et renforcer les usages du numérique pour l'ensemble de la population ; préserver la souveraineté numérique de l'État. Il rassemble six projets qui traitent ensemble les dimensions réglementaire, d'infrastructure, économique, technologique et sociale de la connectivité. Trois de ces projets sont confiés à l'ANSUT et trois à l'ARTCI. La feuille de route considère ce pilier comme le socle de toute la stratégie numérique et le rattache principalement aux objectifs de développement durable 9 — infrastructures — et 8 — croissance économique — ainsi qu'aux objectifs 16 et 10.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "connectivite",
+   "pilier": "1",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-07",
+  "title": "Ce que l'ANSUT porte dans la feuille de route du ministère",
+  "content": "Dans sa version de août 2026, la feuille de route du numérique du ministère de la Transition Numérique confie quatre projets structurants à l'ANSUT sur les quarante que compte l'ensemble. Trois relèvent du pilier connectivité : étendre la couverture numérique nationale en intégrant les technologies satellitaires ; favoriser l'accessibilité aux équipements et aux contenus numériques ; élaborer et mettre en œuvre une politique nationale des infrastructures numériques. Le quatrième relève du pilier compétences numériques et inclusion : mettre en œuvre un programme national d'inclusion numérique. Ces quatre projets couvrent l'ensemble du champ du service universel : apporter le réseau là où il n'arrive pas, mettre un terminal abordable dans les mains des ménages, organiser les infrastructures publiques, et donner aux personnes les savoir-faire pour s'en servir. Il s'agit de projets programmés, dont la mise en œuvre reste à engager.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "ANSUT",
+   "pilier": "1 et 6",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-09",
+  "title": "Étendre la couverture numérique nationale avec les technologies satellitaires",
+  "content": "La feuille de route du numérique du ministère de la Transition Numérique, dans sa version de août 2026, prévoit un projet confié à l'ANSUT pour étendre la couverture numérique nationale en intégrant les technologies satellitaires. L'ambition affichée est que chaque citoyen, quel que soit l'endroit où il vit, bénéficie d'un accès fiable, abordable et résilient aux services numériques, grâce à une couverture combinant infrastructures terrestres et satellitaires. Le projet vise expressément les zones rurales, enclavées ou difficiles d'accès, où la fibre et les pylônes classiques n'arrivent pas ou coûtent trop cher. Il comporte trois volets : une étude de faisabilité avec identification des zones cibles, le déploiement puis l'intégration des solutions satellitaires aux réseaux des opérateurs existants, et enfin le suivi-évaluation. Le projet est programmé sur vingt-quatre mois et n'a pas encore été engagé.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "couverture satellitaire",
+   "pilier": "1",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-11",
+  "title": "Rendre les téléphones et les contenus numériques accessibles à tous",
+  "content": "La feuille de route du numérique du ministère de la Transition Numérique, version de août 2026, prévoit un projet confié à l'ANSUT pour favoriser l'accessibilité aux équipements et aux contenus numériques. L'idée est simple : un réseau ne sert à rien si les gens n'ont pas de quoi s'y connecter. Le projet vise en priorité les ménages vulnérables et les zones mal desservies, selon une approche « mobile d'abord ». Il comporte un programme d'accès à des terminaux abordables et un programme de développement des contenus numériques locaux, avec un volet de recyclage responsable des anciens appareils 2G et 3G. Les indicateurs retenus portent sur le taux de pénétration du smartphone, le nombre de terminaux subventionnés distribués, leur taux d'activation réel et l'usage des contenus locaux. Le projet est programmé sur vingt-quatre mois et reste à engager.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "terminaux et contenus",
+   "pilier": "1",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-13",
+  "title": "Une politique nationale des infrastructures numériques",
+  "content": "La feuille de route du numérique du ministère de la Transition Numérique, version de août 2026, prévoit un projet confié à l'ANSUT visant à élaborer et mettre en œuvre une politique nationale des infrastructures numériques. L'objectif affiché est que les infrastructures numériques stratégiques de l'État — réseau de fibre optique, centres de données, cloud, réseaux Wi-Fi publics — soient mutualisées, optimisées et gouvernées selon une vision souveraine. Concrètement, le projet prévoit de diagnostiquer le réseau de fibre optique existant, de distinguer la part qui peut être concédée à un partenaire privé de celle qui doit rester à usage exclusif de l'État pour la défense et la sécurité, de consolider les centres de données, et de connecter les sites prioritaires que sont les écoles et les hôpitaux. Le projet est programmé sur vingt-quatre mois et reste à engager.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "infrastructures numeriques",
+   "pilier": "1",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-15",
+  "title": "Le programme national d'inclusion numérique",
+  "content": "La feuille de route du numérique du ministère de la Transition Numérique, version de août 2026, prévoit un programme national d'inclusion numérique confié à l'ANSUT. Il part d'un constat : disposer du réseau et d'un téléphone ne suffit pas encore à s'en servir. Le programme vise à ce que chaque citoyen, quels que soient son âge, son genre, son niveau d'éducation, sa condition sociale ou son lieu de résidence, possède les compétences pour accéder aux opportunités du numérique. Il prévoit des parcours d'alphabétisation et de médiation numérique portant sur l'usage du smartphone, d'internet et des services en ligne, la formation et le déploiement de médiateurs de proximité dans les zones rurales et périurbaines les plus difficiles d'accès, et des équipements spécifiques pour les personnes en situation de handicap, comme les claviers en braille ou les dispositifs d'amplification sonore. Il est programmé sur vingt-quatre mois.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "inclusion numerique",
+   "pilier": "6",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-17",
+  "title": "Moderniser la régulation des télécommunications vers une régulation de quatrième génération",
+  "content": "La feuille de route du numérique du ministère de la Transition Numérique, version de août 2026, prévoit un projet confié à l'ARTCI pour adapter le cadre légal et réglementaire aux évolutions du secteur des communications électroniques et aller vers une régulation dite de quatrième génération, agile et fondée sur les données. Le projet prévoit d'opérationnaliser la loi sur le droit numérique introduite le 6 juin 2024 et ses décrets d'application, d'établir un calendrier des textes à réviser incluant les cahiers des charges, la qualité de service et les problèmes de couverture, d'imposer aux opérateurs privés la mise en conformité de leurs activités avec leurs obligations légales, et de créer un bac à sable réglementaire permettant d'expérimenter les innovations. Pour les usagers, l'enjeu est la qualité de service, la couverture effective et la protection du consommateur. Le projet est programmé sur douze mois.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "regulation",
+   "pilier": "1",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-19",
+  "title": "Le pilier transformation de l'administration",
+  "content": "Dans sa version de août 2026, la feuille de route du numérique du ministère de la Transition Numérique consacre son deuxième pilier à la transformation de l'administration, avec neuf projets dont sept confiés à la SNDI. Ses orientations sont d'établir une politique nationale de gouvernance des données, d'accélérer la numérisation des services publics prioritaires et leur adoption, de centraliser le point d'entrée vers les services administratifs numériques, de lever les barrières de connexion entre les systèmes d'information de l'administration, et d'élever le niveau de maturité numérique de l'État. Pour les usagers, la promesse est concrète : ne plus avoir à fournir plusieurs fois les mêmes pièces, payer en ligne les services publics, et accéder à l'ensemble des démarches par une porte d'entrée unique. Ce pilier soutient l'objectif national « Zéro papier » à l'horizon 2030.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "administration numerique",
+   "pilier": "2",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-20",
+  "title": "L'identité numérique et les registres de référence de l'État",
+  "content": "La feuille de route du numérique du ministère de la Transition Numérique, version de août 2026, prévoit un projet confié à la SNDI pour bâtir et structurer les registres publics de référence autour d'une identité numérique, l'eID. Dix registres sont visés : état civil, conseil des ministres numérique, marchés publics, entreprises, cadastres foncier, minier et forestier, agriculture, justice, santé, éducation et transport. Les cibles annoncées à fin 2028 incluent l'identification de toute la population au registre national des personnes physiques, une identité numérique pour la moitié des adultes, un dossier médical numérique pour chaque citoyen inscrit, la digitalisation complète de la chaîne judiciaire, et la création d'une entreprise en vingt-quatre heures au maximum. Le projet est programmé sur dix-huit mois pour l'eID et vingt-quatre mois pour les registres, et reste à engager.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "identite numerique",
+   "pilier": "2",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-21",
+  "title": "Payer les services publics en ligne : la passerelle nationale de paiement",
+  "content": "La feuille de route du numérique du ministère de la Transition Numérique, version de août 2026, prévoit un projet confié à la SNDI pour mettre en place une passerelle nationale de paiement électronique des services administratifs. L'objectif est d'offrir aux citoyens, aux entreprises et aux administrations un point d'accès unique, sécurisé et disponible en permanence pour régler l'ensemble des services publics payants. La passerelle doit s'interconnecter avec Trésor Pay et Trésor Money, les banques et la BCEAO, les opérateurs de mobile money, les fintechs et les agrégateurs de paiement, en s'appuyant sur l'identité numérique. Elle prévoit également un centre de sécurité dédié et des mécanismes de lutte contre la fraude. Le projet est programmé sur trente-six mois. Les difficultés relevées portent sur l'adhésion des administrations, l'interopérabilité des systèmes et l'adoption par les citoyens.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "paiements publics",
+   "pilier": "2",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-22",
+  "title": "L'interopérabilité des systèmes de l'État et le guichet unique des services publics",
+  "content": "La feuille de route du numérique du ministère de la Transition Numérique, version de août 2026, prévoit deux projets complémentaires confiés à la SNDI. Le premier déploie une plateforme d'interopérabilité des systèmes d'information de l'administration, afin que les services publics échangent entre eux, de manière fluide et sécurisée, les données dont ils ont besoin sans les redemander aux usagers. Le second développe un point d'accès unique aux services publics numériques : une interface personnalisée et disponible en permanence par laquelle chaque citoyen et chaque entreprise atteint l'ensemble des démarches. Pris ensemble, ces deux projets visent à supprimer la double saisie et la circulation de pièces justificatives entre guichets. Le premier est programmé sur trente-six mois, le second sur dix-huit mois. Tous deux restent à engager.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "interoperabilite",
+   "pilier": "2",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-25",
+  "title": "Le pilier innovation",
+  "content": "Dans sa version de août 2026, la feuille de route du numérique du ministère de la Transition Numérique consacre son troisième pilier à l'innovation, avec six projets. Ses orientations sont de positionner la Côte d'Ivoire comme hub de l'innovation en Afrique de l'Ouest, d'opérationnaliser le corpus réglementaire existant dont le Start-up Act, d'assurer le soutien et le financement de l'écosystème local, et d'animer cet écosystème. Les projets prévoient l'opérationnalisation du cadre institutionnel, une stratégie de développement du VITIB appelé à devenir le principal hub technologique et de biotechnologie de la sous-région, l'engagement des acteurs privés, un réseau d'infrastructures d'innovation régionales et universitaires, la Cité de l'Innovation et de la Culture, et un cadre de financement adapté aux startups de toutes maturités. Ce pilier est le plus richement doté de la feuille de route.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "innovation",
+   "pilier": "3",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-27",
+  "title": "Le pilier intelligence artificielle",
+  "content": "Dans sa version de août 2026, la feuille de route du numérique du ministère de la Transition Numérique consacre son quatrième pilier à l'intelligence artificielle, avec cinq projets pour un budget estimatif de 120 milliards de FCFA. L'ambition n'est pas seulement d'adopter l'intelligence artificielle mais de bâtir un écosystème national complet couvrant les usages, les données, les infrastructures, les compétences, la recherche, l'innovation, la gouvernance et l'éthique. Les cinq projets suivent cet enchaînement : déployer des cas d'usage à fort impact pour l'administration, l'économie et les citoyens, estimé à 26 milliards ; bâtir les fondations techniques, estimé à 48 milliards ; développer les compétences, estimé à 16 milliards ; dynamiser la recherche, estimé à 29 milliards ; et mettre en place un cadre éthique, estimé à 1 milliard. Les cinq projets disposaient d'une note conceptuelle élaborée au 5 août 2026.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "intelligence artificielle",
+   "pilier": "4",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-28",
+  "title": "Le pilier cybersécurité et confiance numérique",
+  "content": "Dans sa version de août 2026, la feuille de route du numérique du ministère de la Transition Numérique consacre son cinquième pilier à la cybersécurité et à la confiance numérique, avec quatre projets confiés à l'ANSSI. Ils forment une chaîne : mettre en place les dispositifs de base de sécurisation du cyberespace national, capables de détecter, traiter et suivre les incidents ; renforcer le capital humain en formant experts, auditeurs, techniciens, officiers de police judiciaire et magistrats ; développer la confiance numérique au moyen d'une infrastructure à clés publiques, de la signature électronique et d'un observatoire ; et actualiser les cadres légaux face aux menaces émergentes que sont l'intelligence artificielle malveillante, les rançongiciels et les hypertrucages. La feuille de route souligne que sans confiance numérique, aucun des autres piliers ne peut atteindre son plein potentiel. C'est le pilier le moins doté, avec 12,5 milliards de FCFA estimés.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "cybersecurite",
+   "pilier": "5",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-29",
+  "title": "Le pilier compétences numériques et inclusion",
+  "content": "Dans sa version de août 2026, la feuille de route du numérique du ministère de la Transition Numérique consacre son sixième pilier aux compétences numériques et à l'inclusion, avec six projets pour un budget estimatif de 119,656 milliards de FCFA. Il vise à construire une chaîne nationale complète, depuis l'alphabétisation numérique des populations jusqu'à la formation d'experts en intelligence artificielle et en cybersécurité. Il rassemble la structuration de la chaîne des compétences, un programme national des compétences d'avenir, le renforcement des infrastructures de formation, une plateforme inclusive de formation en ligne, le programme national d'inclusion numérique confié à l'ANSUT, et le développement de partenariats académiques et industriels. La feuille de route présente ce pilier comme celui qui contribue le plus directement à la transformation sociale du pays, puisqu'il constitue le capital humain dont dépendent tous les autres piliers.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "competences numeriques",
+   "pilier": "6",
+   "version": "août 2026"
+  }
+ },
+ {
+  "id": "roadmap-mtnit-31",
+  "title": "Le pilier modernisation de La Poste",
+  "content": "Dans sa version de août 2026, la feuille de route du numérique du ministère de la Transition Numérique consacre son septième pilier à la modernisation de La Poste, avec quatre projets. L'objectif est de faire évoluer La Poste de Côte d'Ivoire d'un opérateur postal traditionnel vers un opérateur multiservices, puis vers une plateforme logistique, financière et numérique nationale. Les quatre projets sont la redynamisation de l'activité autour du cœur de métier, le développement des corridors postaux stratégiques vers la France, les Émirats arabes unis et la Chine, la préparation de l'opérationnalisation du Groupe La Poste CI, et la mise en œuvre du plan de restructuration. Pour les populations, l'enjeu est le maintien d'un réseau de proximité offrant des services postaux, financiers et administratifs sur l'ensemble du territoire, y compris là où peu d'autres services publics sont présents.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "la poste",
+   "pilier": "7",
+   "version": "août 2026"
+  }
+ }
+]
