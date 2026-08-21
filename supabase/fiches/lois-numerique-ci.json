@@ -1,0 +1,362 @@
+[
+ {
+  "id": "loi-2017-803-01",
+  "title": "Ce que fait la loi d'orientation de la société de l'information",
+  "content": "La loi n°2017-803 du 7 décembre 2017 est la loi d'orientation de la société de l'information en Côte d'Ivoire. Son article 2 en donne l'objet : elle « a pour objet de fixer les principes généraux, juridiques et institutionnels pour le développement de la société de l'information en Côte d'Ivoire ». C'est donc un texte de cadrage : il ne règle pas les détails d'un abonnement téléphonique, il pose les grands principes que l'État, les collectivités, les opérateurs et les entreprises doivent respecter en matière de technologies de l'information et de la communication. Elle compte 34 articles et couvre l'accès à Internet, la neutralité du réseau, la sécurité, l'administration en ligne, le très haut débit et la coordination de l'action de l'État. Elle a été promulguée par le président Alassane Ouattara et publiée au Journal officiel du 15 janvier 2018.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "cadre général",
+   "loi": "2017-803",
+   "article": "2"
+  }
+ },
+ {
+  "id": "loi-2017-803-02",
+  "title": "L'accès à Internet reconnu comme un droit fondamental",
+  "content": "C'est l'une des dispositions les plus fortes du droit ivoirien du numérique. L'article 3 de la loi n°2017-803 du 7 décembre 2017 énonce que « l'État reconnaît et affirme que l'accès à Internet et aux réseaux de communication électronique est un droit fondamental de l'Homme et un bien universel dont l'établissement, la préservation et la sécurisation restent des priorités nationales et auxquelles toute personne physique ou morale doit concourir ». Le même article ajoute que « l'État garantit et assure l'accès universel aux services de Télécommunications/TIC » et qu'il garantit « une liberté accrue pour la circulation des données et du savoir ». Autrement dit : brancher le pays n'est pas un service de confort, c'est une obligation que l'État s'est donnée à lui-même. C'est le fondement juridique du travail sur la couverture des zones mal desservies.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "accès universel",
+   "loi": "2017-803",
+   "article": "3"
+  }
+ },
+ {
+  "id": "loi-2017-803-03",
+  "title": "La neutralité de l'Internet garantie par l'État",
+  "content": "L'article 5 de la loi n°2017-803 du 7 décembre 2017 garantit « le principe de neutralité de l'Internet et des réseaux de communication électronique selon lequel l'ensemble du trafic informationnel ou des flux de communication est traité de façon égale, sans discrimination, limitation ni interférence, indépendamment de l'expéditeur, du destinataire, du type du contenu, de l'appareil, du service ou de l'application ». En clair : un opérateur ne doit pas ralentir vos appels vidéo parce qu'ils concurrencent son offre, ni favoriser un site au détriment d'un autre. Le même principe interdit de traiter différemment un abonné selon l'appareil qu'il utilise. La loi précise que cette neutralité est garantie « par l'État et les structures publiques compétentes » : c'est donc à la puissance publique et au régulateur de la faire respecter.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "neutralité du net",
+   "loi": "2017-803",
+   "article": "5"
+  }
+ },
+ {
+  "id": "loi-2017-803-04",
+  "title": "Ce que la réglementation doit garantir aux abonnés",
+  "content": "L'article 7 de la loi n°2017-803 du 7 décembre 2017 dresse la liste de ce que la réglementation des télécommunications doit garantir. Côté citoyen, on y trouve : « le secret et l'inviolabilité des communications électroniques, sauf exception prévue par la loi » ; « l'égalité de traitement et l'information transparente des consommateurs et usagers » ; et « la protection des droits des consommateurs et usagers des réseaux et services de Télécommunications/TIC, notamment le respect de la vie privée et la protection de leurs données à caractère personnel, le service universel des Télécommunications/TIC et une tarification loyale des services ». Le service universel est donc inscrit noir sur blanc comme un objectif que la loi impose. L'article cite aussi l'interconnexion des réseaux, l'itinérance nationale et internationale, le partage des infrastructures et la co-localisation, ainsi qu'une gestion transparente des fréquences et des numéros.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "service universel",
+   "loi": "2017-803",
+   "article": "7"
+  }
+ },
+ {
+  "id": "loi-2017-803-05",
+  "title": "La sécurité des réseaux est l'affaire de tout le monde",
+  "content": "La loi n°2017-803 du 7 décembre 2017 définit la cybersécurité à son article premier comme « l'ensemble des mesures juridiques, techniques, organisationnelles et économiques adoptées ou mises en œuvre pour garantir les droits des personnes ou assurer la sécurité des biens, des personnes, des matériels et infrastructures des TIC ». Son article 8 pose que « la sécurité des réseaux et des systèmes d'information est un principe fondamental de la société de l'information. Elle bénéficie à tous et tous les acteurs en sont responsables », et impose aux responsables de réseaux de prendre toutes mesures utiles. L'article 13 prévoit que l'État « adopte et met en œuvre une stratégie de cybersécurité et une politique de coopération judiciaire et sécuritaire en matière de lutte contre la cybercriminalité », et qu'il sanctionne les atteintes aux droits d'autrui commises par voie électronique.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "cybersécurité",
+   "loi": "2017-803",
+   "article": "8 et 13"
+  }
+ },
+ {
+  "id": "loi-2017-803-06",
+  "title": "Pourquoi il existe un régulateur séparé du ministère",
+  "content": "L'article 9 de la loi n°2017-803 du 7 décembre 2017 affirme « le principe de séparation des fonctions de réglementation et de régulation ». Concrètement, ce sont deux rôles distincts. Écrire les règles et définir la politique : cela « est du ressort de l'État », c'est-à-dire du ministère en charge des TIC. Faire respecter ces règles au jour le jour sur le marché : cela revient à une autorité de régulation, qui doit travailler « de façon transparente et objective ». L'État doit veiller à cette transparence et « adapte ses missions à l'évolution des TIC ». L'article 10 ajoute que, lorsqu'une structure de l'État intervient elle-même sur le marché des services de télécommunications, l'État et le régulateur veillent à ce que cette intervention « ne fausse pas les règles de la libre concurrence ».",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "régulation",
+   "loi": "2017-803",
+   "article": "9"
+  }
+ },
+ {
+  "id": "loi-2017-803-07",
+  "title": "Le numérique à l'école et dans la formation",
+  "content": "La loi n°2017-803 du 7 décembre 2017 fait de l'école un chantier numérique. Son article 11 prévoit que l'enseignement préscolaire, primaire, secondaire et supérieur, dans le public comme dans le privé, « est assuré en partie ou en totalité par l'utilisation des TIC », et que l'État forme ses propres enseignants à ces outils. L'État doit aussi « encourager par tous moyens le développement de l'enseignement et d'offres de formation massives par voie électronique » — ce que l'on appelle aujourd'hui les cours en ligne — et faire entrer l'informatique dans les programmes « pour tous les cycles de formation ». L'article 12 ajoute que l'État, seul ou avec les collectivités territoriales, les établissements publics, les entreprises privées et la société civile, œuvre au développement de ressources humaines de qualité en matière de TIC.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "éducation",
+   "loi": "2017-803",
+   "article": "11 et 12"
+  }
+ },
+ {
+  "id": "loi-2017-803-08",
+  "title": "La Commission nationale de développement de la société de l'information",
+  "content": "L'article 14 de la loi n°2017-803 du 7 décembre 2017 crée une institution : « Il est créé une Commission nationale de développement de la société de l'information chargée de veiller à la bonne coordination des actions et des projets de l'État en matière de TIC. » Son rôle est donc un rôle de chef d'orchestre : éviter que chaque ministère, chaque collectivité et chaque établissement public ne mène son projet numérique dans son coin. La loi renvoie à un décret pris en Conseil des ministres le soin de fixer « les attributions, l'organisation et le fonctionnement de ladite commission ». Les documents dont nous disposons ne disent pas si ce décret d'application a été pris ni comment la commission fonctionne aujourd'hui : mieux vaut le vérifier avant d'en parler au présent.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "institutions",
+   "loi": "2017-803",
+   "article": "14"
+  }
+ },
+ {
+  "id": "loi-2017-803-09",
+  "title": "Le schéma directeur national des TIC",
+  "content": "La loi n°2017-803 du 7 décembre 2017 prévoit que la société de l'information « est construite sur la base d'une orientation politique et d'un schéma directeur national » adoptés par le Gouvernement (article 15). L'article 16 décrit ce schéma directeur comme « un document d'objectifs et de stratégies qui comporte un plan pluriannuel de mise en œuvre ». Il doit notamment mettre à disposition « des infrastructures TIC diversifiées et fiables pour la fourniture des services TIC de qualité et à moindre coût » et assurer la coordination des actions de l'État pour une société de l'information « efficiente et inclusive ». L'article 32 impose que tout projet d'infrastructure TIC de l'État, des collectivités ou des structures publiques soit mené en cohérence avec ce schéma. L'article 33 fait du développement de la maturité numérique « une priorité nationale » dont l'État doit assurer le financement.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "stratégie nationale",
+   "loi": "2017-803",
+   "article": "15, 16, 32 et 33"
+  }
+ },
+ {
+  "id": "loi-2017-803-10",
+  "title": "La lutte contre la fracture numérique est une obligation de l'État",
+  "content": "L'article 17 de la loi n°2017-803 du 7 décembre 2017 est bref et net : « L'État prend et met en œuvre toutes les mesures nécessaires à la lutte contre la fracture numérique. » La fracture numérique, c'est l'écart entre ceux qui ont un réseau, un appareil et le savoir-faire pour s'en servir, et ceux qui n'ont ni l'un ni l'autre — souvent selon qu'on habite une grande ville ou un village. Le même article demande à l'État de moderniser l'administration publique par les TIC et prévoit que « l'État assure de façon adéquate à tous, y compris par voie électronique et par ses propres moyens de communications électroniques ou par le biais de réseaux publics de communication électronique interconnectés, les services publics ». C'est le fondement légal des programmes de desserte des zones mal couvertes.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "fracture numérique",
+   "loi": "2017-803",
+   "article": "17"
+  }
+ },
+ {
+  "id": "loi-2017-803-11",
+  "title": "La gouvernance électronique : les services publics accessibles en ligne",
+  "content": "L'article 18 de la loi n°2017-803 du 7 décembre 2017 définit la gouvernance électronique comme le fait « de rendre les services publics et privés accessibles aux citoyens et aux entreprises par voie électronique ». Pour y arriver, l'État doit : mettre en place un cadre juridique et institutionnel « capable de susciter la confiance des usagers des services par voie électronique » ; bâtir « une infrastructure TIC disponible, robuste et fiable » ; garantir « une large diffusion des TIC, leur accessibilité et leur appropriation par toutes les couches sociales » ; développer une expertise nationale ; et mettre en place une politique nationale de sécurité des infrastructures et services TIC. Ces cinq engagements se lisent comme un cahier des charges : il ne suffit pas d'ouvrir un site web, il faut aussi que les gens y aient accès, sachent s'en servir et fassent confiance au système.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "administration en ligne",
+   "loi": "2017-803",
+   "article": "18"
+  }
+ },
+ {
+  "id": "loi-2017-803-12",
+  "title": "Faire ses démarches en ligne et avoir une identité numérique",
+  "content": "L'article 19 de la loi n°2017-803 du 7 décembre 2017 prévoit que, lorsqu'une formalité est exigée par la loi ou le règlement, « l'État met en œuvre les moyens permettant aux personnes d'accomplir lesdites formalités sur les réseaux de communication électronique ». Et il ajoute : « À cet effet, l'État prend toutes les mesures de nature à garantir à tout citoyen une identité numérique fiable et sécurisée. » L'identité numérique est définie à l'article premier comme l'ensemble des données numériques « qui permettent l'identification fiable et sécurisée d'une personne physique ou morale par voie électronique ». En pratique, c'est ce qui permet à l'administration de savoir que c'est bien vous derrière l'écran, sans que vous ayez à vous déplacer avec vos papiers.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "identité numérique",
+   "loi": "2017-803",
+   "article": "19"
+  }
+ },
+ {
+  "id": "loi-2017-803-13",
+  "title": "Handicap, fiscalité et fonds pour l'innovation",
+  "content": "L'article 20 de la loi n°2017-803 du 7 décembre 2017 engage l'État à prendre des mesures législatives, réglementaires et administratives, « y compris de nature fiscale et douanière ». Quatre leviers sont cités : des incitations économiques, fiscales et douanières pour l'investissement dans les télécommunications ; « la promotion de l'accessibilité aux services de Télécommunications/TIC des personnes en situation de handicap et des catégories sociales ayant des besoins spécifiques » ; des politiques fiscales adaptées aux enjeux de la société de l'information ; et « la mise en place d'un fonds pour le développement de l'innovation en matière de Télécommunications/TIC ». La mention du handicap est importante : la loi ne se contente pas de vouloir couvrir le territoire, elle demande que les services soient utilisables par ceux qui ont le plus de mal à s'en servir.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "inclusion",
+   "loi": "2017-803",
+   "article": "20"
+  }
+ },
+ {
+  "id": "loi-2017-803-14",
+  "title": "Le très haut débit dans les immeubles",
+  "content": "La loi n°2017-803 du 7 décembre 2017 consacre tout un chapitre à l'accès au très haut débit. L'article 23 impose à « tout promoteur immobilier autorisé par l'État » de prévoir un accès au très haut débit dans chacun des immeubles construits, deux ans après l'entrée en vigueur de la loi. L'article 24 prévoit que si un immeuble n'est pas équipé, la proposition d'un opérateur de l'équiper à ses frais « ne peut être refusée par le propriétaire sans motif sérieux et légitime ». L'article 25 empêche de même un propriétaire de s'opposer sans motif sérieux au raccordement demandé par un locataire ou occupant de bonne foi. L'article 27 impose une convention entre propriétaire et opérateur : les travaux sont aux frais de l'opérateur et doivent s'achever « au plus tard six mois à compter de sa signature ». Le texte de l'article 26, qui énumère les motifs légitimes de refus, est tronqué dans notre extraction.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "très haut débit",
+   "loi": "2017-803",
+   "article": "23 à 27"
+  }
+ },
+ {
+  "id": "loi-2017-803-15",
+  "title": "La couverture du territoire doit être rendue publique chaque année",
+  "content": "Deux articles de la loi n°2017-803 du 7 décembre 2017 organisent la transparence sur la couverture réseau. L'article 28 oblige les opérateurs et fournisseurs de services à communiquer « gratuitement » à l'État, aux collectivités territoriales et aux structures publiques, à leur demande, les informations sur l'implantation et le déploiement de leurs infrastructures à très haut débit ; un refus est sanctionné par le régulateur. L'article 29 impose à chaque opérateur de rendre publique, avant le 31 janvier de chaque année, la liste des nouvelles zones qu'il a couvertes, et de communiquer au régulateur celles qu'il prévoit de couvrir. Le régulateur, lui, publie avant le 31 décembre « un bilan global sur la couverture du territoire », « en mettant l'accent sur les perspectives de résorption des zones non couvertes ». C'est un outil direct contre les zones blanches.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "couverture du territoire",
+   "loi": "2017-803",
+   "article": "28 et 29"
+  }
+ },
+ {
+  "id": "loi-2017-803-16",
+  "title": "Chaque chantier public doit prévoir le passage des réseaux télécoms",
+  "content": "L'article 30 de la loi n°2017-803 du 7 décembre 2017 évite de casser deux fois la même route. Il prévoit que la pose de câbles électriques, les travaux sur les réseaux d'eau potable ou d'assainissement et « la réalisation d'ouvrage d'infrastructures de génie civil de toute nature » pour le compte de l'État, des collectivités ou des établissements publics « prévoient également le passage de réseaux ou infrastructures de Télécommunications/TIC ». Le même article accorde aux opérateurs de réseaux, « sans aucun frais, des servitudes administratives, de droit d'usage et de droit d'accès sur toute propriété, y compris sur les propriétés privées ». Le propriétaire n'est pas oublié : ces servitudes « ouvrent droit à indemnisation, s'il en résulte un dommage matériel », conformément à la législation en vigueur.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "infrastructures",
+   "loi": "2017-803",
+   "article": "30"
+  }
+ },
+ {
+  "id": "loi-2013-546-01",
+  "title": "Ce que règle la loi sur les transactions électroniques",
+  "content": "La loi n°2013-546 du 30 juillet 2013 est la loi ivoirienne « relative aux transactions électroniques ». Son article 2 est laconique : elle « a pour objet de régir les transactions électroniques ». L'article 3 précise qu'elle s'applique aux échanges ou transactions « de quelque nature qu'ils soient, prenant la forme d'un message ou d'un document électronique », sans écarter les règles civiles et commerciales habituelles, notamment les Actes uniformes de l'OHADA et le Code civil. L'article 4 exclut trois domaines de son champ : les jeux d'argent, même sous forme de paris et de loteries ; les activités de représentation et d'assistance en justice ; et les activités exercées par les notaires. C'est le texte qui rend juridiquement solides le commerce en ligne, la signature électronique et l'écrit numérique en Côte d'Ivoire. Le texte datant de 2013, il convient de vérifier s'il a été modifié depuis.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "cadre général",
+   "loi": "2013-546",
+   "article": "2, 3 et 4"
+  }
+ },
+ {
+  "id": "loi-2013-546-02",
+  "title": "Ce qu'un vendeur en ligne doit obligatoirement afficher",
+  "content": "L'article 5 de la loi n°2013-546 du 30 juillet 2013 oblige toute personne qui fait du commerce électronique à donner à ses clients « un accès facile, direct et permanent » à une liste d'informations : ses nom et prénoms, ou la raison sociale s'il s'agit d'une société ; l'adresse complète du lieu où elle est établie, son adresse électronique et son numéro de téléphone ; son numéro au registre du commerce et du crédit mobilier et son capital social ; son numéro d'identification fiscale si elle est assujettie à la TVA ; les références de son agrément si son activité en exige un ; et ses règles professionnelles si elle exerce une profession réglementée. L'article 6 impose d'indiquer le prix « de manière claire et non ambiguë », en précisant si les taxes et les frais de livraison sont inclus. L'article 13 punit le manquement d'un à cinq ans d'emprisonnement et d'une amende de 1 000 000 à 10 000 000 de francs.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "commerce électronique",
+   "loi": "2013-546",
+   "article": "5, 6 et 13"
+  }
+ },
+ {
+  "id": "loi-2013-546-03",
+  "title": "Le vendeur en ligne est responsable de bout en bout",
+  "content": "C'est une protection très forte pour l'acheteur. L'article 7 de la loi n°2013-546 du 30 juillet 2013 dispose que toute personne exerçant le commerce électronique « est responsable de plein droit à l'égard de son cocontractant de la bonne exécution des obligations résultant du contrat, que ces obligations soient à exécuter par elle-même ou par d'autres prestataires de services, sans préjudice de son droit de recours contre ceux-ci ». Autrement dit : si votre colis n'arrive pas, c'est au vendeur de répondre, même si la faute vient du transporteur. Vous n'avez pas à courir après le sous-traitant. Le vendeur ne peut s'exonérer, en tout ou partie, qu'en apportant « la preuve que l'inexécution ou la mauvaise exécution du contrat est imputable, soit au cocontractant, soit à un cas de force majeure ».",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "protection du consommateur",
+   "loi": "2013-546",
+   "article": "7"
+  }
+ },
+ {
+  "id": "loi-2013-546-04",
+  "title": "Quelle loi protège un acheteur ivoirien en ligne",
+  "content": "L'article 8 de la loi n°2013-546 du 30 juillet 2013 soumet les activités de commerce électronique aux lois ivoiriennes « dès lors que l'une des parties est établie en Côte d'Ivoire, y a une résidence ou est de nationalité ivoirienne ». Les parties restent libres de choisir une autre loi, mais ce choix ne peut avoir pour but ni pour effet « de priver le consommateur ayant sa résidence habituelle sur le territoire national de la protection que lui assurent les dispositions des lois ivoiriennes en matière de protection des droits du consommateur ». Une clause en petits caractères ne peut donc pas vous faire perdre vos droits. À défaut de choix (article 9), la loi ivoirienne s'applique dès lors qu'il existe « un lien suffisant, substantiel ou significatif » avec le territoire — apprécié par la langue, la monnaie, les produits ou le nom de domaine du site.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "loi applicable",
+   "loi": "2013-546",
+   "article": "8 et 9"
+  }
+ },
+ {
+  "id": "loi-2013-546-05",
+  "title": "Une publicité en ligne doit se déclarer comme telle",
+  "content": "L'article 10 de la loi n°2013-546 du 30 juillet 2013 pose que toute publicité accessible par voie de communication électronique « doit pouvoir être clairement identifiée comme telle », et qu'elle doit rendre clairement identifiable la personne pour le compte de laquelle elle est réalisée. La publicité déguisée en article ou en message personnel est donc interdite. Le même article ajoute que les offres promotionnelles — rabais, primes, cadeaux — ainsi que les concours et jeux promotionnels envoyés par courrier électronique doivent être identifiables « de manière claire et non équivoque sur l'objet du courrier dès leur réception », ou à défaut dans le corps du message. L'article 11 exige que les conditions pour bénéficier de ces offres ou participer à ces jeux soient « clairement précisées et aisément accessibles ».",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "publicité",
+   "loi": "2013-546",
+   "article": "10 et 11"
+  }
+ },
+ {
+  "id": "loi-2013-546-06",
+  "title": "Le démarchage par SMS et par courriel exige votre accord préalable",
+  "content": "L'article 14 de la loi n°2013-546 du 30 juillet 2013 interdit la prospection directe par automate d'appel, SMS, télécopieur, courrier électronique ou tout autre moyen électronique utilisant les coordonnées d'une personne « qui n'a pas exprimé son consentement préalable à recevoir des prospections directes par ce moyen ». La sanction est la même que pour les autres manquements : un à cinq ans d'emprisonnement et 1 000 000 à 10 000 000 de francs CFA. Deux exceptions : quand vos coordonnées ont été recueillies « en toute connaissance de cause, directement auprès de vous-même », et quand vous êtes déjà client de l'entreprise, pour des produits ou services analogues. Enfin, l'article 15 impose que chaque message indique des coordonnées valables permettant de demander l'arrêt de ces envois, sans frais autres que ceux de la transmission.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "démarchage",
+   "loi": "2013-546",
+   "article": "14, 15 et 16"
+  }
+ },
+ {
+  "id": "loi-2013-546-07",
+  "title": "Personne ne peut vous forcer à passer par le numérique",
+  "content": "Deux articles de la loi n°2013-546 du 30 juillet 2013 protègent ceux qui ne veulent pas ou ne peuvent pas utiliser l'électronique. L'article 17 dispose : « Nul ne peut être contraint de poser un acte juridique par voie électronique, à défaut de dispositions légales contraires. » Et l'article 39 ajoute : « Sous réserve d'une disposition légale, nul ne peut être contraint de signer électroniquement. » Dans le même esprit, l'article 19 prévoit que les informations liées à la conclusion d'un contrat ne peuvent être transmises par voie électronique que « si leur destinataire a accepté l'usage de ce procédé ». La règle est plus souple entre professionnels, puisque l'article 20 considère qu'un professionnel qui a communiqué son adresse électronique accepte d'y recevoir ces informations.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "consentement",
+   "loi": "2013-546",
+   "article": "17 et 39"
+  }
+ },
+ {
+  "id": "loi-2013-546-08",
+  "title": "Les étapes obligatoires d'une commande en ligne",
+  "content": "L'article 21 de la loi n°2013-546 du 30 juillet 2013 impose au vendeur en ligne de mettre les conditions contractuelles à disposition « d'une manière qui permette leur conservation et leur reproduction », et de rester engagé par son offre tant qu'elle reste accessible de son fait. L'offre doit énoncer les étapes à suivre, les moyens techniques de repérer et corriger les erreurs de saisie, les langues proposées, les modalités d'archivage du contrat et les règles professionnelles applicables. L'article 22 pose ce que l'on appelle le double clic : « Pour que le contrat soit valablement conclu, le destinataire de l'offre doit avoir eu la possibilité de vérifier le détail de sa commande et du prix total et de corriger d'éventuelles erreurs, avant de confirmer celle-ci. » Le vendeur doit ensuite envoyer un accusé de réception. Ces règles ne s'appliquent pas entre professionnels par simple échange de courriels.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "contrat en ligne",
+   "loi": "2013-546",
+   "article": "21 et 22"
+  }
+ },
+ {
+  "id": "loi-2013-546-09",
+  "title": "Un document électronique vaut preuve comme un papier",
+  "content": "L'article 23 de la loi n°2013-546 du 30 juillet 2013 est la clé de voûte du numérique juridique ivoirien : « L'écrit sous forme électronique est admis comme mode de preuve au même titre que l'écrit sur support papier et à la même force probante que celui-ci, sous réserve de l'identification de la personne dont il émane et de sa conservation dans des conditions de nature à en garantir l'intégrité. » Deux conditions, donc : on doit savoir de qui il vient et pouvoir montrer qu'il n'a pas été modifié. L'article 25 accorde la même force probante à la copie papier d'un acte passé électroniquement, sous réserve de la preuve de son intégrité. L'article 28 écarte toutefois cette règle pour les actes sous seing privé relatifs au droit de la famille et des successions, et pour ceux relatifs à des sûretés, sauf s'ils sont passés à titre professionnel.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "preuve",
+   "loi": "2013-546",
+   "article": "23, 25 et 28"
+  }
+ },
+ {
+  "id": "loi-2013-546-10",
+  "title": "Ce qu'est une signature électronique et ce qu'elle vaut",
+  "content": "Selon la loi n°2013-546 du 30 juillet 2013, une signature électronique est « toute donnée qui résulte de l'usage d'un procédé fiable d'identification garantissant son lien avec l'acte auquel elle s'attache ». Ce n'est donc pas une image de votre signature collée dans un fichier : c'est un procédé technique qui prouve que c'est bien vous et que le document n'a pas bougé depuis. L'article 36 rappelle que la signature « identifie celui qui l'appose » et « manifeste le consentement des parties aux obligations qui découlent de cet acte ». L'article 37 pose que la fiabilité du procédé « est présumée jusqu'à preuve contraire » lorsqu'il s'agit d'une signature électronique sécurisée, créée par un dispositif sécurisé et vérifiée au moyen d'un certificat qualifié ; une telle signature a alors la même force probante qu'une signature manuscrite. Ce passage est partiellement dégradé dans notre extraction.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "signature électronique",
+   "loi": "2013-546",
+   "article": "36 et 37"
+  }
+ },
+ {
+  "id": "loi-2013-546-11",
+  "title": "Le certificat électronique et le prestataire de certification",
+  "content": "La loi n°2013-546 du 30 juillet 2013 définit à son article premier le certificat électronique comme « un document numérique permettant de valider le lien entre une signature électronique et son signataire ». Imaginez une carte d'identité pour votre signature en ligne : elle est délivrée par un tiers de confiance, appelé prestataire de services de certification électronique, dont le métier est de vérifier qui vous êtes avant de vous remettre vos clés. L'article 38 traite des certificats délivrés à l'étranger : ils sont reconnus en Côte d'Ivoire à deux conditions, que le prestataire étranger satisfasse « aux exigences fixées par la présente loi et ses textes d'application », et « qu'un accord bilatéral ou multilatéral avec cet État étranger l'ait expressément prévu ». Ce passage est partiellement dégradé à l'extraction, mais les deux conditions sont lisibles.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "certification",
+   "loi": "2013-546",
+   "article": "premier et 38"
+  }
+ },
+ {
+  "id": "loi-2013-546-12",
+  "title": "Facture électronique et lettre recommandée électronique",
+  "content": "Deux dispositions très concrètes de la loi n°2013-546 du 30 juillet 2013. L'article 33 : « L'écrit sous forme électronique est admis en facturation au même titre que l'écrit sur support papier, pour autant que l'authenticité de l'origine des données qu'il contient et l'intégrité de leur contenu soient garanties. » Une facture reçue par courriel est donc une vraie facture, si l'on peut prouver qui l'a émise et qu'elle n'a pas été retouchée. L'article 34 admet la lettre recommandée par courrier électronique, à condition qu'elle soit acheminée par un tiers, selon un procédé permettant d'identifier ce tiers, de désigner l'expéditeur, de garantir l'identité du destinataire et d'établir si la lettre a été remise ou non. Si le destinataire n'est pas un professionnel, il doit avoir demandé ou accepté ce mode d'envoi.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "facture et courrier",
+   "loi": "2013-546",
+   "article": "33 et 34"
+  }
+ },
+ {
+  "id": "loi-2013-546-13",
+  "title": "Conserver ses documents électroniques : dix ans et trois conditions",
+  "content": "L'article 40 de la loi n°2013-546 du 30 juillet 2013 impose, sauf délai légal plus court, de conserver les documents sous forme électronique « pendant une période de dix ans » et à trois conditions : l'information qu'ils contiennent doit rester accessible pour être consultée ultérieurement ; le document doit être conservé sous la forme sous laquelle il a été créé, envoyé ou reçu, ou sous une forme dont on peut démontrer qu'elle n'altère pas son contenu ; et les informations d'origine, de destination, de date et d'heure doivent être conservées si elles existent. L'article 41 exige que l'archivage garantisse « l'authenticité et l'intégrité » des documents. L'article 43 applique ces règles aussi bien aux documents numérisés qu'à ceux nés électroniques, et l'article 44 précise que la valeur juridique d'une archive ne peut être déniée du seul fait qu'elle est électronique.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "archivage",
+   "loi": "2013-546",
+   "article": "40 à 45"
+  }
+ },
+ {
+  "id": "loi-2013-546-14",
+  "title": "Le rôle du régulateur des télécommunications dans la confiance numérique",
+  "content": "La loi n°2013-546 du 30 juillet 2013 confie plusieurs missions à « l'autorité en charge de la régulation des Télécommunications (ARTCI) ». L'article 50 la charge « de veiller à la sécurité des réseaux et systèmes d'information » ; à ce titre, elle « procède à l'audit et à la certification des systèmes d'information des personnes morales établies en Côte d'Ivoire et exerçant des activités de transactions électroniques » et « délivre les certificats électroniques ». L'article 51 précise que ces prestations sont soumises à une redevance fixée par décret. En matière de cryptologie — la science qui protège le secret des données —, l'article 47 soumet la fourniture de prestations à des conditions définies par décret, l'article 48 impose le secret professionnel aux prestataires, et l'article 49 permet à l'ARTCI d'interdire d'exercer à un prestataire qui ne respecte pas ses obligations.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "institutions",
+   "loi": "2013-546",
+   "article": "46 à 51"
+  }
+ }
+]

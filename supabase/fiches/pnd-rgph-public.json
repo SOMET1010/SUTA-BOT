@@ -1,0 +1,46 @@
+[
+ {
+  "id": "pnd-01",
+  "title": "Où en est le Plan National de Développement de la Côte d'Ivoire",
+  "content": "Depuis 2011, la Côte d'Ivoire a conduit trois Plans Nationaux de Développement successifs : le PND 2012-2015, le PND 2016-2020 et le PND 2021-2025. Le PND 2026-2030, qui doit prendre la suite, était encore en cours d'élaboration début 2026 et n'était pas adopté à cette date. En attendant son adoption, ce sont les orientations et les projets inscrits au Document de programmation pluriannuelle des dépenses et projets annuels de performance 2025-2027 qui servent de cadre de résultats pour le service universel des télécommunications. Le PND 2026-2030 est aussi le cadre général auquel se rattache la feuille de route 2026-2028 du Ministère de la Transition Numérique. Le contenu chiffré du PND 2026-2030 n'est pas disponible.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "cadre national de planification",
+   "source": "PND"
+  }
+ },
+ {
+  "id": "pnd-02",
+  "title": "Les résultats économiques de la Côte d'Ivoire sur la période 2021-2024",
+  "content": "Sur la période 2021-2024, la croissance économique annuelle moyenne de la Côte d'Ivoire s'est établie à 6,5 %, avec une inflation contenue autour de 4,3 % en moyenne. Les secteurs secondaire et tertiaire ont porté cette croissance, en y contribuant respectivement à hauteur de 10,4 % et 4,8 %. Le taux d'investissement rapporté à la richesse nationale est passé de 14,1 % en 2011 à 23,1 % en 2024. La pauvreté a reculé : elle touchait 55,4 % de la population en 2011 et 37,5 % en 2021. Le taux combiné de chômage, de sous-emploi et de main-d'œuvre potentielle est passé de 26,1 % en 2016 à 21,3 % en 2019. Ces chiffres sont ceux du bilan des Plans Nationaux de Développement successifs.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "économie et pauvreté",
+   "source": "PND"
+  }
+ },
+ {
+  "id": "rgph-01",
+  "title": "Le recensement de 2021, source officielle de la population des localités",
+  "content": "Le Recensement Général de la Population et de l'Habitat de 2021, conduit par l'Institut National de la Statistique (ANStat), est la source officielle du nombre d'habitants de chaque localité de Côte d'Ivoire. Il succède au recensement de 2014. Le référentiel des localités issu du RGPH 2021, une fois apuré par l'ANStat, compte 8 757 localités validées : chacune y figure avec un nom harmonisé, un code officiel, son rattachement administratif (région, département, sous-préfecture), des coordonnées GPS contrôlées et sa population recensée en 2021. C'est ce référentiel, et lui seul, qui sert de base commune à l'ANSUT et à l'ARTCI pour dénombrer les localités et leurs habitants. L'ANStat tient par ailleurs à jour la liste officielle des campements, dont la version 2025 a été transmise à l'ANSUT.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "recensement et référentiel des localités",
+   "source": "RGPH"
+  }
+ },
+ {
+  "id": "rgph-02",
+  "title": "Ce que l'ANStat mesure de la fracture numérique entre villes et campagnes",
+  "content": "L'enquête de l'Institut National de la Statistique sur l'accès et l'utilisation des technologies de l'information par les ménages, publiée en mars 2024, met en évidence un écart net entre villes et campagnes : en zone rurale, seuls 29,4 % des ménages disposent d'un accès à internet. L'accès aux services associés, comme le mobile money, y est également très limité. L'ANStat relève aussi que la population ivoirienne est majoritairement jeune, 77 % des habitants ayant moins de 35 ans, ce qui favorise une adoption rapide des outils numériques dès lors que l'accès est disponible. Ces constats fondent la priorité donnée aux zones rurales dans les programmes de service universel des télécommunications.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "accès des ménages au numérique",
+   "source": "RGPH"
+  }
+ }
+]
