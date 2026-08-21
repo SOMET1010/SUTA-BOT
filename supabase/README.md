@@ -256,7 +256,15 @@ le moyen de vérifier qu'un lot annoncé interne l'est bien.
 
 ## État du corpus
 
-Au 21 août 2026 : **10 057 fragments, 25 sources**, tous vectorisés.
+Au 21 août 2026 : **10 063 fragments, 26 sources**, tous vectorisés.
+
+Les bases Lovable comblent une partie des trous de l'observatoire, et le
+corpus le sait désormais : les déclarations de couverture des trois opérateurs
+(8 520 localités, technologie par technologie — fiches internes, la doctrine
+restant que l'AIGF fait foi pour l'état présent), le fait que leurs colonnes de
+prévision 2025-2029 sont revenues **vides** (personne ne peut dire « quand ton
+village sera couvert » sur une source opérateur), et les organes vivants de la
+plateforme cartographique — tests de débit, signalements, synchronisations.
 
 L'essentiel du nombre vient de l'observatoire (9 286 fiches : une par localité,
 une par site) ; l'essentiel du sens vient des documents de la direction et des
