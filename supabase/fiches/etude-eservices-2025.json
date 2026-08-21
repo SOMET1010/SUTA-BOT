@@ -1,0 +1,282 @@
+[
+ {
+  "id": "eservices-2025-01",
+  "title": "Ce qu'est un e-service public",
+  "content": "Un e-service, ou service électronique, c'est une démarche administrative que l'on peut faire à l'aide d'un outil numérique : un site internet, une application sur le téléphone, ou même un simple code composé sur le clavier du mobile. Trois éléments le composent toujours : celui qui rend le service, c'est-à-dire l'administration ; le canal par lequel il passe, le plus souvent internet ; et celui qui reçoit le service, c'est-à-dire vous, citoyen, ou une entreprise. Concrètement, demander un extrait d'acte de naissance, payer une taxe, s'inscrire à un concours ou suivre l'avancement de sa carte d'identité sans se déplacer, ce sont des e-services. C'est la définition retenue par les travaux conduits pour le Ministère de la Transition Numérique et de la Digitalisation en 2025, dans le cadre du Projet d'Accélération Digitale en Côte d'Ivoire.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "definition"
+  }
+ },
+ {
+  "id": "eservices-2025-02",
+  "title": "Les cinq niveaux de services en ligne",
+  "content": "Tous les services en ligne ne vont pas aussi loin les uns que les autres. On en distingue cinq niveaux. Le service informationnel se contente de vous donner de l'information : un site qui publie des textes de loi ou des formulaires à télécharger. Le service interactionnel permet d'échanger, de poser une question et d'obtenir une réponse. Le service semi-transactionnel vous laisse commencer la démarche en ligne, mais il faut encore se déplacer pour la terminer. Le service transactionnel permet de tout faire à distance, du début à la fin, paiement compris. Enfin, le service intégré met plusieurs administrations en relation dans un même guichet, pour que le citoyen n'ait à s'adresser qu'à un seul endroit. Cette échelle sert de repère à la Côte d'Ivoire depuis les travaux de cartographie menés en 2025.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "definition"
+  }
+ },
+ {
+  "id": "eservices-2025-03",
+  "title": "Le recensement national des services publics en ligne",
+  "content": "Entre décembre 2024 et juin 2025, un recensement complet des services publics en ligne a été mené pour le compte du Ministère de la Transition Numérique et de la Digitalisation, dans le cadre du Projet d'Accélération Digitale en Côte d'Ivoire, avec l'appui de la Banque Mondiale. Au total, 147 entités publiques ont été enquêtées : 33 ministères, 17 institutions, 10 autorités administratives indépendantes, 2 unions d'associations de collectivités territoriales et 85 structures sous tutelle. Les entretiens de collecte se sont déroulés du 6 janvier au 14 février 2025, après un atelier d'information tenu le 19 décembre 2024 à l'immeuble Postel 2001 au Plateau. L'objectif était de savoir exactement quels services numériques l'État propose déjà aux citoyens, lesquels sont en projet, et ce qu'il faut améliorer.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "methode"
+  }
+ },
+ {
+  "id": "eservices-2025-04",
+  "title": "237 services publics en ligne recensés",
+  "content": "La Côte d'Ivoire compte 237 services publics en ligne recensés au premier semestre 2025, répartis dans 34 domaines d'activité différents. Neuf de ces domaines proposent au moins dix services chacun : l'éducation, les transports, les services financiers et bancaires publics, le juridique et judiciaire, l'énergie et les ressources minières, la gouvernance et le contrôle administratif, l'industrie et le commerce, l'emploi et la formation professionnelle, et la santé. L'éducation arrive en tête avec 20 services, les transports suivent avec 18, et le secteur bancaire et financier public en compte 16. À l'inverse, l'environnement, la défense et le domaine électoral en comptent très peu. Une quarantaine d'autres services étaient encore à l'état de projet à cette date, parmi lesquels e-foncier pour les questions de terrain et e-Grenier pour la vente des produits vivriers.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "panorama"
+  }
+ },
+ {
+  "id": "eservices-2025-05",
+  "title": "La plupart des services en ligne se limitent à informer",
+  "content": "Sur les 237 services publics en ligne recensés en 2025, la majorité ne fait encore qu'informer. Les services purement informationnels représentent 43,88 pour cent de l'ensemble, soit 104 services. Viennent ensuite les services interactionnels, qui permettent un échange, avec 20,68 pour cent soit 49 services ; les services transactionnels, où l'on peut tout faire en ligne y compris payer, avec 20,25 pour cent soit 48 services ; et les services semi-transactionnels, qu'il faut terminer en se déplaçant, avec 13,92 pour cent soit 33 services. Les services véritablement intégrés, ceux qui relient plusieurs administrations entre elles, ne sont que trois, soit 1,27 pour cent. Autrement dit, la Côte d'Ivoire a beaucoup de services en ligne, mais encore peu de démarches que l'on peut boucler entièrement à distance.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "panorama"
+  }
+ },
+ {
+  "id": "eservices-2025-06",
+  "title": "Les six secteurs prioritaires de la numérisation",
+  "content": "Six secteurs ont été désignés comme prioritaires pour la numérisation des démarches administratives en Côte d'Ivoire : l'administration publique, l'éducation, la santé, l'état civil, la justice et l'agriculture. Ce choix a été arrêté en accord avec le Projet d'Accélération Digitale en Côte d'Ivoire et la Banque Mondiale, dans le cadre des travaux conduits pour le Ministère de la Transition Numérique et de la Digitalisation en 2025. Trois autres domaines, sans figurer dans cette liste, ont été examinés en raison de leur poids dans la vie quotidienne des habitants : les transports, les finances publiques et la fiscalité. Ce sont donc ces secteurs qui doivent recevoir en premier les efforts de dématérialisation, parce que ce sont ceux dont presque tous les citoyens ont besoin au moins une fois dans leur vie.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "secteurs"
+  }
+ },
+ {
+  "id": "eservices-2025-07",
+  "title": "Un taux de transformation numérique de 45 pour cent",
+  "content": "Au 30 juin 2025, le taux de transformation numérique des services publics ivoiriens est évalué à 45 pour cent au niveau global. Ce chiffre a été obtenu en donnant un poids égal à chacun des six secteurs prioritaires — administration publique, éducation, santé, état civil, justice et agriculture — puis en faisant la moyenne de leurs taux respectifs. Chaque taux sectoriel combine les résultats de la comparaison avec d'autres pays et ceux des tests menés directement sur les services en ligne. La lecture qu'en font les travaux conduits pour le Ministère de la Transition Numérique et de la Digitalisation est claire : la Côte d'Ivoire n'est pas encore un pays totalement dématérialisé, mais elle avance réellement. Il reste donc un peu plus de la moitié du chemin à parcourir.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "evaluation"
+  }
+ },
+ {
+  "id": "eservices-2025-08",
+  "title": "Le niveau de maturité de l'administration numérique ivoirienne",
+  "content": "Pour situer un pays dans sa transformation numérique, on utilise une échelle en cinq marches. La première, dite initiale, correspond à des efforts isolés et peu accessibles. La deuxième, le développement, voit apparaître les premiers programmes de services en ligne. La troisième, dite définie, structure les services et commence à organiser les données. La quatrième, dite gérée, fait circuler les données entre administrations et harmonise les procédures. La cinquième, optimisée, repose sur l'amélioration continue et l'innovation permanente. En juin 2025, les évaluations menées pour le Ministère de la Transition Numérique et de la Digitalisation situent la Côte d'Ivoire entre la deuxième et la troisième marche : une phase de transition, avec des avancées réelles mais encore des fragilités à corriger.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "evaluation"
+  }
+ },
+ {
+  "id": "eservices-2025-09",
+  "title": "La Côte d'Ivoire au classement mondial de l'administration en ligne",
+  "content": "Les Nations Unies publient chaque année un indice qui mesure le développement de l'administration en ligne dans chaque pays, sur une échelle de zéro à un. Pour l'année 2024, la Côte d'Ivoire obtient 0,5587. C'est supérieur à la moyenne du continent africain, qui est de 0,4247, et nettement supérieur à la moyenne de l'Afrique de l'Ouest, qui est de 0,3957. La moyenne mondiale, elle, s'établit à 0,6382. La Côte d'Ivoire se situe donc au-dessus de ses voisins immédiats, mais encore en dessous de la moyenne mondiale. Cet indice combine trois éléments : la qualité des services en ligne, les infrastructures de télécommunications et le niveau d'éducation de la population.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "evaluation"
+  }
+ },
+ {
+  "id": "eservices-2025-10",
+  "title": "Les trois notes de la Côte d'Ivoire en 2024",
+  "content": "L'indice des Nations Unies sur l'administration en ligne se décompose en trois notes, chacune sur une échelle de zéro à un. Pour la Côte d'Ivoire en 2024 : les services en ligne obtiennent 0,5219, les infrastructures de télécommunications 0,6693, et le capital humain, c'est-à-dire le niveau d'alphabétisation et d'éducation, 0,4848. C'est donc sur les réseaux et les équipements que le pays est le mieux placé. En revanche, la qualité des services en ligne reste en dessous de la moyenne africaine, qui est de 0,67, et le capital humain se situe également sous la moyenne africaine, qui est de 0,55. Autrement dit, la Côte d'Ivoire a les tuyaux, mais doit encore développer ce qui passe dedans et former les gens qui s'en servent.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "evaluation"
+  }
+ },
+ {
+  "id": "eservices-2025-11",
+  "title": "Les pays observés pour inspirer la Côte d'Ivoire",
+  "content": "Pour savoir comment progresser, la Côte d'Ivoire a examiné en 2025 l'expérience de dix pays : l'Afrique du Sud, le Maroc, le Kenya, le Rwanda, le Sénégal, le Danemark, l'Estonie, la France, la Belgique et l'Inde. Le Kenya a créé eCitizen, un portail unique rassemblant des milliers de démarches venues de plus de cent ministères, comtés et agences. Le Rwanda a fait de même avec Irembo. Le Maroc centralise ses démarches sur le portail Idarati. Le Sénégal a ouvert un point d'entrée unique, l'Espace Service Sénégal, et héberge ses données dans un nuage national. Le Danemark, premier au classement mondial, s'appuie sur une identité électronique unique appelée MitID, valable aussi bien auprès de l'administration que des entreprises. L'Estonie, deuxième mondiale, fonctionne selon un modèle entièrement numérique. L'Inde s'appuie sur son identifiant national Aadhaar.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "benchmark"
+  }
+ },
+ {
+  "id": "eservices-2025-12",
+  "title": "Comment les services en ligne ivoiriens ont été testés",
+  "content": "Entre le 27 février et le 30 juin 2025, les services publics en ligne ivoiriens ont été soumis à une série de tests, dans le cadre des travaux menés pour le Ministère de la Transition Numérique et de la Digitalisation. Chaque service a été examiné sur cinq critères : la qualité, la facilité d'entretien du site, l'accessibilité, la facilité d'utilisation et la sécurité. Pour chaque question, une note de 1 à 5 est attribuée, 1 signifiant très insuffisant et 5 exemplaire ; la note d'un critère est la moyenne de ses questions, et la note finale du service la moyenne des cinq critères. Des outils reconnus ont été utilisés : Qualys SSL pour vérifier le chiffrement, WAVE pour l'accessibilité aux personnes handicapées, Google PageSpeed Insights pour la vitesse d'affichage, et OWASP ZAP pour rechercher les failles de sécurité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "methode"
+  }
+ },
+ {
+  "id": "eservices-2025-13",
+  "title": "Le cadre juridique ivoirien des services en ligne",
+  "content": "La Côte d'Ivoire dispose déjà d'un socle de lois pour les services publics en ligne. Trois textes de 2013 en forment la base : la loi du 19 juin 2013 sur la protection des données à caractère personnel, la loi du même jour sur la lutte contre la cybercriminalité, et la loi du 30 juillet 2013 sur les transactions électroniques, qui reconnaît la validité juridique d'un écrit sous forme électronique. S'y ajoutent la loi sur les communications électroniques et la loi d'orientation de la société de l'information. Enfin, l'ordonnance du 2 août 2017 encadre spécifiquement les échanges électroniques entre les usagers et les administrations, et entre les administrations elles-mêmes. Le pays dispose aussi d'institutions dédiées : l'ANSSI pour la sécurité des systèmes d'information, l'ARTCI pour la régulation des télécoms et la SNDI pour l'informatique de l'État.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "cadre-legal"
+  }
+ },
+ {
+  "id": "eservices-2025-14",
+  "title": "Les atouts de la Côte d'Ivoire pour la numérisation",
+  "content": "Plusieurs éléments jouent en faveur de la Côte d'Ivoire. La nouvelle carte nationale d'identité est une carte électronique équipée d'une puce, conçue pour permettre des opérations en ligne. Elle porte un Numéro National d'Identité, dont l'usage a été rendu obligatoire dans tous les actes de la vie civile par un décret du 22 mai 2019. La signature électronique a été officiellement lancée dans l'administration. Un portail intégré de démarches existe déjà, servicepublic point gouv point ci. Le Programme National de Développement 2021-2025 et la stratégie nationale du numérique fixent un cap. Le Programme National de Connectivité rurale étend le réseau. La population est jeune et à l'aise avec les outils numériques. Enfin, le pays bénéficie de l'appui de partenaires comme la Banque Mondiale. Ce bilan a été établi en 2025.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "swot"
+  }
+ },
+ {
+  "id": "eservices-2025-15",
+  "title": "Ce qui freine encore les démarches en ligne",
+  "content": "En 2025, plusieurs obstacles ralentissent encore la numérisation des démarches ivoiriennes. Il n'existe pas d'obligation générale pour les administrations de numériser leurs procédures : créer un service en ligne reste facultatif, alors qu'au Maroc la loi impose de le faire dans un délai de cinq ans. Il n'existe pas non plus de plan général de numérisation assorti d'un calendrier que toutes les administrations devraient suivre : chacune avance selon ses propres méthodes. Le portail d'accès unique aux services en ligne n'est pas encore effectif, faute de décret adopté. L'espace numérique de stockage personnel, une sorte de coffre-fort où le citoyen conserverait ses documents officiels, n'est pas généralisé. Enfin, le volet électronique de la nouvelle carte d'identité n'est pas encore exploité : on ne peut pas encore s'en servir pour faire des opérations en ligne.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "swot"
+  }
+ },
+ {
+  "id": "eservices-2025-16",
+  "title": "La fracture numérique, premier obstacle pour le citoyen",
+  "content": "Le principal frein à l'usage des démarches en ligne en Côte d'Ivoire n'est pas technique, il est humain. Une part importante de la population est analphabète, ce qui rend l'usage d'un service en ligne très difficile, voire impossible. C'est ce qu'on appelle l'illectronisme : ne pas savoir se servir des outils numériques. À cela s'ajoutent des écarts persistants d'accès à internet entre les villes et les campagnes, et un accès au très haut débit qui n'est pas encore une réalité sur tout le territoire. La note de la Côte d'Ivoire pour le capital humain, 0,4848 en 2024, reste inférieure à la moyenne africaine de 0,55. Les travaux conduits en 2025 pour le Ministère de la Transition Numérique et de la Digitalisation recommandent donc de développer des services accessibles par SMS ou par code USSD, utilisables sans connexion internet.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "inclusion"
+  }
+ },
+ {
+  "id": "eservices-2025-17",
+  "title": "Faire dialoguer les administrations entre elles",
+  "content": "Aujourd'hui, chaque administration ivoirienne gère ses propres fichiers de son côté, et ces fichiers ne se parlent pas. Résultat : le citoyen doit fournir plusieurs fois les mêmes papiers, et les mêmes informations sont enregistrées à plusieurs endroits. Faire communiquer les systèmes entre eux, c'est ce qu'on appelle l'interopérabilité. Les travaux conduits en 2025 pour le Ministère de la Transition Numérique et de la Digitalisation recommandent d'établir des règles techniques communes que toutes les administrations devraient respecter, de constituer des fichiers de référence partagés — un fichier unique des citoyens, un des entreprises, un des adresses — et de mettre en place des briques communes réutilisables : une identification unique valable partout, un système de paiement en ligne commun, une gestion partagée des identités numériques. Ainsi, un nouveau service pourrait être créé plus vite et coûterait moins cher.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "interoperabilite"
+  }
+ },
+ {
+  "id": "eservices-2025-18",
+  "title": "Recommandations sur les réseaux et les centres de données",
+  "content": "Pour que les démarches en ligne fonctionnent réellement, il faut d'abord des réseaux et des équipements solides. Les recommandations formulées en 2025 pour le Ministère de la Transition Numérique et de la Digitalisation portent sur quatre points. D'abord, étendre la fibre optique jusqu'au dernier kilomètre, notamment en zone rurale et périurbaine, élargir la couverture 4G et 5G, et multiplier les points d'accès Wi-Fi publics gratuits ou peu chers dans les gares, les marchés, les centres de santé, les écoles et les administrations. Ensuite, moderniser et sécuriser les centres de données nationaux, en visant au minimum le niveau Tiers III, et mutualiser ces infrastructures plutôt que de les dupliquer. Troisièmement, renforcer le centre national de surveillance de la cybersécurité et généraliser l'infrastructure nationale de certificats électroniques. Enfin, garantir une alimentation électrique stable, y compris par le solaire dans les zones isolées.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "recommandations"
+  }
+ },
+ {
+  "id": "eservices-2025-19",
+  "title": "Concevoir les services en pensant d'abord au téléphone",
+  "content": "En Côte d'Ivoire, la plupart des gens se connectent avec un téléphone, pas avec un ordinateur. Les recommandations formulées en 2025 pour le Ministère de la Transition Numérique et de la Digitalisation demandent donc que tout nouveau service public en ligne soit conçu d'abord pour le mobile. Elles demandent aussi de prévoir des versions utilisables sans internet, par SMS ou par code USSD, pour les personnes qui n'ont pas de connexion. Chaque service devrait être accompagné de guides simplifiés, de questions-réponses et de vidéos explicatives, et les usagers eux-mêmes devraient être associés à la conception et aux essais, par des panels ou des sondages, avant la mise en service. Enfin, la sécurité doit être pensée dès la conception du service, et non ajoutée après coup, avec des audits réguliers menés par des équipes indépendantes.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "recommandations"
+  }
+ },
+ {
+  "id": "eservices-2025-20",
+  "title": "Ce qui est recommandé pour l'état civil",
+  "content": "Pour l'état civil, quatre orientations ont été retenues en 2025 dans le cadre des travaux conduits pour le Ministère de la Transition Numérique et de la Digitalisation. D'abord, accélérer la numérisation et le classement des archives d'état civil, en donnant la priorité aux zones rurales, là où les registres papier sont les plus fragiles. Ensuite, permettre d'obtenir ses actes à distance par un portail national sécurisé, sans avoir à retourner dans sa commune de naissance. Troisièmement, créer une application permettant de vérifier qu'un document est authentique en scannant un code QR, ce qui protège contre les faux papiers. Il est également recommandé que le Numéro National d'Identité attribué par l'Office National de l'État Civil serve d'identifiant électronique unique pour accéder à l'ensemble des démarches en ligne, comme le fait le Danemark avec son système MitID.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "secteurs"
+  }
+ },
+ {
+  "id": "eservices-2025-21",
+  "title": "Ce qui est recommandé pour la santé",
+  "content": "Pour la santé, quatre orientations ont été retenues en 2025 dans le cadre des travaux conduits pour le Ministère de la Transition Numérique et de la Digitalisation. La première est d'étendre progressivement le dossier patient informatisé à l'ensemble des établissements de santé, en veillant à ce qu'il communique avec le système d'information hospitalier national : le dossier médical suit alors le patient d'un établissement à l'autre. La deuxième est de développer la téléconsultation et la télémédecine, en particulier pour les zones éloignées des centres de soins, et d'encadrer cette pratique par une réglementation. La troisième est de généraliser la prise de rendez-vous en ligne dans les établissements publics comme privés. La quatrième est de former les professionnels de santé à la gestion sécurisée des données médicales, qui sont parmi les informations les plus sensibles qui soient.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "secteurs"
+  }
+ },
+ {
+  "id": "eservices-2025-22",
+  "title": "Ce qui est recommandé pour la justice",
+  "content": "Pour la justice, quatre orientations ont été retenues en 2025 dans le cadre des travaux conduits pour le Ministère de la Transition Numérique et de la Digitalisation. La première est d'achever le déploiement de la plateforme e-Justice, pour que les demandes d'actes, les demandes d'audience et les extraits de casier judiciaire puissent être faits en ligne. La deuxième est de former les magistrats, les greffiers et les auxiliaires de justice aux outils numériques. La troisième est de dématérialiser les procédures et d'archiver les dossiers judiciaires sous forme électronique sécurisée. La quatrième est d'étudier la possibilité de tenir certaines audiences à distance, notamment en matière civile ou pour la médiation. À la mi-2025, plusieurs actes judiciaires n'étaient pas encore numérisés, notamment les décisions de justice, les actes d'individualité et les jugements supplétifs.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "secteurs"
+  }
+ },
+ {
+  "id": "eservices-2025-23",
+  "title": "Ce qui est recommandé pour l'agriculture",
+  "content": "Pour l'agriculture, cinq orientations ont été retenues en 2025 dans le cadre des travaux conduits pour le Ministère de la Transition Numérique et de la Digitalisation. La première est de renforcer les plateformes existantes, comme e-Anader et e-Grenier, pour diffuser en plusieurs langues des conseils techniques, des bulletins météo et des bonnes pratiques agricoles. La deuxième est de créer des applications mobiles permettant de gérer ses parcelles, de suivre ses rendements et d'être alerté en cas de maladie des cultures. La troisième est de mettre les producteurs directement en relation avec les acheteurs et les transporteurs, par des plateformes de mise en marché. La quatrième est de faciliter l'accès au microcrédit et à l'assurance agricole par des outils simplifiés. La cinquième est de former les organisations paysannes avec des supports audio et vidéo adaptés, plutôt que des documents écrits.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "secteurs"
+  }
+ },
+ {
+  "id": "eservices-2025-24",
+  "title": "Ce qui est recommandé pour l'éducation",
+  "content": "Pour l'éducation, quatre orientations ont été retenues en 2025 dans le cadre des travaux conduits pour le Ministère de la Transition Numérique et de la Digitalisation. La première est de créer une plateforme nationale unique de gestion scolaire et d'enseignement à distance, accessible depuis un téléphone. La deuxième est de renforcer les compétences numériques des enseignants par des formations certifiantes continues, portant sur les outils pédagogiques, la création de contenus interactifs et l'accompagnement des élèves. La troisième est de soutenir la production de contenus éducatifs numériques en langues locales, pour que l'école en ligne n'exclue personne. La quatrième est de faciliter l'accès aux bibliothèques et ressources documentaires numériques pour les étudiants et les chercheurs. L'éducation est le domaine qui compte déjà le plus de services publics en ligne en Côte d'Ivoire, avec 20 services recensés.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "secteurs"
+  }
+ },
+ {
+  "id": "eservices-2025-25",
+  "title": "Ce qui est recommandé pour l'administration publique",
+  "content": "Pour l'administration publique en général, cinq orientations ont été retenues en 2025 dans le cadre des travaux conduits pour le Ministère de la Transition Numérique et de la Digitalisation. La première est de dématérialiser en priorité les démarches les plus fréquentes, celles qui touchent le plus grand nombre de personnes. La deuxième est de numériser la procédure entière — la demande, le traitement et la remise du document — et non seulement son début. La troisième est de créer un véritable guichet unique numérique pour les entreprises, réunissant toutes les formalités de création, de gestion et de cessation d'activité. La quatrième est d'étendre le paiement en ligne à toutes les redevances administratives, en acceptant aussi bien le mobile money que les cartes bancaires. La cinquième est de donner à chaque citoyen un tableau de bord personnel où suivre en temps réel ses demandes, ses paiements et ses rendez-vous.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "secteurs"
+  }
+ },
+ {
+  "id": "eservices-2025-26",
+  "title": "Comment financer durablement les services publics en ligne",
+  "content": "Pour financer la numérisation sans peser uniquement sur le budget de l'État, plusieurs pistes ont été proposées en 2025 dans le cadre des travaux conduits pour le Ministère de la Transition Numérique et de la Digitalisation. Émettre des emprunts obligataires dédiés aux infrastructures numériques, comme l'a fait le Rwanda en janvier 2023 en levant 20 milliards de francs rwandais pour son réseau de fibre optique. Louer au secteur privé les capacités inutilisées des réseaux publics et des centres de données, sur le modèle sud-africain. Recourir à la location de logiciels plutôt qu'à l'achat, pour éviter les coûts initiaux élevés. Centraliser les achats informatiques de l'État afin d'éviter que plusieurs administrations paient deux fois la même chose. Maintenir et développer les fonds dédiés au service universel pour connecter les zones rurales. Et associer les universités ivoiriennes à la recherche et au développement.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "financement"
+  }
+ },
+ {
+  "id": "eservices-2025-27",
+  "title": "Ce que permet déjà le portail de l'état civil",
+  "content": "Le portail de l'Office National de l'État Civil rassemble plusieurs démarches utiles au quotidien. On peut s'y pré-enrôler pour une carte nationale d'identité ou une carte de résident par un service accéléré, en choisissant le lieu, la date et le mode de retrait, contre paiement. Ce service accéléré est ouvert à la diaspora en France, en Afrique du Sud, au Sénégal et en Italie, la suite des démarches se faisant au consulat. On peut aussi acheter en ligne le timbre électronique obligatoire pour la demande ou le renouvellement d'un titre d'identité, vérifier où en est la fabrication de sa carte, retrouver son numéro de demande si on l'a perdu, signaler une carte d'identité retrouvée, rechercher une carte perdue même sans connaître son numéro, ou donner procuration à quelqu'un pour retirer sa carte. Situation constatée au premier semestre 2025.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "services-citoyens"
+  }
+ },
+ {
+  "id": "eservices-2025-28",
+  "title": "Ce que permet déjà le service e-Justice",
+  "content": "Le service e-Justice permet de faire une demande d'acte judiciaire, de la payer en ligne, d'en suivre l'avancement et de déposer une réclamation, sans se déplacer. Au premier semestre 2025, il portait principalement sur deux documents : le certificat de nationalité et l'extrait de casier judiciaire numéro 3, que l'usager reçoit en version numérique. L'authenticité de ces documents est garantie par un cachet électronique visible et par l'application de vérification de l'Office National de l'État Civil, ce qui permet à un employeur ou à une administration de contrôler qu'un document n'est pas falsifié. Pour l'usager, le gain est un temps économisé et un suivi en direct de sa demande ; pour l'administration judiciaire, moins de déplacements et de guichets physiques. D'autres actes, comme les décisions de justice et les jugements supplétifs, n'étaient pas encore dématérialisés à cette date.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "services-citoyens"
+  }
+ }
+]
