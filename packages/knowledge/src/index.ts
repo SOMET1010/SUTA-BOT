@@ -6,9 +6,13 @@ export * from "./embeddings/factory";
 
 export * from "./ingestion/clean";
 export * from "./ingestion/chunk";
+export * from "./ingestion/derive-title";
 export * from "./ingestion/extract-text";
 export * from "./ingestion/ingest";
 export * from "./ingestion/ingest-directory";
+export * from "./ingestion/jsonl-corpus";
+export * from "./ingestion/ingest-jsonl";
 export * from "./ingestion/reindex";
 
+export * from "./retrieval/extract-location";
 export * from "./retrieval/search";

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { searchDocuments } from "@suta/knowledge";
+import type { SearchResultLocation } from "@suta/knowledge";
 import type { ToolDefinition } from "./types";
 
 /**
@@ -24,11 +25,15 @@ export const searchKnowledgeInputSchema = z.object({
 
 export type SearchKnowledgeInput = z.infer<typeof searchKnowledgeInputSchema>;
 
+export type SearchKnowledgeResultLocation = SearchResultLocation;
+
 export interface SearchKnowledgeResult {
   title: string;
   content: string;
   source: string;
   score: number;
+  /** Coordonnées géographiques, quand le fragment en porte (cartographie). */
+  location?: SearchKnowledgeResultLocation;
 }
 
 export interface SearchKnowledgeOutput {

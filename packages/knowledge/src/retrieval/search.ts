@@ -1,6 +1,7 @@
 import { findSimilarChunks } from "@suta/database";
 import { createEmbeddingsProvider } from "../embeddings/factory";
 import type { EmbeddingsProvider } from "../embeddings/types";
+import { extractLocation, type SearchResultLocation } from "./extract-location";
 
 /**
  * Recherche documentaire sémantique (cahier des charges, sections 16-17).
@@ -15,12 +16,20 @@ export interface SearchDocumentsOptions {
   embeddingsProvider?: EmbeddingsProvider;
 }
 
+export type { SearchResultLocation };
+
 export interface SearchResult {
   title: string;
   content: string;
   source: string;
   /** Score de pertinence dans [0, 1], 1 = correspondance la plus forte. */
   score: number;
+  /**
+   * Coordonnées géographiques, quand le fragment en porte (ex. corpus
+   * observatoire ANSUT — villages/localités). Absent pour les documents
+   * sans dimension géographique : jamais de coordonnée inventée.
+   */
+  location?: SearchResultLocation;
 }
 
 export interface SearchDocumentsResponse {
@@ -61,6 +70,7 @@ export async function searchDocuments(
       content: chunk.content,
       source: chunk.section ? `${chunk.documentTitle} — ${chunk.section}` : chunk.documentTitle,
       score: distanceToScore(chunk.distance),
+      location: extractLocation(chunk.metadata, chunk.documentTitle),
     })),
   };
 }
