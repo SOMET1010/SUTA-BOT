@@ -5,6 +5,7 @@ import { SutaFooter } from "@/components/layout/SutaFooter";
 import { SutaHeader } from "@/components/layout/SutaHeader";
 import { SourceDrawer } from "@/components/suta/SourceDrawer";
 import { SuggestionGrid } from "@/components/suta/SuggestionGrid";
+import { SutaVisualPanel } from "@/components/suta/SutaVisualPanel";
 import { SutaVoiceExperience } from "@/components/suta/SutaVoiceExperience";
 import { getEventConfig } from "@/lib/event-config";
 import { useIdleReset } from "@/lib/use-idle-reset";
@@ -14,7 +15,11 @@ import { useSutaConversation } from "@/lib/suta/useSutaConversation";
 /**
  * Écran principal SUTA (cahier des charges, section 22) — thème clair
  * ANSUT, disposition 3 colonnes sur grand écran (suggestions / expérience
- * vocale / sources) conçue pour un affichage Salon en 1920×1080.
+ * vocale / écran d'appui) conçue pour un affichage Salon en 1920×1080.
+ *
+ * La colonne de droite porte ce que SUTA montre pendant qu'il parle : la
+ * carte du lieu évoqué, puis les sources. Elle est plus large que celle des
+ * suggestions — une carte doit se lire de loin, une liste de questions non.
  *
  * Toute l'orchestration (état de conversation, flux WebRTC live vs repli
  * simulé) vit dans `useSutaConversation` — ce composant n'affiche que son
@@ -24,7 +29,7 @@ export default function Home() {
   const kiosk = useKioskMode();
   const event = getEventConfig();
   const controller = useSutaConversation();
-  const { state, messages, isLive, sendText, reset } = controller;
+  const { state, messages, isLive, visual, sendText, reset } = controller;
 
   useIdleReset(kiosk, reset);
 
@@ -35,7 +40,7 @@ export default function Home() {
     <div className="flex flex-1 flex-col bg-ansut-background">
       <SutaHeader kiosk={kiosk} />
 
-      <main className="mx-auto grid w-full flex-1 grid-cols-1 grid-rows-[1fr] gap-6 px-6 py-8 lg:max-w-7xl lg:grid-cols-[280px_1fr_280px] lg:px-10">
+      <main className="mx-auto grid w-full flex-1 grid-cols-1 grid-rows-[1fr] gap-6 px-6 py-8 lg:max-w-7xl lg:grid-cols-[240px_1fr_420px] lg:px-10">
         <div className="hidden lg:flex lg:flex-col lg:justify-center">
           <SuggestionGrid
             questions={DEMO_QUESTIONS}
@@ -46,7 +51,10 @@ export default function Home() {
 
         <SutaVoiceExperience controller={controller} event={event} />
 
-        <div className="hidden lg:flex lg:flex-col lg:justify-center">
+        <div className="hidden min-h-0 lg:flex lg:flex-col lg:gap-4">
+          <div className="min-h-0 flex-1">
+            <SutaVisualPanel visual={visual} />
+          </div>
           <SourceDrawer sources={lastSutaMessage?.sources} />
         </div>
 
@@ -56,6 +64,9 @@ export default function Home() {
             onSelect={(question) => void sendText(question)}
             disabled={isBusy || isLive}
           />
+          <div className="h-64">
+            <SutaVisualPanel visual={visual} />
+          </div>
           <SourceDrawer sources={lastSutaMessage?.sources} />
         </div>
       </main>

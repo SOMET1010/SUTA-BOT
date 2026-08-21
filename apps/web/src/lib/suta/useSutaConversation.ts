@@ -4,6 +4,7 @@ import { useCallback, useRef, useState, type RefObject } from "react";
 import type { ConversationState } from "@suta/shared";
 import { getIdentityResponse } from "@/lib/identity-response";
 import { useRealtimeSession } from "@/lib/realtime/useRealtimeSession";
+import { visualFromSearchResults, type SutaVisual, type VisualPoint } from "@/lib/suta/visuals";
 
 const NO_INFO_ANSWER =
   "Je n'ai pas encore suffisamment d'informations fiables dans ma base pour répondre à cette question.";
@@ -28,6 +29,8 @@ interface SearchResult {
   content: string;
   source: string;
   score: number;
+  /** Présent seulement si le fragment porte de vraies coordonnées. */
+  location?: VisualPoint;
 }
 
 /**
@@ -45,6 +48,11 @@ export interface SutaConversationController {
   stopListening: () => Promise<void>;
   interrupt: () => Promise<void>;
   sendText: (message: string) => Promise<void>;
+  /**
+   * Écran affiché à côté de la parole de SUTA — carte du lieu évoqué, le
+   * cas échéant. `null` quand la réponse n'a pas de dimension visuelle.
+   */
+  visual: SutaVisual | null;
   /** Efface la conversation et termine toute session active (reset kiosque). */
   reset: () => void;
 }
@@ -53,6 +61,7 @@ export function useSutaConversation(): SutaConversationController {
   const [state, setState] = useState<ConversationState>("IDLE");
   const [messages, setMessages] = useState<TranscriptMessage[]>([]);
   const [isLive, setIsLive] = useState(false);
+  const [visual, setVisual] = useState<SutaVisual | null>(null);
 
   const timeouts = useRef<ReturnType<typeof setTimeout>[]>([]);
   const expectedDisconnect = useRef(false);
@@ -114,6 +123,7 @@ export function useSutaConversation(): SutaConversationController {
             top.content.length > ANSWER_PREVIEW_MAX_CHARS
               ? `${top.content.slice(0, ANSWER_PREVIEW_MAX_CHARS).trim()}…`
               : top.content;
+          setVisual(visualFromSearchResults(results));
           respond(
             answer,
             results.map((r) => ({ title: r.title, source: r.source })),
@@ -212,10 +222,12 @@ export function useSutaConversation(): SutaConversationController {
             "results" in result
           ) {
             setState("SEARCHING");
-            pendingSources.current = (result as { results: SearchResult[] }).results.map((r) => ({
-              title: r.title,
-              source: r.source,
-            }));
+            const found = (result as { results: SearchResult[] }).results;
+            pendingSources.current = found.map((r) => ({ title: r.title, source: r.source }));
+            // L'écran se met à jour dès la recherche, avant que SUTA ne
+            // commence à parler : la carte accompagne la réponse au lieu de
+            // la suivre.
+            setVisual(visualFromSearchResults(found));
           }
         },
         onError: (message) => {
@@ -292,7 +304,18 @@ export function useSutaConversation(): SutaConversationController {
     setIsLive(false);
     setState("IDLE");
     setMessages([]);
+    setVisual(null);
   }, [clearTimeouts, isLive, realtime]);
 
-  return { state, messages, isLive, startListening, stopListening, interrupt, sendText, reset };
+  return {
+    state,
+    messages,
+    isLive,
+    visual,
+    startListening,
+    stopListening,
+    interrupt,
+    sendText,
+    reset,
+  };
 }
