@@ -8,7 +8,17 @@ import { listDocumentsForAdmin } from "@/lib/admin-documents";
 
 const MAX_UPLOAD_BYTES = 10 * 1024 * 1024; // 10 Mo
 const ADMIN_SOURCE_ID = "admin-upload";
-const SUPPORTED_EXTENSIONS = [".pdf", ".docx", ".txt", ".md", ".markdown"];
+const SUPPORTED_EXTENSIONS = [
+  ".pdf",
+  ".docx",
+  ".txt",
+  ".md",
+  ".markdown",
+  // Tableurs : format usuel des fichiers transmis par les directions métier.
+  ".xlsx",
+  ".xls",
+  ".csv",
+];
 
 export async function GET() {
   if (!(await hasValidAdminSession())) {

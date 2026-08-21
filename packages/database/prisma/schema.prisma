@@ -44,6 +44,10 @@ enum SourceType {
   TXT
   MARKDOWN
   MANUAL
+  // Tableurs (Excel, CSV) : format usuel des fichiers transmis par les
+  // directions métier. Chaque ligne est rendue auto-descriptive à
+  // l'ingestion (voir packages/knowledge/src/ingestion/spreadsheet.ts).
+  SPREADSHEET
 }
 
 enum DocumentStatus {
