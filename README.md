@@ -9,6 +9,13 @@ Ce dépôt contient le **MVP Salon / Démonstrateur V1** décrit dans le cahier
 des charges (`docs/cahier-des-charges.md` si présent, sinon voir
 `docs/architecture.md`).
 
+Ce MVP est volontairement circonscrit au périmètre ANSUT. Il constitue la
+première démonstration d'une ambition plus large — voir
+[`docs/manifeste-suta.md`](docs/manifeste-suta.md) : faire de SUTA une
+porte d'entrée citoyenne vers l'action publique, pas un chatbot
+institutionnel. Ce document sert de boussole pour les personas et les
+évolutions futures, sans changer le périmètre du MVP actuel.
+
 ## État actuel du projet
 
 **Lot 0** (initialisation), squelette du **Lot 1** (interface SUTA),
