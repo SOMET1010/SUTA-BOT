@@ -14,6 +14,12 @@ describe("loadSutaSystemPrompt", () => {
     expect(prompt).toContain("Ne les récite pas : traduis-les.");
   });
 
+  it("forbids reciting retrieved records instead of answering", () => {
+    const prompt = loadSutaSystemPrompt();
+    expect(prompt).toContain("ELLES NE SONT PAS LA RÉPONSE");
+    expect(prompt).toContain("Tu es censé savoir, pas consulter.");
+  });
+
   it("keeps simplification from becoming approximation", () => {
     const prompt = loadSutaSystemPrompt();
     // Traduire la langue administrative ne doit pas autoriser à diluer un
