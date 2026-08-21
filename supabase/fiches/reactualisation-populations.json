@@ -1,0 +1,24 @@
+[
+  {
+    "id": "reactualisation-01",
+    "title": "Les localités dont la population datait encore de 2014",
+    "content": "Une partie du référentiel vivait sur des chiffres périmés. Un fichier remis par l'Institut national de la statistique le 30 avril 2026 rassemble les localités dont la population n'avait pas été mise à jour depuis le recensement de 2014 et demande de la retrouver dans celui de 2021. Le fichier compte 487 lignes et porte ses propres totaux : ces localités représentaient 245 468 habitants en 2014, elles en comptent 376 518 en 2021. Soit 131 050 habitants de plus, une hausse de 53 % en sept ans. Le message qui accompagne le fichier parle de 473 localités là où le tableau en aligne 487 ; l'écart n'est pas expliqué. Ce que ce travail montre surtout, c'est ce qu'aurait donné un calcul mené sur les anciens chiffres : des localités jugées trop petites pour justifier une antenne alors qu'elles avaient largement dépassé le seuil.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "réactualisation des populations au RGPH 2021",
+      "source": "fichier ANStat du 30 avril 2026"
+    }
+  },
+  {
+    "id": "reactualisation-02",
+    "title": "Pourquoi une population peut manquer dans un recensement",
+    "content": "Retrouver la population d'une localité en 2021 n'est pas toujours possible, et les raisons sont instructives. Certaines localités n'ont tout simplement pas été collectées en 2021 et ne figurent pas au fichier de l'administration du territoire. D'autres ont bien été collectées, mais sous un autre statut : comptées comme campement, ou comme quartier d'une localité plus grande, ce qui les fait disparaître en tant que telles. D'autres encore ont changé d'orthographe entre les deux sources et ne se retrouvent que par recherche manuelle. Un cas isolé résume le problème : une localité du département de Kong a été relevée lors de la cartographie mais pas lors du dénombrement, et sa population est donc enregistrée à zéro habitant — ce qui ne veut pas dire qu'elle est vide. Chacun de ces cas est annoté dans le fichier, ce qui permet de savoir pourquoi un chiffre manque plutôt que de le traiter comme une absence de population.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "réactualisation des populations au RGPH 2021",
+      "source": "fichier ANStat du 30 avril 2026"
+    }
+  }
+]
