@@ -1,0 +1,13 @@
+[
+  {
+    "id": "obs-vivant-01",
+    "title": "L'observatoire a déjà ses organes vivants, encore jeunes",
+    "content": "L'observatoire du service universel n'est pas qu'un empilement de fichiers : la plateforme cartographique de l'ANSUT porte déjà les organes d'un système vivant. Un module de tests de débit permet à quiconque de mesurer sa connexion réelle, position et latence comprises ; les premières mesures sont enregistrées. Un module de signalement permet aux citoyens de déclarer un problème de réseau à un endroit précis ; les premiers signalements sont arrivés. Des tâches de synchronisation automatiques rafraîchissent les données — vingt-sept exécutions au compteur. Et une table de couverture par opérateur et par technologie décrit 518 localités. Ces organes sont jeunes : quelques mesures, une poignée de signalements. Mais la différence entre une étude et un observatoire est exactement là : l'étude photographie une fois, l'observatoire continue de regarder. Le dispositif pour continuer de regarder existe ; il attend que les usages le remplissent.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "le dispositif d'observation",
+      "source": "plateforme cartographique ANSUT Connect"
+    }
+  }
+]
