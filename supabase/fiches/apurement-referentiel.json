@@ -1,0 +1,57 @@
+[
+  {
+    "id": "apurement-01",
+    "title": "Comment le référentiel des localités a été mis au propre",
+    "content": "Le chiffre de 8 757 localités n'est pas sorti d'un fichier tel quel : il est le résultat d'un travail d'apurement mené entre le 15 et le 30 avril 2026 par l'ANSUT, l'ARTCI et l'Institut national de la statistique. Cinq défauts ont été traités. Des doublons d'abord : sur vingt cas suspects, sept étaient de vrais doublons, dus le plus souvent à une latitude et une longitude permutées ; huit étaient des homonymes rattachés à des sous-préfectures différentes, donc à conserver. Des populations périmées ensuite : 473 localités portaient encore leur population de 2014, l'Institut de la statistique les a réactualisées au recensement de 2021 et trois seulement sont restées sans chiffre. Des localités sans coordonnées, plus de quatre cents, pour lesquelles aucune distance ne peut être mesurée. Des campements absents du référentiel. Et des localités classées non couvertes alors qu'elles étaient desservies. Chaque correction a un auteur, une date et un fichier de contrôle.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "apurement du référentiel des localités",
+      "source": "travaux ANSUT x ARTCI x ANStat, avril-mai 2026"
+    }
+  },
+  {
+    "id": "apurement-02",
+    "title": "Deux façons de compter la couverture, toutes deux justes",
+    "content": "On peut lire dans les mêmes documents que la Côte d'Ivoire est couverte à 90,9 % et que 3 668 localités ne sont pas couvertes. Les deux sont vrais, parce qu'ils ne mesurent pas la même chose. La première lecture tient compte de la technologie : une antenne 2G porte loin, jusqu'à sept kilomètres, une antenne 3G environ cinq, une antenne 4G quatre. À ce compte, 7 958 localités sont couvertes et 799 ne le sont pas, soit 563 243 habitants. La seconde lecture applique un seuil unique et sévère de trois kilomètres, quelle que soit la technologie, parce que c'est la distance en deçà de laquelle un habitant capte réellement depuis chez lui. À ce compte, 3 668 localités restent sans antenne et 2 826 668 habitants avec elles. Le programme des zones blanches retient le seuil de trois kilomètres : il ne s'agit pas d'avoir du signal quelque part, mais d'avoir du réseau chez soi.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "apurement du référentiel des localités",
+      "source": "travaux ANSUT x ARTCI x ANStat, avril-mai 2026"
+    }
+  },
+  {
+    "id": "apurement-03",
+    "title": "Tiémé et Facobly : quand le point GPS ment",
+    "content": "Deux localités ont révélé une faille dans la méthode. Tiémé, dans le département d'Odienné, et Facobly, dans le Guémon, figuraient parmi les localités non couvertes ; or des vérifications de terrain ont établi qu'elles étaient bel et bien desservies. La cause a un nom : le biais de centroïde. Pour une commune un peu étendue, le point GPS officiel est le centre administratif, alors que les antennes sont installées dans les quartiers périphériques. Le centre tombe donc hors du rayon de trois kilomètres pendant que la localité, elle, capte. Le référentiel corrigé le montre encore : Facobly est aujourd'hui à 700 mètres d'un pylône, avec quatre pylônes dans les trois kilomètres, tandis que Tiémé reste mesurée à 3,31 kilomètres — trois cent dix mètres de trop pour franchir le seuil. Les localités de plus de dix mille habitants ont pour cette raison été retirées du périmètre rural, quatorze cas au total.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "apurement du référentiel des localités",
+      "source": "travaux ANSUT x ARTCI x ANStat, avril-mai 2026"
+    }
+  },
+  {
+    "id": "apurement-04",
+    "title": "Les campements, l'angle mort du référentiel",
+    "content": "Le référentiel de 8 757 localités ne contient pas les campements. Ce sont pourtant des lieux habités, souvent les plus éloignés d'une route et d'une antenne. L'Institut national de la statistique a livré le 4 mai 2026 la liste officielle des campements de 2025, à la demande expresse du groupe de travail, mais cette liste n'a pas encore été versée au référentiel commun. La conséquence est simple et il faut la dire : les 3 668 localités sans antenne à moins de trois kilomètres et les 2 826 668 habitants qu'elles représentent sont un plancher, pas un total. Intégrer les campements ne fera pas baisser ce nombre, il le fera monter. C'est d'ailleurs une des raisons pour lesquelles le nombre de lignes du référentiel a pu croître d'un recensement à l'autre, question que le groupe de travail a formellement posée à l'Institut de la statistique.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "apurement du référentiel des localités",
+      "source": "travaux ANSUT x ARTCI x ANStat, avril-mai 2026"
+    }
+  },
+  {
+    "id": "apurement-05",
+    "title": "Deux institutions, un même calcul, zéro écart",
+    "content": "La question qui décide de tout est de savoir si l'on peut faire confiance au référentiel. Elle a reçu une réponse vérifiable. L'ANSUT et l'ARTCI ont exécuté séparément, avec leurs propres outils, le même calcul de distance entre chacune des 8 757 localités et chacun des sites radioélectriques relevés sur le terrain. À trois kilomètres, les deux institutions trouvent 3 668 localités non couvertes. À quatre kilomètres, 2 571. À cinq kilomètres, 1 739. Aucun écart, à aucun seuil. Ce n'est pas une coïncidence mais la preuve que la base de départ, la formule employée et le périmètre des antennes sont identiques des deux côtés. Le rapport du groupe de travail technique en tire la conclusion qui compte : la convergence lève l'ambiguïté sur la qualité du référentiel. C'est ce qui permet aujourd'hui de discuter des priorités plutôt que des chiffres.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "apurement du référentiel des localités",
+      "source": "travaux ANSUT x ARTCI x ANStat, avril-mai 2026"
+    }
+  }
+]
