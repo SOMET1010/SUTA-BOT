@@ -1,0 +1,343 @@
+[
+ {
+  "id": "rgph2021-01",
+  "title": "Population totale de la Côte d'Ivoire",
+  "content": "Le recensement général de la population et de l'habitat de 2021 dénombre 29 389 150 habitants en Côte d'Ivoire, soit un peu plus de 29,4 millions de personnes. Ce comptage a été effectué au 14 décembre 2021 : c'est la photographie officielle du pays à cette date, et elle sert de référence depuis. Sur ces 29 389 150 habitants, on compte 15 344 990 hommes et 14 044 160 femmes. Ces deux nombres, additionnés, donnent exactement le total publié. Les hommes représentent donc 52,2 % de la population et les femmes 47,8 % — ces deux pourcentages sont des parts que j'ai calculées à partir des effectifs recensés. Nous sommes aujourd'hui en 2026 : ces chiffres ont cinq ans et la population réelle est aujourd'hui plus élevée.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "national",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-02",
+  "title": "Hommes et femmes au recensement de 2021",
+  "content": "Au recensement de 2021, la Côte d'Ivoire compte 15 344 990 hommes pour 14 044 160 femmes. Le recensement résume cet écart par un rapport de masculinité de 109. Cela veut dire très simplement ceci : pour 100 femmes vivant dans le pays, on compte 109 hommes. Il y a donc environ 1 300 830 hommes de plus que de femmes — un écart que j'ai calculé par soustraction. C'est un déséquilibre net à l'échelle d'un pays. Il s'explique surtout par les migrations de travail : les régions agricoles de l'ouest et du sud-ouest attirent depuis des décennies une main-d'œuvre très majoritairement masculine. Ce rapport varie beaucoup d'un territoire à l'autre, de 92 à 134 selon les départements.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "national",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-03",
+  "title": "Les ménages ivoiriens : combien, et de quelle taille",
+  "content": "Le recensement de 2021 compte 5 616 487 ménages en Côte d'Ivoire, pour 29 389 150 habitants. La taille moyenne d'un ménage est de 5,2 personnes. Autrement dit, un foyer ivoirien réunit en moyenne un peu plus de cinq personnes sous le même toit et à la même marmite. C'est une moyenne nationale : elle recouvre des situations très différentes, d'un peu moins de quatre personnes par ménage dans certains départements du nord-est à plus de dix dans le nord-ouest. Pour l'ANSUT, ce nombre de ménages compte autant que la population : c'est le ménage, et non la personne, qui souscrit un abonnement, installe un compteur ou raccorde un foyer à internet.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "menages",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-04",
+  "title": "Le découpage du pays tel que le recensement de 2021 le couvre",
+  "content": "Le recensement de 2021 publie ses résultats à quatre niveaux emboîtés. Le pays est découpé en 14 districts, dont 12 districts ordinaires et 2 districts autonomes, ceux d'Abidjan et de Yamoussoukro. Ces districts se subdivisent en 31 régions — les deux districts autonomes n'ayant pas de région. Viennent ensuite 111 départements, puis 519 sous-préfectures et communes, le niveau le plus fin publié. Ces quatre décomptes sont des dénombrements que j'ai effectués moi-même à partir des lignes du recensement. J'ai vérifié que le total des 14 districts et le total des 111 départements redonnent chacun exactement 29 389 150 habitants et 5 616 487 ménages, ce qui confirme que le découpage est complet et cohérent.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "methode",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-05",
+  "title": "Le district autonome d'Abidjan et son poids dans le pays",
+  "content": "Au recensement de 2021, le district autonome d'Abidjan compte 6 321 017 habitants : 3 210 983 hommes et 3 110 034 femmes, répartis en 1 414 136 ménages de 4,5 personnes en moyenne. C'est le territoire le plus peuplé de Côte d'Ivoire, et de très loin. Sa part dans la population du pays est de 21,5 % — une part que j'ai calculée : un peu plus d'un Ivoirien sur cinq vit dans le district d'Abidjan. Le reste du pays, soit 23 068 133 personnes, représente les 78,5 % restants. Le rapport de masculinité y est de 103, c'est-à-dire 103 hommes pour 100 femmes : Abidjan est beaucoup plus équilibrée que les régions agricoles de l'ouest.",
+  "visibility": "PUBLIC",
+  "region": "ABIDJAN",
+  "metadata": {
+   "theme": "districts",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-06",
+  "title": "La ville d'Abidjan et ses dix communes",
+  "content": "Le recensement de 2021 distingue, à l'intérieur du district autonome d'Abidjan, la ville elle-même et sa périphérie. La ville d'Abidjan, c'est-à-dire les dix communes, totalise 5 616 633 habitants et 1 261 750 ménages, avec une taille moyenne de 4,5 personnes par ménage. Les dix communes sont Abobo, Adjamé, Attécoubé, Cocody, Koumassi, Marcory, Plateau, Port-Bouët, Treichville et Yopougon. La couronne, faite de quatre sous-préfectures — Anyama, Bingerville, Brofodoumé et Songon — ajoute 704 384 habitants. J'ai vérifié l'addition : ces deux ensembles redonnent bien les 6 321 017 habitants du district.",
+  "visibility": "PUBLIC",
+  "region": "ABIDJAN",
+  "metadata": {
+   "theme": "villes",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-07",
+  "title": "Yopougon et Abobo, les deux communes les plus peuplées du pays",
+  "content": "Au recensement de 2021, Yopougon est la commune la plus peuplée de Côte d'Ivoire avec 1 571 065 habitants et 349 480 ménages. Abobo suit avec 1 340 083 habitants et 280 206 ménages. À elles deux, elles réunissent 2 911 148 personnes — une addition que j'ai faite — soit près de 10 % de la population du pays, et plus de la moitié des habitants de la ville d'Abidjan. Chacune de ces deux communes est, à elle seule, plus peuplée que n'importe quel département de l'intérieur du pays, Bouaké compris. Le rapport de masculinité y est de 103 dans les deux cas : à peu près autant d'hommes que de femmes.",
+  "visibility": "PUBLIC",
+  "region": "ABIDJAN",
+  "metadata": {
+   "theme": "villes",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-08",
+  "title": "Cocody, le territoire où les femmes sont les plus nombreuses",
+  "content": "Au recensement de 2021, Cocody compte 692 583 habitants, dont 330 016 hommes et 362 566 femmes. Son rapport de masculinité est de 91, c'est-à-dire 91 hommes pour 100 femmes. C'est le seul grand territoire ivoirien où les femmes l'emportent aussi nettement : elles y sont 32 550 de plus que les hommes, un écart que j'ai calculé. Cocody est aussi la commune d'Abidjan où les ménages sont les plus petits, avec 4,1 personnes en moyenne pour 169 438 ménages. Petits ménages et majorité féminine vont souvent de pair : ils traduisent des foyers urbains plus réduits, plus de personnes vivant seules, et une population moins marquée par la migration de travail masculine.",
+  "visibility": "PUBLIC",
+  "region": "COCODY",
+  "metadata": {
+   "theme": "villes",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-09",
+  "title": "Le district autonome de Yamoussoukro",
+  "content": "Au recensement de 2021, le district autonome de Yamoussoukro compte 422 072 habitants : 217 176 hommes et 204 897 femmes, pour 82 760 ménages de 5,1 personnes en moyenne. Son rapport de masculinité est de 106, soit 106 hommes pour 100 femmes. C'est le plus petit des 14 districts du pays par la population : il rassemble 1,4 % des Ivoiriens, une part que j'ai calculée. La capitale politique elle-même, la commune de Yamoussoukro, compte 340 234 habitants et 67 394 ménages. Le district se compose de deux départements, Yamoussoukro et Attiégouakro, ce dernier ne comptant que 49 513 habitants.",
+  "visibility": "PUBLIC",
+  "region": "YAMOUSSOUKRO",
+  "metadata": {
+   "theme": "districts",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-10",
+  "title": "Les quatre districts les plus peuplés de Côte d'Ivoire",
+  "content": "Au recensement de 2021, les districts les plus peuplés sont, dans l'ordre : Abidjan avec 6 321 017 habitants, les Montagnes avec 3 027 023, le Sassandra-Marahoué avec 2 720 876 et le Bas-Sassandra avec 2 687 176. Viennent ensuite les Savanes avec 2 159 434 habitants. Ce classement, ainsi que les parts qui suivent, sont des calculs que j'ai effectués à partir des totaux publiés pour chaque district. Ces cinq districts réunissent à eux seuls 57,6 % de la population du pays. On y lit une géographie simple : la métropole d'Abidjan d'un côté, et de l'autre la grande ceinture agricole de l'ouest et du sud-ouest, cacao, café et hévéa, qui a attiré des populations entières.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "districts",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-11",
+  "title": "Les districts de l'ouest, deuxième foyer de peuplement",
+  "content": "Au recensement de 2021, trois districts de l'ouest et du sud-ouest forment le deuxième foyer de peuplement du pays après Abidjan. Le district des Montagnes compte 3 027 023 habitants et 572 097 ménages ; le Sassandra-Marahoué 2 720 876 habitants et 464 807 ménages ; le Bas-Sassandra 2 687 176 habitants et 492 768 ménages. Ensemble, ils réunissent 8 435 075 personnes, soit 28,7 % de la population ivoirienne — addition et part que j'ai calculées. Leur rapport de masculinité est très élevé : 118 aux Montagnes, 116 au Bas-Sassandra, 113 au Sassandra-Marahoué. Autrement dit, jusqu'à 118 hommes pour 100 femmes, signe d'une immigration de travail agricole massive et majoritairement masculine.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "districts",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-12",
+  "title": "Les districts les moins peuplés du pays",
+  "content": "Au recensement de 2021, les districts les moins peuplés de Côte d'Ivoire sont le district autonome de Yamoussoukro avec 422 072 habitants, le Denguélé avec 436 015 habitants, le Woroba avec 1 184 813 et le Zanzan avec 1 344 865. Le Denguélé, à l'extrême nord-ouest, ne rassemble que 1,5 % de la population du pays pour 66 628 ménages — une part que j'ai calculée. C'est aussi le district où les ménages sont les plus grands du pays, avec 6,5 personnes en moyenne. Ces territoires du nord et du nord-ouest sont peu peuplés mais très étendus : la population y est dispersée en de nombreuses petites localités, ce qui rend la couverture en réseaux plus coûteuse par habitant.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "districts",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-13",
+  "title": "Les régions les plus peuplées de Côte d'Ivoire",
+  "content": "Le recensement de 2021 dénombre 31 régions, en dehors des deux districts autonomes d'Abidjan et de Yamoussoukro qui n'en comptent pas. La plus peuplée est le Haut-Sassandra, avec 1 739 697 habitants, soit 5,9 % de la population du pays. Suivent le Tonkpi avec 1 387 909 habitants, le Gbêkê avec 1 352 900, la Nawa avec 1 165 472, le Lôh-Djiboua avec 1 103 158, le San-Pédro avec 1 060 724 et le Poro avec 1 040 461. Ce sont les sept régions qui dépassent le million d'habitants. Le classement et les parts sont des calculs que j'ai effectués à partir des totaux publiés région par région.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "regions",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-14",
+  "title": "Les régions les moins peuplées de Côte d'Ivoire",
+  "content": "Au recensement de 2021, la région la moins peuplée de Côte d'Ivoire est le Folon, à l'extrême nord-ouest, avec 146 209 habitants seulement, soit un demi pour cent de la population du pays. Viennent ensuite le N'Zi avec 254 623 habitants, le Bafing avec 262 850 et le Kabadougou avec 289 806. Ces quatre régions réunies comptent 953 488 personnes, moins que la seule commune d'Abobo — une comparaison que j'ai calculée. Le Folon présente aussi les ménages les plus grands du pays, 7,9 personnes en moyenne pour 18 512 ménages. Peu d'habitants, de grands foyers, de longues distances : c'est exactement le profil des territoires que le service universel des télécommunications doit aller chercher.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "regions",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-15",
+  "title": "Les dix départements les plus peuplés",
+  "content": "Au recensement de 2021, le classement des territoires départementaux les plus peuplés place très largement en tête le district autonome d'Abidjan, avec 6 321 017 habitants. Viennent ensuite Bouaké avec 931 851 habitants, San Pédro avec 790 242, Korhogo avec 748 393, Gagnoa avec 724 496, Daloa avec 705 378, Soubré avec 587 441, Divo avec 571 688, Vavoua avec 477 154 et Man avec 461 135. Ces dix territoires rassemblent 41,9 % de la population ivoirienne. Le classement et cette part sont des calculs que j'ai effectués à partir des totaux publiés pour chacun des 111 départements.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "villes",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-16",
+  "title": "Bouaké, deuxième pôle du pays",
+  "content": "Au recensement de 2021, le département de Bouaké compte 931 851 habitants et 167 480 ménages, avec une taille moyenne de 5,6 personnes par ménage. La ville de Bouaké elle-même en rassemble 832 371. C'est le deuxième territoire le plus peuplé de Côte d'Ivoire après le district d'Abidjan, et la deuxième ville du pays. Son rapport de masculinité est de 108 pour le département et 109 pour la ville, c'est-à-dire un peu plus de 108 hommes pour 100 femmes. Bouaké reste toutefois près de sept fois moins peuplée que le district d'Abidjan — un ordre de grandeur que j'ai calculé, et qui dit à quel point le peuplement ivoirien est concentré sur une seule métropole.",
+  "visibility": "PUBLIC",
+  "region": "BOUAKE",
+  "metadata": {
+   "theme": "villes",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-17",
+  "title": "Les grands départements de l'intérieur",
+  "content": "Au recensement de 2021, plusieurs départements de l'intérieur dépassent les 700 000 habitants. San Pédro compte 790 242 habitants pour 150 351 ménages, Korhogo 748 393 habitants pour 133 984 ménages, Gagnoa 724 496 habitants pour 135 093 ménages, et Daloa 705 378 habitants pour 124 239 ménages. Les villes correspondantes sont bien plus petites que leurs départements : la commune de San-Pédro compte 390 654 habitants, celle de Korhogo 440 926, celle de Daloa 421 879 et celle de Gagnoa 277 044. L'écart entre le département et sa ville-centre mesure la population rurale environnante — et c'est précisément là que se joue la question de la couverture réseau.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "villes",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-18",
+  "title": "Les départements les moins peuplés",
+  "content": "Au recensement de 2021, le département le moins peuplé de Côte d'Ivoire est Samatiguila, dans le nord-ouest, avec 19 710 habitants et 3 298 ménages. Viennent ensuite Gbéléban avec 29 532 habitants, Kouassi-Kouassikro avec 30 962, Séguélon avec 33 585, Djékanou avec 37 281 et Attiégouakro avec 49 513. Ce sont les six départements qui comptent moins de cinquante mille habitants. Ce classement est un calcul que j'ai effectué sur les 111 départements. Pour donner l'échelle : la commune de Yopougon, à Abidjan, compte à elle seule quatre-vingts fois plus d'habitants que Samatiguila. La moitié des départements ivoiriens comptent moins de 156 698 habitants.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "villes",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-19",
+  "title": "Les grandes villes de Côte d'Ivoire hors Abidjan",
+  "content": "Au recensement de 2021, la plus grande ville du pays en dehors du district d'Abidjan est Bouaké, avec 832 371 habitants. Suivent Korhogo avec 440 926 habitants, Daloa avec 421 879, San-Pédro avec 390 654, Yamoussoukro avec 340 234, Divo avec 294 559, Gagnoa avec 277 044, Soubré avec 272 773, Man avec 241 969, Duékoué avec 220 953 et Bouaflé avec 213 967. Ces chiffres correspondent aux communes et sous-préfectures telles que le recensement les publie, et incluent donc une part de leurs environs immédiats. Le classement est un calcul que j'ai effectué sur les 519 sous-préfectures et communes recensées.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "villes",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-20",
+  "title": "Les plus petites localités administratives recensées",
+  "content": "Au recensement de 2021, le pays compte 519 sous-préfectures et communes. Les moins peuplées sont Toukouzou avec 2 935 habitants, Fagnampleu avec 3 149, Toumodi-Sakassou avec 4 041 et Gbangbégouiné avec 4 132. À l'autre bout, 52 sous-préfectures ou communes dépassent les cent mille habitants. J'ai compté que 48 d'entre elles, soit près d'une sur dix, abritent moins de dix mille habitants. Ces décomptes et ce classement sont des calculs que j'ai effectués. Cet écart, de moins de trois mille à plus d'un million et demi d'habitants entre la plus petite et la plus grande, explique pourquoi une politique de service universel ne peut pas traiter tous les territoires de la même façon.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "villes",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-21",
+  "title": "Là où les ménages sont les plus grands",
+  "content": "Au recensement de 2021, c'est dans le nord-ouest du pays que les foyers sont les plus nombreux sous un même toit. Le département de Kouto détient le record avec 10,4 personnes par ménage en moyenne, pour 175 587 habitants et 16 932 ménages. Suivent Kaniasso avec 9,9 personnes, Madinani avec 9,7, Téhini avec 8,7, Ouangolodougou avec 8,2 et Yakassé-Attobrou avec 8,0. Huit départements dépassent ainsi les sept personnes par ménage — un décompte que j'ai effectué. Concrètement, cela veut dire qu'un seul raccordement, un seul compteur ou un seul téléphone y sert souvent à huit ou dix personnes. Le nombre de foyers à desservir y est bien plus faible que le nombre d'habitants ne le laisserait croire.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "menages",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-22",
+  "title": "Là où les ménages sont les plus petits",
+  "content": "Au recensement de 2021, les ménages les plus petits de Côte d'Ivoire se trouvent dans le nord-est et sur le littoral. Bondoukou et Sandégué affichent 4,0 personnes par ménage, Tanda 4,3, Djékanou 4,2, Grand-Bassam et Jacqueville 4,4, Dimbokro et le district d'Abidjan 4,5. Le contraste avec le nord-ouest est frappant : à Bondoukou, 453 841 habitants forment 112 343 ménages, alors qu'à Kouto, 175 587 habitants n'en forment que 16 932. Autrement dit, Bondoukou compte deux fois et demie plus d'habitants que Kouto mais près de sept fois plus de foyers — une comparaison que j'ai calculée. Plus de foyers pour une même population, cela signifie plus d'abonnements, plus de compteurs et plus de points à raccorder.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "menages",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-23",
+  "title": "La taille des ménages région par région",
+  "content": "Au recensement de 2021, la taille moyenne d'un ménage varie du simple au double selon les régions. Le Folon arrive en tête avec 7,9 personnes par ménage, devant la Bagoué avec 7,5, puis La Mé et le Tchologo avec 6,7 et le Bounkani avec 6,4. À l'opposé, le Gontougo n'affiche que 4,4 personnes par ménage, devant les Grands Ponts et le Sud-Comoé avec 4,8 et l'Indénié-Djuablin avec 4,9. La moyenne nationale est de 5,2. Ce classement des 31 régions est un calcul que j'ai effectué à partir des tailles moyennes publiées. On lit là une vraie différence d'organisation familiale entre le nord-ouest, où l'on vit en grandes maisonnées, et le sud-est et le littoral, où les foyers sont plus resserrés.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "menages",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-24",
+  "title": "Pourquoi la taille des ménages compte pour l'accès aux services",
+  "content": "Au recensement de 2021, la Côte d'Ivoire compte 29 389 150 habitants mais seulement 5 616 487 ménages, soit 5,2 personnes par foyer en moyenne. Cette distinction est essentielle pour tout ce qui se raccorde à un logement : l'électricité, l'eau, la télévision, une connexion internet fixe. On ne raccorde pas des habitants, on raccorde des foyers. Là où les ménages comptent dix personnes, comme à Kouto, un seul point de service dessert dix personnes ; là où ils en comptent quatre, comme à Bondoukou, il en faut deux fois et demie plus pour le même nombre d'habitants. La taille des ménages change donc directement le nombre d'installations nécessaires et le coût de la desserte d'un territoire.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "menages",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-25",
+  "title": "Les territoires où les hommes sont nettement plus nombreux",
+  "content": "Au recensement de 2021, l'ouest de la Côte d'Ivoire présente les déséquilibres les plus marqués entre hommes et femmes. Le département de Toulepleu affiche un rapport de masculinité de 134, c'est-à-dire 134 hommes pour 100 femmes : 53 593 hommes contre 39 936 femmes. Bloléquin suit avec 132, puis Tabou et Bettié avec 122, Sassandra, Bongouanou et Guiglo avec 121. À l'échelle régionale, le Cavally atteint 126, devant le Gbôklé avec 119 et le Guémon avec 118. J'ai compté 27 départements où l'on dénombre au moins 115 hommes pour 100 femmes. Ces écarts sont la marque de l'immigration agricole : des hommes venus seuls travailler dans les plantations de cacao, de café et d'hévéa.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "demographie",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-26",
+  "title": "Les rares territoires où les femmes sont majoritaires",
+  "content": "Au recensement de 2021, les femmes sont majoritaires dans très peu de départements ivoiriens. J'ai compté quatre départements seulement où le rapport de masculinité descend sous 100 : Sinématiali avec 92, soit 92 hommes pour 100 femmes, Kouassi-Kouassikro avec 94, Didiévi avec 97 et Botro avec 99. À Sinématiali, on dénombre 36 016 hommes pour 38 965 femmes. À l'échelle des communes, Cocody se distingue nettement avec un rapport de 91. Ces territoires du centre et du nord sont des zones de départ : les hommes y partent travailler ailleurs, vers Abidjan ou vers les plantations de l'ouest, et les femmes restent. C'est l'exact miroir de ce que l'on observe dans le Cavally ou le Guémon.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "demographie",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-27",
+  "title": "Ce qu'est un rapport de masculinité",
+  "content": "Le rapport de masculinité est une façon simple de dire s'il y a plus d'hommes ou plus de femmes sur un territoire. On compte le nombre d'hommes pour 100 femmes. Un rapport de 100 signifie autant d'hommes que de femmes ; au-dessus de 100, les hommes sont plus nombreux ; en dessous, ce sont les femmes. Au recensement de 2021, la Côte d'Ivoire affiche un rapport de 109 : 109 hommes pour 100 femmes. Un rapport très élevé, comme les 134 de Toulepleu, signale presque toujours une zone qui attire des travailleurs venus seuls. Un rapport bas, comme les 92 de Sinématiali, signale au contraire une zone que les hommes quittent pour aller travailler ailleurs. C'est donc autant un indicateur de migration que de démographie.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "methode",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-28",
+  "title": "Ce qu'est un recensement général de la population",
+  "content": "Un recensement général de la population et de l'habitat, ou RGPH, est l'opération par laquelle un pays compte l'ensemble de ses habitants, un par un, à une date précise. Ce n'est pas un sondage : on n'interroge pas un échantillon, on cherche à dénombrer tout le monde, dans chaque village et chaque quartier. En Côte d'Ivoire, le recensement de 2021 a été mené par l'Institut national de la statistique et la population a été recensée au 14 décembre 2021. Il enregistre pour chaque territoire le nombre d'hommes, de femmes, d'habitants, de ménages et la taille moyenne de ces ménages. Un recensement n'a lieu que tous les dix à quinze ans : entre deux opérations, ses résultats restent la référence officielle unique.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "methode",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-29",
+  "title": "Le recensement de 2021, socle des travaux de l'ANSUT",
+  "content": "Tous les chiffres de population utilisés par l'ANSUT viennent du recensement général de la population de 2021. C'est de lui que proviennent les populations des 8 757 localités que l'Agence suit pour le service universel des télécommunications, et les populations des 111 départements du pays. Utiliser une source unique et officielle garantit que deux services de l'Agence parlent bien du même territoire avec le même chiffre. Deux précisions utiles. D'abord, ces données datent du 14 décembre 2021 : en 2026, elles ont cinq ans, et la population réelle a augmenté depuis. Ensuite, dans les tableaux publiés, l'addition des sous-totaux peut différer d'une unité du total imprimé : c'est un simple effet des arrondis de publication, sans conséquence.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "methode",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-30",
+  "title": "À quel point la population ivoirienne est concentrée",
+  "content": "Le recensement de 2021 montre une population très inégalement répartie. Le district d'Abidjan concentre à lui seul 21,5 % des Ivoiriens. Les cinq districts les plus peuplés en réunissent 57,6 %, et les dix territoires départementaux les plus peuplés 41,9 %. À l'inverse, les quatre régions les moins peuplées — Folon, N'Zi, Bafing et Kabadougou — n'en rassemblent que 3,2 % à elles quatre. Toutes ces parts sont des calculs que j'ai effectués à partir des totaux publiés. La moitié des 111 départements comptent moins de 156 698 habitants. Cette concentration est la donnée de base de toute politique d'aménagement : quelques territoires très denses, et un grand nombre de territoires peu peuplés mais étendus, où le marché seul n'amène pas les réseaux.",
+  "visibility": "PUBLIC",
+  "region": "CÔTE D'IVOIRE",
+  "metadata": {
+   "theme": "national",
+   "annee": "2021"
+  }
+ },
+ {
+  "id": "rgph2021-31",
+  "title": "Lire en 2026 des chiffres de 2021",
+  "content": "Les chiffres du recensement général de la population de 2021 restent aujourd'hui, en 2026, la référence officielle de la Côte d'Ivoire : aucun recensement plus récent ne les a remplacés. Il faut cependant les citer pour ce qu'ils sont, une photographie prise le 14 décembre 2021. La population réelle du pays est aujourd'hui supérieure aux 29 389 150 habitants alors dénombrés, et certaines communes en forte croissance ont beaucoup changé en cinq ans. La bonne façon d'en parler est donc toujours de dater le chiffre : « au recensement de 2021, tel département comptait tant d'habitants ». Les grands équilibres, eux — le poids d'Abidjan, la taille des ménages selon les régions, les déséquilibres entre hommes et femmes — restent parfaitement valables.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "methode",
+   "annee": "2021"
+  }
+ }
+]
