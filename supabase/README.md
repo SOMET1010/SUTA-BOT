@@ -256,7 +256,7 @@ le moyen de vérifier qu'un lot annoncé interne l'est bien.
 
 ## État du corpus
 
-Au 21 août 2026 : **9 903 fragments, 22 sources**, tous vectorisés.
+Au 21 août 2026 : **10 016 fragments, 23 sources**, tous vectorisés.
 
 L'essentiel du nombre vient de l'observatoire (9 286 fiches : une par localité,
 une par site) ; l'essentiel du sens vient des documents de la direction et des
@@ -265,7 +265,23 @@ son business plan, rapport du cabinet, rapports d'activité 2024 et 2025, plan
 de travail T1 2026, programme PASS, étude e-services, statistiques ARTCI du
 premier trimestre 2026, PND 2026-2030, RGPH 2021, décret constitutif et lois
 sur le numérique, feuille de route du ministère, base des 8 757 localités du
-Zone Prioritizer.
+Zone Prioritizer, relevé AIGF 2025 des 9 168 sites radioélectriques.
+
+Ce dernier appelle une précaution. Les coordonnées des sites sont complètes et
+fiables — c'est ce qui permet de calculer, pour chaque localité, la distance
+jusqu'à l'antenne la plus proche et l'opérateur à qui elle appartient. Les
+libellés administratifs du même fichier, eux, ne le sont pas : un département y
+apparaît sous plusieurs orthographes et des sites sont rattachés à une région
+qui n'est pas la leur. **Les regroupements géographiques se refont donc à partir
+des coordonnées, jamais des colonnes région et département.** Les totaux obtenus
+ainsi recoupent exactement ceux déjà établis — 5 089 localités couvertes à trois
+kilomètres, 3 668 non couvertes, 2 826 668 habitants, 434 sans coordonnées — ce
+qui vérifie le calcul de bout en bout.
+
+La technologie déclarée n'est pas exploitable non plus : Moov a rempli la fiche
+technique complète de ses sites, Orange et MTN le strict minimum. Le nombre de
+sites en 4G ne se lit pas dans ce fichier ; il vient des déclarations de
+couverture, qui sont un autre document.
 
 Trois écarts sont **inscrits dans le corpus plutôt qu'arbitrés**, parce que les
 sources se contredisent : le découpage des trois lots du programme rural
