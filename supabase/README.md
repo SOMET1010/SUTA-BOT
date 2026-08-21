@@ -76,3 +76,67 @@ from document_chunks;
 clé `anon` (publique). Une fois le corpus indexé, les supprimer (Dashboard →
 Edge Functions) ferme cette surface. Les réingestions ultérieures se font en
 les redéployant depuis ce dossier.
+
+## L'observatoire : reprise et synthèses
+
+`sync-observatoire` va chercher les données vivantes de l'observatoire ANSUT
+(projet `ansut-connect`) par son API REST publique, et les réécrit en fiches
+auto-descriptives. Elle se pilote de la même manière, table par table :
+
+```sql
+select post_edge('sync-observatoire', '{"table":"localites"}'::jsonb);
+select post_edge('sync-observatoire', '{"table":"scoring_villages"}'::jsonb);
+```
+
+La réponse porte `nextOffset` : tant qu'il n'est pas `null`, relancer avec
+`{"table":"…","offset":<nextOffset>}`. Les identifiants dérivant de ceux de
+l'observatoire, une reprise interrompue se poursuit sans doublon.
+
+Ces fiches décrivent chacune **un** site ou **un** village. Elles ne savent
+donc pas répondre à « où va le programme PU 2024-2025 ? » : une recherche
+sémantique compare des textes, elle n'additionne pas 477 fiches. C'est le rôle
+de `migrations/20260821150000_syntheses_observatoire.sql`, qui écrit les fiches
+que ces questions appellent — une par programme, une par type d'infrastructure,
+une par région, une pour le pays, totaux déjà calculés dans le texte même.
+
+**Le cycle de mise à jour complet**, quand l'observatoire évolue :
+
+1. `sync-observatoire` sur les deux tables, jusqu'à `done: true` ;
+2. rejouer `20260821150000_syntheses_observatoire.sql` ;
+3. `select post_edge('embed-chunks', '{"batchSize":32}'::jsonb);` en boucle
+   jusqu'à `remaining = 0` — seules les fiches dont le texte a bougé sont
+   réindexées, les autres gardent leur vecteur.
+
+## Les deux niveaux de visibilité
+
+Le corpus porte deux natures de contenu, et la distinction est de fond :
+
+- **`PUBLIC`** — ce qui est communicable : la doctrine, les chiffres publiés,
+  les fiches de l'observatoire. C'est ce que SUTA peut dire à un visiteur.
+- **`ADMIN`** — la délibération interne : décomptes qui se sont contredits
+  avant d'être arbitrés, périmètres non encore rendus publics. SUTA doit le
+  savoir, mais ne doit pas le dire.
+
+La séparation est tenue par la requête elle-même, pas par une consigne au
+modèle : `search-knowledge` restreint la recherche à `('PUBLIC','DEMO')`.
+Une fiche `ADMIN` reste donc invisible même à la question qui la viserait
+exactement — c'est vérifiable :
+
+```sql
+-- La fiche interne, interrogée avec son propre vecteur : trouvée en ADMIN,
+-- introuvable en PUBLIC. Le filtre l'emporte sur la pertinence.
+with probe as (select embedding::text as e from document_chunks where id = '<chunk interne>')
+select
+  (select count(*) from match_chunks((select e from probe), 5, array['PUBLIC','DEMO'])) as public_,
+  (select count(*) from match_chunks((select e from probe), 5, array['PUBLIC','DEMO','ADMIN'])) as admin_;
+```
+
+Ce dépôt étant **public**, `20260821160000_doctrine_ansut.sql` ne versionne que
+les fiches `PUBLIC` : y écrire le contenu des fiches `ADMIN` reviendrait à le
+publier, et donc à défaire la séparation. Ces fiches vivent dans la base, qui
+en est le dépôt ; leur script de chargement se regénère depuis elle :
+
+```sql
+select id, title, visibility, (select content from document_chunks where "documentId" = d.id)
+from documents d where "sourceId" = 'ansut-doctrine-interne' and visibility = 'ADMIN';
+```
