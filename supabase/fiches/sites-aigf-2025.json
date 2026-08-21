@@ -1,0 +1,1456 @@
+[
+  {
+    "id": "aigf-dep-abengourou",
+    "title": "Les antennes et les distances dans le département de ABENGOUROU",
+    "content": "Dans le département de ABENGOUROU (région INDENIE-DJUABLIN), le recensement de 2021 dénombre 68 localités. 50 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 18 autres n'en ont pas : elles rassemblent 20 460 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,8 kilomètres, et jusqu'à 7,1 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,0 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 35 localités sur 67 — devant MTN avec 17. Enfin, 1 localité du département est sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elle est comptée comme non couverte par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "INDENIE-DJUABLIN",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "ABENGOUROU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-abidjan",
+    "title": "Les antennes et les distances dans le département de ABIDJAN",
+    "content": "Dans le département de ABIDJAN (région ABIDJAN), le recensement de 2021 dénombre 130 localités. 124 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 6 autres n'en ont pas : elles rassemblent 4 820 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,1 kilomètres, et jusqu'à 5,2 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 65,0 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 47 localités sur 130 — devant MTN avec 42. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "ABIDJAN",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "ABIDJAN",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-aboisso",
+    "title": "Les antennes et les distances dans le département de ABOISSO",
+    "content": "Dans le département de ABOISSO (région SUD-COMOE), le recensement de 2021 dénombre 86 localités. 72 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 14 autres n'en ont pas : elles rassemblent 6 366 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,3 kilomètres, et jusqu'à 5,8 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,8 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 48 localités sur 86 — devant MTN avec 22. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "SUD-COMOE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "ABOISSO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-adiake",
+    "title": "Les antennes et les distances dans le département de ADIAKE",
+    "content": "Dans le département de ADIAKE (région SUD-COMOE), le recensement de 2021 dénombre 48 localités. 28 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 20 autres n'en ont pas : elles rassemblent 7 286 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,6 kilomètres, et jusqu'à 6,9 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,5 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 23 localités sur 48 — devant MTN avec 14. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "SUD-COMOE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "ADIAKE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-adzope",
+    "title": "Les antennes et les distances dans le département de ADZOPE",
+    "content": "Dans le département de ADZOPE (région LA ME), le recensement de 2021 dénombre 36 localités. 29 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 7 autres n'en ont pas : elles rassemblent 19 414 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 3,8 kilomètres, et jusqu'à 5,4 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,1 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 17 localités sur 36 — devant MTN avec 13. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "LA ME",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "ADZOPE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-agboville",
+    "title": "Les antennes et les distances dans le département de AGBOVILLE",
+    "content": "Dans le département de AGBOVILLE (région AGNEBY-TIASSA), le recensement de 2021 dénombre 96 localités. 69 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 27 autres n'en ont pas : elles rassemblent 18 474 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,8 kilomètres, et jusqu'à 6,7 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,2 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 41 localités sur 96 — devant MTN avec 38. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "AGNEBY-TIASSA",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "AGBOVILLE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-agnibilekrou",
+    "title": "Les antennes et les distances dans le département de AGNIBILEKROU",
+    "content": "Dans le département de AGNIBILEKROU (région INDENIE-DJUABLIN), le recensement de 2021 dénombre 53 localités. 29 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 24 autres n'en ont pas : elles rassemblent 19 385 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,9 kilomètres, et jusqu'à 7,9 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,1 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 26 localités sur 48 — devant MTN avec 11. Enfin, 5 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "INDENIE-DJUABLIN",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "AGNIBILEKROU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-akoupe",
+    "title": "Les antennes et les distances dans le département de AKOUPE",
+    "content": "Dans le département de AKOUPE (région LA ME), le recensement de 2021 dénombre 20 localités. 16 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 4 autres n'en ont pas : elles rassemblent 3 930 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,4 kilomètres, et jusqu'à 5,6 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,8 pylônes dans un rayon de trois kilomètres. Aucun opérateur ne domine : Orange et MTN et Moov sont au coude à coude comme antenne la plus proche. Enfin, 2 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "LA ME",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "AKOUPE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-alepe",
+    "title": "Les antennes et les distances dans le département de ALEPE",
+    "content": "Dans le département de ALEPE (région LA ME), le recensement de 2021 dénombre 46 localités. 29 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 17 autres n'en ont pas : elles rassemblent 18 952 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,4 kilomètres, et jusqu'à 8,5 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,5 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 19 localités sur 44 — devant MTN avec 17. Enfin, 2 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "LA ME",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "ALEPE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-arrah",
+    "title": "Les antennes et les distances dans le département de ARRAH",
+    "content": "Dans le département de ARRAH (région MORONOU), le recensement de 2021 dénombre 19 localités. 13 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 6 autres n'en ont pas : elles rassemblent 3 939 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 6,2 kilomètres, et jusqu'à 7,1 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,4 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 9 localités sur 15 — devant MTN avec 3. Enfin, 4 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "MORONOU",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "ARRAH",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-attiegouakro",
+    "title": "Les antennes et les distances dans le département de ATTIEGOUAKRO",
+    "content": "Dans le département de ATTIEGOUAKRO (région YAMOUSSOUKRO), le recensement de 2021 dénombre 29 localités. 22 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 7 autres n'en ont pas : elles rassemblent 7 068 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,4 kilomètres, et jusqu'à 6,3 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,4 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 14 localités sur 29 — devant MTN avec 13. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "YAMOUSSOUKRO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "ATTIEGOUAKRO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-bangolo",
+    "title": "Les antennes et les distances dans le département de BANGOLO",
+    "content": "Dans le département de BANGOLO (région GUEMON), le recensement de 2021 dénombre 85 localités. 56 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 29 autres n'en ont pas : elles rassemblent 46 759 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,2 kilomètres, et jusqu'à 7,6 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,2 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 37 localités sur 85 — devant Orange avec 30. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GUEMON",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "BANGOLO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-beoumi",
+    "title": "Les antennes et les distances dans le département de BEOUMI",
+    "content": "Dans le département de BEOUMI (région GBEKE), le recensement de 2021 dénombre 152 localités. 113 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 39 autres n'en ont pas : elles rassemblent 37 659 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,2 kilomètres, et jusqu'à 8,0 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,1 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 98 localités sur 151 — devant MTN avec 31. Enfin, 1 localité du département est sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elle est comptée comme non couverte par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GBEKE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "BEOUMI",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-bettie",
+    "title": "Les antennes et les distances dans le département de BETTIE",
+    "content": "Dans le département de BETTIE (région INDENIE-DJUABLIN), le recensement de 2021 dénombre 24 localités. 13 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 11 autres n'en ont pas : elles rassemblent 5 711 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,4 kilomètres, et jusqu'à 6,9 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,5 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 16 localités sur 23 — devant MTN avec 4. Enfin, 1 localité du département est sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elle est comptée comme non couverte par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "INDENIE-DJUABLIN",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "BETTIE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-biankouma",
+    "title": "Les antennes et les distances dans le département de BIANKOUMA",
+    "content": "Dans le département de BIANKOUMA (région TONKPI), le recensement de 2021 dénombre 111 localités. 37 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 74 autres n'en ont pas : elles rassemblent 92 526 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,2 kilomètres, et jusqu'à 8,8 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,3 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 40 localités sur 87 — devant Orange avec 31. Enfin, 24 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "TONKPI",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "BIANKOUMA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-blolequin",
+    "title": "Les antennes et les distances dans le département de BLOLEQUIN",
+    "content": "Dans le département de BLOLEQUIN (région CAVALLY), le recensement de 2021 dénombre 29 localités. 19 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 10 autres n'en ont pas : elles rassemblent 19 587 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,0 kilomètres, et jusqu'à 5,6 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,3 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 14 localités sur 29 — devant Orange avec 10. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "CAVALLY",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "BLOLEQUIN",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-bocanda",
+    "title": "Les antennes et les distances dans le département de BOCANDA",
+    "content": "Dans le département de BOCANDA (région N'ZI), le recensement de 2021 dénombre 104 localités. 70 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 34 autres n'en ont pas : elles rassemblent 25 624 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,5 kilomètres, et jusqu'à 7,4 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,6 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 76 localités sur 104 — devant MTN avec 28. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "N'ZI",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "BOCANDA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-bondoukou",
+    "title": "Les antennes et les distances dans le département de BONDOUKOU",
+    "content": "Dans le département de BONDOUKOU (région GONTOUGO), le recensement de 2021 dénombre 181 localités. 101 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 80 autres n'en ont pas : elles rassemblent 69 746 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,0 kilomètres, et jusqu'à 9,3 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,0 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 90 localités sur 175 — devant MTN avec 68. Enfin, 6 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GONTOUGO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "BONDOUKOU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-bongouanou",
+    "title": "Les antennes et les distances dans le département de BONGOUANOU",
+    "content": "Dans le département de BONGOUANOU (région MORONOU), le recensement de 2021 dénombre 46 localités. 30 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 16 autres n'en ont pas : elles rassemblent 27 636 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,4 kilomètres, et jusqu'à 9,3 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,2 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 20 localités sur 46 — devant MTN avec 19. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "MORONOU",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "BONGOUANOU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-bonon",
+    "title": "Les antennes et les distances dans le département de BONON",
+    "content": "Dans le département de BONON (région MARAHOUE), le recensement de 2021 dénombre 25 localités. 24 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 1 autres n'en ont pas : elles rassemblent 0 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,9 kilomètres, et jusqu'à 4,9 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,5 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 10 localités sur 25 — devant Orange avec 9. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "MARAHOUE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "BONON",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-botro",
+    "title": "Les antennes et les distances dans le département de BOTRO",
+    "content": "Dans le département de BOTRO (région GBEKE), le recensement de 2021 dénombre 101 localités. 60 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 41 autres n'en ont pas : elles rassemblent 29 219 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,4 kilomètres, et jusqu'à 7,0 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,2 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 54 localités sur 101 — devant Moov avec 26. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GBEKE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "BOTRO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-bouafle",
+    "title": "Les antennes et les distances dans le département de BOUAFLE",
+    "content": "Dans le département de BOUAFLE (région MARAHOUE), le recensement de 2021 dénombre 77 localités. 59 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 18 autres n'en ont pas : elles rassemblent 14 478 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,2 kilomètres, et jusqu'à 6,9 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,6 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 35 localités sur 77 — devant MTN avec 24. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "MARAHOUE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "BOUAFLE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-bouake",
+    "title": "Les antennes et les distances dans le département de BOUAKE",
+    "content": "Dans le département de BOUAKE (région GBEKE), le recensement de 2021 dénombre 249 localités. 174 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 75 autres n'en ont pas : elles rassemblent 50 150 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,3 kilomètres, et jusqu'à 9,0 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,7 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 105 localités sur 248 — devant Orange avec 92. Enfin, 1 localité du département est sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elle est comptée comme non couverte par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GBEKE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "BOUAKE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-bouna",
+    "title": "Les antennes et les distances dans le département de BOUNA",
+    "content": "Dans le département de BOUNA (région BOUNKANI), le recensement de 2021 dénombre 273 localités. 76 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 197 autres n'en ont pas : elles rassemblent 65 775 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,9 kilomètres, et jusqu'à 10,5 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,6 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 88 localités sur 193 — devant Orange avec 84. Enfin, 80 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BOUNKANI",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "BOUNA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-boundiali",
+    "title": "Les antennes et les distances dans le département de BOUNDIALI",
+    "content": "Dans le département de BOUNDIALI (région BAGOUE), le recensement de 2021 dénombre 66 localités. 40 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 26 autres n'en ont pas : elles rassemblent 26 489 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,3 kilomètres, et jusqu'à 8,1 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,9 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 39 localités sur 65 — devant MTN avec 21. Enfin, 1 localité du département est sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elle est comptée comme non couverte par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BAGOUE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "BOUNDIALI",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-buyo",
+    "title": "Les antennes et les distances dans le département de BUYO",
+    "content": "Dans le département de BUYO (région NAWA), le recensement de 2021 dénombre 22 localités. 18 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 4 autres n'en ont pas : elles rassemblent 6 453 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,8 kilomètres, et jusqu'à 7,7 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,9 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Moov — 14 localités sur 22 — devant Orange avec 5. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "NAWA",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "BUYO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-dabakala",
+    "title": "Les antennes et les distances dans le département de DABAKALA",
+    "content": "Dans le département de DABAKALA (région HAMBOL), le recensement de 2021 dénombre 215 localités. 121 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 94 autres n'en ont pas : elles rassemblent 79 121 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,2 kilomètres, et jusqu'à 10,2 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,1 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 96 localités sur 199 — devant Orange avec 90. Enfin, 16 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "HAMBOL",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "DABAKALA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-dabou",
+    "title": "Les antennes et les distances dans le département de DABOU",
+    "content": "Dans le département de DABOU (région GRANDS-PONTS), le recensement de 2021 dénombre 41 localités. 35 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 6 autres n'en ont pas : elles rassemblent 5 508 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,8 kilomètres, et jusqu'à 6,0 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,4 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 19 localités sur 41 — devant Moov avec 12. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GRANDS-PONTS",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "DABOU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-daloa",
+    "title": "Les antennes et les distances dans le département de DALOA",
+    "content": "Dans le département de DALOA (région HAUT-SASSANDRA), le recensement de 2021 dénombre 102 localités. 77 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 25 autres n'en ont pas : elles rassemblent 22 479 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,3 kilomètres, et jusqu'à 6,1 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,2 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 40 localités sur 102 — devant Orange avec 31. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "HAUT-SASSANDRA",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "DALOA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-danane",
+    "title": "Les antennes et les distances dans le département de DANANE",
+    "content": "Dans le département de DANANE (région TONKPI), le recensement de 2021 dénombre 184 localités. 105 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 79 autres n'en ont pas : elles rassemblent 99 691 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,9 kilomètres, et jusqu'à 10,2 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,8 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 85 localités sur 178 — devant MTN avec 74. Enfin, 6 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "TONKPI",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "DANANE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-daoukro",
+    "title": "Les antennes et les distances dans le département de DAOUKRO",
+    "content": "Dans le département de DAOUKRO (région IFFOU), le recensement de 2021 dénombre 43 localités. 27 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 16 autres n'en ont pas : elles rassemblent 12 824 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,2 kilomètres, et jusqu'à 8,1 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,6 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 28 localités sur 40 — devant MTN avec 8. Enfin, 3 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "IFFOU",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "DAOUKRO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-dianra",
+    "title": "Les antennes et les distances dans le département de DIANRA",
+    "content": "Dans le département de DIANRA (région BERE), le recensement de 2021 dénombre 42 localités. 20 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 22 autres n'en ont pas : elles rassemblent 26 160 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,7 kilomètres, et jusqu'à 7,7 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,7 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 22 localités sur 40 — devant Orange avec 10. Enfin, 2 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BERE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "DIANRA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-didievi",
+    "title": "Les antennes et les distances dans le département de DIDIEVI",
+    "content": "Dans le département de DIDIEVI (région BELIER), le recensement de 2021 dénombre 99 localités. 74 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 25 autres n'en ont pas : elles rassemblent 18 812 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,6 kilomètres, et jusqu'à 7,5 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,5 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 79 localités sur 99 — devant MTN avec 14. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BELIER",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "DIDIEVI",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-dikodougou",
+    "title": "Les antennes et les distances dans le département de DIKODOUGOU",
+    "content": "Dans le département de DIKODOUGOU (région PORO), le recensement de 2021 dénombre 57 localités. 35 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 22 autres n'en ont pas : elles rassemblent 14 548 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,0 kilomètres, et jusqu'à 7,9 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,6 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 27 localités sur 56 — devant Orange avec 17. Enfin, 1 localité du département est sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elle est comptée comme non couverte par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "PORO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "DIKODOUGOU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-dimbokro",
+    "title": "Les antennes et les distances dans le département de DIMBOKRO",
+    "content": "Dans le département de DIMBOKRO (région N'ZI), le recensement de 2021 dénombre 74 localités. 52 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 22 autres n'en ont pas : elles rassemblent 8 921 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,8 kilomètres, et jusqu'à 7,7 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,6 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 49 localités sur 74 — devant MTN avec 17. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "N'ZI",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "DIMBOKRO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-divo",
+    "title": "Les antennes et les distances dans le département de DIVO",
+    "content": "Dans le département de DIVO (région LÔH-DJIBOUA), le recensement de 2021 dénombre 98 localités. 70 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 28 autres n'en ont pas : elles rassemblent 30 707 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,5 kilomètres, et jusqu'à 9,2 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 4,2 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 42 localités sur 98 — devant MTN avec 31. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "LÔH-DJIBOUA",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "DIVO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-djekanou",
+    "title": "Les antennes et les distances dans le département de DJEKANOU",
+    "content": "Dans le département de DJEKANOU (région BELIER), le recensement de 2021 dénombre 18 localités. 14 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 4 autres n'en ont pas : elles rassemblent 6 316 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 3,9 kilomètres, et jusqu'à 5,1 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,5 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 8 localités sur 18 — devant MTN avec 7. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BELIER",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "DJEKANOU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-doropo",
+    "title": "Les antennes et les distances dans le département de DOROPO",
+    "content": "Dans le département de DOROPO (région BOUNKANI), le recensement de 2021 dénombre 242 localités. 25 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 217 autres n'en ont pas : elles rassemblent 51 075 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 6,0 kilomètres, et jusqu'à 10,6 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,1 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 101 localités sur 174 — devant MTN avec 49. Enfin, 68 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BOUNKANI",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "DOROPO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-duekoue",
+    "title": "Les antennes et les distances dans le département de DUEKOUE",
+    "content": "Dans le département de DUEKOUE (région GUEMON), le recensement de 2021 dénombre 54 localités. 41 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 13 autres n'en ont pas : elles rassemblent 22 252 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,3 kilomètres, et jusqu'à 6,1 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,3 pylônes dans un rayon de trois kilomètres. Aucun opérateur ne domine : Orange et Moov sont au coude à coude comme antenne la plus proche. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GUEMON",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "DUEKOUE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-facobly",
+    "title": "Les antennes et les distances dans le département de FACOBLY",
+    "content": "Dans le département de FACOBLY (région GUEMON), le recensement de 2021 dénombre 40 localités. 31 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 9 autres n'en ont pas : elles rassemblent 12 384 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,0 kilomètres, et jusqu'à 5,5 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,3 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 20 localités sur 40 — devant MTN avec 14. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GUEMON",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "FACOBLY",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-ferkessedougou",
+    "title": "Les antennes et les distances dans le département de FERKESSEDOUGOU",
+    "content": "Dans le département de FERKESSEDOUGOU (région TCHOLOGO), le recensement de 2021 dénombre 73 localités. 32 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 41 autres n'en ont pas : elles rassemblent 25 202 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,2 kilomètres, et jusqu'à 8,1 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,5 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 33 localités sur 71 — devant MTN avec 31. Enfin, 2 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "TCHOLOGO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "FERKESSEDOUGOU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-fresco",
+    "title": "Les antennes et les distances dans le département de FRESCO",
+    "content": "Dans le département de FRESCO (région GBOKLE), le recensement de 2021 dénombre 19 localités. 17 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 2 autres n'en ont pas : elles rassemblent 1 458 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,2 kilomètres, et jusqu'à 6,2 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,6 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 9 localités sur 19 — devant Orange avec 6. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GBOKLE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "FRESCO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-gagnoa",
+    "title": "Les antennes et les distances dans le département de GAGNOA",
+    "content": "Dans le département de GAGNOA (région GÔH), le recensement de 2021 dénombre 164 localités. 137 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 27 autres n'en ont pas : elles rassemblent 48 212 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 3,8 kilomètres, et jusqu'à 5,7 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,8 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 77 localités sur 164 — devant MTN avec 50. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GÔH",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "GAGNOA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-gbeleban",
+    "title": "Les antennes et les distances dans le département de GBELEBAN",
+    "content": "Dans le département de GBELEBAN (région KABADOUGOU), le recensement de 2021 dénombre 27 localités. 16 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 11 autres n'en ont pas : elles rassemblent 9 518 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,9 kilomètres, et jusqu'à 7,5 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,6 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 21 localités sur 27 — devant MTN avec 6. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "KABADOUGOU",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "GBELEBAN",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-gohitafla",
+    "title": "Les antennes et les distances dans le département de GOHITAFLA",
+    "content": "Dans le département de GOHITAFLA (région MARAHOUE), le recensement de 2021 dénombre 30 localités. 17 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 13 autres n'en ont pas : elles rassemblent 13 970 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,1 kilomètres, et jusqu'à 5,6 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,4 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Moov — 12 localités sur 30 — devant MTN avec 10. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "MARAHOUE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "GOHITAFLA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-grand-bassam",
+    "title": "Les antennes et les distances dans le département de GRAND-BASSAM",
+    "content": "Dans le département de GRAND-BASSAM (région SUD-COMOE), le recensement de 2021 dénombre 37 localités. 33 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 4 autres n'en ont pas : elles rassemblent 6 213 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 3,5 kilomètres, et jusqu'à 4,3 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 7,9 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 21 localités sur 37 — devant Moov avec 11. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "SUD-COMOE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "GRAND-BASSAM",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-grand-lahou",
+    "title": "Les antennes et les distances dans le département de GRAND-LAHOU",
+    "content": "Dans le département de GRAND-LAHOU (région GRANDS-PONTS), le recensement de 2021 dénombre 57 localités. 32 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 25 autres n'en ont pas : elles rassemblent 13 289 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,1 kilomètres, et jusqu'à 7,6 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,5 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 23 localités sur 50 — devant MTN avec 14. Enfin, 7 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GRANDS-PONTS",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "GRAND-LAHOU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-gueyo",
+    "title": "Les antennes et les distances dans le département de GUEYO",
+    "content": "Dans le département de GUEYO (région NAWA), le recensement de 2021 dénombre 28 localités. 23 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 5 autres n'en ont pas : elles rassemblent 2 380 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,4 kilomètres, et jusqu'à 5,3 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,2 pylônes dans un rayon de trois kilomètres. Aucun opérateur ne domine : Orange et Moov sont au coude à coude comme antenne la plus proche. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "NAWA",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "GUEYO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-guiglo",
+    "title": "Les antennes et les distances dans le département de GUIGLO",
+    "content": "Dans le département de GUIGLO (région CAVALLY), le recensement de 2021 dénombre 31 localités. 21 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 10 autres n'en ont pas : elles rassemblent 28 140 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,6 kilomètres, et jusqu'à 6,3 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,3 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Moov — 14 localités sur 30 — devant Orange avec 8. Enfin, 1 localité du département est sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elle est comptée comme non couverte par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "CAVALLY",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "GUIGLO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-guitry",
+    "title": "Les antennes et les distances dans le département de GUITRY",
+    "content": "Dans le département de GUITRY (région LÔH-DJIBOUA), le recensement de 2021 dénombre 52 localités. 29 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 23 autres n'en ont pas : elles rassemblent 24 454 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,4 kilomètres, et jusqu'à 8,7 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,6 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 20 localités sur 50 — devant MTN avec 15. Enfin, 2 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "LÔH-DJIBOUA",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "GUITRY",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-issia",
+    "title": "Les antennes et les distances dans le département de ISSIA",
+    "content": "Dans le département de ISSIA (région HAUT-SASSANDRA), le recensement de 2021 dénombre 128 localités. 91 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 37 autres n'en ont pas : elles rassemblent 38 777 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,4 kilomètres, et jusqu'à 7,6 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,1 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 56 localités sur 128 — devant MTN avec 36. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "HAUT-SASSANDRA",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "ISSIA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-jacqueville",
+    "title": "Les antennes et les distances dans le département de JACQUEVILLE",
+    "content": "Dans le département de JACQUEVILLE (région GRANDS-PONTS), le recensement de 2021 dénombre 41 localités. 19 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 22 autres n'en ont pas : elles rassemblent 13 393 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,7 kilomètres, et jusqu'à 6,8 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,0 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 21 localités sur 37 — devant MTN avec 9. Enfin, 4 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GRANDS-PONTS",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "JACQUEVILLE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-kani",
+    "title": "Les antennes et les distances dans le département de KANI",
+    "content": "Dans le département de KANI (région WORODOUGOU), le recensement de 2021 dénombre 46 localités. 21 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 25 autres n'en ont pas : elles rassemblent 38 849 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,5 kilomètres, et jusqu'à 10,4 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,7 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 26 localités sur 43 — devant Moov avec 11. Enfin, 3 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "WORODOUGOU",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "KANI",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-kaniasso",
+    "title": "Les antennes et les distances dans le département de KANIASSO",
+    "content": "Dans le département de KANIASSO (région FOLON), le recensement de 2021 dénombre 46 localités. 30 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 16 autres n'en ont pas : elles rassemblent 13 070 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,2 kilomètres, et jusqu'à 9,2 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,6 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 21 localités sur 43 — devant Orange avec 18. Enfin, 3 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "FOLON",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "KANIASSO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-katiola",
+    "title": "Les antennes et les distances dans le département de KATIOLA",
+    "content": "Dans le département de KATIOLA (région HAMBOL), le recensement de 2021 dénombre 28 localités. 21 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 7 autres n'en ont pas : elles rassemblent 7 661 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,4 kilomètres, et jusqu'à 8,5 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,6 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 13 localités sur 27 — devant Moov avec 8. Enfin, 1 localité du département est sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elle est comptée comme non couverte par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "HAMBOL",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "KATIOLA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-kong",
+    "title": "Les antennes et les distances dans le département de KONG",
+    "content": "Dans le département de KONG (région TCHOLOGO), le recensement de 2021 dénombre 72 localités. 36 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 36 autres n'en ont pas : elles rassemblent 22 753 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,8 kilomètres, et jusqu'à 9,4 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,5 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 36 localités sur 62 — devant MTN avec 21. Enfin, 10 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "TCHOLOGO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "KONG",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-korhogo",
+    "title": "Les antennes et les distances dans le département de KORHOGO",
+    "content": "Dans le département de KORHOGO (région PORO), le recensement de 2021 dénombre 552 localités. 248 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 304 autres n'en ont pas : elles rassemblent 127 988 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,7 kilomètres, et jusqu'à 9,5 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,6 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 292 localités sur 542 — devant MTN avec 135. Enfin, 10 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "PORO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "KORHOGO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-koro",
+    "title": "Les antennes et les distances dans le département de KORO",
+    "content": "Dans le département de KORO (région BAFING), le recensement de 2021 dénombre 97 localités. 29 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 68 autres n'en ont pas : elles rassemblent 31 231 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,5 kilomètres, et jusqu'à 8,7 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,6 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 50 localités sur 77 — devant MTN avec 19. Enfin, 20 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BAFING",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "KORO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-kouassi-kouassikro",
+    "title": "Les antennes et les distances dans le département de KOUASSI-KOUASSIKRO",
+    "content": "Dans le département de KOUASSI-KOUASSIKRO (région N'ZI), le recensement de 2021 dénombre 31 localités. 17 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 14 autres n'en ont pas : elles rassemblent 8 782 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,9 kilomètres, et jusqu'à 7,9 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,4 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 28 localités sur 31 — devant MTN avec 3. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "N'ZI",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "KOUASSI-KOUASSIKRO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-kouibly",
+    "title": "Les antennes et les distances dans le département de KOUIBLY",
+    "content": "Dans le département de KOUIBLY (région GUEMON), le recensement de 2021 dénombre 51 localités. 31 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 20 autres n'en ont pas : elles rassemblent 31 176 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,4 kilomètres, et jusqu'à 7,3 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,3 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 27 localités sur 51 — devant Moov avec 19. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GUEMON",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "KOUIBLY",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-koun-fao",
+    "title": "Les antennes et les distances dans le département de KOUN-FAO",
+    "content": "Dans le département de KOUN-FAO (région GONTOUGO), le recensement de 2021 dénombre 104 localités. 62 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 42 autres n'en ont pas : elles rassemblent 35 100 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,4 kilomètres, et jusqu'à 10,5 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,9 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 60 localités sur 102 — devant MTN avec 33. Enfin, 2 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GONTOUGO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "KOUN-FAO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-kounahiri",
+    "title": "Les antennes et les distances dans le département de KOUNAHIRI",
+    "content": "Dans le département de KOUNAHIRI (région BERE), le recensement de 2021 dénombre 48 localités. 38 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 10 autres n'en ont pas : elles rassemblent 9 061 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,2 kilomètres, et jusqu'à 9,4 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,6 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 22 localités sur 48 — devant Orange avec 21. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BERE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "KOUNAHIRI",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-kouto",
+    "title": "Les antennes et les distances dans le département de KOUTO",
+    "content": "Dans le département de KOUTO (région BAGOUE), le recensement de 2021 dénombre 47 localités. 37 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 10 autres n'en ont pas : elles rassemblent 12 527 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,8 kilomètres, et jusqu'à 7,7 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,6 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 31 localités sur 46 — devant MTN avec 9. Enfin, 1 localité du département est sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elle est comptée comme non couverte par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BAGOUE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "KOUTO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-lakota",
+    "title": "Les antennes et les distances dans le département de LAKOTA",
+    "content": "Dans le département de LAKOTA (région LÔH-DJIBOUA), le recensement de 2021 dénombre 101 localités. 76 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 25 autres n'en ont pas : elles rassemblent 37 563 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,0 kilomètres, et jusqu'à 5,9 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,0 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 55 localités sur 101 — devant MTN avec 29. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "LÔH-DJIBOUA",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "LAKOTA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-m-bahiakro",
+    "title": "Les antennes et les distances dans le département de M'BAHIAKRO",
+    "content": "Dans le département de M'BAHIAKRO (région IFFOU), le recensement de 2021 dénombre 80 localités. 24 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 56 autres n'en ont pas : elles rassemblent 31 366 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,2 kilomètres, et jusqu'à 9,6 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,5 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 30 localités sur 59 — devant MTN avec 24. Enfin, 21 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "IFFOU",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "M'BAHIAKRO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-m-batto",
+    "title": "Les antennes et les distances dans le département de M'BATTO",
+    "content": "Dans le département de M'BATTO (région MORONOU), le recensement de 2021 dénombre 54 localités. 42 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 12 autres n'en ont pas : elles rassemblent 7 530 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,5 kilomètres, et jusqu'à 6,2 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,3 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 26 localités sur 54 — devant Orange avec 20. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "MORONOU",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "M'BATTO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-m-bengue",
+    "title": "Les antennes et les distances dans le département de M'BENGUE",
+    "content": "Dans le département de M'BENGUE (région PORO), le recensement de 2021 dénombre 61 localités. 28 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 33 autres n'en ont pas : elles rassemblent 22 670 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,0 kilomètres, et jusqu'à 7,9 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,5 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 36 localités sur 56 — devant MTN avec 13. Enfin, 5 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "PORO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "M'BENGUE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-madinani",
+    "title": "Les antennes et les distances dans le département de MADINANI",
+    "content": "Dans le département de MADINANI (région KABADOUGOU), le recensement de 2021 dénombre 28 localités. 17 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 11 autres n'en ont pas : elles rassemblent 12 985 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,9 kilomètres, et jusqu'à 6,9 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,6 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 16 localités sur 26 — devant MTN avec 9. Enfin, 2 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "KABADOUGOU",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "MADINANI",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-man",
+    "title": "Les antennes et les distances dans le département de MAN",
+    "content": "Dans le département de MAN (région TONKPI), le recensement de 2021 dénombre 155 localités. 64 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 91 autres n'en ont pas : elles rassemblent 102 511 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,2 kilomètres, et jusqu'à 9,6 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,0 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 72 localités sur 148 — devant MTN avec 45. Enfin, 7 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "TONKPI",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "MAN",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-mankono",
+    "title": "Les antennes et les distances dans le département de MANKONO",
+    "content": "Dans le département de MANKONO (région BERE), le recensement de 2021 dénombre 130 localités. 78 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 52 autres n'en ont pas : elles rassemblent 45 362 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,9 kilomètres, et jusqu'à 8,7 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,0 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 62 localités sur 126 — devant Moov avec 35. Enfin, 4 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BERE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "MANKONO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-meagui",
+    "title": "Les antennes et les distances dans le département de MEAGUI",
+    "content": "Dans le département de MEAGUI (région NAWA), le recensement de 2021 dénombre 67 localités. 38 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 29 autres n'en ont pas : elles rassemblent 19 009 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,6 kilomètres, et jusqu'à 8,8 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,3 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 32 localités sur 67 — devant Moov avec 29. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "NAWA",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "MEAGUI",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-minignan",
+    "title": "Les antennes et les distances dans le département de MINIGNAN",
+    "content": "Dans le département de MINIGNAN (région FOLON), le recensement de 2021 dénombre 38 localités. 27 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 11 autres n'en ont pas : elles rassemblent 11 168 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 6,6 kilomètres, et jusqu'à 9,0 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,3 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 25 localités sur 36 — devant MTN avec 9. Enfin, 2 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "FOLON",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "MINIGNAN",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-nassian",
+    "title": "Les antennes et les distances dans le département de NASSIAN",
+    "content": "Dans le département de NASSIAN (région BOUNKANI), le recensement de 2021 dénombre 42 localités. 24 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 18 autres n'en ont pas : elles rassemblent 15 985 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,3 kilomètres, et jusqu'à 8,6 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,5 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 27 localités sur 40 — devant MTN avec 9. Enfin, 2 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BOUNKANI",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "NASSIAN",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-niakaramadougou",
+    "title": "Les antennes et les distances dans le département de NIAKARAMADOUGOU",
+    "content": "Dans le département de NIAKARAMADOUGOU (région HAMBOL), le recensement de 2021 dénombre 59 localités. 41 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 18 autres n'en ont pas : elles rassemblent 18 666 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,1 kilomètres, et jusqu'à 7,4 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,1 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 28 localités sur 53 — devant MTN avec 14. Enfin, 6 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "HAMBOL",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "NIAKARAMADOUGOU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-odienne",
+    "title": "Les antennes et les distances dans le département de ODIENNE",
+    "content": "Dans le département de ODIENNE (région KABADOUGOU), le recensement de 2021 dénombre 71 localités. 27 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 44 autres n'en ont pas : elles rassemblent 42 582 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,9 kilomètres, et jusqu'à 9,5 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,5 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 29 localités sur 52 — devant MTN avec 17. Enfin, 19 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "KABADOUGOU",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "ODIENNE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-ouangolodougou",
+    "title": "Les antennes et les distances dans le département de OUANGOLODOUGOU",
+    "content": "Dans le département de OUANGOLODOUGOU (région TCHOLOGO), le recensement de 2021 dénombre 63 localités. 30 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 33 autres n'en ont pas : elles rassemblent 27 481 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,9 kilomètres, et jusqu'à 7,9 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,1 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 23 localités sur 59 — devant MTN avec 20. Enfin, 4 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "TCHOLOGO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "OUANGOLODOUGOU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-ouaninou",
+    "title": "Les antennes et les distances dans le département de OUANINOU",
+    "content": "Dans le département de OUANINOU (région BAFING), le recensement de 2021 dénombre 98 localités. 36 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 62 autres n'en ont pas : elles rassemblent 27 529 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,4 kilomètres, et jusqu'à 8,8 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,3 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 68 localités sur 89 — devant MTN avec 20. Enfin, 9 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BAFING",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "OUANINOU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-ouelle",
+    "title": "Les antennes et les distances dans le département de OUELLE",
+    "content": "Dans le département de OUELLE (région IFFOU), le recensement de 2021 dénombre 37 localités. 24 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 13 autres n'en ont pas : elles rassemblent 9 847 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,4 kilomètres, et jusqu'à 6,8 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,0 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 19 localités sur 37 — devant Orange avec 14. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "IFFOU",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "OUELLE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-oume",
+    "title": "Les antennes et les distances dans le département de OUME",
+    "content": "Dans le département de OUME (région GÔH), le recensement de 2021 dénombre 43 localités. 37 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 6 autres n'en ont pas : elles rassemblent 8 734 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 3,9 kilomètres, et jusqu'à 5,2 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,9 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 18 localités sur 43 — devant Moov avec 16. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GÔH",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "OUME",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-prikro",
+    "title": "Les antennes et les distances dans le département de PRIKRO",
+    "content": "Dans le département de PRIKRO (région IFFOU), le recensement de 2021 dénombre 73 localités. 40 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 33 autres n'en ont pas : elles rassemblent 30 334 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,9 kilomètres, et jusqu'à 8,2 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,7 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 57 localités sur 72 — devant Moov avec 8. Enfin, 1 localité du département est sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elle est comptée comme non couverte par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "IFFOU",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "PRIKRO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-sakassou",
+    "title": "Les antennes et les distances dans le département de SAKASSOU",
+    "content": "Dans le département de SAKASSOU (région GBEKE), le recensement de 2021 dénombre 142 localités. 100 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 42 autres n'en ont pas : elles rassemblent 21 651 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,0 kilomètres, et jusqu'à 6,9 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,8 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 79 localités sur 142 — devant MTN avec 43. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GBEKE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "SAKASSOU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-samatiguila",
+    "title": "Les antennes et les distances dans le département de SAMATIGUILA",
+    "content": "Dans le département de SAMATIGUILA (région KABADOUGOU), le recensement de 2021 dénombre 14 localités. 9 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 5 autres n'en ont pas : elles rassemblent 4 787 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,4 kilomètres, et jusqu'à 6,8 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,7 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 10 localités sur 14 — devant MTN avec 2. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "KABADOUGOU",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "SAMATIGUILA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-san-pedro",
+    "title": "Les antennes et les distances dans le département de SAN-PEDRO",
+    "content": "Dans le département de SAN-PEDRO (région SAN-PEDRO), le recensement de 2021 dénombre 143 localités. 88 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 55 autres n'en ont pas : elles rassemblent 38 130 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,4 kilomètres, et jusqu'à 7,7 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,3 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 54 localités sur 142 — devant Orange avec 50. Enfin, 1 localité du département est sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elle est comptée comme non couverte par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "SAN-PEDRO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "SAN-PEDRO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-sandegue",
+    "title": "Les antennes et les distances dans le département de SANDEGUE",
+    "content": "Dans le département de SANDEGUE (région GONTOUGO), le recensement de 2021 dénombre 35 localités. 18 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 17 autres n'en ont pas : elles rassemblent 22 180 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,8 kilomètres, et jusqu'à 8,1 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,8 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 24 localités sur 32 — devant MTN avec 4. Enfin, 3 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GONTOUGO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "SANDEGUE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-sassandra",
+    "title": "Les antennes et les distances dans le département de SASSANDRA",
+    "content": "Dans le département de SASSANDRA (région GBOKLE), le recensement de 2021 dénombre 83 localités. 57 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 26 autres n'en ont pas : elles rassemblent 10 082 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,6 kilomètres, et jusqu'à 7,3 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,5 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 41 localités sur 83 — devant MTN avec 21. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GBOKLE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "SASSANDRA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-seguela",
+    "title": "Les antennes et les distances dans le département de SEGUELA",
+    "content": "Dans le département de SEGUELA (région WORODOUGOU), le recensement de 2021 dénombre 162 localités. 85 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 77 autres n'en ont pas : elles rassemblent 51 366 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,0 kilomètres, et jusqu'à 7,9 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,3 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 76 localités sur 149 — devant MTN avec 51. Enfin, 13 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "WORODOUGOU",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "SEGUELA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-seguelon",
+    "title": "Les antennes et les distances dans le département de SEGUELON",
+    "content": "Dans le département de SEGUELON (région KABADOUGOU), le recensement de 2021 dénombre 23 localités. 12 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 11 autres n'en ont pas : elles rassemblent 9 970 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 6,7 kilomètres, et jusqu'à 9,1 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,3 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 21 localités sur 21 — devant MTN avec 0. Enfin, 2 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "KABADOUGOU",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "SEGUELON",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-sikensi",
+    "title": "Les antennes et les distances dans le département de SIKENSI",
+    "content": "Dans le département de SIKENSI (région AGNEBY-TIASSA), le recensement de 2021 dénombre 14 localités. 12 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 2 autres n'en ont pas : elles rassemblent 5 777 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 3,4 kilomètres, et jusqu'à 3,6 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,7 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 6 localités sur 14 — devant Orange avec 4. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "AGNEBY-TIASSA",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "SIKENSI",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-sinematiali",
+    "title": "Les antennes et les distances dans le département de SINEMATIALI",
+    "content": "Dans le département de SINEMATIALI (région PORO), le recensement de 2021 dénombre 117 localités. 44 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 73 autres n'en ont pas : elles rassemblent 30 237 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,5 kilomètres, et jusqu'à 6,9 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,8 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Moov — 47 localités sur 117 — devant Orange avec 36. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "PORO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "SINEMATIALI",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-sinfra",
+    "title": "Les antennes et les distances dans le département de SINFRA",
+    "content": "Dans le département de SINFRA (région MARAHOUE), le recensement de 2021 dénombre 80 localités. 52 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 28 autres n'en ont pas : elles rassemblent 22 042 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,8 kilomètres, et jusqu'à 7,3 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,4 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 32 localités sur 80 — devant Orange avec 29. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "MARAHOUE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "SINFRA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-sipilou",
+    "title": "Les antennes et les distances dans le département de SIPILOU",
+    "content": "Dans le département de SIPILOU (région TONKPI), le recensement de 2021 dénombre 16 localités. 10 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 6 autres n'en ont pas : elles rassemblent 11 188 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,5 kilomètres, et jusqu'à 7,2 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,0 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à MTN — 8 localités sur 15 — devant Moov avec 4. Enfin, 1 localité du département est sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elle est comptée comme non couverte par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "TONKPI",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "SIPILOU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-soubre",
+    "title": "Les antennes et les distances dans le département de SOUBRE",
+    "content": "Dans le département de SOUBRE (région NAWA), le recensement de 2021 dénombre 85 localités. 62 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 23 autres n'en ont pas : elles rassemblent 36 893 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,1 kilomètres, et jusqu'à 6,5 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,7 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Moov — 31 localités sur 85 — devant Orange avec 27. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "NAWA",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "SOUBRE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-taabo",
+    "title": "Les antennes et les distances dans le département de TAABO",
+    "content": "Dans le département de TAABO (région AGNEBY-TIASSA), le recensement de 2021 dénombre 20 localités. 15 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 5 autres n'en ont pas : elles rassemblent 9 556 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 3,9 kilomètres, et jusqu'à 4,9 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,1 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 11 localités sur 20 — devant Moov avec 5. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "AGNEBY-TIASSA",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "TAABO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-tabou",
+    "title": "Les antennes et les distances dans le département de TABOU",
+    "content": "Dans le département de TABOU (région SAN-PEDRO), le recensement de 2021 dénombre 129 localités. 58 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 71 autres n'en ont pas : elles rassemblent 37 928 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,4 kilomètres, et jusqu'à 8,8 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,0 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 62 localités sur 116 — devant MTN avec 27. Enfin, 13 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "SAN-PEDRO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "TABOU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-tai",
+    "title": "Les antennes et les distances dans le département de TAI",
+    "content": "Dans le département de TAI (région CAVALLY), le recensement de 2021 dénombre 20 localités. 15 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 5 autres n'en ont pas : elles rassemblent 5 008 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 3,9 kilomètres, et jusqu'à 5,6 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,3 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 10 localités sur 20 — devant MTN avec 5. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "CAVALLY",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "TAI",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-tanda",
+    "title": "Les antennes et les distances dans le département de TANDA",
+    "content": "Dans le département de TANDA (région GONTOUGO), le recensement de 2021 dénombre 79 localités. 38 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 41 autres n'en ont pas : elles rassemblent 35 372 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,9 kilomètres, et jusqu'à 9,7 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,9 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 58 localités sur 77 — devant MTN avec 13. Enfin, 2 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GONTOUGO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "TANDA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-tehini",
+    "title": "Les antennes et les distances dans le département de TEHINI",
+    "content": "Dans le département de TEHINI (région BOUNKANI), le recensement de 2021 dénombre 116 localités. 31 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 85 autres n'en ont pas : elles rassemblent 32 092 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,6 kilomètres, et jusqu'à 9,1 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,2 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 84 localités sur 108 — devant MTN avec 20. Enfin, 8 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BOUNKANI",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "TEHINI",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-tengrela",
+    "title": "Les antennes et les distances dans le département de TENGRELA",
+    "content": "Dans le département de TENGRELA (région BAGOUE), le recensement de 2021 dénombre 50 localités. 32 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 18 autres n'en ont pas : elles rassemblent 13 704 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,2 kilomètres, et jusqu'à 9,4 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,8 pylône dans un rayon de trois kilomètres. Aucun opérateur ne domine : Orange et MTN sont au coude à coude comme antenne la plus proche. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BAGOUE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "TENGRELA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-tiapoum",
+    "title": "Les antennes et les distances dans le département de TIAPOUM",
+    "content": "Dans le département de TIAPOUM (région SUD-COMOE), le recensement de 2021 dénombre 35 localités. 20 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 15 autres n'en ont pas : elles rassemblent 15 140 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,4 kilomètres, et jusqu'à 10,0 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,0 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 13 localités sur 34 — devant MTN avec 11. Enfin, 1 localité du département est sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elle est comptée comme non couverte par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "SUD-COMOE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "TIAPOUM",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-tiassale",
+    "title": "Les antennes et les distances dans le département de TIASSALE",
+    "content": "Dans le département de TIASSALE (région AGNEBY-TIASSA), le recensement de 2021 dénombre 55 localités. 31 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 24 autres n'en ont pas : elles rassemblent 24 486 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,6 kilomètres, et jusqu'à 7,4 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,0 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 25 localités sur 55 — devant MTN avec 20. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "AGNEBY-TIASSA",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "TIASSALE",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-tiebissou",
+    "title": "Les antennes et les distances dans le département de TIEBISSOU",
+    "content": "Dans le département de TIEBISSOU (région BELIER), le recensement de 2021 dénombre 101 localités. 76 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 25 autres n'en ont pas : elles rassemblent 20 644 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,3 kilomètres, et jusqu'à 8,8 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,6 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 63 localités sur 101 — devant MTN avec 30. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BELIER",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "TIEBISSOU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-touba",
+    "title": "Les antennes et les distances dans le département de TOUBA",
+    "content": "Dans le département de TOUBA (région BAFING), le recensement de 2021 dénombre 123 localités. 30 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 93 autres n'en ont pas : elles rassemblent 39 798 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 5,7 kilomètres, et jusqu'à 9,2 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,8 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 55 localités sur 106 — devant MTN avec 27. Enfin, 17 localités du département sont sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elles sont comptées comme non couvertes par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BAFING",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "TOUBA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-toulepleu",
+    "title": "Les antennes et les distances dans le département de TOULEPLEU",
+    "content": "Dans le département de TOULEPLEU (région CAVALLY), le recensement de 2021 dénombre 57 localités. 22 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 35 autres n'en ont pas : elles rassemblent 39 738 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,5 kilomètres, et jusqu'à 8,2 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,1 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 33 localités sur 57 — devant MTN avec 20. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "CAVALLY",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "TOULEPLEU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-toumodi",
+    "title": "Les antennes et les distances dans le département de TOUMODI",
+    "content": "Dans le département de TOUMODI (région BELIER), le recensement de 2021 dénombre 73 localités. 51 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 22 autres n'en ont pas : elles rassemblent 20 029 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,2 kilomètres, et jusqu'à 6,7 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 3,1 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 33 localités sur 73 — devant MTN avec 27. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "BELIER",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "TOUMODI",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-transua",
+    "title": "Les antennes et les distances dans le département de TRANSUA",
+    "content": "Dans le département de TRANSUA (région GONTOUGO), le recensement de 2021 dénombre 73 localités. 56 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 17 autres n'en ont pas : elles rassemblent 20 358 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,7 kilomètres, et jusqu'à 6,7 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 1,9 pylône dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 57 localités sur 73 — devant MTN avec 12. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "GONTOUGO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "TRANSUA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-vavoua",
+    "title": "Les antennes et les distances dans le département de VAVOUA",
+    "content": "Dans le département de VAVOUA (région HAUT-SASSANDRA), le recensement de 2021 dénombre 78 localités. 57 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 21 autres n'en ont pas : elles rassemblent 27 986 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,3 kilomètres, et jusqu'à 7,5 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,6 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 36 localités sur 78 — devant Moov avec 25. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "HAUT-SASSANDRA",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "VAVOUA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-yakasse-attobrou",
+    "title": "Les antennes et les distances dans le département de YAKASSE-ATTOBROU",
+    "content": "Dans le département de YAKASSE-ATTOBROU (région LA ME), le recensement de 2021 dénombre 14 localités. 13 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 1 autres n'en ont pas : elles rassemblent 6 284 habitants. Là où le réseau est présent, on compte en moyenne 2,1 pylônes dans un rayon de trois kilomètres. Aucun opérateur ne domine : MTN et Moov sont au coude à coude comme antenne la plus proche. Enfin, 1 localité du département est sans coordonnées connues : faute de position, aucune distance ne peut être mesurée, et elle est comptée comme non couverte par prudence. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "LA ME",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "YAKASSE-ATTOBROU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-yamoussoukro",
+    "title": "Les antennes et les distances dans le département de YAMOUSSOUKRO",
+    "content": "Dans le département de YAMOUSSOUKRO (région YAMOUSSOUKRO), le recensement de 2021 dénombre 45 localités. 35 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 10 autres n'en ont pas : elles rassemblent 13 921 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,8 kilomètres, et jusqu'à 6,4 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 6,9 pylônes dans un rayon de trois kilomètres. Aucun opérateur ne domine : Orange et MTN sont au coude à coude comme antenne la plus proche. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "YAMOUSSOUKRO",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "YAMOUSSOUKRO",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-zouan-hounien",
+    "title": "Les antennes et les distances dans le département de ZOUAN-HOUNIEN",
+    "content": "Dans le département de ZOUAN-HOUNIEN (région TONKPI), le recensement de 2021 dénombre 150 localités. 85 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 65 autres n'en ont pas : elles rassemblent 68 092 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,0 kilomètres, et jusqu'à 7,2 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,0 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 74 localités sur 150 — devant MTN avec 46. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "TONKPI",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "ZOUAN-HOUNIEN",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-zoukougbeu",
+    "title": "Les antennes et les distances dans le département de ZOUKOUGBEU",
+    "content": "Dans le département de ZOUKOUGBEU (région HAUT-SASSANDRA), le recensement de 2021 dénombre 41 localités. 29 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 12 autres n'en ont pas : elles rassemblent 10 714 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,4 kilomètres, et jusqu'à 5,3 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,6 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 29 localités sur 41 — devant MTN avec 8. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "HAUT-SASSANDRA",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "ZOUKOUGBEU",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-dep-zuenoula",
+    "title": "Les antennes et les distances dans le département de ZUENOULA",
+    "content": "Dans le département de ZUENOULA (région MARAHOUE), le recensement de 2021 dénombre 90 localités. 58 d'entre elles ont une antenne-relais à moins de trois kilomètres, la distance en deçà de laquelle une localité est tenue pour couverte. Les 32 autres n'en ont pas : elles rassemblent 28 285 habitants. Pour celles dont on connaît la position, l'antenne la plus proche est en moyenne à 4,6 kilomètres, et jusqu'à 6,8 kilomètres pour la plus éloignée. Là où le réseau est présent, on compte en moyenne 2,6 pylônes dans un rayon de trois kilomètres. L'antenne la plus proche appartient le plus souvent à Orange — 53 localités sur 90 — devant MTN avec 25. Ces chiffres viennent du croisement, en mai 2026, du recensement de 2021 avec les 9 168 sites radioélectriques géolocalisés relevés par l'AIGF.",
+    "visibility": "PUBLIC",
+    "region": "MARAHOUE",
+    "metadata": {
+      "theme": "réseau mobile par département",
+      "departement": "ZUENOULA",
+      "source": "AIGF 2025 × RGPH 2021",
+      "seuil_km": 3
+    }
+  },
+  {
+    "id": "aigf-00-referentiel",
+    "title": "D'où vient le compte des antennes en Côte d'Ivoire",
+    "content": "Le décompte des antennes-relais du pays ne repose pas sur ce que les opérateurs annoncent, mais sur ce que l'Agence Ivoirienne de Gestion des Fréquences a relevé et vérifié sur le terrain. Le relevé de 2025 dénombre 9 168 sites radioélectriques géolocalisés : 4 002 pour Orange, 3 075 pour MTN et 2 091 pour Moov. Ce choix a une raison précise : les déclarations de présence des opérateurs eux-mêmes étaient inférieures à ce relevé, et ce sont donc les données de l'AIGF qui ont été retenues pour la suite des travaux. Chaque site porte des coordonnées exactes, ce qui permet de calculer, pour chacune des 8 757 localités du recensement, la distance jusqu'à l'antenne la plus proche et l'opérateur à qui elle appartient. C'est ce calcul, et non une déclaration, qui fonde la carte des zones blanches.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "référentiel des sites radioélectriques",
+      "source": "AIGF 2025"
+    }
+  }
+]
