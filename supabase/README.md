@@ -256,7 +256,7 @@ le moyen de vérifier qu'un lot annoncé interne l'est bien.
 
 ## État du corpus
 
-Au 21 août 2026 : **10 016 fragments, 23 sources**, tous vectorisés.
+Au 21 août 2026 : **10 027 fragments, 24 sources**, tous vectorisés.
 
 L'essentiel du nombre vient de l'observatoire (9 286 fiches : une par localité,
 une par site) ; l'essentiel du sens vient des documents de la direction et des
@@ -282,6 +282,21 @@ La technologie déclarée n'est pas exploitable non plus : Moov a rempli la fich
 technique complète de ses sites, Orange et MTN le strict minimum. Le nombre de
 sites en 4G ne se lit pas dans ce fichier ; il vient des déclarations de
 couverture, qui sont un autre document.
+
+Une source explique les autres : l'**apurement du référentiel** mené en
+avril-mai 2026 par l'ANSUT, l'ARTCI et l'Institut national de la statistique.
+Sans elle, SUTA citait 8 757 localités sans pouvoir dire ce que ce nombre
+recouvre. Les fiches disent d'où il vient, ce qui a été corrigé — doublons par
+inversion de coordonnées, populations restées à 2014, localités sans position,
+campements absents, localités classées non couvertes à tort — et ce qui manque
+encore. Deux points y méritent l'attention à l'oral :
+
+- **« Couverte à 90,9 % » et « 3 668 localités non couvertes » sont vrais tous
+  les deux.** Le premier compte par technologie (2G ≤ 7 km, 3G ≤ 5 km,
+  4G ≤ 4 km) et donne 799 localités non couvertes ; le second applique un seuil
+  unique de trois kilomètres, celui auquel on capte chez soi.
+- **Le chiffre des non-couverts est un plancher, pas un total** : les campements
+  ne sont pas dans le référentiel. Les intégrer le fera monter, pas baisser.
 
 Trois écarts sont **inscrits dans le corpus plutôt qu'arbitrés**, parce que les
 sources se contredisent : le découpage des trois lots du programme rural
