@@ -140,3 +140,49 @@ en est le dépôt ; leur script de chargement se regénère depuis elle :
 select id, title, visibility, (select content from document_chunks where "documentId" = d.id)
 from documents d where "sourceId" = 'ansut-doctrine-interne' and visibility = 'ADMIN';
 ```
+
+## Les documents transmis par la direction
+
+Une direction ne produit pas des jeux de données : elle produit des decks de
+stratégie, des dossiers de conseil d'administration, des projections
+financières, des classeurs de linéaires. Ces documents portent l'essentiel de
+ce que SUTA doit savoir, et rien de ce qu'une base de données sait ranger.
+
+Le pipeline sait les lire — `.pdf`, `.docx`, `.xlsx`, `.csv`, `.pptx`, `.txt`,
+`.md` (voir `packages/knowledge/src/ingestion/extract-text.ts`). Mais lire ne
+suffit pas : un fragment de diapositive découpé au petit bonheur —
+« 28 Régions concernées » — ne répond à aucune question posée à voix haute.
+
+Le geste est donc en deux temps :
+
+1. **Extraire** le texte du document, une fois, dans un fichier ;
+2. **Rédiger des fiches** à partir de ce texte — une idée par fiche, écrite
+   pour se comprendre seule, en langue de concitoyen, sans jamais remplacer un
+   chiffre exact par un ordre de grandeur — puis les charger avec
+   `upsert_document_fiches`.
+
+Le second temps demande du jugement : décider ce qui mérite une fiche, ce qui
+relève du communicable et ce qui relève de la délibération interne, et repérer
+les chiffres qui se contredisent d'une page à l'autre. C'est du travail de
+lecture, confié à un agent par document, avec pour consigne explicite de
+signaler les incohérences plutôt que de les trancher.
+
+Ce que ce travail a produit sur les cinq premiers documents : 106 fiches, dont
+59 communicables (versionnées dans
+`migrations/20260821180000_fiches_documents_direction.sql`) et 47 internes.
+
+Deux réflexes qui ont chacun évité une erreur :
+
+- **Ne jamais déduire le sujet du nom de fichier.** `bus_ansut_presentation`
+  ne parle pas d'un autobus : BUS est l'acronyme de Backbone Unifié de
+  Services. Une fiche a été écrite exprès pour lever l'ambiguïté, que SUTA
+  rencontrera à l'oral.
+- **Dater ce qui est daté.** Le classeur du backbone décrit un plan de
+  déploiement d'il y a plus de dix ans. Présenter ses 6 326 km comme l'état
+  actuel du réseau serait faux ; chaque fiche le précise.
+
+Une limite connue : la mise à plat d'un tableur à sections — un classeur où
+un intitulé d'axe sert de séparateur au milieu des données — recopie ce libellé
+sur des lignes auxquelles il ne correspond pas. Les lignes brutes du classeur
+du backbone n'ont donc **pas** été versées au corpus ; seules les fiches de
+synthèse l'ont été.
