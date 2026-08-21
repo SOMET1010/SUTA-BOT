@@ -19,6 +19,7 @@
     "db:migrate": "dotenv -e .env.local -- npm run db:migrate --workspace=@suta/database",
     "db:seed": "dotenv -e .env.local -- npm run db:seed --workspace=@suta/database",
     "knowledge:ingest": "dotenv -e .env.local -- npm run ingest --workspace=@suta/knowledge",
+    "knowledge:ingest-jsonl": "dotenv -e .env.local -- npm run ingest-jsonl --workspace=@suta/knowledge",
     "knowledge:reindex": "dotenv -e .env.local -- npm run reindex --workspace=@suta/knowledge"
   },
   "engines": {

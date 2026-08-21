@@ -137,8 +137,10 @@ interface EmbeddingsProvider {
   déterministes (hash du texte, normalisés), sans appel réseau. Utile pour
   le développement et le fallback Salon, mais **sémantiquement dénué de
   sens** — voir `packages/knowledge/README.md`.
-- `AzureEmbeddingsProvider` / `OpenAIEmbeddingsProvider` — squelettes, en
-  attente du déploiement d'embeddings confirmé par l'équipe IT/PIE.
+- `AzureEmbeddingsProvider` — implémenté (endpoint GA
+  `/openai/v1/embeddings`, même ressource et clé que
+  `AzureRealtimeProvider`). `OpenAIEmbeddingsProvider` reste un squelette
+  non implémenté.
 
 Sélection par `EMBEDDINGS_PROVIDER=mock|azure|openai` ; dimension des
 vecteurs par `EMBEDDING_DIMENSIONS` (doit correspondre à la colonne
@@ -158,6 +160,24 @@ Fichier (PDF/DOCX/TXT/MD)
 `npm run knowledge:ingest` ingère `data/demo/` ; `npm run knowledge:reindex`
 recalcule les embeddings de tous les fragments existants (utile après un
 changement de fournisseur/modèle).
+
+### Ingestion d'un corpus pré-découpé (JSONL)
+
+Distinct du pipeline ci-dessus : `npm run knowledge:ingest-jsonl -- <fichier.jsonl>`
+(`packages/knowledge/src/ingestion/{jsonl-corpus,ingest-jsonl}.ts`) ingère
+un corpus déjà découpé en chunks autonomes avec identifiant stable — par
+exemple le corpus généré depuis l'observatoire du service universel ANSUT
+(scoring AIGF, couverture opérateurs, population RGPH, synthèses
+régionales, doctrine métier). Chaque ligne devient un `Document` à un seul
+`DocumentChunk` (pas de redécoupage, pour préserver le découpage et les
+métadonnées déjà optimisés à la génération) ; les champs `region` /
+`departement` / `type` / `source` de chaque entrée sont fusionnés dans
+`DocumentChunk.metadata`. Idempotent (`upsert` sur l'id stable de chaque
+entrée) : une réingestion après régénération du corpus source met à jour
+sans dupliquer. Nécessite un `EMBEDDINGS_PROVIDER` réel (`azure` ou
+`openai`) — avec `mock`, la recherche sémantique sur un tel volume
+(dépend du corpus, potentiellement plusieurs milliers de fragments) ne
+serait pas exploitable.
 
 ### Stockage pgvector et requêtes brutes
 

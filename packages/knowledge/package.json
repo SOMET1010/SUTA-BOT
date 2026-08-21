@@ -9,6 +9,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "ingest": "tsx scripts/ingest.ts",
+    "ingest-jsonl": "tsx scripts/ingest-jsonl.ts",
     "reindex": "tsx scripts/reindex.ts"
   },
   "dependencies": {
