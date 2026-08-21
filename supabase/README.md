@@ -30,13 +30,16 @@ relancer reprend là où l'exécution s'est arrêtée, sans doublon.
 
 ## Prérequis (Dashboard Supabase)
 
-1. **Secrets** — Project Settings → Edge Functions → Secrets :
-   - `AZURE_OPENAI_ENDPOINT` (ex. `https://<ressource>.openai.azure.com/`)
-   - `AZURE_OPENAI_API_KEY`
-   - `EMBEDDINGS_DEPLOYMENT` (`text-embedding-3-small` — 1536 dimensions,
-     ce que la colonne `document_chunks.embedding vector(1536)` attend ;
-     `text-embedding-3-large` produit 3072 dimensions et imposerait une
-     migration du schéma)
+1. **Secret** — Project Settings → Edge Functions → Secrets :
+   `AZURE_OPENAI_API_KEY`. C'est le **seul** secret requis.
+
+   L'endpoint (`https://dtdi-openai-audio-01.openai.azure.com/`) et le
+   déploiement (`text-embedding-3-small`, 1536 dimensions — ce que la colonne
+   `document_chunks.embedding vector(1536)` attend, là où
+   `text-embedding-3-large` en produirait 3072 et imposerait une migration)
+   ne sont pas des secrets : ils sont codés en valeurs par défaut dans
+   `embed-chunks`, surchargeables par `AZURE_OPENAI_ENDPOINT` et
+   `EMBEDDINGS_DEPLOYMENT` si la ressource Azure change.
 2. **Corpus** — Storage → bucket `corpus` → déposer `ansut_rag_corpus.jsonl`.
 
 ## Exécution

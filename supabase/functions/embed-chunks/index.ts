@@ -13,11 +13,21 @@
  * Idempotente : relancer la fonction reprend simplement là où elle s'est
  * arrêtée.
  *
- * Secrets attendus (Dashboard → Edge Functions → Secrets) :
- *   AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_API_KEY, EMBEDDINGS_DEPLOYMENT
+ * Seul `AZURE_OPENAI_API_KEY` doit être renseigné en secret (Dashboard →
+ * Edge Functions → Secrets). L'endpoint et le nom du déploiement ne sont pas
+ * des secrets : ils ont une valeur par défaut ci-dessous, surchargeable par
+ * `AZURE_OPENAI_ENDPOINT` / `EMBEDDINGS_DEPLOYMENT` si la ressource change.
  */
 
 import { createClient } from "jsr:@supabase/supabase-js@2";
+
+/** Ressource Azure OpenAI de la DTDI, confirmée par l'équipe IT/PIE. */
+const DEFAULT_ENDPOINT = "https://dtdi-openai-audio-01.openai.azure.com/";
+/**
+ * 1536 dimensions, ce qu'attend `document_chunks.embedding vector(1536)`.
+ * `text-embedding-3-large` en produirait 3072 et imposerait une migration.
+ */
+const DEFAULT_DEPLOYMENT = "text-embedding-3-small";
 
 /** Azure limite la taille d'une entrée ; les fragments du corpus sont bien en deçà. */
 const MAX_CHARS_PER_INPUT = 6000;
@@ -71,9 +81,9 @@ Deno.serve(async (req: Request) => {
     const batchSize: number = options.batch ?? DEFAULT_BATCH;
     const maxSeconds: number = options.maxSeconds ?? DEFAULT_MAX_SECONDS;
 
-    const endpoint = requireEnv("AZURE_OPENAI_ENDPOINT");
+    const endpoint = Deno.env.get("AZURE_OPENAI_ENDPOINT") || DEFAULT_ENDPOINT;
+    const deployment = Deno.env.get("EMBEDDINGS_DEPLOYMENT") || DEFAULT_DEPLOYMENT;
     const apiKey = requireEnv("AZURE_OPENAI_API_KEY");
-    const deployment = requireEnv("EMBEDDINGS_DEPLOYMENT");
 
     const supabase = createClient(
       requireEnv("SUPABASE_URL"),
