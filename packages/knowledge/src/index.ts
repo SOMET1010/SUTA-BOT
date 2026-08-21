@@ -14,6 +14,7 @@ export * from "./ingestion/jsonl-corpus";
 export * from "./ingestion/ingest-jsonl";
 export * from "./ingestion/reindex";
 export * from "./ingestion/spreadsheet";
+export * from "./ingestion/presentation";
 
 export * from "./retrieval/extract-location";
 export * from "./retrieval/search";
