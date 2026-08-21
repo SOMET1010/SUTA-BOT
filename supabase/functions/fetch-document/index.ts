@@ -42,6 +42,26 @@ const TAILLE_MAX_OCTETS = 60 * 1024 * 1024;
 /** Taille d'une tranche de texte rendue par appel. */
 const TRANCHE_CARACTERES = 90_000;
 
+/** Extrait les liens d'une page HTML, résolus en adresses absolues. Sans
+ * cela, la fonction rend le texte d'une page mais jette ses liens : on peut
+ * lire un site institutionnel, pas le parcourir pour trouver ses rapports. */
+function liensDepuisHtml(html: string, base: URL): { url: string; texte: string }[] {
+  const vus = new Set<string>();
+  const liens: { url: string; texte: string }[] = [];
+  for (const m of html.matchAll(/<a\s[^>]*href\s*=\s*["']([^"'#]+)["'][^>]*>([\s\S]*?)<\/a>/gi)) {
+    try {
+      const u = new URL(m[1].trim(), base);
+      if (u.protocol !== "https:" && u.protocol !== "http:") continue;
+      if (vus.has(u.href)) continue;
+      vus.add(u.href);
+      const texte = m[2].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 120);
+      liens.push({ url: u.href, texte });
+      if (liens.length >= 500) break;
+    } catch { /* lien illisible : on passe */ }
+  }
+  return liens;
+}
+
 /** Rend le texte d'une page HTML, sans le balisage ni les scripts. */
 function texteDepuisHtml(html: string): string {
   return html
@@ -105,6 +125,7 @@ Deno.serve(async (req: Request) => {
     const typeContenu = response.headers.get("content-type") ?? "";
     let texte: string;
     let pages: number | null = null;
+    let liens: { url: string; texte: string }[] | undefined;
 
     if (typeContenu.includes("pdf") || url.pathname.toLowerCase().endsWith(".pdf")) {
       const document = await getDocumentProxy(new Uint8Array(buffer));
@@ -112,7 +133,9 @@ Deno.serve(async (req: Request) => {
       texte = String(extrait.text ?? "");
       pages = extrait.totalPages ?? null;
     } else {
-      texte = texteDepuisHtml(new TextDecoder().decode(buffer));
+      const html = new TextDecoder().decode(buffer);
+      if (options.liens) liens = liensDepuisHtml(html, finale);
+      texte = texteDepuisHtml(html);
     }
 
     const tranche = texte.slice(offset, offset + TRANCHE_CARACTERES);
@@ -128,6 +151,7 @@ Deno.serve(async (req: Request) => {
       // `null` quand il ne reste rien : le signal d'arrêt de la boucle.
       offsetSuivant: offset + tranche.length < texte.length ? offset + tranche.length : null,
       texte: tranche,
+      liens,
       elapsedSeconds: Math.round((Date.now() - startedAt) / 1000),
     });
   } catch (error) {
