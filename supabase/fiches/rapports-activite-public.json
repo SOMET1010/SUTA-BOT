@@ -1,0 +1,277 @@
+[
+  {
+    "id": "pta-t1-2026-01",
+    "title": "Bilan du premier trimestre 2026 de l'ANSUT",
+    "content": "Le rapport de mise en œuvre du Plan de Travail Annuel de l'ANSUT pour le premier trimestre 2026, couvrant la période du 1er janvier au 31 mars 2026, établit que 75 % des activités évaluables ont atteint ou dépassé leur cible, soit 57 activités sur 76. Au total, 94 activités ont été suivies : 13 étaient achevées au 31 mars 2026, 58 en cours dans les délais, 18 en retard et 5 non démarrées. Les résultats sont très inégaux selon les domaines : les services numériques affichent 91,7 % d'atteinte des cibles, la gouvernance 75,5 %, la connectivité 71,4 %, tandis que le volet des usages digitaux ne dépasse pas 25 %. Attention : ces chiffres portent sur un seul trimestre, pas sur l'année 2026 entière, qui n'était pas terminée.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "performance",
+      "annee": "T1 2026"
+    }
+  },
+  {
+    "id": "pta-t1-2026-02",
+    "title": "Localités rurales couvertes au 31 mars 2026",
+    "content": "Au 31 mars 2026, le nombre de localités rurales de plus de 500 habitants couvertes par le programme de l'ANSUT s'établit à 210. Aucune nouvelle localité n'a été raccordée au cours du premier trimestre 2026 : le chiffre est resté identique à celui du début d'année. L'objectif que l'ANSUT s'est fixé pour la fin de l'année 2026 est de 280 localités, ce qui suppose 70 raccordements supplémentaires sur les trois trimestres restants. Ce chiffre de 210 localités confirme par ailleurs que les 8 localités qui manquaient encore au 31 décembre 2025, où 202 étaient couvertes sur 210 prévues, ont bien été achevées au début de l'année 2026, comme l'ANSUT l'avait annoncé.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "couverture rurale",
+      "annee": "T1 2026"
+    }
+  },
+  {
+    "id": "pta-t1-2026-03",
+    "title": "Kilomètres de fibre du RNHD en service au 31 mars 2026",
+    "content": "Le linéaire du Réseau National Haut Débit effectivement utilisé est passé de 2 382 km en début d'année 2026 à 2 859 km au 31 mars 2026, soit 59 km de plus sur le trimestre selon le rapport trimestriel de l'ANSUT. Cette valeur dépasse déjà la cible que l'agence s'était fixée pour toute l'année 2026, arrêtée à 2 800 km. Ce linéaire en service représente un peu plus de la moitié des 5 207 km de fibre optique posée que compte le RNHD. Le rapport signale un écart de comptage : il retient 2 382 km comme point de départ de 2026, alors que les rapports d'activités 2024 et 2025 de l'ANSUT font tous deux état de 2 853 km de fibre mise en exploitation transitoire.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "fibre optique",
+      "annee": "T1 2026"
+    }
+  },
+  {
+    "id": "pta-t1-2026-04",
+    "title": "Établissements publics connectés au haut débit au 31 mars 2026",
+    "content": "Au 31 mars 2026, 47 administrations déconcentrées de l'État étaient connectées au haut débit, pour un objectif de 82 à la fin de l'année 2026, soit un avancement de 42,68 %. Le rapport trimestriel de l'ANSUT précise que tous les ministères et institutions situés dans le périmètre d'Abidjan sont connectés : 36 sites ministériels et 11 institutions sont raccordés au réseau eGouv et partagent une connexion de 1 Gbps doublée d'un lien de secours de 150 Mbps. En revanche, aucune administration décentralisée, relevant des collectivités locales, n'a été connectée avec l'appui de l'ANSUT depuis le début de l'année 2026. Du côté de la santé, 9 établissements publics sanitaires étaient connectés au 31 mars 2026, chiffre inchangé depuis le début de l'année, pour une cible de 20 établissements à fin 2026.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "connectivité administrations",
+      "annee": "T1 2026"
+    }
+  },
+  {
+    "id": "pta-t1-2026-06",
+    "title": "Travaux sur les sites techniques de la fibre au premier trimestre 2026",
+    "content": "Au premier trimestre 2026, l'ANSUT a achevé l'entretien et la mise aux normes de l'environnement technique de 6 sites points de coupure du réseau de fibre optique, alors que 4 seulement étaient prévus sur la période. Les sites concernés sont Azaguié, Agboville, Adzopé, Bonahouin, Abengourou et Bongouanou. L'objectif pour l'ensemble de l'année 2026 porte sur 16 sites. Sur le volet énergie, des transformateurs ont été installés et raccordés sur 9 sites, qui attendaient leur abonnement auprès de la compagnie d'électricité, et installés sur 7 autres sites en attente de raccordement au réseau. La sécurité physique des sites points de coupure et des entrepôts a par ailleurs été assurée sans qu'aucun incident ne soit constaté sur le trimestre.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "infrastructures",
+      "annee": "T1 2026"
+    }
+  },
+  {
+    "id": "pta-t1-2026-07",
+    "title": "Plateformes numériques livrées au premier trimestre 2026",
+    "content": "Au cours du premier trimestre 2026, l'ANSUT a développé et mis en service deux plateformes destinées à l'administration : Liveness et ANSUT Gateway, cette dernière servant à centraliser les notifications par SMS et par courriel. La plateforme citoyenne Julaba a également été développée et se trouvait en phase de test au 31 mars 2026. Le développement de la plateforme PEUB, destinée aux bacheliers, a été achevé. La plateforme N'Zassa Girl, dédiée aux jeunes filles, a été achevée puis transférée au Rotary, à qui l'ANSUT a confié le déploiement sur le terrain. Six cahiers des charges ont été rédigés pour d'autres plateformes destinées à l'administration et quatre pour des plateformes destinées au public, dont Mon Toit, Connect My Zone et l'annuaire téléphonique, dont les prestataires restaient à sélectionner.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "services numériques",
+      "annee": "T1 2026"
+    }
+  },
+  {
+    "id": "pta-t1-2026-08",
+    "title": "Agents formés au numérique au premier trimestre 2026",
+    "content": "Au premier trimestre 2026, l'ANSUT a formé 240 agents au numérique, alors que la cible du trimestre était de 50 personnes et que l'objectif annuel 2026 porte sur 200 personnes. Le détail est le suivant : 60 agents du ministère de l'Économie et des Finances ont été formés aux solutions métiers déployées sur la plateforme Azure, 100 agents de l'ANSUT à la suite d'outils Copilot, et 80 agents de l'ANSUT à la solution Liquio, une plateforme de développement de services assistée par intelligence artificielle. Une session de formation de 60 agents du ministère de l'Économie et des Finances a également porté sur l'environnement de travail numérique et la délégation de signature, dans le cadre de l'animation du club des directeurs des systèmes d'information de l'administration.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "formation",
+      "annee": "T1 2026"
+    }
+  },
+  {
+    "id": "pta-t1-2026-09",
+    "title": "Usages numériques : aucune avancée mesurée au premier trimestre 2026",
+    "content": "Le rapport trimestriel de l'ANSUT établit qu'au 31 mars 2026, aucun des indicateurs du volet des usages digitaux n'avait progressé depuis le début de l'année. Concrètement, aucune personne n'a été sensibilisée à l'usage des services numériques sur le trimestre, alors que 10 000 sont visées pour 2026 ; le nombre de personnes formées aux outils et technologies innovants reste à 239 pour une cible annuelle de 500 ; aucun nouveau programme de renforcement des capacités ni aucune campagne de sensibilisation n'a été lancé. Les seules avancées enregistrées portent sur des études : le projet ANSUT Academy et le dispositif d'activation du programme national de certification aux compétences numériques. Le rapport désigne ce volet comme le principal point de faiblesse du trimestre.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "usages numériques",
+      "annee": "T1 2026"
+    }
+  },
+  {
+    "id": "pta-t1-2026-14",
+    "title": "L'ANSUT au Mobile World Congress de Barcelone en 2026",
+    "content": "Au premier trimestre 2026, le directeur général de l'ANSUT et plusieurs membres du comité de direction ont participé au Mobile World Congress de Barcelone, le principal rendez-vous mondial du secteur mobile. L'ANSUT retient de cette participation cinq bénéfices : la confirmation que la connectivité rurale et le traitement des zones blanches sont au cœur des priorités du secteur, l'ouverture de pistes concrètes de partenariat avec l'équipementier Nokia, la mise à disposition d'outils et de programmes de la GSMA au service du service universel, une clarification des enjeux de mesure, d'indicateurs et de reddition de comptes, et le renforcement du rôle de l'agence comme interface entre les initiatives internationales et la réalité ivoirienne. L'agence s'est fixé pour 2026 un objectif de participation à cinq rendez-vous régionaux, africains et mondiaux.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "international",
+      "annee": "T1 2026"
+    }
+  },
+  {
+    "id": "pta-t1-2026-15",
+    "title": "Nouveau plan stratégique 2026-2030 de l'ANSUT",
+    "content": "Au premier trimestre 2026, l'ANSUT a achevé l'élaboration de son plan stratégique 2026-2030, en intégrant les observations de son ministère de tutelle et de son conseil d'administration. Ce plan prend la suite du plan stratégique 2023-2025, dit ANSUT Connect, arrivé à son terme. Il est structuré autour de quatre piliers : la connectivité numérique universelle, les services numériques et l'inclusion sociale, les usages digitaux, et l'excellence opérationnelle. Au 31 mars 2026, le plan n'était pas encore adopté : sa validation devait être soumise au conseil d'administration au cours du deuxième trimestre 2026. Le Plan de Travail Annuel 2026 qui en découle a été élaboré et décliné en quatre programmes trimestriels, et le rapport annuel de performance 2025 a été produit.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "planification",
+      "annee": "T1 2026"
+    }
+  },
+  {
+    "id": "activite-2025-01",
+    "title": "Localités rurales connectées en 2025",
+    "content": "Au 31 décembre 2025, l'ANSUT avait connecté 202 localités rurales sur les 210 prévues pour l'année, soit 96 % de l'objectif, dans le cadre de son programme de couverture des zones blanches. Ces 202 localités correspondent à 202 sites radio opérationnels répartis sur l'ensemble du territoire et offrant la voix, les SMS et l'internet. Ces zones sont celles que les opérateurs privés ne jugent pas rentables. Les 8 localités manquantes représentaient un retard d'environ un mois sur le calendrier initial, et l'achèvement complet du programme était annoncé pour janvier 2026. Le rapport 2025 de l'ANSUT comporte un écart de comptage : son texte parle de 210 localités projetées, tandis que le tableau régional qui l'accompagne totalise 212 localités prévues.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "couverture rurale",
+      "annee": "2025"
+    }
+  },
+  {
+    "id": "activite-2025-02",
+    "title": "Où se trouvent les localités couvertes en 2025",
+    "content": "Le rapport des réalisations 2025 de l'ANSUT détaille, région par région, les 202 localités rurales couvertes au 31 décembre 2025. Les régions les plus servies sont le Tonkpi avec 27 localités, le Bafing avec 20, le Gbêkê avec 19, le Gontougo avec 16, le Béré et le Poro avec 14 chacune, le Hambol avec 13, le Tchologo avec 10 et le Worodougou avec 9. Viennent ensuite la Nawa avec 8 localités, le San-Pedro avec 7, la Bagoué, le Bounkani et le Folon avec 6 chacun, l'Iffou avec 4, le N'Zi, le Lôh-Djiboua et le Kabadougou avec 3 chacun, puis le Bélier, les Grands-Ponts, le Guémon et la Marahoué avec 2 chacun. L'Agnéby-Tiassa, le Cavally, l'Indénié-Djuablin, la Mé, le Moronou et le Haut-Sassandra comptent une localité chacun. Cinq régions n'ont pas atteint leur objectif : le Bounkani avec 6 localités couvertes sur 11 prévues, le Gontougo 16 sur 18, le Poro 14 sur 15, le Tchologo 10 sur 11 et le Worodougou 9 sur 10.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "couverture rurale",
+      "annee": "2025"
+    }
+  },
+  {
+    "id": "activite-2025-03",
+    "title": "Le réseau national de fibre optique en 2025",
+    "content": "À fin 2025, le Réseau National Haut Débit de la Côte d'Ivoire compte 5 207 km de fibre optique posée. Sur ce total, 2 853 km étaient mis en exploitation transitoire au profit des opérateurs, chiffre identique à celui déjà rapporté pour 2024 : le linéaire exploité n'a donc pas progressé entre les deux exercices tels qu'ils sont rapportés. Le taux d'avancement global du RNHD est évalué à 65 % à fin 2025. En 2025, l'ANSUT a finalisé les travaux préparatoires à l'allumage de 900 km de fibre : équipements actifs commandés et livrés, études d'ingénierie achevées, alimentation énergétique installée sur les sites critiques, réhabilitation de 16 sites points de coupure engagée. Les villes concernées sont Agboville, Adzopé, Abengourou, Dimbokro, Toumodi, Oumé, Yamoussoukro, Gagnoa, Sinfra, Issia et Daloa. Il faut être précis : ces 900 km n'étaient pas allumés fin 2025, l'activation étant programmée pour 2026.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "fibre optique",
+      "annee": "2025"
+    }
+  },
+  {
+    "id": "activite-2025-05",
+    "title": "Le raccordement des administrations préparé en 2025",
+    "content": "En 2025, l'ANSUT a finalisé l'étude du volet Last Mile, c'est-à-dire le raccordement final des bâtiments publics au réseau haut débit. Cette étude a identifié 70 bureaux administratifs prioritaires répartis dans 8 villes : Gagnoa avec 12 bureaux, Agboville, Abengourou, Dimbokro et Daloa avec 9 chacune, Issia avec 8, Yamoussoukro et Toumodi avec 7 chacune. Les secteurs visés en priorité sont la santé avec les hôpitaux et CHU, l'éducation avec les universités et lycées, la sécurité avec les postes militaires, commissariats et gendarmeries, ainsi que les préfectures. Il s'agit d'un travail d'étude : au 31 décembre 2025, le rapport technique était disponible et le déploiement effectif était programmé pour 2026, sous réserve d'une coordination interministérielle avec les ministères bénéficiaires.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "last mile",
+      "annee": "2025"
+    }
+  },
+  {
+    "id": "activite-2025-06",
+    "title": "Premier centre d'innovation numérique scolaire inauguré en 2025",
+    "content": "Le 18 décembre 2025, l'ANSUT a inauguré le premier Centre d'Innovation et de Culture Numérique de Côte d'Ivoire, au Lycée Mamie Faitai de Bingerville. Ces centres sont des salles multimédias installées dans des établissements secondaires publics, équipées d'ordinateurs récents, d'écrans multimédias interactifs, d'imprimantes multifonctions, de mobilier ergonomique et d'une connexion internet haut débit. Le programme porte sur 9 établissements répartis dans 9 régions. Au 31 décembre 2025, un seul centre était inauguré ; les 8 autres, situés à Dabou, Katiola, Kouto, Bongouanou, Djékanou, Ferkessédougou, Sakassou et Odienné, étaient aménagés et câblés, l'installation des équipements informatiques et du mobilier restant à faire. Le taux d'avancement global était de 60 % et l'achèvement était reporté à février 2026, soit trois mois après la date initialement prévue.",
+    "visibility": "PUBLIC",
+    "region": "DISTRICT AUTONOME D'ABIDJAN",
+    "metadata": {
+      "theme": "CICN",
+      "annee": "2025"
+    }
+  },
+  {
+    "id": "activite-2025-07",
+    "title": "Premier abri connecté à wifi gratuit ouvert en 2025",
+    "content": "Le 18 décembre 2025, l'ANSUT a mis en service le premier abri connecté de Côte d'Ivoire, à la gare Yaya Fofana de Koumassi, à Abidjan. Un abri connecté est un espace public équipé d'un wifi gratuit et sécurisé, avec un portail d'accès contrôlé permettant de consulter les informations sur les transports, d'effectuer des démarches administratives en ligne et de suivre l'actualité. Un mécanisme de limitation d'usage évite la saturation du service. Au 31 décembre 2025, deux autres abris étaient en cours de finition, l'un sur l'esplanade de la mairie de Dabou, l'autre au terminus 40 de Yopougon, avec une mise en service programmée pour janvier 2026. Le taux d'avancement du programme était de 90 % et le portail d'accès était pleinement opérationnel.",
+    "visibility": "PUBLIC",
+    "region": "DISTRICT AUTONOME D'ABIDJAN",
+    "metadata": {
+      "theme": "abris connectés",
+      "annee": "2025"
+    }
+  },
+  {
+    "id": "activite-2025-08",
+    "title": "Modernisation numérique de l'État en 2025",
+    "content": "En 2025, l'ANSUT a modernisé l'infrastructure eGouv qui porte les services numériques de l'administration. Une liaison MTN de 1 Gbps empruntant deux chemins distincts a été mise en service, avec une redondance sur un lien Orange de 150 Mbps. Un portail unique regroupant les services eGouv, le Digital Workplace, a été lancé et présenté aux directeurs des systèmes d'information des ministères. Au datacenter de l'Esplanade de la Présidence, le matériel a été réceptionné et 5 racks installés, l'installation des serveurs étant reportée à 2026 pour cause de contraintes électriques. La plateforme PGCA de digitalisation des conseils d'administration est opérationnelle au conseil de l'ANSUT, avec émargement par QR code, vote électronique et procès-verbaux automatiques ; son extension à 10 autres entreprises publiques est prévue pour 2026. La version 2 d'eConseil a été développée et testée, la plateforme eMeeting en restant au stade du prototype.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "eGouv",
+      "annee": "2025"
+    }
+  },
+  {
+    "id": "activite-2025-10",
+    "title": "Plateformes pour les jeunes achevées en 2025",
+    "content": "En 2025, l'ANSUT a rendu techniquement opérationnelles deux plateformes destinées aux jeunes. Le Programme d'Excellence Universel pour les Bacheliers, accessible sur peub.ansut.ci et sur les magasins d'applications Android et Huawei, accompagne les nouveaux bacheliers ; l'acquisition de 200 ordinateurs pour la phase pilote a été validée en 2025, la distribution aux lauréats étant prévue en 2026. La plateforme N'Zassa Girl, qui lutte contre le décrochage scolaire et promeut la dignité menstruelle chez les jeunes filles, a achevé sa phase de tests et est accessible sur nzassagirl-rec.ansut.ci ainsi que sur les magasins Android, Huawei et Apple. Il faut être clair sur ce point : au 31 décembre 2025, ces deux plateformes étaient prêtes techniquement, mais leur lancement grand public et institutionnel restait programmé pour 2026.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "inclusion jeunes",
+      "annee": "2025"
+    }
+  },
+  {
+    "id": "activite-2025-11",
+    "title": "L'ANSUT hôte d'un rendez-vous africain du service universel en 2025",
+    "content": "Du 25 au 29 août 2025, l'ANSUT a co-organisé à Abidjan un atelier international de haut niveau sur le Service Universel des Télécommunications, dit SUTEL, en collaboration avec l'Union Africaine des Télécommunications, la GSMA et l'ARTCI. Cet atelier s'est tenu en marge de la troisième et dernière Réunion Préparatoire Africaine pour la Conférence Mondiale de Développement des Télécommunications de l'UIT. Il a rassemblé des régulateurs africains, des ministres, des opérateurs et des organisations internationales autour du financement du service universel, des modèles de connectivité rurale, de l'inclusion numérique et des cadres réglementaires. L'ANSUT y a présenté ses pratiques en matière de couverture rurale, de backbone et d'inclusion des jeunes. L'agence avait déjà organisé un premier atelier SUTEL en novembre 2024 avec les mêmes partenaires.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "international",
+      "annee": "2025"
+    }
+  },
+  {
+    "id": "activite-2025-12",
+    "title": "Services numériques livrés à des partenaires publics en 2025",
+    "content": "En 2025, l'ANSUT a livré plusieurs réalisations numériques à d'autres institutions publiques. Pour l'AGRAC, elle a accompagné la conception puis la livraison d'un site internet accessible sur agrac.ci et d'une solution de gestion électronique du courrier sur gedc.agrac.ci. Elle a développé le site internet de la Grande Chancellerie. Elle a produit l'application mobile de l'Ivoire Tech Forum 2025, qui s'est tenu du 9 au 11 juillet 2025 à Abidjan, afin de faciliter les échanges avec les participants et le public. Sur le volet innovation, l'agence a signé 6 conventions de partenariat avec l'ESATIC, l'UVCI, le CNRA, la DGE, Mon Artisan et Kitsoft, publié 5 lettres d'information, organisé un hackathon et mené un projet de pisciculture numérique avec des étudiants. Les start-up Icone, Sifi-Siti et Sirius NTech ont été accompagnées.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "partenariats",
+      "annee": "2025"
+    }
+  },
+  {
+    "id": "activite-2025-16",
+    "title": "Actions sociales de l'ANSUT en 2025",
+    "content": "En 2025, dans le cadre de sa politique de responsabilité sociétale, l'ANSUT a ouvert une infirmerie au sein de l'agence, rouvert sa cantine, lancé un projet immobilier et fait réaliser un audit de l'environnement de travail. L'agence a également organisé une opération de dépistage du cancer du sein au bénéfice des habitantes du village de la Riviera Gobelet, à Abidjan. L'ouverture de l'infirmerie répond à un chantier engagé dès 2024 : le rapport d'activités 2024 indiquait que la médecine du travail était alors externalisée et que des travaux de construction d'une infirmerie étaient entrepris. Un Comité Santé, Sécurité au Travail présidé par le directeur général avait été mis en place en 2024 pour prévenir les risques professionnels.",
+    "visibility": "PUBLIC",
+    "region": "DISTRICT AUTONOME D'ABIDJAN",
+    "metadata": {
+      "theme": "RSE",
+      "annee": "2025"
+    }
+  },
+  {
+    "id": "activite-2024-01",
+    "title": "Audit et réparation du réseau de fibre optique en 2024",
+    "content": "En 2024, l'ANSUT a achevé l'audit complet des 5 207 km du Réseau National Haut Débit, puis engagé les réparations recommandées. Cette remise en état a permis, lors de la Coupe d'Afrique des Nations, d'interconnecter l'ensemble des stades et d'offrir le haut débit aux opérateurs pendant la compétition. Le rapport d'activités 2024 de l'ANSUT présente deux chiffrages différents de ces réparations et il faut les rapporter tous deux : son tableau de suivi des actions fait état de 4 115 km de fibre réparée sur 4 290 km à réparer, soit 97 % ; son tableau de suivi des projets d'infrastructure indique que l'audit avait identifié 2 420 km à réparer et retient un taux d'exécution de 80 %, avec 92 sections réparées sur 116, 24 sections en cours de finalisation et 9 sections faisant l'objet d'un déplacement pour travaux routiers. Des déplacements de réseau ont eu lieu à Abengourou, Man et Yamoussoukro.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "fibre optique",
+      "annee": "2024"
+    }
+  },
+  {
+    "id": "activite-2024-02",
+    "title": "Les faits marquants de l'année 2024 pour l'ANSUT",
+    "content": "Le rapport d'activités 2024 de l'ANSUT retient cinq faits marquants pour l'année. La loi n° 2024-352 du 6 juin 2024 relative aux communications électroniques a modernisé le cadre juridique du secteur et renforcé le cadre institutionnel du service universel. En août 2024, l'agence a lancé son programme d'urgence pour la couverture des zones blanches, visant 210 localités rurales sur 2024-2025 ; son taux de mise en œuvre était de 58 % au 31 décembre 2024, les résultats de terrain n'arrivant qu'en 2025. En juillet 2024, l'ANSUT a achevé l'audit du RNHD puis engagé sa réparation. En avril 2024, elle a recruté un Directeur des Solutions et Intégrations des Services. En novembre 2024, elle a organisé le premier atelier international SUTEL sur le service universel, avec l'Union Africaine des Télécommunications et la GSMA. La dématérialisation des conseils des ministres via eConseil v2 a par ailleurs été menée à 100 %, avec six séances assistées en fin d'année.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "faits marquants",
+      "annee": "2024"
+    }
+  },
+  {
+    "id": "ps-2325-01",
+    "title": "Ce que prévoyait le plan stratégique 2023-2025 de l'ANSUT",
+    "content": "Le plan stratégique 2023-2025 de l'ANSUT, dit ANSUT Connect, a été élaboré en mai 2023 à partir d'une étude sur la gouvernance du numérique réalisée par le cabinet EY Côte d'Ivoire. Il fixait l'ambition de faire de l'agence un accélérateur de la transformation numérique, autour de quatre axes : redynamiser l'agence et la repositionner dans l'écosystème numérique national, simplifier les démarches administratives, réduire la fracture numérique en développant infrastructures, services et compétences, et assurer la veille technologique. Son coût de mise en œuvre était estimé à 8 559 millions de FCFA sur trois ans, hors investissements du service universel : 2 526 millions pour l'axe 1, 666 millions pour l'axe 2, 495 millions pour l'axe 3 et 4 871 millions pour l'axe 4. Ce plan est arrivé à son terme fin 2025 et a été remplacé par un plan stratégique 2026-2030.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "plan stratégique",
+      "annee": "2023-2025"
+    }
+  },
+  {
+    "id": "ps-2325-02",
+    "title": "Les cibles du plan 2023-2025 face aux réalisations",
+    "content": "Le plan stratégique 2023-2025 de l'ANSUT fixait des cibles chiffrées très supérieures à ce qui a été réalisé, et il est honnête de le dire. Sur les infrastructures, il prévoyait la construction de 2 000 km supplémentaires de backbone et une extension du réseau de 7 000 à 13 000 km jusqu'aux sous-préfectures : à fin 2025, le RNHD comptait 5 207 km posés, dont 2 853 km exploités, et l'ANSUT préparait l'allumage de 900 km. Sur les usages, le plan visait des points d'accès internet dans 5 000 localités, 200 cybercentres communautaires dans les bureaux de poste, des salles informatiques dans 200 écoles secondaires publiques, 50 000 ordinateurs distribués aux citoyens, 20 000 fonctionnaires équipés, 500 000 personnes inscrites sur une plateforme de contenus pédagogiques, 6 000 ambassadeurs numériques formés et 1 100 personnes certifiées. À fin 2025, l'ANSUT avait connecté 202 localités rurales, inauguré 1 centre d'innovation scolaire sur 9 et 1 abri connecté, et validé l'acquisition de 200 ordinateurs pour les bacheliers.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "theme": "écart plan réalisé",
+      "annee": "2023-2025"
+    }
+  }
+]

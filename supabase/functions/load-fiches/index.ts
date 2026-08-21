@@ -40,27 +40,46 @@ interface Fiche {
   metadata?: Record<string, unknown>;
 }
 
+/** Décompresse un lot transmis en base64 d'un flux gzip. */
+async function inflate(base64: string): Promise<string> {
+  const octets = Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
+  const flux = new Blob([octets]).stream().pipeThrough(new DecompressionStream("gzip"));
+  return await new Response(flux).text();
+}
+
 Deno.serve(async (req: Request) => {
   const startedAt = Date.now();
 
   try {
     const options = await req.json().catch(() => ({}));
     const url: string = options.url ?? "";
+    const payloadGz: string = options.payloadGz ?? "";
     const sourceId: string = options.sourceId ?? "";
     const sourceName: string = options.sourceName ?? sourceId;
     const sourceDescription: string = options.sourceDescription ?? "";
 
-    if (!url.startsWith(PREFIXE_AUTORISE)) {
-      throw new Error(`Adresse refusée : seules celles commençant par ${PREFIXE_AUTORISE} sont acceptées.`);
-    }
     if (!sourceId) throw new Error("sourceId est obligatoire.");
+    if (!url && !payloadGz) throw new Error("Fournir soit `url`, soit `payloadGz`.");
 
-    const response = await fetch(url, { headers: { Accept: "application/json" } });
-    if (!response.ok) {
-      throw new Error(`Lecture du lot HTTP ${response.status} : ${url}`);
+    let fiches: Fiche[];
+
+    if (payloadGz) {
+      // Voie des fiches internes. Le dépôt étant public, elles ne peuvent pas
+      // y être versionnées : elles arrivent donc dans la requête même,
+      // compressées, ce qui divise par trois ou quatre le volume à recopier —
+      // et une recopie manuelle est précisément là où la faute se glisse.
+      fiches = JSON.parse(await inflate(payloadGz)) as Fiche[];
+    } else {
+      if (!url.startsWith(PREFIXE_AUTORISE)) {
+        throw new Error(`Adresse refusée : seules celles commençant par ${PREFIXE_AUTORISE} sont acceptées.`);
+      }
+      const response = await fetch(url, { headers: { Accept: "application/json" } });
+      if (!response.ok) {
+        throw new Error(`Lecture du lot HTTP ${response.status} : ${url}`);
+      }
+      fiches = (await response.json()) as Fiche[];
     }
 
-    const fiches = (await response.json()) as Fiche[];
     if (!Array.isArray(fiches)) throw new Error("Le lot doit être un tableau JSON de fiches.");
 
     // Une fiche sans contenu produirait un fragment vide, donc un vecteur qui
