@@ -186,3 +186,40 @@ un intitulé d'axe sert de séparateur au milieu des données — recopie ce lib
 sur des lignes auxquelles il ne correspond pas. Les lignes brutes du classeur
 du backbone n'ont donc **pas** été versées au corpus ; seules les fiches de
 synthèse l'ont été.
+
+## Charger un lot de fiches depuis le dépôt
+
+Les fiches tirées d'une source volumineuse — une base métier de plusieurs
+milliers de lignes, un rapport de deux cents pages — se comptent par centaines.
+Les faire transiter par une session d'assistant coûte cher et les expose à une
+recopie fautive.
+
+Elles se déposent donc sous `supabase/fiches/`, versionnées, et se chargent
+depuis GitHub :
+
+```sql
+select post_edge('load-fiches', jsonb_build_object(
+  'url', 'https://raw.githubusercontent.com/SOMET1010/SUTA-BOT/<branche>/supabase/fiches/<lot>.json',
+  'sourceId', 'identifiant-de-la-source',
+  'sourceName', 'Nom lisible de la source',
+  'sourceDescription', 'D''où viennent ces fiches et ce qu''elles couvrent.'
+));
+```
+
+Puis `embed-chunks` jusqu'à `remaining = 0`.
+
+Deux propriétés à connaître :
+
+- **Seules les fiches communicables passent par ici.** Le dépôt est public :
+  y déposer une fiche `ADMIN` reviendrait à la publier. Les fiches internes se
+  chargent directement en SQL, par `upsert_document_fiches`.
+- **La fonction n'accepte qu'une adresse de ce dépôt.** Elle est invocable
+  avec la clé anonyme ; sans cette restriction, elle deviendrait un relais
+  permettant de lui faire chercher n'importe quelle adresse depuis
+  l'infrastructure Supabase.
+
+Le format d'un lot est un tableau JSON dont chaque élément porte `id`,
+`title`, `content`, et facultativement `visibility`, `region` et `metadata`.
+Une fiche sans contenu est refusée avant tout écriture : elle produirait un
+fragment vide, donc un vecteur qui ne veut rien dire et qui remonterait au
+hasard dans les recherches.
