@@ -1,0 +1,376 @@
+[
+ {
+  "id": "artci-t1-2026-01",
+  "title": "Les lignes de téléphone fixe en Côte d'Ivoire",
+  "content": "Au 31 mars 2026, la Côte d'Ivoire comptait 235 855 lignes de téléphone fixe en service, selon les statistiques publiées par l'ARTCI pour le premier trimestre 2026. Le téléphone fixe continue de reculer : un an plus tôt, au 31 mars 2025, on en dénombrait 244 465. La baisse est de 3,5 % sur un an, soit 8 610 lignes de moins en douze mois. Deux opérateurs seulement proposent ce service dans le pays : Orange Côte d'Ivoire et MTN Côte d'Ivoire. Le fixe reste donc très minoritaire face au mobile, qui dépassait les soixante millions de lignes à la même date.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "fixe",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-02",
+  "title": "Les revenus de la téléphonie fixe",
+  "content": "Les opérateurs de téléphonie fixe ont encaissé 3 746 781 113 F CFA hors taxes entre janvier et mars 2026, d'après les statistiques publiées par l'ARTCI pour le premier trimestre 2026. C'est 6,0 % de plus que sur les trois premiers mois de 2025, où le total s'élevait à 3 536 108 496 F CFA. La quasi-totalité provient d'Orange Côte d'Ivoire, avec 3 742 378 632 F CFA, en hausse de 25,9 % sur un an. MTN Côte d'Ivoire n'a déclaré que 4 402 481 F CFA sur le fixe, contre 563 036 221 F CFA un an plus tôt, soit une chute de 99,2 % : le régulateur signalait ce montant comme encore en cours de vérification au moment de sa publication.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "revenus",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-03",
+  "title": "D'où vient l'argent de la téléphonie fixe",
+  "content": "Sur les 3 746 781 113 F CFA hors taxes encaissés par la téléphonie fixe entre janvier et mars 2026, selon les statistiques publiées par l'ARTCI pour ce premier trimestre 2026, les communications vocales rapportent 2 017 815 552 F CFA, soit un peu plus de la moitié. Viennent ensuite les frais d'abonnement, c'est-à-dire ce que l'on paie chaque mois pour disposer de la ligne, avec 1 049 149 795 F CFA, puis les autres recettes pour 508 198 553 F CFA et la vente d'équipements pour 158 843 038 F CFA. Les frais de raccordement, payés une seule fois au moment de l'installation, ne pèsent que 12 774 175 F CFA.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "revenus",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-04",
+  "title": "Les appels passés depuis les lignes fixes",
+  "content": "Les lignes fixes ivoiriennes ont servi à passer 12 561 782 minutes d'appels entre janvier et mars 2026, selon les statistiques publiées par l'ARTCI pour ce premier trimestre 2026. L'essentiel de ces appels part d'un fixe vers un téléphone mobile : 12 218 343 minutes. Les appels d'un fixe vers un autre fixe restent marginaux. Les échanges avec l'étranger totalisent 332 817 minutes, dont 150 555 minutes d'appels partis de Côte d'Ivoire vers l'international et 182 262 minutes reçues de l'étranger. Orange Côte d'Ivoire porte 9 004 804 minutes de ce total et MTN Côte d'Ivoire 3 556 978 minutes.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "trafic",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-05",
+  "title": "Évolution du trafic des lignes fixes selon l'opérateur",
+  "content": "Le trafic des lignes fixes a évolué en sens contraire chez les deux opérateurs, d'après les statistiques publiées par l'ARTCI pour le premier trimestre 2026. Chez Orange Côte d'Ivoire, le volume total d'appels est passé de 6 047 058 minutes au premier trimestre 2025 à 9 004 804 minutes au premier trimestre 2026, soit une hausse de 48,9 % sur un an ; les appels d'un fixe vers un mobile y bondissent de 60,3 %. Chez MTN Côte d'Ivoire au contraire, le total recule de 5 849 894 à 3 556 978 minutes, une baisse de 39,2 %. Les appels vers l'étranger diminuent chez les deux, de 56,0 % chez Orange et de 37,3 % chez MTN.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "trafic",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-06",
+  "title": "Le nombre de lignes mobiles en Côte d'Ivoire",
+  "content": "Au 31 mars 2026, la Côte d'Ivoire comptait 60 155 998 abonnements de téléphonie mobile actifs, c'est-à-dire 60 155 998 cartes SIM en service, selon les statistiques publiées par l'ARTCI pour le premier trimestre 2026. Orange Côte d'Ivoire en détient 30 539 135, MTN Côte d'Ivoire 17 202 842 et Moov Africa Côte d'Ivoire 12 414 021. Sur un an, le total recule légèrement, de 0,6 % : il s'établissait à 60 539 852 au 31 mars 2025. Orange perd 3,6 % de ses abonnements, tandis que MTN en gagne 2,7 % et Moov Africa 2,4 %. Le chiffre d'Orange était encore en cours de vérification à la publication.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "mobile",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-07",
+  "title": "Le partage du marché mobile entre les trois opérateurs",
+  "content": "Comment se partage le marché du mobile en Côte d'Ivoire ? Selon les statistiques publiées par l'ARTCI pour le premier trimestre 2026, et sur la base du nombre d'abonnements au 31 mars 2026, Orange Côte d'Ivoire détient 51 % du marché, MTN Côte d'Ivoire 28 % et Moov Africa Côte d'Ivoire 21 %. Autrement dit, une carte SIM sur deux en service dans le pays est une carte Orange, un peu plus d'une sur quatre une carte MTN, et une sur cinq une carte Moov Africa. Ces parts se calculent sur un total de 60 155 998 abonnements mobiles recensés à cette date.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "mobile",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-08",
+  "title": "Prépayé, post-payé, hybride : comment les Ivoiriens paient leur mobile",
+  "content": "La très grande majorité des utilisateurs de mobile en Côte d'Ivoire sont en prépayé, c'est-à-dire qu'ils achètent du crédit à l'avance au lieu de recevoir une facture. Selon les statistiques publiées par l'ARTCI pour le premier trimestre 2026, au 31 mars 2026, 48 588 054 abonnements sont prépayés, soit 80,8 % du total. Les formules hybrides, qui mêlent forfait et recharge, représentent 11 433 027 abonnements, soit 19,0 %. Les abonnements post-payés, facturés en fin de mois, ne sont que 134 917, soit 0,2 %. Chez MTN et chez Moov Africa, le prépayé dépasse 99 % des lignes ; chez Orange il en représente 62,5 %, le reste étant surtout hybride.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "mobile",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-09",
+  "title": "Les comptes de mobile money",
+  "content": "Au 31 mars 2026, la Côte d'Ivoire comptait 26 880 005 abonnements au mobile money, c'est-à-dire de porte-monnaie électroniques adossés à un numéro de téléphone, selon les statistiques publiées par l'ARTCI pour le premier trimestre 2026. Orange Côte d'Ivoire en compte 16 579 863, MTN Côte d'Ivoire 7 806 828 et Moov Africa Côte d'Ivoire 2 493 314. Sur un an, le total recule de 3,0 % : il s'élevait à 27 713 683 au 31 mars 2025. Orange progresse de 0,7 %, tandis que MTN perd 4,4 % et Moov Africa 19,1 %. À noter : les données de Wave Côte d'Ivoire n'étaient pas disponibles, ce total ne couvre donc pas tout le marché.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "mobile money",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-10",
+  "title": "Le chiffre d'affaires de la téléphonie mobile",
+  "content": "Les trois opérateurs mobiles ont réalisé ensemble 279 678 033 750 F CFA hors taxes de chiffre d'affaires entre janvier et mars 2026, soit près de 280 milliards de francs CFA en un seul trimestre, selon les statistiques publiées par l'ARTCI pour ce premier trimestre 2026. C'est 14,8 % de plus qu'au premier trimestre 2025, où le total atteignait 243 671 810 709 F CFA. Orange Côte d'Ivoire réalise 142 854 700 947 F CFA, en hausse de 18,2 % sur un an, MTN Côte d'Ivoire 76 521 246 337 F CFA, en hausse de 10,6 %, et Moov Africa Côte d'Ivoire 60 302 086 466 F CFA, en hausse de 12,6 %.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "revenus",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-11",
+  "title": "Parts de marché du mobile en valeur",
+  "content": "Le partage du marché mobile change légèrement selon que l'on compte les cartes SIM ou l'argent encaissé. En chiffre d'affaires, sur le premier trimestre 2026 et selon les statistiques publiées par l'ARTCI, Orange Côte d'Ivoire pèse 51 % du marché mobile, MTN Côte d'Ivoire 27 % et Moov Africa Côte d'Ivoire 22 %. Moov Africa capte donc une part des revenus un peu supérieure à sa part d'abonnés, qui est de 21 %, alors que c'est l'inverse pour MTN, avec 28 % des abonnés pour 27 % des revenus. Ces parts se rapportent aux 279 678 033 750 F CFA hors taxes encaissés par les trois opérateurs sur le trimestre.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "revenus",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-12",
+  "title": "L'internet, première source de revenus des opérateurs mobiles",
+  "content": "L'internet est devenu la première source de revenus des opérateurs mobiles ivoiriens, devant les appels. Selon les statistiques publiées par l'ARTCI pour le premier trimestre 2026, sur les 279 678 033 750 F CFA hors taxes encaissés entre janvier et mars 2026, l'internet mobile rapporte 165 653 285 288 F CFA et la voix 101 002 828 961 F CFA. Les services à valeur ajoutée, comme la messagerie vocale, les numéros courts, les jeux ou la vidéo à la demande, apportent 7 485 090 335 F CFA. Les SMS rapportent 3 611 297 216 F CFA, la vente de téléphones et de tablettes 1 470 212 919 F CFA, et les autres revenus 455 319 031 F CFA.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "revenus",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-13",
+  "title": "Les investissements des opérateurs mobiles",
+  "content": "Les opérateurs mobiles ont fortement accéléré leurs investissements. Selon les statistiques publiées par l'ARTCI pour le premier trimestre 2026, ils ont investi ensemble 97 533 914 338 F CFA entre janvier et mars 2026, contre 50 359 838 761 F CFA sur la même période de 2025 : un quasi-doublement, soit une hausse de 93,7 % sur un an. Orange Côte d'Ivoire investit 54 206 684 631 F CFA, en hausse de 56,8 %, MTN Côte d'Ivoire 34 708 676 072 F CFA, en hausse de 169,8 %, et Moov Africa Côte d'Ivoire 8 618 553 635 F CFA, en hausse de 195,6 %. Ces montants couvrent l'ensemble de leurs activités : fixe, mobile et internet.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "investissements",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-14",
+  "title": "Les emplois chez les opérateurs de téléphonie",
+  "content": "Les trois opérateurs de téléphonie employaient directement 2 490 personnes, en contrat à durée déterminée ou indéterminée, à fin mars 2026, selon les statistiques publiées par l'ARTCI pour le premier trimestre 2026 : 913 femmes et 1 577 hommes. Orange Côte d'Ivoire en emploie 1 615, MTN Côte d'Ivoire 501 et Moov Africa Côte d'Ivoire 374. Sur un an, l'effectif total progresse de 76 postes par rapport à fin mars 2025, dont 29 occupés par des femmes et 47 par des hommes. Orange crée 58 postes et Moov Africa 25, tandis que MTN en perd 7.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "emploi",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-15",
+  "title": "Le volume d'appels passés depuis les mobiles",
+  "content": "Les utilisateurs de mobile en Côte d'Ivoire ont passé 17 128 994 949 minutes d'appels entre janvier et mars 2026, soit plus de dix-sept milliards de minutes en un seul trimestre, selon les statistiques publiées par l'ARTCI pour ce premier trimestre 2026. La majorité de ces appels reste à l'intérieur du réseau de l'opérateur, entre deux clients de la même marque : 11 114 401 414 minutes. Les appels vers le réseau d'un autre opérateur mobile totalisent 5 643 003 500 minutes, ceux vers une ligne fixe 41 743 463 minutes, et ceux vers des numéros courts 31 538 874 minutes. Au total, le trafic national sortant atteint 16 830 687 251 minutes.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "trafic",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-16",
+  "title": "Le trafic voix mobile par opérateur et vers l'étranger",
+  "content": "Sur les 17 128 994 949 minutes d'appels mobiles écoulées entre janvier et mars 2026, Orange Côte d'Ivoire en porte 9 791 375 382, Moov Africa Côte d'Ivoire 3 723 837 444 et MTN Côte d'Ivoire 3 613 782 123, selon les statistiques publiées par l'ARTCI pour ce premier trimestre 2026. Sur un an, le volume progresse de 4,1 % chez Orange et de 9,2 % chez MTN, mais recule de 1,2 % chez Moov Africa. Les appels échangés avec l'étranger représentent 298 307 698 minutes, dont 231 794 900 minutes partant de Côte d'Ivoire vers l'international et 66 512 798 minutes reçues de l'étranger.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "trafic",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-17",
+  "title": "Les SMS envoyés depuis les mobiles",
+  "content": "Les SMS restent très utilisés en Côte d'Ivoire : 5 691 586 161 messages ont été envoyés depuis un téléphone mobile entre janvier et mars 2026, selon les statistiques publiées par l'ARTCI pour ce premier trimestre 2026. MTN Côte d'Ivoire en écoule le plus grand nombre, avec 2 888 940 718 messages, devant Orange Côte d'Ivoire avec 2 481 917 144 et Moov Africa Côte d'Ivoire avec 320 728 299. La plupart de ces messages circulent entre clients d'un même opérateur : 4 941 081 456. Sur un an, le volume progresse de 8,8 % chez MTN, mais recule de 11,6 % chez Orange et de 34,1 % chez Moov Africa.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "trafic",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-18",
+  "title": "Les abonnements à l'internet fixe",
+  "content": "Le nombre de connexions internet installées à domicile ou dans un local progresse fortement en Côte d'Ivoire. Au 31 mars 2026, le pays comptait 816 207 abonnements à l'internet fixe, selon les statistiques publiées par l'ARTCI pour le premier trimestre 2026. Un an plus tôt, au 31 mars 2025, ils n'étaient que 557 186 : la progression atteint 46,5 % en douze mois, soit 259 021 abonnements supplémentaires. Neuf fournisseurs se partagent ce marché, des trois grands opérateurs de téléphonie à des acteurs spécialisés dans la connexion à domicile.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "internet",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-19",
+  "title": "Qui fournit l'internet fixe en Côte d'Ivoire",
+  "content": "Au 31 mars 2026, selon les statistiques publiées par l'ARTCI pour le premier trimestre 2026, Orange Côte d'Ivoire est de loin le premier fournisseur d'internet fixe, avec 549 678 abonnements, en hausse de 27,5 % sur un an. Suivent MTN Côte d'Ivoire avec 115 221 abonnements, un chiffre plus que quadruplé en un an, soit plus 310,6 %, GVA, qui commercialise son offre fibre sous le nom CanalBox, avec 81 596 abonnements, plus 61,1 %, et Moov Africa Côte d'Ivoire avec 66 723 abonnements, plus 54,5 %. Viennent ensuite CI DATA avec 1 500 abonnements, VIPNET avec 827, Konnect Africa et Dataconnect avec 318 chacun, et Nortis, nouvel arrivant, avec 26.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "internet",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-20",
+  "title": "La place de la fibre optique dans l'internet fixe",
+  "content": "La fibre optique est désormais majoritaire dans les connexions internet à domicile en Côte d'Ivoire. Selon les statistiques publiées par l'ARTCI pour le premier trimestre 2026, 65 % des 816 207 abonnements à l'internet fixe recensés au 31 mars 2026 sont des abonnements en fibre optique, en FTTH pour les logements ou en FTTO pour les entreprises. Autrement dit, près de deux connexions fixes sur trois passent par la fibre plutôt que par une autre technologie. La fibre pèse encore plus lourd dans les recettes : elle génère 71,2 % du chiffre d'affaires de l'internet fixe sur ce trimestre.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "internet",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-21",
+  "title": "Les abonnements à l'internet mobile",
+  "content": "Au 31 mars 2026, la Côte d'Ivoire comptait 40 912 479 abonnements à l'internet mobile, c'est-à-dire de lignes permettant de se connecter à internet depuis son téléphone, selon les statistiques publiées par l'ARTCI pour le premier trimestre 2026. C'est 15,2 % de plus qu'un an auparavant, où l'on en dénombrait 35 504 115 au 31 mars 2025. Orange Côte d'Ivoire en compte 15 702 622, en hausse de 12,1 %, MTN Côte d'Ivoire 15 173 767, en hausse de 22,5 %, et Moov Africa Côte d'Ivoire 10 036 090, en hausse de 10,1 %. Les parts de marché s'établissent à 38 % pour Orange, 37 % pour MTN et 25 % pour Moov Africa.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "internet",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-22",
+  "title": "Les cartes SIM installées dans des objets connectés",
+  "content": "Les objets connectés commencent à peser sur les réseaux mobiles ivoiriens. Au 31 mars 2026, on recensait 54 098 abonnements dits M2M, pour machine à machine : ce sont des cartes SIM installées non pas dans un téléphone, mais dans un équipement, compteur, véhicule, terminal de paiement ou alarme, qui communique tout seul. Ce chiffre, publié par l'ARTCI dans ses statistiques du premier trimestre 2026, se répartit entre MTN Côte d'Ivoire, avec 53 571 abonnements, en baisse de 1,3 % sur un an, et Moov Africa Côte d'Ivoire, avec 527, en hausse de 9,8 %. Orange Côte d'Ivoire n'avait pas communiqué ses données : le total n'est donc pas comparable à celui de mars 2025.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "internet",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-23",
+  "title": "Les revenus du marché de l'internet",
+  "content": "Le marché de l'internet, fixe et mobile réunis, a généré 194 149 986 856 F CFA hors taxes de revenus entre janvier et mars 2026, selon les statistiques publiées par l'ARTCI pour ce premier trimestre 2026. C'est une progression de 29,8 % par rapport au premier trimestre 2025. Les trois opérateurs de téléphonie, Orange Côte d'Ivoire, MTN Côte d'Ivoire et Moov Africa Côte d'Ivoire, captent à eux seuls 97,8 % de ce revenu, les fournisseurs spécialisés se partageant le reste. L'internet mobile en représente l'essentiel, avec 165 653 285 288 F CFA, contre 28 496 701 568 F CFA pour l'internet fixe.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "revenus",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-24",
+  "title": "Les revenus de l'internet fixe",
+  "content": "L'internet fixe a rapporté 28 496 701 568 F CFA hors taxes à ses fournisseurs entre janvier et mars 2026, en hausse de 14,2 % par rapport au premier trimestre 2025, selon les statistiques publiées par l'ARTCI. Orange Côte d'Ivoire en réalise la plus grande part, avec 20 719 751 021 F CFA, plus 13,2 % sur un an, devant GVA avec 3 391 623 432 F CFA, plus 57,6 %, Moov Africa avec 1 847 716 902 F CFA, plus 70,2 %, et MTN avec 1 618 278 118 F CFA, en recul de 16,2 %. VIPNET encaisse 846 789 741 F CFA, Konnect Africa 46 184 054 F CFA, CI DATA 16 713 200 F CFA et Nortis 9 645 100 F CFA.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "revenus",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-25",
+  "title": "Les revenus de l'internet mobile",
+  "content": "L'internet consommé depuis un téléphone mobile a rapporté 165 653 285 288 F CFA hors taxes aux trois opérateurs entre janvier et mars 2026, selon les statistiques publiées par l'ARTCI pour ce premier trimestre 2026. La croissance est forte : plus 32,9 % par rapport au premier trimestre 2025, où le total s'établissait à 124 624 367 894 F CFA. Orange Côte d'Ivoire réalise 86 410 293 047 F CFA, en hausse de 26,2 %, MTN Côte d'Ivoire 42 890 280 425 F CFA, en hausse de 55,6 %, et Moov Africa Côte d'Ivoire 36 352 711 816 F CFA, en hausse de 27,1 %.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "revenus",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-26",
+  "title": "Les données échangées par l'internet fixe",
+  "content": "Les connexions internet fixes ivoiriennes ont fait circuler 733 299 274 gigaoctets de données entre janvier et mars 2026, selon les statistiques publiées par l'ARTCI pour ce premier trimestre 2026. Le volume progresse de 41,4 % par rapport au premier trimestre 2025. Orange Côte d'Ivoire en achemine 493 535 271 gigaoctets, plus 24,5 % sur un an, GVA 131 899 104 gigaoctets, plus 80,7 %, Moov Africa 76 832 774 gigaoctets, plus 102,7 %, et MTN 29 749 686 gigaoctets, un volume presque triplé, plus 182,2 %. VIPNET totalise 893 547 gigaoctets et Konnect Africa 251 946. Les données de Dataconnect et de Nortis n'étaient pas disponibles.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "trafic",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-27",
+  "title": "Les données consommées sur l'internet mobile",
+  "content": "Les utilisateurs ivoiriens ont consommé 596 014 708 gigaoctets de données depuis leur téléphone mobile entre janvier et mars 2026, selon les statistiques publiées par l'ARTCI pour ce premier trimestre 2026. C'est 36,3 % de plus qu'au premier trimestre 2025, où le volume s'élevait à 437 300 777 gigaoctets. Orange Côte d'Ivoire achemine 288 271 573 gigaoctets, en hausse de 29,2 % sur un an, MTN Côte d'Ivoire 177 574 751 gigaoctets, en hausse de 54,5 %, et Moov Africa Côte d'Ivoire 130 168 384 gigaoctets, en hausse de 31,3 %.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "trafic",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-28",
+  "title": "Les investissements des fournisseurs d'accès à internet",
+  "content": "Les fournisseurs d'accès à internet spécialisés, c'est-à-dire hors opérateurs de téléphonie mobile, ont investi 2 781 838 118 F CFA hors taxes entre janvier et mars 2026, selon les statistiques publiées par l'ARTCI pour ce premier trimestre 2026. C'est 40,4 % de plus qu'au premier trimestre 2025, où le total atteignait 1 981 909 581 F CFA. GVA porte l'essentiel de cet effort, avec 2 646 786 495 F CFA, en hausse de 63,8 % sur un an, devant VIPNET avec 135 051 623 F CFA, en baisse de 48,3 %. Les données de Dataconnect et des autres fournisseurs n'étaient pas disponibles à cette date.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "investissements",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-29",
+  "title": "Les emplois chez les fournisseurs d'accès à internet",
+  "content": "Les fournisseurs d'accès à internet fixe autres que les opérateurs de téléphonie mobile employaient directement 258 personnes au 31 mars 2026, dont 69 femmes et 189 hommes, selon les statistiques publiées par l'ARTCI pour le premier trimestre 2026. GVA est le premier employeur de ce groupe avec 127 salariés, devant Dataconnect avec 59, VIPNET avec 48, CI DATA avec 17, Nortis avec 4 et Konnect Africa avec 3. Sur un an, l'effectif global gagne 22 postes par rapport au premier trimestre 2025, la progression venant surtout de GVA, qui en crée 31 à lui seul.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "emploi",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-30",
+  "title": "La longueur du réseau national de fibre optique",
+  "content": "Le réseau national de fibre optique déployé en Côte d'Ivoire atteignait 38 486 kilomètres au 31 mars 2026, selon les statistiques publiées par l'ARTCI pour le premier trimestre 2026. Ce chiffre additionne les longueurs de câble posées par l'ensemble des acteurs du secteur, opérateurs de téléphonie comme fournisseurs d'infrastructures. C'est cette ossature qui transporte les communications et les données à travers le pays, et qui permet ensuite de raccorder les antennes mobiles ainsi que les abonnés à la fibre à domicile. Une des contributions à ce total, celle de Moov Africa Côte d'Ivoire, restait en cours de vérification à la date de publication.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "infrastructures",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-31",
+  "title": "La capacité de connexion de la Côte d'Ivoire au reste du monde",
+  "content": "Pour se relier au reste du monde, la Côte d'Ivoire disposait au 31 mars 2026 d'une capacité installée de 4 887 200 mégabits par seconde de bande passante internationale, selon les statistiques publiées par l'ARTCI pour le premier trimestre 2026. C'est en quelque sorte la taille du tuyau qui relie le pays à l'internet mondial, principalement par câbles sous-marins. Sur cette capacité, 2 314 288 mégabits par seconde étaient réellement utilisés, soit un taux d'utilisation de 47 %. Il restait donc, à cette date, plus de la moitié de la capacité installée disponible pour absorber la croissance du trafic.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "infrastructures",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-32",
+  "title": "Les revenus du marché des infrastructures télécoms",
+  "content": "À côté du téléphone et de l'internet grand public existe un marché des infrastructures : location de capacités, pylônes, câbles et services vendus aux autres opérateurs. Ce segment a généré 39 316 219 839 F CFA hors taxes entre janvier et mars 2026, en repli de 3,0 % par rapport au premier trimestre 2025, selon les statistiques publiées par l'ARTCI. IHS, qui construit et gère des infrastructures télécoms, en réalise la plus grande part avec 19 453 334 023 F CFA, plus 1,4 %. Orange y encaisse 9 038 094 180 F CFA, en baisse de 23,4 %, MTN 8 096 823 249 F CFA, plus 13,6 %, et Moov Africa 1 074 559 135 F CFA, plus 17,4 %.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "revenus",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-33",
+  "title": "Investissements et emplois dans les infrastructures télécoms",
+  "content": "Les acteurs du marché des infrastructures télécoms ont investi 15 239 288 667 F CFA entre janvier et mars 2026, en hausse de 18,7 % par rapport au premier trimestre 2025, selon les statistiques publiées par l'ARTCI. MainOne y consacre 13 477 071 659 F CFA, Bayobab 1 520 269 101 F CFA et IHS 241 947 907 F CFA. Côté emploi, ces fournisseurs de capacités et d'infrastructures employaient 199 personnes au 31 mars 2026, dont 40 femmes et 159 hommes, soit 109 postes de moins qu'à fin mars 2025, une baisse presque entièrement portée par IHS, dont les effectifs restaient en cours de vérification.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "infrastructures",
+   "periode": "T1 2026"
+  }
+ },
+ {
+  "id": "artci-t1-2026-34",
+  "title": "Ce que comptent vraiment les chiffres du marché télécoms",
+  "content": "Attention à ne pas confondre lignes et personnes. Les 60 155 998 abonnements mobiles recensés en Côte d'Ivoire au 31 mars 2026 par l'ARTCI comptent des cartes SIM en service, pas des habitants : une même personne peut détenir deux ou trois puces, chez des opérateurs différents, et certaines cartes équipent des objets et non des téléphones. Le nombre de cartes dépasse d'ailleurs largement la population du pays. Ces chiffres proviennent des déclarations mensuelles des opérateurs, portent sur le premier trimestre 2026 et ont été publiés le 1er juin 2026 ; certaines valeurs étaient encore en cours de vérification à cette date.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "penetration",
+   "periode": "T1 2026"
+  }
+ }
+]
