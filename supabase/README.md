@@ -256,7 +256,7 @@ le moyen de vérifier qu'un lot annoncé interne l'est bien.
 
 ## État du corpus
 
-Au 21 août 2026 : **10 027 fragments, 24 sources**, tous vectorisés.
+Au 21 août 2026 : **10 057 fragments, 25 sources**, tous vectorisés.
 
 L'essentiel du nombre vient de l'observatoire (9 286 fiches : une par localité,
 une par site) ; l'essentiel du sens vient des documents de la direction et des
@@ -265,7 +265,10 @@ son business plan, rapport du cabinet, rapports d'activité 2024 et 2025, plan
 de travail T1 2026, programme PASS, étude e-services, statistiques ARTCI du
 premier trimestre 2026, PND 2026-2030, RGPH 2021, décret constitutif et lois
 sur le numérique, feuille de route du ministère, base des 8 757 localités du
-Zone Prioritizer, relevé AIGF 2025 des 9 168 sites radioélectriques.
+Zone Prioritizer, relevé AIGF 2025 des 9 168 sites radioélectriques, étude PwC sur les
+problématiques du secteur (restitution PADCI, juillet 2026 — les diagnostics
+de marché sont communicables, le plan d'action de 47 actions reste interne
+tant qu'il n'est pas validé).
 
 Ce dernier appelle une précaution. Les coordonnées des sites sont complètes et
 fiables — c'est ce qui permet de calculer, pour chaque localité, la distance
