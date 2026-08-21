@@ -168,7 +168,11 @@ export function useSutaConversation(): SutaConversationController {
 
   const startListening = useCallback(async () => {
     clearTimeouts();
-    setState("LISTENING");
+    // Surtout pas "LISTENING" ici : établir la session (clé éphémère puis
+    // WebRTC) prend un temps perceptible. Annoncer « Je vous écoute » avant
+    // que le canal soit ouvert faisait parler l'utilisateur dans le vide,
+    // qui devait alors répéter sa question.
+    setState("CONNECTING");
 
     try {
       const result = await realtime.start({
@@ -227,7 +231,10 @@ export function useSutaConversation(): SutaConversationController {
         return;
       }
 
+      // La session est réellement ouverte : c'est seulement maintenant que
+      // l'utilisateur peut parler sans être perdu.
       setIsLive(true);
+      setState("LISTENING");
     } catch (error) {
       setState("ERROR");
       setMessages((prev) => [
@@ -248,7 +255,7 @@ export function useSutaConversation(): SutaConversationController {
       endLiveCall();
       return;
     }
-    if (state === "LISTENING") {
+    if (state === "LISTENING" || state === "CONNECTING") {
       setState("IDLE");
     }
   }, [isLive, state, endLiveCall]);

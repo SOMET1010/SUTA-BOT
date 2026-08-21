@@ -16,6 +16,9 @@ import { normalizeServerEvent } from "./events";
 
 export type RealtimeConnectionState = "connecting" | "connected" | "disconnected";
 
+/** Au-delà, mieux vaut une erreur claire qu'un micro qui n'écoute personne. */
+const DATA_CHANNEL_OPEN_TIMEOUT_MS = 15_000;
+
 export interface RealtimeClientCallbacks {
   onSpeechStarted?: () => void;
   onSpeechStopped?: () => void;
@@ -119,6 +122,45 @@ export class RealtimeClient {
 
     const answerSdp = await response.text();
     await pc.setRemoteDescription({ type: "answer", sdp: answerSdp });
+
+    // La négociation SDP acceptée ne signifie pas que la session est
+    // utilisable : le canal d'événements s'ouvre un instant plus tard. Rendre
+    // la main avant son ouverture faisait annoncer « Je vous écoute » alors
+    // que rien ne pouvait encore être reçu — la première question était
+    // perdue et l'utilisateur devait la répéter.
+    try {
+      await this.waitForDataChannelOpen(dc);
+    } catch (error) {
+      this.setConnectionState("disconnected");
+      throw error;
+    }
+  }
+
+  private waitForDataChannelOpen(channel: RTCDataChannel): Promise<void> {
+    if (channel.readyState === "open") return Promise.resolve();
+
+    return new Promise((resolve, reject) => {
+      const timer = setTimeout(() => {
+        reject(new Error("La session vocale n'a pas fini de s'ouvrir. Réessayez."));
+      }, DATA_CHANNEL_OPEN_TIMEOUT_MS);
+
+      channel.addEventListener(
+        "open",
+        () => {
+          clearTimeout(timer);
+          resolve();
+        },
+        { once: true },
+      );
+      channel.addEventListener(
+        "close",
+        () => {
+          clearTimeout(timer);
+          reject(new Error("La session vocale s'est fermée avant d'être prête."));
+        },
+        { once: true },
+      );
+    });
   }
 
   disconnect(): void {

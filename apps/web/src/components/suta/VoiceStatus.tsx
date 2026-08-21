@@ -2,6 +2,7 @@ import { CONVERSATION_STATE_LABELS, type ConversationState } from "@suta/shared"
 
 const STATE_DOT_CLASS: Record<ConversationState, string> = {
   IDLE: "bg-ansut-orange",
+  CONNECTING: "bg-status-warning",
   LISTENING: "bg-status-success",
   THINKING: "bg-status-warning",
   SEARCHING: "bg-status-warning",
@@ -20,7 +21,9 @@ export function VoiceStatus({ state }: { state: ConversationState }) {
     >
       <span
         className={`h-2 w-2 rounded-full ${STATE_DOT_CLASS[state]} ${
-          state === "LISTENING" || state === "SPEAKING" ? "animate-pulse" : ""
+          state === "LISTENING" || state === "SPEAKING" || state === "CONNECTING"
+            ? "animate-pulse"
+            : ""
         }`}
       />
       {CONVERSATION_STATE_LABELS[state]}

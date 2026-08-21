@@ -4,6 +4,11 @@
  */
 export const CONVERSATION_STATES = [
   "IDLE",
+  // Établissement de la session vocale (clé éphémère, puis WebRTC). Sans cet
+  // état, l'interface affichait « Je vous écoute » dès le clic, alors que
+  // rien n'était encore connecté : la première question était perdue et
+  // l'utilisateur devait la répéter.
+  "CONNECTING",
   "LISTENING",
   "THINKING",
   "SEARCHING",
@@ -17,6 +22,7 @@ export type ConversationState = (typeof CONVERSATION_STATES)[number];
 
 export const CONVERSATION_STATE_LABELS: Record<ConversationState, string> = {
   IDLE: "SUTA est prêt",
+  CONNECTING: "Connexion en cours...",
   LISTENING: "Je vous écoute...",
   THINKING: "Je réfléchis...",
   SEARCHING: "Je recherche l'information...",
