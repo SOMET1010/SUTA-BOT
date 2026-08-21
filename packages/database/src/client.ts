@@ -1,5 +1,6 @@
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "../generated/client/client.ts";
+import { resolveDatabaseUrl } from "./describe-connection.ts";
 
 declare global {
   // eslint-disable-next-line no-var
@@ -7,11 +8,11 @@ declare global {
 }
 
 function createPrismaClient(): PrismaClient {
-  const connectionString = process.env.DATABASE_URL;
+  const connectionString = resolveDatabaseUrl();
   if (!connectionString) {
     throw new Error(
-      "DATABASE_URL est requis pour se connecter à la base de données SUTA " +
-        "(voir .env.example).",
+      "SUTA_DATABASE_URL ou DATABASE_URL est requis pour se connecter à la " +
+        "base de données SUTA (voir .env.example).",
     );
   }
   const adapter = new PrismaPg({ connectionString });

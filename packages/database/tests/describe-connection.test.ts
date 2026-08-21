@@ -1,5 +1,32 @@
 import { describe, expect, it } from "vitest";
-import { describeDatabaseHost } from "../src/describe-connection";
+import { describeDatabaseHost, resolveDatabaseUrl } from "../src/describe-connection";
+
+describe("resolveDatabaseUrl", () => {
+  it("falls back to DATABASE_URL when no override is set", () => {
+    expect(resolveDatabaseUrl({ DATABASE_URL: "postgresql://a/b" })).toBe("postgresql://a/b");
+  });
+
+  it("lets SUTA_DATABASE_URL win over an injected DATABASE_URL", () => {
+    // Cas réel : l'intégration Neon de Vercel injecte son propre
+    // DATABASE_URL au déploiement, écrasant celui du projet.
+    expect(
+      resolveDatabaseUrl({
+        DATABASE_URL: "postgresql://injecte-par-integration/neon",
+        SUTA_DATABASE_URL: "postgresql://choisi-par-le-projet/supabase",
+      }),
+    ).toBe("postgresql://choisi-par-le-projet/supabase");
+  });
+
+  it("ignores an empty override rather than blocking the fallback", () => {
+    expect(
+      resolveDatabaseUrl({ SUTA_DATABASE_URL: "", DATABASE_URL: "postgresql://a/b" }),
+    ).toBe("postgresql://a/b");
+  });
+
+  it("returns undefined when neither is set", () => {
+    expect(resolveDatabaseUrl({})).toBeUndefined();
+  });
+});
 
 describe("describeDatabaseHost", () => {
   it("returns host and port for a pooled Supabase connection string", () => {

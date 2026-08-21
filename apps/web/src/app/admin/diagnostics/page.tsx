@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import type { ReactNode } from "react";
 import { createRealtimeProvider } from "@suta/ai";
-import { describeDatabaseHost, prisma } from "@suta/database";
+import { describeDatabaseHost, prisma, resolveDatabaseUrl } from "@suta/database";
 import { createEmbeddingsProvider } from "@suta/knowledge";
 import { AdminShell } from "@/components/admin/AdminShell";
 import { hasValidAdminSession } from "@/lib/admin-auth";
@@ -87,7 +87,7 @@ export default async function AdminDiagnosticsPage() {
               quelle base tourne réellement l'application est indispensable au
               diagnostic, et cette valeur n'est pas relisible depuis Vercel
               (variable marquée « Sensitive »). */}
-          <Row label="Serveur" value={describeDatabaseHost(process.env.DATABASE_URL)} />
+          <Row label="Serveur" value={describeDatabaseHost(resolveDatabaseUrl())} />
           <Row
             label="Index de connaissances"
             value={

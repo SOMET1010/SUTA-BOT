@@ -1,4 +1,24 @@
 /**
+ * Chaîne de connexion effective de l'application.
+ *
+ * `SUTA_DATABASE_URL` prime sur `DATABASE_URL`. La raison est concrète : sur
+ * Vercel, une intégration de base de données du marketplace (Neon, ici)
+ * injecte son propre `DATABASE_URL` au moment du déploiement, et cette
+ * injection l'emporte sur la variable définie manuellement dans le projet.
+ * Impossible alors de pointer l'application vers une autre base sans
+ * désinstaller l'intégration. Un nom qui n'appartient qu'à ce projet met la
+ * configuration hors de portée de ce genre d'écrasement.
+ *
+ * `DATABASE_URL` reste le comportement par défaut : en local, en CI et
+ * partout où aucune intégration n'interfère, rien ne change.
+ */
+export function resolveDatabaseUrl(
+  env: NodeJS.ProcessEnv = process.env,
+): string | undefined {
+  return env.SUTA_DATABASE_URL || env.DATABASE_URL || undefined;
+}
+
+/**
  * Extrait le serveur d'une chaîne de connexion PostgreSQL, sans jamais
  * exposer l'utilisateur ni le mot de passe.
  *
