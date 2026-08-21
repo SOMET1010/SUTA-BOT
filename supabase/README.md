@@ -24,6 +24,7 @@ l'accès réseau vers Azure. Elles sont pilotées depuis SQL via `pg_net`.
 | --- | --- |
 | `load-corpus` | Lit le JSONL déposé dans le bucket `corpus`, upsert dans `documents` / `document_chunks` (sans vecteurs). |
 | `embed-chunks` | Calcule les embeddings Azure des fragments dont `embedding IS NULL`, par lots, avec budget de temps. |
+| `search-knowledge` | Rejoue la recherche de l'app (mêmes filtres, même distance cosinus) pour vérifier un corpus fraîchement indexé. |
 
 Les deux sont **idempotentes** : les identifiants du corpus sont stables, donc
 relancer reprend là où l'exécution s'est arrêtée, sans doublon.
