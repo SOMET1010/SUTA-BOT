@@ -101,7 +101,7 @@ export function KnowledgeManager({
               id="upload-file"
               name="file"
               type="file"
-              accept=".pdf,.docx,.txt,.md,.markdown,.xlsx,.xls,.csv"
+              accept=".pdf,.docx,.txt,.md,.markdown,.xlsx,.xls,.csv,.pptx"
               required
               className="text-sm text-brand-text/80 file:mr-3 file:rounded-full file:border-0 file:bg-brand-secondary file:px-4 file:py-2 file:text-sm file:text-brand-background"
             />

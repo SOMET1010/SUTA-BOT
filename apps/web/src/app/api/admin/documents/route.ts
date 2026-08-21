@@ -18,6 +18,8 @@ const SUPPORTED_EXTENSIONS = [
   ".xlsx",
   ".xls",
   ".csv",
+  // Présentations : les directions y consignent stratégie et séances de CA.
+  ".pptx",
 ];
 
 export async function GET() {

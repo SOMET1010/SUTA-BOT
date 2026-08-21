@@ -57,7 +57,7 @@ describe("sheetToText", () => {
 });
 
 describe("splitHeaderAndRows", () => {
-  it("retient la première ligne non vide comme en-tête", () => {
+  it("retient la ligne d'en-tête et écarte les lignes vides du dessus", () => {
     const result = splitHeaderAndRows([
       ["", "", ""],
       ["Localité", "Région", "Population"],
@@ -65,6 +65,61 @@ describe("splitHeaderAndRows", () => {
     ]);
     expect(result.headers).toEqual(["Localité", "Région", "Population"]);
     expect(result.rows).toEqual([["BIAKALE", "TONKPI", "5681"]]);
+  });
+
+  it("saute le titre du tableur pour trouver le vrai en-tête", () => {
+    // Une feuille transmise par une direction s'ouvre presque toujours sur
+    // un titre isolé, qui n'est pas un en-tête de colonnes.
+    const result = splitHeaderAndRows([
+      ["ANSUT — Backbone national", "", ""],
+      ["", "", ""],
+      ["Départ", "Arrivée", "Distance (km)"],
+      ["BOUNA", "DOROPO", "308"],
+    ]);
+    expect(result.headers).toEqual(["Départ", "Arrivée", "Distance (km)"]);
+    expect(result.rows).toEqual([["BOUNA", "DOROPO", "308"]]);
+  });
+
+  it("ne se laisse pas prendre pour un en-tête une ligne de données plus large", () => {
+    // La colonne de numérotation n'a pas de titre : la ligne de données est
+    // donc plus large que l'en-tête. C'est la première ligne assez large qui
+    // gagne, et non la plus large.
+    const result = splitHeaderAndRows([
+      ["", "Localité", "Région", "Population", "Opérateur", "Statut"],
+      ["1", "BIAKALE", "TONKPI", "5681", "Orange", "Actif"],
+    ]);
+    expect(result.headers).toEqual(["", "Localité", "Région", "Population", "Opérateur", "Statut"]);
+  });
+
+  it("fusionne un en-tête de regroupement avec les colonnes qu'il couvre", () => {
+    // Deux niveaux : « AU LANCEMENT » et « 2030 » sont des cellules
+    // fusionnées au-dessus de colonnes qui, seules, seraient identiques.
+    const result = splitHeaderAndRows([
+      ["Départ", "Arrivée", "AU LANCEMENT", "", "2030", ""],
+      ["Localité", "Localité", "# de paires", "Tarif", "# de paires", "Tarif"],
+      ["BOUNA", "DOROPO", "24", "A", "48", "B"],
+    ]);
+    expect(result.headers).toEqual([
+      "Départ — Localité",
+      "Arrivée — Localité",
+      "AU LANCEMENT — # de paires",
+      "AU LANCEMENT — Tarif",
+      "2030 — # de paires",
+      "2030 — Tarif",
+    ]);
+    expect(result.rows).toEqual([["BOUNA", "DOROPO", "24", "A", "48", "B"]]);
+  });
+
+  it("ne fusionne pas une ligne pleine, qui n'est pas un regroupement", () => {
+    // Sans trou intérieur, la ligne du dessus est un en-tête concurrent ou
+    // du texte, pas des cellules fusionnées : la fusionner inventerait des
+    // en-têtes composés qui n'existent pas.
+    const result = splitHeaderAndRows([
+      ["A", "B", "C"],
+      ["Localité", "Région", "Population"],
+      ["BIAKALE", "TONKPI", "5681"],
+    ]);
+    expect(result.headers).toEqual(["A", "B", "C"]);
   });
 
   it("rend un résultat vide pour une feuille sans aucune donnée", () => {

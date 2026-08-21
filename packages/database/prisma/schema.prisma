@@ -48,6 +48,10 @@ enum SourceType {
   // directions métier. Chaque ligne est rendue auto-descriptive à
   // l'ingestion (voir packages/knowledge/src/ingestion/spreadsheet.ts).
   SPREADSHEET
+  // Présentations PowerPoint : les directions y consignent la stratégie et
+  // les séances de conseil. Diapositives et notes de l'orateur sont lues
+  // (voir packages/knowledge/src/ingestion/presentation.ts).
+  PRESENTATION
 }
 
 enum DocumentStatus {

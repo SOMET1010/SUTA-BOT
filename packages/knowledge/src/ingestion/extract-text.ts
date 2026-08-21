@@ -2,6 +2,13 @@ import { readFile } from "node:fs/promises";
 import { basename, extname } from "node:path";
 import type { SourceType } from "@suta/database";
 import { splitHeaderAndRows, workbookToText, type SheetData } from "./spreadsheet.ts";
+import {
+  notesTargetFromRels,
+  orderSlideNames,
+  presentationToText,
+  slideTextFromXml,
+  type SlideContent,
+} from "./presentation.ts";
 
 /**
  * Détermine le type de source à partir de l'extension de fichier (cahier
@@ -22,10 +29,12 @@ export function detectSourceType(filePath: string): SourceType {
     case ".xls":
     case ".csv":
       return "SPREADSHEET";
+    case ".pptx":
+      return "PRESENTATION";
     default:
       throw new Error(
         `Extension de fichier non prise en charge : "${filePath}". ` +
-          "Formats supportés : .pdf, .docx, .txt, .md, .xlsx, .xls, .csv.",
+          "Formats supportés : .pdf, .docx, .txt, .md, .xlsx, .xls, .csv, .pptx.",
       );
   }
 }
@@ -42,6 +51,8 @@ export function mimeTypeForSourceType(sourceType: SourceType): string {
       return "text/plain";
     case "SPREADSHEET":
       return "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+    case "PRESENTATION":
+      return "application/vnd.openxmlformats-officedocument.presentationml.presentation";
     default:
       return "application/octet-stream";
   }
@@ -99,7 +110,47 @@ async function extractSpreadsheetText(filePath: string): Promise<string> {
 }
 
 /**
- * Extrait le texte brut d'un fichier PDF/DOCX/TXT/MD/tableur. Aucune
+ * Déballe un `.pptx` et en tire le texte des diapositives et des notes.
+ *
+ * Un `.pptx` est une archive ZIP de fichiers XML. Le découpage du texte y est
+ * un détail de mise en forme : c'est `presentation.ts` qui sait le recoller,
+ * et il le fait sur des chaînes, sans rien connaître du ZIP.
+ */
+async function extractPresentationText(filePath: string): Promise<string> {
+  const JSZip = (await import("jszip")).default;
+  const zip = await JSZip.loadAsync(await readFile(filePath));
+
+  const slideNames = orderSlideNames(
+    Object.keys(zip.files).filter((name) => /^ppt\/slides\/slide\d+\.xml$/.test(name)),
+  );
+
+  const slides: SlideContent[] = [];
+  for (const [position, name] of slideNames.entries()) {
+    const body = slideTextFromXml(await zip.files[name].async("string"));
+
+    // La note est retrouvée par les relations de la diapositive : sa
+    // numérotation ne suit pas celle des diapositives.
+    let notes: string | undefined;
+    const rels = zip.files[name.replace("ppt/slides/", "ppt/slides/_rels/") + ".rels"];
+    if (rels) {
+      const target = notesTargetFromRels(await rels.async("string"));
+      const notesFile = target ? zip.files[target] : undefined;
+      if (notesFile) {
+        const text = slideTextFromXml(await notesFile.async("string"));
+        // PowerPoint range le numéro de diapositive dans la zone de notes :
+        // une note réduite à « 12 » n'est pas une note.
+        if (text && !/^\d+$/.test(text.trim())) notes = text;
+      }
+    }
+
+    slides.push({ index: position + 1, body, notes });
+  }
+
+  return presentationToText(slides);
+}
+
+/**
+ * Extrait le texte brut d'un fichier PDF/DOCX/TXT/MD/tableur/présentation. Aucune
  * bibliothèque externe n'est appelée en réseau : tout se passe localement.
  */
 export async function extractText(filePath: string, sourceType?: SourceType): Promise<string> {
@@ -123,6 +174,8 @@ export async function extractText(filePath: string, sourceType?: SourceType): Pr
       return readFile(filePath, "utf-8");
     case "SPREADSHEET":
       return extractSpreadsheetText(filePath);
+    case "PRESENTATION":
+      return extractPresentationText(filePath);
     default:
       throw new Error(`Type de source non pris en charge : ${type}`);
   }
