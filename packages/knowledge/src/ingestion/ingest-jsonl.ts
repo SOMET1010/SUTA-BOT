@@ -14,6 +14,8 @@ export interface IngestJsonlOptions {
   visibility?: Visibility;
   /** Nombre de textes envoyés par appel à l'EmbeddingsProvider. */
   batchSize?: number;
+  /** N'ingère que les N premières entrées valides — pour valider le pipeline avant un run complet. */
+  limit?: number;
   embeddingsProvider?: EmbeddingsProvider;
   onProgress?: (done: number, total: number) => void;
 }
@@ -62,7 +64,9 @@ export async function ingestJsonlCorpus(
   });
 
   const raw = await readFile(options.filePath, "utf-8");
-  const { entries, errors: parseFailed } = parseCorpusFile(raw);
+  const { entries: allEntries, errors: parseFailed } = parseCorpusFile(raw);
+  const entries =
+    options.limit !== undefined ? allEntries.slice(0, options.limit) : allEntries;
 
   const storeFailed: IngestJsonlFailure[] = [];
   let succeeded = 0;
