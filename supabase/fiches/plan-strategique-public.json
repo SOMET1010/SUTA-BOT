@@ -1,0 +1,35 @@
+[
+ {
+  "id": "ps-2630-01",
+  "title": "Ce que veut dire service universel",
+  "content": "Le service universel est le principe selon lequel tout citoyen doit pouvoir accéder aux services essentiels de télécommunications, quel que soit l'endroit où il vit, sa situation sociale ou son niveau de revenu. Cette définition vient de l'Union internationale des télécommunications et des orientations de l'OCDE. Pour que ce principe change vraiment la vie des gens, quatre choses doivent aller ensemble et sont indissociables : l'infrastructure, les services, les usages et les compétences. Une fibre posée ne sert à rien si personne ne sait s'en servir, et une formation ne sert à rien s'il n'y a pas de réseau. Sur le plan technique, le service universel repose sur l'articulation entre le grand réseau national, les réseaux régionaux et la boucle locale, c'est-à-dire le dernier segment qui arrive jusqu'à l'utilisateur.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "définition du service universel",
+   "statut": "projet de plan non adopté ; document daté du 6 mai 2026, version de travail modifiée le 15 juillet 2026"
+  }
+ },
+ {
+  "id": "ps-2630-02",
+  "title": "Les missions de l'ANSUT et son rapport avec l'ARTCI",
+  "content": "L'ANSUT a été créée par l'ordonnance n° 2012-293 du 21 mars 2012. Cette ordonnance a été abrogée par la loi n° 2024-352 du 6 juin 2024 relative aux communications électroniques, qui redéfinit ses missions : mettre en œuvre les programmes de service universel pour le compte de l'État, élaborer leurs cahiers de charges, en suivre l'exécution pour le compte de l'État et de l'ARTCI et sous le contrôle de celle-ci, assurer le suivi comptable du financement du service universel en percevant les redevances dues par les opérateurs, et gérer les opérations d'investissement financées par l'État dans les télécommunications et les TIC. La même loi clarifie le partage des rôles : l'ARTCI régule le secteur, l'ANSUT exécute. Le projet de Plan stratégique 2026-2030 de l'ANSUT, dans sa version de travail la plus récente, propose d'en tirer les conséquences en créant un cadre de concertation technique avec l'ARTCI, pour échanger sur les cahiers des charges, coordonner la planification des programmes et organiser le compte rendu des activités. Cette proposition n'est pas encore arrêtée.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "cadre légal et missions",
+   "statut": "projet de plan non adopté ; document daté du 6 mai 2026, version de travail modifiée le 15 juillet 2026"
+  }
+ },
+ {
+  "id": "ps-2630-04",
+  "title": "Les stratégies et programmes nationaux autour de l'ANSUT",
+  "content": "Le projet de Plan stratégique 2026-2030 de l'ANSUT situe son travail parmi les stratégies et programmes nationaux existants. Côté stratégies : la Stratégie nationale du développement du numérique 2021-2025, celle de l'innovation 2021-2025, celle de la gouvernance des données 2030, celle de l'intelligence artificielle 2030, et la Stratégie de transformation numérique 2025-2035, qui porte en priorité sur la connectivité des zones rurales et sur celle de l'éducation, la santé, la justice et l'état civil. Côté programmes : le PADCI, Projet d'accélération digitale en Côte d'Ivoire, dont la première phase, de 2025 à 2030, couvre les districts autonomes d'Abidjan et de Yamoussoukro et onze régions prioritaires, à savoir le Tonkpi, le Sud-Comoé, San Pedro, la Nawa, le Bafing, le Hambol, le Poro, le Tchologo, la Bagoué, le Haut-Sassandra et le Gbêkê ; le PARAE, programme d'appui à l'administration électronique prévu sur trois ans ; et le projet NEDA, qui associe accès à l'électricité et au numérique, avec un volet d'assistance technique sur le Réseau national haut débit et la connectivité rurale.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "stratégies et programmes nationaux",
+   "statut": "projet de plan non adopté ; document daté du 6 mai 2026, version de travail modifiée le 15 juillet 2026"
+  }
+ }
+]
