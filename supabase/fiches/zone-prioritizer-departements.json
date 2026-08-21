@@ -1,11 +1,11 @@
 [
  {
-  "content": "Le département de Jacqueville, dans la région GRANDS-PONTS, compte 41 localité(s) recensées au dernier recensement, pour 66 982 habitants. 19 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 16 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 6 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 2 424 habitants. En moyenne, une localité de ce département se trouve à 2,7 kilomètres du pylône le plus proche.",
+  "content": "Le département de Jacqueville, dans la région GRANDS-PONTS, compte 41 localité(s) recensées au recensement de 2021, pour 66 982 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 22 d'entre elles ne sont pas couvertes, ce qui concerne 13 393 habitants. Dans le détail : 19 localité(s) ont un pylône à moins de trois kilomètres, 16 se situent entre trois et six kilomètres — la réception y est incertaine — et 6 sont au-delà de six kilomètres ou sans position connue. Attention : 4 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-0232f3970f",
   "metadata": {
    "departement": "JACQUEVILLE",
    "localites": 41,
-   "nonCouvertes": 6,
+   "nonCouvertes3km": 22,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -14,12 +14,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Sinematiali, dans la région PORO, compte 117 localité(s) recensées au dernier recensement, pour 61 689 habitants. 44 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 68 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 5 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 2 294 habitants. En moyenne, une localité de ce département se trouve à 3,4 kilomètres du pylône le plus proche.",
+  "content": "Le département de Sinematiali, dans la région PORO, compte 117 localité(s) recensées au recensement de 2021, pour 61 689 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 73 d'entre elles ne sont pas couvertes, ce qui concerne 30 237 habitants. Dans le détail : 44 localité(s) ont un pylône à moins de trois kilomètres, 68 se situent entre trois et six kilomètres — la réception y est incertaine — et 5 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-0a33157044",
   "metadata": {
    "departement": "SINEMATIALI",
    "localites": 117,
-   "nonCouvertes": 5,
+   "nonCouvertes3km": 73,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -28,12 +28,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Nassian, dans la région BOUNKANI, compte 42 localité(s) recensées au dernier recensement, pour 61 239 habitants. 24 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 11 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 7 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 5 430 habitants. En moyenne, une localité de ce département se trouve à 2,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Nassian, dans la région BOUNKANI, compte 42 localité(s) recensées au recensement de 2021, pour 61 239 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 18 d'entre elles ne sont pas couvertes, ce qui concerne 15 985 habitants. Dans le détail : 24 localité(s) ont un pylône à moins de trois kilomètres, 11 se situent entre trois et six kilomètres — la réception y est incertaine — et 7 sont au-delà de six kilomètres ou sans position connue. Attention : 2 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-0c141dbb93",
   "metadata": {
    "departement": "NASSIAN",
    "localites": 42,
-   "nonCouvertes": 7,
+   "nonCouvertes3km": 18,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -42,12 +42,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Lakota, dans la région LÔH-DJIBOUA, compte 101 localité(s) recensées au dernier recensement, pour 307 050 habitants. 76 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 25 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 1,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Lakota, dans la région LÔH-DJIBOUA, compte 101 localité(s) recensées au recensement de 2021, pour 307 050 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 25 d'entre elles ne sont pas couvertes, ce qui concerne 37 563 habitants. Dans le détail : 76 localité(s) ont un pylône à moins de trois kilomètres, 25 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-0cba2ad18f",
   "metadata": {
    "departement": "LAKOTA",
    "localites": 101,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 25,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -56,12 +56,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Transua, dans la région GONTOUGO, compte 73 localité(s) recensées au dernier recensement, pour 99 504 habitants. 56 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 13 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 4 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 5 342 habitants. En moyenne, une localité de ce département se trouve à 2,0 kilomètres du pylône le plus proche.",
+  "content": "Le département de Transua, dans la région GONTOUGO, compte 73 localité(s) recensées au recensement de 2021, pour 99 504 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 17 d'entre elles ne sont pas couvertes, ce qui concerne 20 358 habitants. Dans le détail : 56 localité(s) ont un pylône à moins de trois kilomètres, 13 se situent entre trois et six kilomètres — la réception y est incertaine — et 4 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-0d31dc8b8b",
   "metadata": {
    "departement": "TRANSUA",
    "localites": 73,
-   "nonCouvertes": 4,
+   "nonCouvertes3km": 17,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -70,12 +70,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Akoupe, dans la région LA ME, compte 20 localité(s) recensées au dernier recensement, pour 144 539 habitants. 16 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 2 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 2 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 2 238 habitants. En moyenne, une localité de ce département se trouve à 1,3 kilomètres du pylône le plus proche.",
+  "content": "Le département de Akoupe, dans la région LA ME, compte 20 localité(s) recensées au recensement de 2021, pour 144 539 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 4 d'entre elles ne sont pas couvertes, ce qui concerne 3 930 habitants. Dans le détail : 16 localité(s) ont un pylône à moins de trois kilomètres, 2 se situent entre trois et six kilomètres — la réception y est incertaine — et 2 sont au-delà de six kilomètres ou sans position connue. Attention : 2 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-0e6b03a3f1",
   "metadata": {
    "departement": "AKOUPE",
    "localites": 20,
-   "nonCouvertes": 2,
+   "nonCouvertes3km": 4,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -84,12 +84,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Daoukro, dans la région IFFOU, compte 43 localité(s) recensées au dernier recensement, pour 122 502 habitants. 27 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 9 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 7 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 5 224 habitants. En moyenne, une localité de ce département se trouve à 2,5 kilomètres du pylône le plus proche.",
+  "content": "Le département de Daoukro, dans la région IFFOU, compte 43 localité(s) recensées au recensement de 2021, pour 122 502 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 16 d'entre elles ne sont pas couvertes, ce qui concerne 12 824 habitants. Dans le détail : 27 localité(s) ont un pylône à moins de trois kilomètres, 9 se situent entre trois et six kilomètres — la réception y est incertaine — et 7 sont au-delà de six kilomètres ou sans position connue. Attention : 3 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-11466ae0b4",
   "metadata": {
    "departement": "DAOUKRO",
    "localites": 43,
-   "nonCouvertes": 7,
+   "nonCouvertes3km": 16,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -98,12 +98,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Minignan, dans la région FOLON, compte 38 localité(s) recensées au dernier recensement, pour 59 982 habitants. 27 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 2 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 9 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 9 021 habitants. En moyenne, une localité de ce département se trouve à 2,1 kilomètres du pylône le plus proche.",
+  "content": "Le département de Minignan, dans la région FOLON, compte 38 localité(s) recensées au recensement de 2021, pour 59 982 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 11 d'entre elles ne sont pas couvertes, ce qui concerne 11 168 habitants. Dans le détail : 27 localité(s) ont un pylône à moins de trois kilomètres, 2 se situent entre trois et six kilomètres — la réception y est incertaine — et 9 sont au-delà de six kilomètres ou sans position connue. Attention : 2 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-11b1ae20ac",
   "metadata": {
    "departement": "MINIGNAN",
    "localites": 38,
-   "nonCouvertes": 9,
+   "nonCouvertes3km": 11,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -112,12 +112,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Adiake, dans la région SUD-COMOE, compte 48 localité(s) recensées au dernier recensement, pour 76 174 habitants. 28 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 18 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 2 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 1 066 habitants. En moyenne, une localité de ce département se trouve à 2,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Adiake, dans la région SUD-COMOE, compte 48 localité(s) recensées au recensement de 2021, pour 76 174 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 20 d'entre elles ne sont pas couvertes, ce qui concerne 7 286 habitants. Dans le détail : 28 localité(s) ont un pylône à moins de trois kilomètres, 18 se situent entre trois et six kilomètres — la réception y est incertaine — et 2 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-1233ed4582",
   "metadata": {
    "departement": "ADIAKE",
    "localites": 48,
-   "nonCouvertes": 2,
+   "nonCouvertes3km": 20,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -126,12 +126,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de M'batto, dans la région MORONOU, compte 54 localité(s) recensées au dernier recensement, pour 122 597 habitants. 42 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 11 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 1 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 426 habitants. En moyenne, une localité de ce département se trouve à 1,8 kilomètres du pylône le plus proche.",
+  "content": "Le département de M'batto, dans la région MORONOU, compte 54 localité(s) recensées au recensement de 2021, pour 122 597 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 12 d'entre elles ne sont pas couvertes, ce qui concerne 7 530 habitants. Dans le détail : 42 localité(s) ont un pylône à moins de trois kilomètres, 11 se situent entre trois et six kilomètres — la réception y est incertaine — et 1 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-13f76b3954",
   "metadata": {
    "departement": "M'BATTO",
    "localites": 54,
-   "nonCouvertes": 1,
+   "nonCouvertes3km": 12,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -140,12 +140,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Gagnoa, dans la région GÔH, compte 164 localité(s) recensées au dernier recensement, pour 593 686 habitants. 137 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 27 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 1,5 kilomètres du pylône le plus proche.",
+  "content": "Le département de Gagnoa, dans la région GÔH, compte 164 localité(s) recensées au recensement de 2021, pour 593 686 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 27 d'entre elles ne sont pas couvertes, ce qui concerne 48 212 habitants. Dans le détail : 137 localité(s) ont un pylône à moins de trois kilomètres, 27 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-147b32b243",
   "metadata": {
    "departement": "GAGNOA",
    "localites": 164,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 27,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -154,12 +154,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Bonon, dans la région MARAHOUE, compte 25 localité(s) recensées au dernier recensement, pour 110 312 habitants. 24 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 1 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 1,0 kilomètres du pylône le plus proche.",
+  "content": "Le département de Bonon, dans la région MARAHOUE, compte 25 localité(s) recensées au recensement de 2021, pour 110 312 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 1 d'entre elles ne sont pas couvertes, ce qui concerne 0 habitants. Dans le détail : 24 localité(s) ont un pylône à moins de trois kilomètres, 1 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-1d62bce0d4",
   "metadata": {
    "departement": "BONON",
    "localites": 25,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 1,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -168,12 +168,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de M'bengue, dans la région PORO, compte 61 localité(s) recensées au dernier recensement, pour 90 545 habitants. 28 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 19 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 14 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 6 734 habitants. En moyenne, une localité de ce département se trouve à 3,0 kilomètres du pylône le plus proche.",
+  "content": "Le département de M'bengue, dans la région PORO, compte 61 localité(s) recensées au recensement de 2021, pour 90 545 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 33 d'entre elles ne sont pas couvertes, ce qui concerne 22 670 habitants. Dans le détail : 28 localité(s) ont un pylône à moins de trois kilomètres, 19 se situent entre trois et six kilomètres — la réception y est incertaine — et 14 sont au-delà de six kilomètres ou sans position connue. Attention : 5 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-218a61e957",
   "metadata": {
    "departement": "M'BENGUE",
    "localites": 61,
-   "nonCouvertes": 14,
+   "nonCouvertes3km": 33,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -182,12 +182,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Tengrela, dans la région BAGOUE, compte 50 localité(s) recensées au dernier recensement, pour 138 449 habitants. 32 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 12 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 6 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 3 301 habitants. En moyenne, une localité de ce département se trouve à 2,2 kilomètres du pylône le plus proche.",
+  "content": "Le département de Tengrela, dans la région BAGOUE, compte 50 localité(s) recensées au recensement de 2021, pour 138 449 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 18 d'entre elles ne sont pas couvertes, ce qui concerne 13 704 habitants. Dans le détail : 32 localité(s) ont un pylône à moins de trois kilomètres, 12 se situent entre trois et six kilomètres — la réception y est incertaine — et 6 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-21baf3d82d",
   "metadata": {
    "departement": "TENGRELA",
    "localites": 50,
-   "nonCouvertes": 6,
+   "nonCouvertes3km": 18,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -196,12 +196,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Katiola, dans la région HAMBOL, compte 28 localité(s) recensées au dernier recensement, pour 144 113 habitants. 21 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 5 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 2 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 2 326 habitants. En moyenne, une localité de ce département se trouve à 2,0 kilomètres du pylône le plus proche.",
+  "content": "Le département de Katiola, dans la région HAMBOL, compte 28 localité(s) recensées au recensement de 2021, pour 144 113 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 7 d'entre elles ne sont pas couvertes, ce qui concerne 7 661 habitants. Dans le détail : 21 localité(s) ont un pylône à moins de trois kilomètres, 5 se situent entre trois et six kilomètres — la réception y est incertaine — et 2 sont au-delà de six kilomètres ou sans position connue. Attention : 1 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-22f48c23a6",
   "metadata": {
    "departement": "KATIOLA",
    "localites": 28,
-   "nonCouvertes": 2,
+   "nonCouvertes3km": 7,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -210,12 +210,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Prikro, dans la région IFFOU, compte 73 localité(s) recensées au dernier recensement, pour 87 464 habitants. 40 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 25 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 8 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 6 940 habitants. En moyenne, une localité de ce département se trouve à 2,7 kilomètres du pylône le plus proche.",
+  "content": "Le département de Prikro, dans la région IFFOU, compte 73 localité(s) recensées au recensement de 2021, pour 87 464 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 33 d'entre elles ne sont pas couvertes, ce qui concerne 30 334 habitants. Dans le détail : 40 localité(s) ont un pylône à moins de trois kilomètres, 25 se situent entre trois et six kilomètres — la réception y est incertaine — et 8 sont au-delà de six kilomètres ou sans position connue. Attention : 1 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-276d8c79c1",
   "metadata": {
    "departement": "PRIKRO",
    "localites": 73,
-   "nonCouvertes": 8,
+   "nonCouvertes3km": 33,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -224,12 +224,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Seguela, dans la région WORODOUGOU, compte 162 localité(s) recensées au dernier recensement, pour 228 426 habitants. 85 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 45 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 32 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 22 943 habitants. En moyenne, une localité de ce département se trouve à 2,7 kilomètres du pylône le plus proche.",
+  "content": "Le département de Seguela, dans la région WORODOUGOU, compte 162 localité(s) recensées au recensement de 2021, pour 228 426 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 77 d'entre elles ne sont pas couvertes, ce qui concerne 51 366 habitants. Dans le détail : 85 localité(s) ont un pylône à moins de trois kilomètres, 45 se situent entre trois et six kilomètres — la réception y est incertaine — et 32 sont au-delà de six kilomètres ou sans position connue. Attention : 13 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-2f3dd19264",
   "metadata": {
    "departement": "SEGUELA",
    "localites": 162,
-   "nonCouvertes": 32,
+   "nonCouvertes3km": 77,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -238,12 +238,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Daloa, dans la région HAUT-SASSANDRA, compte 102 localité(s) recensées au dernier recensement, pour 554 685 habitants. 77 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 23 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 2 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 1 723 habitants. En moyenne, une localité de ce département se trouve à 1,8 kilomètres du pylône le plus proche.",
+  "content": "Le département de Daloa, dans la région HAUT-SASSANDRA, compte 102 localité(s) recensées au recensement de 2021, pour 554 685 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 25 d'entre elles ne sont pas couvertes, ce qui concerne 22 479 habitants. Dans le détail : 77 localité(s) ont un pylône à moins de trois kilomètres, 23 se situent entre trois et six kilomètres — la réception y est incertaine — et 2 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-30e80bb185",
   "metadata": {
    "departement": "DALOA",
    "localites": 102,
-   "nonCouvertes": 2,
+   "nonCouvertes3km": 25,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -252,12 +252,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Djekanou, dans la région BELIER, compte 18 localité(s) recensées au dernier recensement, pour 30 300 habitants. 14 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 4 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 1,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Djekanou, dans la région BELIER, compte 18 localité(s) recensées au recensement de 2021, pour 30 300 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 4 d'entre elles ne sont pas couvertes, ce qui concerne 6 316 habitants. Dans le détail : 14 localité(s) ont un pylône à moins de trois kilomètres, 4 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-3860f90aec",
   "metadata": {
    "departement": "DJEKANOU",
    "localites": 18,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 4,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -266,12 +266,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Zoukougbeu, dans la région HAUT-SASSANDRA, compte 41 localité(s) recensées au dernier recensement, pour 93 861 habitants. 29 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 12 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 2,1 kilomètres du pylône le plus proche.",
+  "content": "Le département de Zoukougbeu, dans la région HAUT-SASSANDRA, compte 41 localité(s) recensées au recensement de 2021, pour 93 861 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 12 d'entre elles ne sont pas couvertes, ce qui concerne 10 714 habitants. Dans le détail : 29 localité(s) ont un pylône à moins de trois kilomètres, 12 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-3e09d571fb",
   "metadata": {
    "departement": "ZOUKOUGBEU",
    "localites": 41,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 12,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -280,12 +280,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Doropo, dans la région BOUNKANI, compte 242 localité(s) recensées au dernier recensement, pour 82 148 habitants. 25 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 75 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 142 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 32 495 habitants. En moyenne, une localité de ce département se trouve à 5,4 kilomètres du pylône le plus proche.",
+  "content": "Le département de Doropo, dans la région BOUNKANI, compte 242 localité(s) recensées au recensement de 2021, pour 82 148 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 217 d'entre elles ne sont pas couvertes, ce qui concerne 51 075 habitants. Dans le détail : 25 localité(s) ont un pylône à moins de trois kilomètres, 75 se situent entre trois et six kilomètres — la réception y est incertaine — et 142 sont au-delà de six kilomètres ou sans position connue. Attention : 68 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-3eeb1b4ab0",
   "metadata": {
    "departement": "DOROPO",
    "localites": 242,
-   "nonCouvertes": 142,
+   "nonCouvertes3km": 217,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -294,12 +294,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Alepe, dans la région LA ME, compte 46 localité(s) recensées au dernier recensement, pour 164 510 habitants. 29 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 10 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 7 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 7 832 habitants. En moyenne, une localité de ce département se trouve à 2,4 kilomètres du pylône le plus proche.",
+  "content": "Le département de Alepe, dans la région LA ME, compte 46 localité(s) recensées au recensement de 2021, pour 164 510 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 17 d'entre elles ne sont pas couvertes, ce qui concerne 18 952 habitants. Dans le détail : 29 localité(s) ont un pylône à moins de trois kilomètres, 10 se situent entre trois et six kilomètres — la réception y est incertaine — et 7 sont au-delà de six kilomètres ou sans position connue. Attention : 2 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-3f37952211",
   "metadata": {
    "departement": "ALEPE",
    "localites": 46,
-   "nonCouvertes": 7,
+   "nonCouvertes3km": 17,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -308,12 +308,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Abidjan, dans la région ABIDJAN, compte 130 localité(s) recensées au dernier recensement, pour 6 286 219 habitants. 124 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 6 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 0,8 kilomètres du pylône le plus proche.",
+  "content": "Le département de Abidjan, dans la région ABIDJAN, compte 130 localité(s) recensées au recensement de 2021, pour 6 286 219 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 6 d'entre elles ne sont pas couvertes, ce qui concerne 4 820 habitants. Dans le détail : 124 localité(s) ont un pylône à moins de trois kilomètres, 6 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-426d779eef",
   "metadata": {
    "departement": "ABIDJAN",
    "localites": 130,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 6,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -322,12 +322,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Duekoue, dans la région GUEMON, compte 54 localité(s) recensées au dernier recensement, pour 291 354 habitants. 41 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 12 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 1 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 338 habitants. En moyenne, une localité de ce département se trouve à 1,7 kilomètres du pylône le plus proche.",
+  "content": "Le département de Duekoue, dans la région GUEMON, compte 54 localité(s) recensées au recensement de 2021, pour 291 354 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 13 d'entre elles ne sont pas couvertes, ce qui concerne 22 252 habitants. Dans le détail : 41 localité(s) ont un pylône à moins de trois kilomètres, 12 se situent entre trois et six kilomètres — la réception y est incertaine — et 1 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-437ea2b709",
   "metadata": {
    "departement": "DUEKOUE",
    "localites": 54,
-   "nonCouvertes": 1,
+   "nonCouvertes3km": 13,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -336,12 +336,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Bocanda, dans la région N'ZI, compte 104 localité(s) recensées au dernier recensement, pour 112 443 habitants. 70 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 29 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 5 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 4 924 habitants. En moyenne, une localité de ce département se trouve à 2,2 kilomètres du pylône le plus proche.",
+  "content": "Le département de Bocanda, dans la région N'ZI, compte 104 localité(s) recensées au recensement de 2021, pour 112 443 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 34 d'entre elles ne sont pas couvertes, ce qui concerne 25 624 habitants. Dans le détail : 70 localité(s) ont un pylône à moins de trois kilomètres, 29 se situent entre trois et six kilomètres — la réception y est incertaine — et 5 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-45813a710e",
   "metadata": {
    "departement": "BOCANDA",
    "localites": 104,
-   "nonCouvertes": 5,
+   "nonCouvertes3km": 34,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -350,12 +350,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Bangolo, dans la région GUEMON, compte 85 localité(s) recensées au dernier recensement, pour 192 072 habitants. 56 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 26 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 3 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 2 202 habitants. En moyenne, une localité de ce département se trouve à 2,3 kilomètres du pylône le plus proche.",
+  "content": "Le département de Bangolo, dans la région GUEMON, compte 85 localité(s) recensées au recensement de 2021, pour 192 072 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 29 d'entre elles ne sont pas couvertes, ce qui concerne 46 759 habitants. Dans le détail : 56 localité(s) ont un pylône à moins de trois kilomètres, 26 se situent entre trois et six kilomètres — la réception y est incertaine — et 3 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-46de6ebd62",
   "metadata": {
    "departement": "BANGOLO",
    "localites": 85,
-   "nonCouvertes": 3,
+   "nonCouvertes3km": 29,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -364,12 +364,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Tanda, dans la région GONTOUGO, compte 79 localité(s) recensées au dernier recensement, pour 111 072 habitants. 38 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 30 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 11 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 11 652 habitants. En moyenne, une localité de ce département se trouve à 3,0 kilomètres du pylône le plus proche.",
+  "content": "Le département de Tanda, dans la région GONTOUGO, compte 79 localité(s) recensées au recensement de 2021, pour 111 072 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 41 d'entre elles ne sont pas couvertes, ce qui concerne 35 372 habitants. Dans le détail : 38 localité(s) ont un pylône à moins de trois kilomètres, 30 se situent entre trois et six kilomètres — la réception y est incertaine — et 11 sont au-delà de six kilomètres ou sans position connue. Attention : 2 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-47c27629c6",
   "metadata": {
    "departement": "TANDA",
    "localites": 79,
-   "nonCouvertes": 11,
+   "nonCouvertes3km": 41,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -378,12 +378,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Beoumi, dans la région GBEKE, compte 152 localité(s) recensées au dernier recensement, pour 176 196 habitants. 113 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 34 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 5 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 3 709 habitants. En moyenne, une localité de ce département se trouve à 1,9 kilomètres du pylône le plus proche.",
+  "content": "Le département de Beoumi, dans la région GBEKE, compte 152 localité(s) recensées au recensement de 2021, pour 176 196 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 39 d'entre elles ne sont pas couvertes, ce qui concerne 37 659 habitants. Dans le détail : 113 localité(s) ont un pylône à moins de trois kilomètres, 34 se situent entre trois et six kilomètres — la réception y est incertaine — et 5 sont au-delà de six kilomètres ou sans position connue. Attention : 1 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-48b9569f32",
   "metadata": {
    "departement": "BEOUMI",
    "localites": 152,
-   "nonCouvertes": 5,
+   "nonCouvertes3km": 39,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -392,12 +392,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Toumodi, dans la région BELIER, compte 73 localité(s) recensées au dernier recensement, pour 156 870 habitants. 51 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 21 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 1 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 1 495 habitants. En moyenne, une localité de ce département se trouve à 2,0 kilomètres du pylône le plus proche.",
+  "content": "Le département de Toumodi, dans la région BELIER, compte 73 localité(s) recensées au recensement de 2021, pour 156 870 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 22 d'entre elles ne sont pas couvertes, ce qui concerne 20 029 habitants. Dans le détail : 51 localité(s) ont un pylône à moins de trois kilomètres, 21 se situent entre trois et six kilomètres — la réception y est incertaine — et 1 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-49a04cb3e6",
   "metadata": {
    "departement": "TOUMODI",
    "localites": 73,
-   "nonCouvertes": 1,
+   "nonCouvertes3km": 22,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -406,12 +406,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Kong, dans la région TCHOLOGO, compte 72 localité(s) recensées au dernier recensement, pour 69 909 habitants. 36 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 14 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 22 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 16 244 habitants. En moyenne, une localité de ce département se trouve à 2,8 kilomètres du pylône le plus proche.",
+  "content": "Le département de Kong, dans la région TCHOLOGO, compte 72 localité(s) recensées au recensement de 2021, pour 69 909 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 36 d'entre elles ne sont pas couvertes, ce qui concerne 22 753 habitants. Dans le détail : 36 localité(s) ont un pylône à moins de trois kilomètres, 14 se situent entre trois et six kilomètres — la réception y est incertaine — et 22 sont au-delà de six kilomètres ou sans position connue. Attention : 10 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-4a143db806",
   "metadata": {
    "departement": "KONG",
    "localites": 72,
-   "nonCouvertes": 22,
+   "nonCouvertes3km": 36,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -420,12 +420,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Kouibly, dans la région GUEMON, compte 51 localité(s) recensées au dernier recensement, pour 132 739 habitants. 31 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 19 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 1 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 0 habitants. En moyenne, une localité de ce département se trouve à 2,5 kilomètres du pylône le plus proche.",
+  "content": "Le département de Kouibly, dans la région GUEMON, compte 51 localité(s) recensées au recensement de 2021, pour 132 739 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 20 d'entre elles ne sont pas couvertes, ce qui concerne 31 176 habitants. Dans le détail : 31 localité(s) ont un pylône à moins de trois kilomètres, 19 se situent entre trois et six kilomètres — la réception y est incertaine — et 1 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-4fcb29531c",
   "metadata": {
    "departement": "KOUIBLY",
    "localites": 51,
-   "nonCouvertes": 1,
+   "nonCouvertes3km": 20,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -434,12 +434,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Sikensi, dans la région AGNEBY-TIASSA, compte 14 localité(s) recensées au dernier recensement, pour 106 062 habitants. 12 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 2 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 0,8 kilomètres du pylône le plus proche.",
+  "content": "Le département de Sikensi, dans la région AGNEBY-TIASSA, compte 14 localité(s) recensées au recensement de 2021, pour 106 062 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 2 d'entre elles ne sont pas couvertes, ce qui concerne 5 777 habitants. Dans le détail : 12 localité(s) ont un pylône à moins de trois kilomètres, 2 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-50a3b2bfdb",
   "metadata": {
    "departement": "SIKENSI",
    "localites": 14,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 2,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -448,12 +448,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Sakassou, dans la région GBEKE, compte 142 localité(s) recensées au dernier recensement, pour 101 346 habitants. 100 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 39 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 3 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 1 749 habitants. En moyenne, une localité de ce département se trouve à 2,1 kilomètres du pylône le plus proche.",
+  "content": "Le département de Sakassou, dans la région GBEKE, compte 142 localité(s) recensées au recensement de 2021, pour 101 346 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 42 d'entre elles ne sont pas couvertes, ce qui concerne 21 651 habitants. Dans le détail : 100 localité(s) ont un pylône à moins de trois kilomètres, 39 se situent entre trois et six kilomètres — la réception y est incertaine — et 3 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-52655343ac",
   "metadata": {
    "departement": "SAKASSOU",
    "localites": 142,
-   "nonCouvertes": 3,
+   "nonCouvertes3km": 42,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -462,12 +462,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Man, dans la région TONKPI, compte 155 localité(s) recensées au dernier recensement, pour 434 456 habitants. 64 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 59 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 32 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 39 533 habitants. En moyenne, une localité de ce département se trouve à 3,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Man, dans la région TONKPI, compte 155 localité(s) recensées au recensement de 2021, pour 434 456 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 91 d'entre elles ne sont pas couvertes, ce qui concerne 102 511 habitants. Dans le détail : 64 localité(s) ont un pylône à moins de trois kilomètres, 59 se situent entre trois et six kilomètres — la réception y est incertaine — et 32 sont au-delà de six kilomètres ou sans position connue. Attention : 7 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-5563bbe566",
   "metadata": {
    "departement": "MAN",
    "localites": 155,
-   "nonCouvertes": 32,
+   "nonCouvertes3km": 91,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -476,12 +476,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Kaniasso, dans la région FOLON, compte 46 localité(s) recensées au dernier recensement, pour 82 258 habitants. 30 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 9 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 7 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 3 929 habitants. En moyenne, une localité de ce département se trouve à 2,0 kilomètres du pylône le plus proche.",
+  "content": "Le département de Kaniasso, dans la région FOLON, compte 46 localité(s) recensées au recensement de 2021, pour 82 258 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 16 d'entre elles ne sont pas couvertes, ce qui concerne 13 070 habitants. Dans le détail : 30 localité(s) ont un pylône à moins de trois kilomètres, 9 se situent entre trois et six kilomètres — la réception y est incertaine — et 7 sont au-delà de six kilomètres ou sans position connue. Attention : 3 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-57d6978067",
   "metadata": {
    "departement": "KANIASSO",
    "localites": 46,
-   "nonCouvertes": 7,
+   "nonCouvertes3km": 16,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -490,12 +490,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Dabou, dans la région GRANDS-PONTS, compte 41 localité(s) recensées au dernier recensement, pour 195 372 habitants. 35 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 5 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 1 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 779 habitants. En moyenne, une localité de ce département se trouve à 1,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Dabou, dans la région GRANDS-PONTS, compte 41 localité(s) recensées au recensement de 2021, pour 195 372 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 6 d'entre elles ne sont pas couvertes, ce qui concerne 5 508 habitants. Dans le détail : 35 localité(s) ont un pylône à moins de trois kilomètres, 5 se situent entre trois et six kilomètres — la réception y est incertaine — et 1 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-58abc0bdbf",
   "metadata": {
    "departement": "DABOU",
    "localites": 41,
-   "nonCouvertes": 1,
+   "nonCouvertes3km": 6,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -504,12 +504,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Ouangolodougou, dans la région TCHOLOGO, compte 63 localité(s) recensées au dernier recensement, pour 176 698 habitants. 30 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 24 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 9 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 6 978 habitants. En moyenne, une localité de ce département se trouve à 2,7 kilomètres du pylône le plus proche.",
+  "content": "Le département de Ouangolodougou, dans la région TCHOLOGO, compte 63 localité(s) recensées au recensement de 2021, pour 176 698 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 33 d'entre elles ne sont pas couvertes, ce qui concerne 27 481 habitants. Dans le détail : 30 localité(s) ont un pylône à moins de trois kilomètres, 24 se situent entre trois et six kilomètres — la réception y est incertaine — et 9 sont au-delà de six kilomètres ou sans position connue. Attention : 4 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-6150cdc44c",
   "metadata": {
    "departement": "OUANGOLODOUGOU",
    "localites": 63,
-   "nonCouvertes": 9,
+   "nonCouvertes3km": 33,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -518,12 +518,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Yamoussoukro, dans la région YAMOUSSOUKRO, compte 45 localité(s) recensées au dernier recensement, pour 356 690 habitants. 35 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 7 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 3 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 2 947 habitants. En moyenne, une localité de ce département se trouve à 1,7 kilomètres du pylône le plus proche.",
+  "content": "Le département de Yamoussoukro, dans la région YAMOUSSOUKRO, compte 45 localité(s) recensées au recensement de 2021, pour 356 690 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 10 d'entre elles ne sont pas couvertes, ce qui concerne 13 921 habitants. Dans le détail : 35 localité(s) ont un pylône à moins de trois kilomètres, 7 se situent entre trois et six kilomètres — la réception y est incertaine — et 3 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-61667efa29",
   "metadata": {
    "departement": "YAMOUSSOUKRO",
    "localites": 45,
-   "nonCouvertes": 3,
+   "nonCouvertes3km": 10,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -532,12 +532,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Grand-Bassam, dans la région SUD-COMOE, compte 37 localité(s) recensées au dernier recensement, pour 250 910 habitants. 33 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 4 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 1,3 kilomètres du pylône le plus proche.",
+  "content": "Le département de Grand-Bassam, dans la région SUD-COMOE, compte 37 localité(s) recensées au recensement de 2021, pour 250 910 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 4 d'entre elles ne sont pas couvertes, ce qui concerne 6 213 habitants. Dans le détail : 33 localité(s) ont un pylône à moins de trois kilomètres, 4 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-64e5dc8b35",
   "metadata": {
    "departement": "GRAND-BASSAM",
    "localites": 37,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 4,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -546,12 +546,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de San-Pedro, dans la région SAN-PEDRO, compte 143 localité(s) recensées au dernier recensement, pour 581 866 habitants. 88 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 51 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 4 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 5 976 habitants. En moyenne, une localité de ce département se trouve à 2,3 kilomètres du pylône le plus proche.",
+  "content": "Le département de San-Pedro, dans la région SAN-PEDRO, compte 143 localité(s) recensées au recensement de 2021, pour 581 866 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 55 d'entre elles ne sont pas couvertes, ce qui concerne 38 130 habitants. Dans le détail : 88 localité(s) ont un pylône à moins de trois kilomètres, 51 se situent entre trois et six kilomètres — la réception y est incertaine — et 4 sont au-delà de six kilomètres ou sans position connue. Attention : 1 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-6af8b4424d",
   "metadata": {
    "departement": "SAN-PEDRO",
    "localites": 143,
-   "nonCouvertes": 4,
+   "nonCouvertes3km": 55,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -560,12 +560,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Niakaramadougou, dans la région HAMBOL, compte 59 localité(s) recensées au dernier recensement, pour 160 904 habitants. 41 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 10 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 8 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 11 158 habitants. En moyenne, une localité de ce département se trouve à 1,8 kilomètres du pylône le plus proche.",
+  "content": "Le département de Niakaramadougou, dans la région HAMBOL, compte 59 localité(s) recensées au recensement de 2021, pour 160 904 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 18 d'entre elles ne sont pas couvertes, ce qui concerne 18 666 habitants. Dans le détail : 41 localité(s) ont un pylône à moins de trois kilomètres, 10 se situent entre trois et six kilomètres — la réception y est incertaine — et 8 sont au-delà de six kilomètres ou sans position connue. Attention : 6 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-6c50a98f16",
   "metadata": {
    "departement": "NIAKARAMADOUGOU",
    "localites": 59,
-   "nonCouvertes": 8,
+   "nonCouvertes3km": 18,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -574,12 +574,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Bongouanou, dans la région MORONOU, compte 46 localité(s) recensées au dernier recensement, pour 180 387 habitants. 30 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 14 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 2 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 279 habitants. En moyenne, une localité de ce département se trouve à 2,3 kilomètres du pylône le plus proche.",
+  "content": "Le département de Bongouanou, dans la région MORONOU, compte 46 localité(s) recensées au recensement de 2021, pour 180 387 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 16 d'entre elles ne sont pas couvertes, ce qui concerne 27 636 habitants. Dans le détail : 30 localité(s) ont un pylône à moins de trois kilomètres, 14 se situent entre trois et six kilomètres — la réception y est incertaine — et 2 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-6c6b5d5673",
   "metadata": {
    "departement": "BONGOUANOU",
    "localites": 46,
-   "nonCouvertes": 2,
+   "nonCouvertes3km": 16,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -588,12 +588,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Odienne, dans la région KABADOUGOU, compte 71 localité(s) recensées au dernier recensement, pour 148 981 habitants. 27 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 12 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 32 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 27 312 habitants. En moyenne, une localité de ce département se trouve à 3,1 kilomètres du pylône le plus proche.",
+  "content": "Le département de Odienne, dans la région KABADOUGOU, compte 71 localité(s) recensées au recensement de 2021, pour 148 981 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 44 d'entre elles ne sont pas couvertes, ce qui concerne 42 582 habitants. Dans le détail : 27 localité(s) ont un pylône à moins de trois kilomètres, 12 se situent entre trois et six kilomètres — la réception y est incertaine — et 32 sont au-delà de six kilomètres ou sans position connue. Attention : 19 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-6df0039a75",
   "metadata": {
    "departement": "ODIENNE",
    "localites": 71,
-   "nonCouvertes": 32,
+   "nonCouvertes3km": 44,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -602,12 +602,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Tehini, dans la région BOUNKANI, compte 116 localité(s) recensées au dernier recensement, pour 66 095 habitants. 31 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 48 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 37 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 17 467 habitants. En moyenne, une localité de ce département se trouve à 4,3 kilomètres du pylône le plus proche.",
+  "content": "Le département de Tehini, dans la région BOUNKANI, compte 116 localité(s) recensées au recensement de 2021, pour 66 095 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 85 d'entre elles ne sont pas couvertes, ce qui concerne 32 092 habitants. Dans le détail : 31 localité(s) ont un pylône à moins de trois kilomètres, 48 se situent entre trois et six kilomètres — la réception y est incertaine — et 37 sont au-delà de six kilomètres ou sans position connue. Attention : 8 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-704de6d2fe",
   "metadata": {
    "departement": "TEHINI",
    "localites": 116,
-   "nonCouvertes": 37,
+   "nonCouvertes3km": 85,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -616,12 +616,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Koro, dans la région BAFING, compte 97 localité(s) recensées au dernier recensement, pour 74 380 habitants. 29 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 32 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 36 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 15 857 habitants. En moyenne, une localité de ce département se trouve à 3,9 kilomètres du pylône le plus proche.",
+  "content": "Le département de Koro, dans la région BAFING, compte 97 localité(s) recensées au recensement de 2021, pour 74 380 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 68 d'entre elles ne sont pas couvertes, ce qui concerne 31 231 habitants. Dans le détail : 29 localité(s) ont un pylône à moins de trois kilomètres, 32 se situent entre trois et six kilomètres — la réception y est incertaine — et 36 sont au-delà de six kilomètres ou sans position connue. Attention : 20 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-726f6f19fc",
   "metadata": {
    "departement": "KORO",
    "localites": 97,
-   "nonCouvertes": 36,
+   "nonCouvertes3km": 68,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -630,12 +630,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Ouaninou, dans la région BAFING, compte 98 localité(s) recensées au dernier recensement, pour 59 484 habitants. 36 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 36 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 26 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 10 867 habitants. En moyenne, une localité de ce département se trouve à 3,8 kilomètres du pylône le plus proche.",
+  "content": "Le département de Ouaninou, dans la région BAFING, compte 98 localité(s) recensées au recensement de 2021, pour 59 484 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 62 d'entre elles ne sont pas couvertes, ce qui concerne 27 529 habitants. Dans le détail : 36 localité(s) ont un pylône à moins de trois kilomètres, 36 se situent entre trois et six kilomètres — la réception y est incertaine — et 26 sont au-delà de six kilomètres ou sans position connue. Attention : 9 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-73897da2d4",
   "metadata": {
    "departement": "OUANINOU",
    "localites": 98,
-   "nonCouvertes": 26,
+   "nonCouvertes3km": 62,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -644,12 +644,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Aboisso, dans la région SUD-COMOE, compte 86 localité(s) recensées au dernier recensement, pour 268 399 habitants. 72 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 14 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 1,7 kilomètres du pylône le plus proche.",
+  "content": "Le département de Aboisso, dans la région SUD-COMOE, compte 86 localité(s) recensées au recensement de 2021, pour 268 399 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 14 d'entre elles ne sont pas couvertes, ce qui concerne 6 366 habitants. Dans le détail : 72 localité(s) ont un pylône à moins de trois kilomètres, 14 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-74924295d1",
   "metadata": {
    "departement": "ABOISSO",
    "localites": 86,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 14,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -658,12 +658,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Buyo, dans la région NAWA, compte 22 localité(s) recensées au dernier recensement, pour 107 856 habitants. 18 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 2 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 2 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 5 198 habitants. En moyenne, une localité de ce département se trouve à 1,5 kilomètres du pylône le plus proche.",
+  "content": "Le département de Buyo, dans la région NAWA, compte 22 localité(s) recensées au recensement de 2021, pour 107 856 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 4 d'entre elles ne sont pas couvertes, ce qui concerne 6 453 habitants. Dans le détail : 18 localité(s) ont un pylône à moins de trois kilomètres, 2 se situent entre trois et six kilomètres — la réception y est incertaine — et 2 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-78293025ed",
   "metadata": {
    "departement": "BUYO",
    "localites": 22,
-   "nonCouvertes": 2,
+   "nonCouvertes3km": 4,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -672,12 +672,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Fresco, dans la région GBOKLE, compte 19 localité(s) recensées au dernier recensement, pour 60 389 habitants. 17 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 1 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 1 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 819 habitants. En moyenne, une localité de ce département se trouve à 1,3 kilomètres du pylône le plus proche.",
+  "content": "Le département de Fresco, dans la région GBOKLE, compte 19 localité(s) recensées au recensement de 2021, pour 60 389 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 2 d'entre elles ne sont pas couvertes, ce qui concerne 1 458 habitants. Dans le détail : 17 localité(s) ont un pylône à moins de trois kilomètres, 1 se situent entre trois et six kilomètres — la réception y est incertaine — et 1 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-799ca2c1e5",
   "metadata": {
    "departement": "FRESCO",
    "localites": 19,
-   "nonCouvertes": 1,
+   "nonCouvertes3km": 2,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -686,12 +686,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Tiapoum, dans la région SUD-COMOE, compte 35 localité(s) recensées au dernier recensement, pour 55 043 habitants. 20 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 13 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 2 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 400 habitants. En moyenne, une localité de ce département se trouve à 2,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Tiapoum, dans la région SUD-COMOE, compte 35 localité(s) recensées au recensement de 2021, pour 55 043 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 15 d'entre elles ne sont pas couvertes, ce qui concerne 15 140 habitants. Dans le détail : 20 localité(s) ont un pylône à moins de trois kilomètres, 13 se situent entre trois et six kilomètres — la réception y est incertaine — et 2 sont au-delà de six kilomètres ou sans position connue. Attention : 1 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-7ac6ebb97d",
   "metadata": {
    "departement": "TIAPOUM",
    "localites": 35,
-   "nonCouvertes": 2,
+   "nonCouvertes3km": 15,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -700,12 +700,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Danane, dans la région TONKPI, compte 184 localité(s) recensées au dernier recensement, pour 321 953 habitants. 105 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 58 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 21 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 37 823 habitants. En moyenne, une localité de ce département se trouve à 2,8 kilomètres du pylône le plus proche.",
+  "content": "Le département de Danane, dans la région TONKPI, compte 184 localité(s) recensées au recensement de 2021, pour 321 953 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 79 d'entre elles ne sont pas couvertes, ce qui concerne 99 691 habitants. Dans le détail : 105 localité(s) ont un pylône à moins de trois kilomètres, 58 se situent entre trois et six kilomètres — la réception y est incertaine — et 21 sont au-delà de six kilomètres ou sans position connue. Attention : 6 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-7af70bcaa2",
   "metadata": {
    "departement": "DANANE",
    "localites": 184,
-   "nonCouvertes": 21,
+   "nonCouvertes3km": 79,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -714,12 +714,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Agnibilekrou, dans la région INDENIE-DJUABLIN, compte 53 localité(s) recensées au dernier recensement, pour 180 056 habitants. 29 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 15 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 9 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 5 618 habitants. En moyenne, une localité de ce département se trouve à 2,4 kilomètres du pylône le plus proche.",
+  "content": "Le département de Agnibilekrou, dans la région INDENIE-DJUABLIN, compte 53 localité(s) recensées au recensement de 2021, pour 180 056 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 24 d'entre elles ne sont pas couvertes, ce qui concerne 19 385 habitants. Dans le détail : 29 localité(s) ont un pylône à moins de trois kilomètres, 15 se situent entre trois et six kilomètres — la réception y est incertaine — et 9 sont au-delà de six kilomètres ou sans position connue. Attention : 5 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-7b9b528f30",
   "metadata": {
    "departement": "AGNIBILEKROU",
    "localites": 53,
-   "nonCouvertes": 9,
+   "nonCouvertes3km": 24,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -728,12 +728,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Mankono, dans la région BERE, compte 130 localité(s) recensées au dernier recensement, pour 193 734 habitants. 78 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 39 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 13 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 10 093 habitants. En moyenne, une localité de ce département se trouve à 2,5 kilomètres du pylône le plus proche.",
+  "content": "Le département de Mankono, dans la région BERE, compte 130 localité(s) recensées au recensement de 2021, pour 193 734 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 52 d'entre elles ne sont pas couvertes, ce qui concerne 45 362 habitants. Dans le détail : 78 localité(s) ont un pylône à moins de trois kilomètres, 39 se situent entre trois et six kilomètres — la réception y est incertaine — et 13 sont au-delà de six kilomètres ou sans position connue. Attention : 4 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-80a7313f0e",
   "metadata": {
    "departement": "MANKONO",
    "localites": 130,
-   "nonCouvertes": 13,
+   "nonCouvertes3km": 52,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -742,12 +742,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Sinfra, dans la région MARAHOUE, compte 80 localité(s) recensées au dernier recensement, pour 207 499 habitants. 52 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 22 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 6 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 2 809 habitants. En moyenne, une localité de ce département se trouve à 2,5 kilomètres du pylône le plus proche.",
+  "content": "Le département de Sinfra, dans la région MARAHOUE, compte 80 localité(s) recensées au recensement de 2021, pour 207 499 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 28 d'entre elles ne sont pas couvertes, ce qui concerne 22 042 habitants. Dans le détail : 52 localité(s) ont un pylône à moins de trois kilomètres, 22 se situent entre trois et six kilomètres — la réception y est incertaine — et 6 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-84b2ff471d",
   "metadata": {
    "departement": "SINFRA",
    "localites": 80,
-   "nonCouvertes": 6,
+   "nonCouvertes3km": 28,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -756,12 +756,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Kouto, dans la région BAGOUE, compte 47 localité(s) recensées au dernier recensement, pour 167 217 habitants. 37 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 3 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 7 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 9 119 habitants. En moyenne, une localité de ce département se trouve à 1,7 kilomètres du pylône le plus proche.",
+  "content": "Le département de Kouto, dans la région BAGOUE, compte 47 localité(s) recensées au recensement de 2021, pour 167 217 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 10 d'entre elles ne sont pas couvertes, ce qui concerne 12 527 habitants. Dans le détail : 37 localité(s) ont un pylône à moins de trois kilomètres, 3 se situent entre trois et six kilomètres — la réception y est incertaine — et 7 sont au-delà de six kilomètres ou sans position connue. Attention : 1 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-859abb5f80",
   "metadata": {
    "departement": "KOUTO",
    "localites": 47,
-   "nonCouvertes": 7,
+   "nonCouvertes3km": 10,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -770,12 +770,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Kounahiri, dans la région BERE, compte 48 localité(s) recensées au dernier recensement, pour 85 254 habitants. 38 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 8 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 2 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 3 982 habitants. En moyenne, une localité de ce département se trouve à 1,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Kounahiri, dans la région BERE, compte 48 localité(s) recensées au recensement de 2021, pour 85 254 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 10 d'entre elles ne sont pas couvertes, ce qui concerne 9 061 habitants. Dans le détail : 38 localité(s) ont un pylône à moins de trois kilomètres, 8 se situent entre trois et six kilomètres — la réception y est incertaine — et 2 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-864c4526be",
   "metadata": {
    "departement": "KOUNAHIRI",
    "localites": 48,
-   "nonCouvertes": 2,
+   "nonCouvertes3km": 10,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -784,12 +784,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Agboville, dans la région AGNEBY-TIASSA, compte 96 localité(s) recensées au dernier recensement, pour 334 044 habitants. 69 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 21 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 6 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 3 838 habitants. En moyenne, une localité de ce département se trouve à 2,0 kilomètres du pylône le plus proche.",
+  "content": "Le département de Agboville, dans la région AGNEBY-TIASSA, compte 96 localité(s) recensées au recensement de 2021, pour 334 044 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 27 d'entre elles ne sont pas couvertes, ce qui concerne 18 474 habitants. Dans le détail : 69 localité(s) ont un pylône à moins de trois kilomètres, 21 se situent entre trois et six kilomètres — la réception y est incertaine — et 6 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-8dac13a3fc",
   "metadata": {
    "departement": "AGBOVILLE",
    "localites": 96,
-   "nonCouvertes": 6,
+   "nonCouvertes3km": 27,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -798,12 +798,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Zouan-Hounien, dans la région TONKPI, compte 150 localité(s) recensées au dernier recensement, pour 246 670 habitants. 85 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 63 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 2 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 1 534 habitants. En moyenne, une localité de ce département se trouve à 2,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Zouan-Hounien, dans la région TONKPI, compte 150 localité(s) recensées au recensement de 2021, pour 246 670 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 65 d'entre elles ne sont pas couvertes, ce qui concerne 68 092 habitants. Dans le détail : 85 localité(s) ont un pylône à moins de trois kilomètres, 63 se situent entre trois et six kilomètres — la réception y est incertaine — et 2 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-8e94553228",
   "metadata": {
    "departement": "ZOUAN-HOUNIEN",
    "localites": 150,
-   "nonCouvertes": 2,
+   "nonCouvertes3km": 65,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -812,12 +812,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Bondoukou, dans la région GONTOUGO, compte 181 localité(s) recensées au dernier recensement, pour 392 960 habitants. 101 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 56 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 24 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 21 816 habitants. En moyenne, une localité de ce département se trouve à 2,7 kilomètres du pylône le plus proche.",
+  "content": "Le département de Bondoukou, dans la région GONTOUGO, compte 181 localité(s) recensées au recensement de 2021, pour 392 960 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 80 d'entre elles ne sont pas couvertes, ce qui concerne 69 746 habitants. Dans le détail : 101 localité(s) ont un pylône à moins de trois kilomètres, 56 se situent entre trois et six kilomètres — la réception y est incertaine — et 24 sont au-delà de six kilomètres ou sans position connue. Attention : 6 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-913d89c217",
   "metadata": {
    "departement": "BONDOUKOU",
    "localites": 181,
-   "nonCouvertes": 24,
+   "nonCouvertes3km": 80,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -826,12 +826,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Botro, dans la région GBEKE, compte 101 localité(s) recensées au dernier recensement, pour 101 529 habitants. 60 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 35 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 6 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 4 316 habitants. En moyenne, une localité de ce département se trouve à 2,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Botro, dans la région GBEKE, compte 101 localité(s) recensées au recensement de 2021, pour 101 529 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 41 d'entre elles ne sont pas couvertes, ce qui concerne 29 219 habitants. Dans le détail : 60 localité(s) ont un pylône à moins de trois kilomètres, 35 se situent entre trois et six kilomètres — la réception y est incertaine — et 6 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-98ed60047a",
   "metadata": {
    "departement": "BOTRO",
    "localites": 101,
-   "nonCouvertes": 6,
+   "nonCouvertes3km": 41,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -840,12 +840,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Gbeleban, dans la région KABADOUGOU, compte 27 localité(s) recensées au dernier recensement, pour 29 455 habitants. 16 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 6 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 5 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 4 415 habitants. En moyenne, une localité de ce département se trouve à 2,9 kilomètres du pylône le plus proche.",
+  "content": "Le département de Gbeleban, dans la région KABADOUGOU, compte 27 localité(s) recensées au recensement de 2021, pour 29 455 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 11 d'entre elles ne sont pas couvertes, ce qui concerne 9 518 habitants. Dans le détail : 16 localité(s) ont un pylône à moins de trois kilomètres, 6 se situent entre trois et six kilomètres — la réception y est incertaine — et 5 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-993a4810de",
   "metadata": {
    "departement": "GBELEBAN",
    "localites": 27,
-   "nonCouvertes": 5,
+   "nonCouvertes3km": 11,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -854,12 +854,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Korhogo, dans la région PORO, compte 552 localité(s) recensées au dernier recensement, pour 722 080 habitants. 248 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 250 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 54 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 29 541 habitants. En moyenne, une localité de ce département se trouve à 3,2 kilomètres du pylône le plus proche.",
+  "content": "Le département de Korhogo, dans la région PORO, compte 552 localité(s) recensées au recensement de 2021, pour 722 080 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 304 d'entre elles ne sont pas couvertes, ce qui concerne 127 988 habitants. Dans le détail : 248 localité(s) ont un pylône à moins de trois kilomètres, 250 se situent entre trois et six kilomètres — la réception y est incertaine — et 54 sont au-delà de six kilomètres ou sans position connue. Attention : 10 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-99f1fcce79",
   "metadata": {
    "departement": "KORHOGO",
    "localites": 552,
-   "nonCouvertes": 54,
+   "nonCouvertes3km": 304,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -868,12 +868,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Sipilou, dans la région TONKPI, compte 16 localité(s) recensées au dernier recensement, pour 49 423 habitants. 10 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 2 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 4 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 8 058 habitants. En moyenne, une localité de ce département se trouve à 2,3 kilomètres du pylône le plus proche.",
+  "content": "Le département de Sipilou, dans la région TONKPI, compte 16 localité(s) recensées au recensement de 2021, pour 49 423 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 6 d'entre elles ne sont pas couvertes, ce qui concerne 11 188 habitants. Dans le détail : 10 localité(s) ont un pylône à moins de trois kilomètres, 2 se situent entre trois et six kilomètres — la réception y est incertaine — et 4 sont au-delà de six kilomètres ou sans position connue. Attention : 1 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-9a407a1a03",
   "metadata": {
    "departement": "SIPILOU",
    "localites": 16,
-   "nonCouvertes": 4,
+   "nonCouvertes3km": 6,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -882,12 +882,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Sassandra, dans la région GBOKLE, compte 83 localité(s) recensées au dernier recensement, pour 203 145 habitants. 57 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 20 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 6 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 1 521 habitants. En moyenne, une localité de ce département se trouve à 2,2 kilomètres du pylône le plus proche.",
+  "content": "Le département de Sassandra, dans la région GBOKLE, compte 83 localité(s) recensées au recensement de 2021, pour 203 145 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 26 d'entre elles ne sont pas couvertes, ce qui concerne 10 082 habitants. Dans le détail : 57 localité(s) ont un pylône à moins de trois kilomètres, 20 se situent entre trois et six kilomètres — la réception y est incertaine — et 6 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-9ac9dfa87b",
   "metadata": {
    "departement": "SASSANDRA",
    "localites": 83,
-   "nonCouvertes": 6,
+   "nonCouvertes3km": 26,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -896,12 +896,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Arrah, dans la région MORONOU, compte 19 localité(s) recensées au dernier recensement, pour 92 222 habitants. 13 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 1 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 5 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 3 775 habitants. En moyenne, une localité de ce département se trouve à 1,7 kilomètres du pylône le plus proche.",
+  "content": "Le département de Arrah, dans la région MORONOU, compte 19 localité(s) recensées au recensement de 2021, pour 92 222 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 6 d'entre elles ne sont pas couvertes, ce qui concerne 3 939 habitants. Dans le détail : 13 localité(s) ont un pylône à moins de trois kilomètres, 1 se situent entre trois et six kilomètres — la réception y est incertaine — et 5 sont au-delà de six kilomètres ou sans position connue. Attention : 4 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-9b39b04fcd",
   "metadata": {
    "departement": "ARRAH",
    "localites": 19,
-   "nonCouvertes": 5,
+   "nonCouvertes3km": 6,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -910,12 +910,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Tiassale, dans la région AGNEBY-TIASSA, compte 55 localité(s) recensées au dernier recensement, pour 216 318 habitants. 31 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 20 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 4 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 4 354 habitants. En moyenne, une localité de ce département se trouve à 2,5 kilomètres du pylône le plus proche.",
+  "content": "Le département de Tiassale, dans la région AGNEBY-TIASSA, compte 55 localité(s) recensées au recensement de 2021, pour 216 318 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 24 d'entre elles ne sont pas couvertes, ce qui concerne 24 486 habitants. Dans le détail : 31 localité(s) ont un pylône à moins de trois kilomètres, 20 se situent entre trois et six kilomètres — la réception y est incertaine — et 4 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-9ca8c2cea4",
   "metadata": {
    "departement": "TIASSALE",
    "localites": 55,
-   "nonCouvertes": 4,
+   "nonCouvertes3km": 24,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -924,12 +924,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Oume, dans la région GÔH, compte 43 localité(s) recensées au dernier recensement, pour 207 254 habitants. 37 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 6 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 1,4 kilomètres du pylône le plus proche.",
+  "content": "Le département de Oume, dans la région GÔH, compte 43 localité(s) recensées au recensement de 2021, pour 207 254 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 6 d'entre elles ne sont pas couvertes, ce qui concerne 8 734 habitants. Dans le détail : 37 localité(s) ont un pylône à moins de trois kilomètres, 6 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-9de71c992b",
   "metadata": {
    "departement": "OUME",
    "localites": 43,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 6,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -938,12 +938,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Guiglo, dans la région CAVALLY, compte 31 localité(s) recensées au dernier recensement, pour 153 750 habitants. 21 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 7 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 3 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 13 952 habitants. En moyenne, une localité de ce département se trouve à 2,0 kilomètres du pylône le plus proche.",
+  "content": "Le département de Guiglo, dans la région CAVALLY, compte 31 localité(s) recensées au recensement de 2021, pour 153 750 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 10 d'entre elles ne sont pas couvertes, ce qui concerne 28 140 habitants. Dans le détail : 21 localité(s) ont un pylône à moins de trois kilomètres, 7 se situent entre trois et six kilomètres — la réception y est incertaine — et 3 sont au-delà de six kilomètres ou sans position connue. Attention : 1 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-9e7df8d02d",
   "metadata": {
    "departement": "GUIGLO",
    "localites": 31,
-   "nonCouvertes": 3,
+   "nonCouvertes3km": 10,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -952,12 +952,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Attiegouakro, dans la région YAMOUSSOUKRO, compte 29 localité(s) recensées au dernier recensement, pour 49 440 habitants. 22 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 6 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 1 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 1 652 habitants. En moyenne, une localité de ce département se trouve à 1,7 kilomètres du pylône le plus proche.",
+  "content": "Le département de Attiegouakro, dans la région YAMOUSSOUKRO, compte 29 localité(s) recensées au recensement de 2021, pour 49 440 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 7 d'entre elles ne sont pas couvertes, ce qui concerne 7 068 habitants. Dans le détail : 22 localité(s) ont un pylône à moins de trois kilomètres, 6 se situent entre trois et six kilomètres — la réception y est incertaine — et 1 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-9f1a36d374",
   "metadata": {
    "departement": "ATTIEGOUAKRO",
    "localites": 29,
-   "nonCouvertes": 1,
+   "nonCouvertes3km": 7,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -966,12 +966,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Gueyo, dans la région NAWA, compte 28 localité(s) recensées au dernier recensement, pour 66 152 habitants. 23 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 5 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 1,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Gueyo, dans la région NAWA, compte 28 localité(s) recensées au recensement de 2021, pour 66 152 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 5 d'entre elles ne sont pas couvertes, ce qui concerne 2 380 habitants. Dans le détail : 23 localité(s) ont un pylône à moins de trois kilomètres, 5 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-9f7fe5d282",
   "metadata": {
    "departement": "GUEYO",
    "localites": 28,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 5,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -980,12 +980,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Tiebissou, dans la région BELIER, compte 101 localité(s) recensées au dernier recensement, pour 109 008 habitants. 76 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 24 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 1 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 1 051 habitants. En moyenne, une localité de ce département se trouve à 1,8 kilomètres du pylône le plus proche.",
+  "content": "Le département de Tiebissou, dans la région BELIER, compte 101 localité(s) recensées au recensement de 2021, pour 109 008 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 25 d'entre elles ne sont pas couvertes, ce qui concerne 20 644 habitants. Dans le détail : 76 localité(s) ont un pylône à moins de trois kilomètres, 24 se situent entre trois et six kilomètres — la réception y est incertaine — et 1 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-a006fafcb4",
   "metadata": {
    "departement": "TIEBISSOU",
    "localites": 101,
-   "nonCouvertes": 1,
+   "nonCouvertes3km": 25,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -994,12 +994,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Kouassi-Kouassikro, dans la région N'ZI, compte 31 localité(s) recensées au dernier recensement, pour 30 357 habitants. 17 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 11 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 3 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 1 597 habitants. En moyenne, une localité de ce département se trouve à 2,7 kilomètres du pylône le plus proche.",
+  "content": "Le département de Kouassi-Kouassikro, dans la région N'ZI, compte 31 localité(s) recensées au recensement de 2021, pour 30 357 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 14 d'entre elles ne sont pas couvertes, ce qui concerne 8 782 habitants. Dans le détail : 17 localité(s) ont un pylône à moins de trois kilomètres, 11 se situent entre trois et six kilomètres — la réception y est incertaine — et 3 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-a3e2ec8eba",
   "metadata": {
    "departement": "KOUASSI-KOUASSIKRO",
    "localites": 31,
-   "nonCouvertes": 3,
+   "nonCouvertes3km": 14,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1008,12 +1008,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Bouake, dans la région GBEKE, compte 249 localité(s) recensées au dernier recensement, pour 921 222 habitants. 174 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 68 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 7 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 3 925 habitants. En moyenne, une localité de ce département se trouve à 2,3 kilomètres du pylône le plus proche.",
+  "content": "Le département de Bouake, dans la région GBEKE, compte 249 localité(s) recensées au recensement de 2021, pour 921 222 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 75 d'entre elles ne sont pas couvertes, ce qui concerne 50 150 habitants. Dans le détail : 174 localité(s) ont un pylône à moins de trois kilomètres, 68 se situent entre trois et six kilomètres — la réception y est incertaine — et 7 sont au-delà de six kilomètres ou sans position connue. Attention : 1 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-a4f50e51ff",
   "metadata": {
    "departement": "BOUAKE",
    "localites": 249,
-   "nonCouvertes": 7,
+   "nonCouvertes3km": 75,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1022,12 +1022,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Dimbokro, dans la région N'ZI, compte 74 localité(s) recensées au dernier recensement, pour 100 637 habitants. 52 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 19 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 3 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 1 044 habitants. En moyenne, une localité de ce département se trouve à 2,2 kilomètres du pylône le plus proche.",
+  "content": "Le département de Dimbokro, dans la région N'ZI, compte 74 localité(s) recensées au recensement de 2021, pour 100 637 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 22 d'entre elles ne sont pas couvertes, ce qui concerne 8 921 habitants. Dans le détail : 52 localité(s) ont un pylône à moins de trois kilomètres, 19 se situent entre trois et six kilomètres — la réception y est incertaine — et 3 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-a558c19d37",
   "metadata": {
    "departement": "DIMBOKRO",
    "localites": 74,
-   "nonCouvertes": 3,
+   "nonCouvertes3km": 22,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1036,12 +1036,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Koun-Fao, dans la région GONTOUGO, compte 104 localité(s) recensées au dernier recensement, pour 155 383 habitants. 62 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 26 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 16 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 11 528 habitants. En moyenne, une localité de ce département se trouve à 2,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Koun-Fao, dans la région GONTOUGO, compte 104 localité(s) recensées au recensement de 2021, pour 155 383 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 42 d'entre elles ne sont pas couvertes, ce qui concerne 35 100 habitants. Dans le détail : 62 localité(s) ont un pylône à moins de trois kilomètres, 26 se situent entre trois et six kilomètres — la réception y est incertaine — et 16 sont au-delà de six kilomètres ou sans position connue. Attention : 2 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-a7cb9c9603",
   "metadata": {
    "departement": "KOUN-FAO",
    "localites": 104,
-   "nonCouvertes": 16,
+   "nonCouvertes3km": 42,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1050,12 +1050,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Ouelle, dans la région IFFOU, compte 37 localité(s) recensées au dernier recensement, pour 51 352 habitants. 24 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 12 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 1 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 1 682 habitants. En moyenne, une localité de ce département se trouve à 2,1 kilomètres du pylône le plus proche.",
+  "content": "Le département de Ouelle, dans la région IFFOU, compte 37 localité(s) recensées au recensement de 2021, pour 51 352 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 13 d'entre elles ne sont pas couvertes, ce qui concerne 9 847 habitants. Dans le détail : 24 localité(s) ont un pylône à moins de trois kilomètres, 12 se situent entre trois et six kilomètres — la réception y est incertaine — et 1 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-a8eb5cb284",
   "metadata": {
    "departement": "OUELLE",
    "localites": 37,
-   "nonCouvertes": 1,
+   "nonCouvertes3km": 13,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1064,12 +1064,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Boundiali, dans la région BAGOUE, compte 66 localité(s) recensées au dernier recensement, pour 186 506 habitants. 40 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 18 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 8 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 10 607 habitants. En moyenne, une localité de ce département se trouve à 2,3 kilomètres du pylône le plus proche.",
+  "content": "Le département de Boundiali, dans la région BAGOUE, compte 66 localité(s) recensées au recensement de 2021, pour 186 506 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 26 d'entre elles ne sont pas couvertes, ce qui concerne 26 489 habitants. Dans le détail : 40 localité(s) ont un pylône à moins de trois kilomètres, 18 se situent entre trois et six kilomètres — la réception y est incertaine — et 8 sont au-delà de six kilomètres ou sans position connue. Attention : 1 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-abec810ce1",
   "metadata": {
    "departement": "BOUNDIALI",
    "localites": 66,
-   "nonCouvertes": 8,
+   "nonCouvertes3km": 26,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1078,12 +1078,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Divo, dans la région LÔH-DJIBOUA, compte 98 localité(s) recensées au dernier recensement, pour 473 865 habitants. 70 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 26 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 2 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 2 444 habitants. En moyenne, une localité de ce département se trouve à 2,0 kilomètres du pylône le plus proche.",
+  "content": "Le département de Divo, dans la région LÔH-DJIBOUA, compte 98 localité(s) recensées au recensement de 2021, pour 473 865 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 28 d'entre elles ne sont pas couvertes, ce qui concerne 30 707 habitants. Dans le détail : 70 localité(s) ont un pylône à moins de trois kilomètres, 26 se situent entre trois et six kilomètres — la réception y est incertaine — et 2 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-ae2d81c338",
   "metadata": {
    "departement": "DIVO",
    "localites": 98,
-   "nonCouvertes": 2,
+   "nonCouvertes3km": 28,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1092,12 +1092,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Tabou, dans la région SAN-PEDRO, compte 129 localité(s) recensées au dernier recensement, pour 191 111 habitants. 58 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 39 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 32 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 18 719 habitants. En moyenne, une localité de ce département se trouve à 3,3 kilomètres du pylône le plus proche.",
+  "content": "Le département de Tabou, dans la région SAN-PEDRO, compte 129 localité(s) recensées au recensement de 2021, pour 191 111 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 71 d'entre elles ne sont pas couvertes, ce qui concerne 37 928 habitants. Dans le détail : 58 localité(s) ont un pylône à moins de trois kilomètres, 39 se situent entre trois et six kilomètres — la réception y est incertaine — et 32 sont au-delà de six kilomètres ou sans position connue. Attention : 13 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-b1bb869ab7",
   "metadata": {
    "departement": "TABOU",
    "localites": 129,
-   "nonCouvertes": 32,
+   "nonCouvertes3km": 71,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1106,12 +1106,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Issia, dans la région HAUT-SASSANDRA, compte 128 localité(s) recensées au dernier recensement, pour 285 542 habitants. 91 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 35 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 2 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 3 558 habitants. En moyenne, une localité de ce département se trouve à 2,1 kilomètres du pylône le plus proche.",
+  "content": "Le département de Issia, dans la région HAUT-SASSANDRA, compte 128 localité(s) recensées au recensement de 2021, pour 285 542 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 37 d'entre elles ne sont pas couvertes, ce qui concerne 38 777 habitants. Dans le détail : 91 localité(s) ont un pylône à moins de trois kilomètres, 35 se situent entre trois et six kilomètres — la réception y est incertaine — et 2 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-b5e8db5ac5",
   "metadata": {
    "departement": "ISSIA",
    "localites": 128,
-   "nonCouvertes": 2,
+   "nonCouvertes3km": 37,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1120,12 +1120,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Blolequin, dans la région CAVALLY, compte 29 localité(s) recensées au dernier recensement, pour 116 920 habitants. 19 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 10 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 1,9 kilomètres du pylône le plus proche.",
+  "content": "Le département de Blolequin, dans la région CAVALLY, compte 29 localité(s) recensées au recensement de 2021, pour 116 920 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 10 d'entre elles ne sont pas couvertes, ce qui concerne 19 587 habitants. Dans le détail : 19 localité(s) ont un pylône à moins de trois kilomètres, 10 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-b9a634a224",
   "metadata": {
    "departement": "BLOLEQUIN",
    "localites": 29,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 10,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1134,12 +1134,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Guitry, dans la région LÔH-DJIBOUA, compte 52 localité(s) recensées au dernier recensement, pour 128 881 habitants. 29 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 19 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 4 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 6 433 habitants. En moyenne, une localité de ce département se trouve à 2,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Guitry, dans la région LÔH-DJIBOUA, compte 52 localité(s) recensées au recensement de 2021, pour 128 881 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 23 d'entre elles ne sont pas couvertes, ce qui concerne 24 454 habitants. Dans le détail : 29 localité(s) ont un pylône à moins de trois kilomètres, 19 se situent entre trois et six kilomètres — la réception y est incertaine — et 4 sont au-delà de six kilomètres ou sans position connue. Attention : 2 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-b9f4f76726",
   "metadata": {
    "departement": "GUITRY",
    "localites": 52,
-   "nonCouvertes": 4,
+   "nonCouvertes3km": 23,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1148,12 +1148,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Dabakala, dans la région HAMBOL, compte 215 localité(s) recensées au dernier recensement, pour 236 456 habitants. 121 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 58 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 36 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 37 270 habitants. En moyenne, une localité de ce département se trouve à 2,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Dabakala, dans la région HAMBOL, compte 215 localité(s) recensées au recensement de 2021, pour 236 456 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 94 d'entre elles ne sont pas couvertes, ce qui concerne 79 121 habitants. Dans le détail : 121 localité(s) ont un pylône à moins de trois kilomètres, 58 se situent entre trois et six kilomètres — la réception y est incertaine — et 36 sont au-delà de six kilomètres ou sans position connue. Attention : 16 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-c067159ddb",
   "metadata": {
    "departement": "DABAKALA",
    "localites": 215,
-   "nonCouvertes": 36,
+   "nonCouvertes3km": 94,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1162,12 +1162,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Seguelon, dans la région KABADOUGOU, compte 23 localité(s) recensées au dernier recensement, pour 33 177 habitants. 12 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 3 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 8 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 8 335 habitants. En moyenne, une localité de ce département se trouve à 3,4 kilomètres du pylône le plus proche.",
+  "content": "Le département de Seguelon, dans la région KABADOUGOU, compte 23 localité(s) recensées au recensement de 2021, pour 33 177 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 11 d'entre elles ne sont pas couvertes, ce qui concerne 9 970 habitants. Dans le détail : 12 localité(s) ont un pylône à moins de trois kilomètres, 3 se situent entre trois et six kilomètres — la réception y est incertaine — et 8 sont au-delà de six kilomètres ou sans position connue. Attention : 2 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-c2dbba1aa2",
   "metadata": {
    "departement": "SEGUELON",
    "localites": 23,
-   "nonCouvertes": 8,
+   "nonCouvertes3km": 11,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1176,12 +1176,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Tai, dans la région CAVALLY, compte 20 localité(s) recensées au dernier recensement, pour 94 653 habitants. 15 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 5 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 1,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Tai, dans la région CAVALLY, compte 20 localité(s) recensées au recensement de 2021, pour 94 653 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 5 d'entre elles ne sont pas couvertes, ce qui concerne 5 008 habitants. Dans le détail : 15 localité(s) ont un pylône à moins de trois kilomètres, 5 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-c636defd7b",
   "metadata": {
    "departement": "TAI",
    "localites": 20,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 5,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1190,12 +1190,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Grand-Lahou, dans la région GRANDS-PONTS, compte 57 localité(s) recensées au dernier recensement, pour 98 141 habitants. 32 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 14 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 11 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 3 942 habitants. En moyenne, une localité de ce département se trouve à 2,6 kilomètres du pylône le plus proche.",
+  "content": "Le département de Grand-Lahou, dans la région GRANDS-PONTS, compte 57 localité(s) recensées au recensement de 2021, pour 98 141 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 25 d'entre elles ne sont pas couvertes, ce qui concerne 13 289 habitants. Dans le détail : 32 localité(s) ont un pylône à moins de trois kilomètres, 14 se situent entre trois et six kilomètres — la réception y est incertaine — et 11 sont au-delà de six kilomètres ou sans position connue. Attention : 7 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-c7a730f68e",
   "metadata": {
    "departement": "GRAND-LAHOU",
    "localites": 57,
-   "nonCouvertes": 11,
+   "nonCouvertes3km": 25,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1204,12 +1204,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Dikodougou, dans la région PORO, compte 57 localité(s) recensées au dernier recensement, pour 76 418 habitants. 35 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 16 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 6 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 4 530 habitants. En moyenne, une localité de ce département se trouve à 2,4 kilomètres du pylône le plus proche.",
+  "content": "Le département de Dikodougou, dans la région PORO, compte 57 localité(s) recensées au recensement de 2021, pour 76 418 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 22 d'entre elles ne sont pas couvertes, ce qui concerne 14 548 habitants. Dans le détail : 35 localité(s) ont un pylône à moins de trois kilomètres, 16 se situent entre trois et six kilomètres — la réception y est incertaine — et 6 sont au-delà de six kilomètres ou sans position connue. Attention : 1 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-cb6da39211",
   "metadata": {
    "departement": "DIKODOUGOU",
    "localites": 57,
-   "nonCouvertes": 6,
+   "nonCouvertes3km": 22,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1218,12 +1218,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Bouafle, dans la région MARAHOUE, compte 77 localité(s) recensées au dernier recensement, pour 249 928 habitants. 59 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 17 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 1 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 1 577 habitants. En moyenne, une localité de ce département se trouve à 1,7 kilomètres du pylône le plus proche.",
+  "content": "Le département de Bouafle, dans la région MARAHOUE, compte 77 localité(s) recensées au recensement de 2021, pour 249 928 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 18 d'entre elles ne sont pas couvertes, ce qui concerne 14 478 habitants. Dans le détail : 59 localité(s) ont un pylône à moins de trois kilomètres, 17 se situent entre trois et six kilomètres — la réception y est incertaine — et 1 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-cbb5800f53",
   "metadata": {
    "departement": "BOUAFLE",
    "localites": 77,
-   "nonCouvertes": 1,
+   "nonCouvertes3km": 18,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1232,12 +1232,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Gohitafla, dans la région MARAHOUE, compte 30 localité(s) recensées au dernier recensement, pour 77 032 habitants. 17 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 13 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 2,3 kilomètres du pylône le plus proche.",
+  "content": "Le département de Gohitafla, dans la région MARAHOUE, compte 30 localité(s) recensées au recensement de 2021, pour 77 032 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 13 d'entre elles ne sont pas couvertes, ce qui concerne 13 970 habitants. Dans le détail : 17 localité(s) ont un pylône à moins de trois kilomètres, 13 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-cc8a65f67e",
   "metadata": {
    "departement": "GOHITAFLA",
    "localites": 30,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 13,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1246,12 +1246,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Sandegue, dans la région GONTOUGO, compte 35 localité(s) recensées au dernier recensement, pour 62 072 habitants. 18 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 7 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 10 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 12 184 habitants. En moyenne, une localité de ce département se trouve à 2,9 kilomètres du pylône le plus proche.",
+  "content": "Le département de Sandegue, dans la région GONTOUGO, compte 35 localité(s) recensées au recensement de 2021, pour 62 072 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 17 d'entre elles ne sont pas couvertes, ce qui concerne 22 180 habitants. Dans le détail : 18 localité(s) ont un pylône à moins de trois kilomètres, 7 se situent entre trois et six kilomètres — la réception y est incertaine — et 10 sont au-delà de six kilomètres ou sans position connue. Attention : 3 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-cd14cf111f",
   "metadata": {
    "departement": "SANDEGUE",
    "localites": 35,
-   "nonCouvertes": 10,
+   "nonCouvertes3km": 17,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1260,12 +1260,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Meagui, dans la région NAWA, compte 67 localité(s) recensées au dernier recensement, pour 183 540 habitants. 38 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 17 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 12 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 5 176 habitants. En moyenne, une localité de ce département se trouve à 2,9 kilomètres du pylône le plus proche.",
+  "content": "Le département de Meagui, dans la région NAWA, compte 67 localité(s) recensées au recensement de 2021, pour 183 540 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 29 d'entre elles ne sont pas couvertes, ce qui concerne 19 009 habitants. Dans le détail : 38 localité(s) ont un pylône à moins de trois kilomètres, 17 se situent entre trois et six kilomètres — la réception y est incertaine — et 12 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-cee259a49a",
   "metadata": {
    "departement": "MEAGUI",
    "localites": 67,
-   "nonCouvertes": 12,
+   "nonCouvertes3km": 29,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1274,12 +1274,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Facobly, dans la région GUEMON, compte 40 localité(s) recensées au dernier recensement, pour 78 694 habitants. 31 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 9 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 1,8 kilomètres du pylône le plus proche.",
+  "content": "Le département de Facobly, dans la région GUEMON, compte 40 localité(s) recensées au recensement de 2021, pour 78 694 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 9 d'entre elles ne sont pas couvertes, ce qui concerne 12 384 habitants. Dans le détail : 31 localité(s) ont un pylône à moins de trois kilomètres, 9 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-d3bd540548",
   "metadata": {
    "departement": "FACOBLY",
    "localites": 40,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 9,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1288,12 +1288,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Ferkessedougou, dans la région TCHOLOGO, compte 73 localité(s) recensées au dernier recensement, pour 135 934 habitants. 32 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 26 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 15 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 9 163 habitants. En moyenne, une localité de ce département se trouve à 3,4 kilomètres du pylône le plus proche.",
+  "content": "Le département de Ferkessedougou, dans la région TCHOLOGO, compte 73 localité(s) recensées au recensement de 2021, pour 135 934 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 41 d'entre elles ne sont pas couvertes, ce qui concerne 25 202 habitants. Dans le détail : 32 localité(s) ont un pylône à moins de trois kilomètres, 26 se situent entre trois et six kilomètres — la réception y est incertaine — et 15 sont au-delà de six kilomètres ou sans position connue. Attention : 2 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-dc4701b401",
   "metadata": {
    "departement": "FERKESSEDOUGOU",
    "localites": 73,
-   "nonCouvertes": 15,
+   "nonCouvertes3km": 41,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1302,12 +1302,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Didievi, dans la région BELIER, compte 99 localité(s) recensées au dernier recensement, pour 92 786 habitants. 74 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 21 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 4 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 4 244 habitants. En moyenne, une localité de ce département se trouve à 2,0 kilomètres du pylône le plus proche.",
+  "content": "Le département de Didievi, dans la région BELIER, compte 99 localité(s) recensées au recensement de 2021, pour 92 786 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 25 d'entre elles ne sont pas couvertes, ce qui concerne 18 812 habitants. Dans le détail : 74 localité(s) ont un pylône à moins de trois kilomètres, 21 se situent entre trois et six kilomètres — la réception y est incertaine — et 4 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-dca1de401c",
   "metadata": {
    "departement": "DIDIEVI",
    "localites": 99,
-   "nonCouvertes": 4,
+   "nonCouvertes3km": 25,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1316,12 +1316,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Abengourou, dans la région INDENIE-DJUABLIN, compte 68 localité(s) recensées au dernier recensement, pour 366 818 habitants. 50 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 14 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 4 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 2 438 habitants. En moyenne, une localité de ce département se trouve à 1,8 kilomètres du pylône le plus proche.",
+  "content": "Le département de Abengourou, dans la région INDENIE-DJUABLIN, compte 68 localité(s) recensées au recensement de 2021, pour 366 818 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 18 d'entre elles ne sont pas couvertes, ce qui concerne 20 460 habitants. Dans le détail : 50 localité(s) ont un pylône à moins de trois kilomètres, 14 se situent entre trois et six kilomètres — la réception y est incertaine — et 4 sont au-delà de six kilomètres ou sans position connue. Attention : 1 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-e020a5943f",
   "metadata": {
    "departement": "ABENGOUROU",
    "localites": 68,
-   "nonCouvertes": 4,
+   "nonCouvertes3km": 18,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1330,12 +1330,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Bouna, dans la région BOUNKANI, compte 273 localité(s) recensées au dernier recensement, pour 159 074 habitants. 76 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 68 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 129 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 42 492 habitants. En moyenne, une localité de ce département se trouve à 4,0 kilomètres du pylône le plus proche.",
+  "content": "Le département de Bouna, dans la région BOUNKANI, compte 273 localité(s) recensées au recensement de 2021, pour 159 074 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 197 d'entre elles ne sont pas couvertes, ce qui concerne 65 775 habitants. Dans le détail : 76 localité(s) ont un pylône à moins de trois kilomètres, 68 se situent entre trois et six kilomètres — la réception y est incertaine — et 129 sont au-delà de six kilomètres ou sans position connue. Attention : 80 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-e67af4de20",
   "metadata": {
    "departement": "BOUNA",
    "localites": 273,
-   "nonCouvertes": 129,
+   "nonCouvertes3km": 197,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1344,12 +1344,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Samatiguila, dans la région KABADOUGOU, compte 14 localité(s) recensées au dernier recensement, pour 19 009 habitants. 9 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 3 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 2 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 1 871 habitants. En moyenne, une localité de ce département se trouve à 2,5 kilomètres du pylône le plus proche.",
+  "content": "Le département de Samatiguila, dans la région KABADOUGOU, compte 14 localité(s) recensées au recensement de 2021, pour 19 009 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 5 d'entre elles ne sont pas couvertes, ce qui concerne 4 787 habitants. Dans le détail : 9 localité(s) ont un pylône à moins de trois kilomètres, 3 se situent entre trois et six kilomètres — la réception y est incertaine — et 2 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-e89ba8fd89",
   "metadata": {
    "departement": "SAMATIGUILA",
    "localites": 14,
-   "nonCouvertes": 2,
+   "nonCouvertes3km": 5,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1358,12 +1358,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Dianra, dans la région BERE, compte 42 localité(s) recensées au dernier recensement, pour 99 960 habitants. 20 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 11 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 11 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 12 022 habitants. En moyenne, une localité de ce département se trouve à 3,1 kilomètres du pylône le plus proche.",
+  "content": "Le département de Dianra, dans la région BERE, compte 42 localité(s) recensées au recensement de 2021, pour 99 960 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 22 d'entre elles ne sont pas couvertes, ce qui concerne 26 160 habitants. Dans le détail : 20 localité(s) ont un pylône à moins de trois kilomètres, 11 se situent entre trois et six kilomètres — la réception y est incertaine — et 11 sont au-delà de six kilomètres ou sans position connue. Attention : 2 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-ea8b0c2d7b",
   "metadata": {
    "departement": "DIANRA",
    "localites": 42,
-   "nonCouvertes": 11,
+   "nonCouvertes3km": 22,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1372,12 +1372,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de M'bahiakro, dans la région IFFOU, compte 80 localité(s) recensées au dernier recensement, pour 66 330 habitants. 24 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 24 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 32 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 14 277 habitants. En moyenne, une localité de ce département se trouve à 3,4 kilomètres du pylône le plus proche.",
+  "content": "Le département de M'bahiakro, dans la région IFFOU, compte 80 localité(s) recensées au recensement de 2021, pour 66 330 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 56 d'entre elles ne sont pas couvertes, ce qui concerne 31 366 habitants. Dans le détail : 24 localité(s) ont un pylône à moins de trois kilomètres, 24 se situent entre trois et six kilomètres — la réception y est incertaine — et 32 sont au-delà de six kilomètres ou sans position connue. Attention : 21 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-ee9c08f719",
   "metadata": {
    "departement": "M'BAHIAKRO",
    "localites": 80,
-   "nonCouvertes": 32,
+   "nonCouvertes3km": 56,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1386,12 +1386,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Adzope, dans la région LA ME, compte 36 localité(s) recensées au dernier recensement, pour 269 140 habitants. 29 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 7 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 1,2 kilomètres du pylône le plus proche.",
+  "content": "Le département de Adzope, dans la région LA ME, compte 36 localité(s) recensées au recensement de 2021, pour 269 140 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 7 d'entre elles ne sont pas couvertes, ce qui concerne 19 414 habitants. Dans le détail : 29 localité(s) ont un pylône à moins de trois kilomètres, 7 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-eeebea4e78",
   "metadata": {
    "departement": "ADZOPE",
    "localites": 36,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 7,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1400,12 +1400,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Yakasse-Attobrou, dans la région LA ME, compte 14 localité(s) recensées au dernier recensement, pour 94 895 habitants. 13 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 1 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 6 284 habitants. En moyenne, une localité de ce département se trouve à 0,9 kilomètres du pylône le plus proche.",
+  "content": "Le département de Yakasse-Attobrou, dans la région LA ME, compte 14 localité(s) recensées au recensement de 2021, pour 94 895 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 1 d'entre elles ne sont pas couvertes, ce qui concerne 6 284 habitants. Dans le détail : 13 localité(s) ont un pylône à moins de trois kilomètres, 0 se situent entre trois et six kilomètres — la réception y est incertaine — et 1 sont au-delà de six kilomètres ou sans position connue. Attention : 1 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-f0d471ae62",
   "metadata": {
    "departement": "YAKASSE-ATTOBROU",
    "localites": 14,
-   "nonCouvertes": 1,
+   "nonCouvertes3km": 1,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1414,12 +1414,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Kani, dans la région WORODOUGOU, compte 46 localité(s) recensées au dernier recensement, pour 109 652 habitants. 21 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 15 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 10 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 15 603 habitants. En moyenne, une localité de ce département se trouve à 3,0 kilomètres du pylône le plus proche.",
+  "content": "Le département de Kani, dans la région WORODOUGOU, compte 46 localité(s) recensées au recensement de 2021, pour 109 652 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 25 d'entre elles ne sont pas couvertes, ce qui concerne 38 849 habitants. Dans le détail : 21 localité(s) ont un pylône à moins de trois kilomètres, 15 se situent entre trois et six kilomètres — la réception y est incertaine — et 10 sont au-delà de six kilomètres ou sans position connue. Attention : 3 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-f1cc23aad5",
   "metadata": {
    "departement": "KANI",
    "localites": 46,
-   "nonCouvertes": 10,
+   "nonCouvertes3km": 25,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1428,12 +1428,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Vavoua, dans la région HAUT-SASSANDRA, compte 78 localité(s) recensées au dernier recensement, pour 300 570 habitants. 57 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 19 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 2 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 2 306 habitants. En moyenne, une localité de ce département se trouve à 2,0 kilomètres du pylône le plus proche.",
+  "content": "Le département de Vavoua, dans la région HAUT-SASSANDRA, compte 78 localité(s) recensées au recensement de 2021, pour 300 570 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 21 d'entre elles ne sont pas couvertes, ce qui concerne 27 986 habitants. Dans le détail : 57 localité(s) ont un pylône à moins de trois kilomètres, 19 se situent entre trois et six kilomètres — la réception y est incertaine — et 2 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-f4675563cb",
   "metadata": {
    "departement": "VAVOUA",
    "localites": 78,
-   "nonCouvertes": 2,
+   "nonCouvertes3km": 21,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1442,12 +1442,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Zuenoula, dans la région MARAHOUE, compte 90 localité(s) recensées au dernier recensement, pour 151 227 habitants. 58 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 28 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 4 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 3 007 habitants. En moyenne, une localité de ce département se trouve à 2,4 kilomètres du pylône le plus proche.",
+  "content": "Le département de Zuenoula, dans la région MARAHOUE, compte 90 localité(s) recensées au recensement de 2021, pour 151 227 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 32 d'entre elles ne sont pas couvertes, ce qui concerne 28 285 habitants. Dans le détail : 58 localité(s) ont un pylône à moins de trois kilomètres, 28 se situent entre trois et six kilomètres — la réception y est incertaine — et 4 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-f6385438eb",
   "metadata": {
    "departement": "ZUENOULA",
    "localites": 90,
-   "nonCouvertes": 4,
+   "nonCouvertes3km": 32,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1456,12 +1456,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Touba, dans la région BAFING, compte 123 localité(s) recensées au dernier recensement, pour 99 851 habitants. 30 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 47 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 46 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 19 424 habitants. En moyenne, une localité de ce département se trouve à 4,4 kilomètres du pylône le plus proche.",
+  "content": "Le département de Touba, dans la région BAFING, compte 123 localité(s) recensées au recensement de 2021, pour 99 851 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 93 d'entre elles ne sont pas couvertes, ce qui concerne 39 798 habitants. Dans le détail : 30 localité(s) ont un pylône à moins de trois kilomètres, 47 se situent entre trois et six kilomètres — la réception y est incertaine — et 46 sont au-delà de six kilomètres ou sans position connue. Attention : 17 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-f6e970b8ca",
   "metadata": {
    "departement": "TOUBA",
    "localites": 123,
-   "nonCouvertes": 46,
+   "nonCouvertes3km": 93,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1470,12 +1470,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Toulepleu, dans la région CAVALLY, compte 57 localité(s) recensées au dernier recensement, pour 88 279 habitants. 22 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 31 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 4 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 7 676 habitants. En moyenne, une localité de ce département se trouve à 3,3 kilomètres du pylône le plus proche.",
+  "content": "Le département de Toulepleu, dans la région CAVALLY, compte 57 localité(s) recensées au recensement de 2021, pour 88 279 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 35 d'entre elles ne sont pas couvertes, ce qui concerne 39 738 habitants. Dans le détail : 22 localité(s) ont un pylône à moins de trois kilomètres, 31 se situent entre trois et six kilomètres — la réception y est incertaine — et 4 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-f76133326c",
   "metadata": {
    "departement": "TOULEPLEU",
    "localites": 57,
-   "nonCouvertes": 4,
+   "nonCouvertes3km": 35,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1484,12 +1484,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Bettie, dans la région INDENIE-DJUABLIN, compte 24 localité(s) recensées au dernier recensement, pour 51 342 habitants. 13 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 7 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 4 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 1 541 habitants. En moyenne, une localité de ce département se trouve à 2,9 kilomètres du pylône le plus proche.",
+  "content": "Le département de Bettie, dans la région INDENIE-DJUABLIN, compte 24 localité(s) recensées au recensement de 2021, pour 51 342 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 11 d'entre elles ne sont pas couvertes, ce qui concerne 5 711 habitants. Dans le détail : 13 localité(s) ont un pylône à moins de trois kilomètres, 7 se situent entre trois et six kilomètres — la réception y est incertaine — et 4 sont au-delà de six kilomètres ou sans position connue. Attention : 1 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-f7c4406086",
   "metadata": {
    "departement": "BETTIE",
    "localites": 24,
-   "nonCouvertes": 4,
+   "nonCouvertes3km": 11,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1498,12 +1498,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Taabo, dans la région AGNEBY-TIASSA, compte 20 localité(s) recensées au dernier recensement, pour 61 381 habitants. 15 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 5 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. Aucune localité du département n'est classée non couverte. En moyenne, une localité de ce département se trouve à 1,4 kilomètres du pylône le plus proche.",
+  "content": "Le département de Taabo, dans la région AGNEBY-TIASSA, compte 20 localité(s) recensées au recensement de 2021, pour 61 381 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 5 d'entre elles ne sont pas couvertes, ce qui concerne 9 556 habitants. Dans le détail : 15 localité(s) ont un pylône à moins de trois kilomètres, 5 se situent entre trois et six kilomètres — la réception y est incertaine — et 0 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-fa4ce203e5",
   "metadata": {
    "departement": "TAABO",
    "localites": 20,
-   "nonCouvertes": 0,
+   "nonCouvertes3km": 5,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1512,12 +1512,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Madinani, dans la région KABADOUGOU, compte 28 localité(s) recensées au dernier recensement, pour 48 755 habitants. 17 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 5 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 6 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 7 489 habitants. En moyenne, une localité de ce département se trouve à 2,1 kilomètres du pylône le plus proche.",
+  "content": "Le département de Madinani, dans la région KABADOUGOU, compte 28 localité(s) recensées au recensement de 2021, pour 48 755 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 11 d'entre elles ne sont pas couvertes, ce qui concerne 12 985 habitants. Dans le détail : 17 localité(s) ont un pylône à moins de trois kilomètres, 5 se situent entre trois et six kilomètres — la réception y est incertaine — et 6 sont au-delà de six kilomètres ou sans position connue. Attention : 2 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-fa5d66fe51",
   "metadata": {
    "departement": "MADINANI",
    "localites": 28,
-   "nonCouvertes": 6,
+   "nonCouvertes3km": 11,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1526,12 +1526,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Soubre, dans la région NAWA, compte 85 localité(s) recensées au dernier recensement, pour 449 671 habitants. 62 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 21 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 2 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 3 331 habitants. En moyenne, une localité de ce département se trouve à 1,8 kilomètres du pylône le plus proche.",
+  "content": "Le département de Soubre, dans la région NAWA, compte 85 localité(s) recensées au recensement de 2021, pour 449 671 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 23 d'entre elles ne sont pas couvertes, ce qui concerne 36 893 habitants. Dans le détail : 62 localité(s) ont un pylône à moins de trois kilomètres, 21 se situent entre trois et six kilomètres — la réception y est incertaine — et 2 sont au-delà de six kilomètres ou sans position connue. Toutes les localités du département ont des coordonnées géographiques exploitables.",
   "id": "zp-dep-faad7f4a1e",
   "metadata": {
    "departement": "SOUBRE",
    "localites": 85,
-   "nonCouvertes": 2,
+   "nonCouvertes3km": 23,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
@@ -1540,12 +1540,12 @@
   "visibility": "PUBLIC"
  },
  {
-  "content": "Le département de Biankouma, dans la région TONKPI, compte 111 localité(s) recensées au dernier recensement, pour 191 599 habitants. 37 d'entre elles ont un pylône de téléphonie à moins de trois kilomètres et sont donc normalement couvertes. 36 se trouvent entre trois et six kilomètres du pylône le plus proche : la réception y est incertaine. 38 n'ont aucun pylône à moins de six kilomètres et sont considérées comme non couvertes, ce qui concerne 61 889 habitants. En moyenne, une localité de ce département se trouve à 3,4 kilomètres du pylône le plus proche.",
+  "content": "Le département de Biankouma, dans la région TONKPI, compte 111 localité(s) recensées au recensement de 2021, pour 191 599 habitants. Au seuil de trois kilomètres retenu par le programme zones blanches 2026, 74 d'entre elles ne sont pas couvertes, ce qui concerne 92 526 habitants. Dans le détail : 37 localité(s) ont un pylône à moins de trois kilomètres, 36 se situent entre trois et six kilomètres — la réception y est incertaine — et 38 sont au-delà de six kilomètres ou sans position connue. Attention : 24 localité(s) de ce département n'ont pas de coordonnées géographiques exploitables ; faute de pouvoir mesurer leur distance, elles sont comptées comme non couvertes par précaution.",
   "id": "zp-dep-fbc68c806d",
   "metadata": {
    "departement": "BIANKOUMA",
    "localites": 111,
-   "nonCouvertes": 38,
+   "nonCouvertes3km": 74,
    "source": "zone-prioritizer",
    "theme": "couverture_departement"
   },
