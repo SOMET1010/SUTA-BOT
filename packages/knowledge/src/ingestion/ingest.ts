@@ -5,6 +5,7 @@ import { createEmbeddingsProvider } from "../embeddings/factory";
 import type { EmbeddingsProvider } from "../embeddings/types";
 import { cleanText } from "./clean";
 import { chunkText } from "./chunk";
+import { deriveTitle } from "./derive-title";
 import { detectSourceType, extractText, mimeTypeForSourceType } from "./extract-text";
 
 export interface IngestDocumentInput {
@@ -31,7 +32,6 @@ export async function ingestDocument(
   input: IngestDocumentInput,
 ): Promise<IngestDocumentResult> {
   const sourceType = detectSourceType(input.filePath);
-  const title = input.title ?? basename(input.filePath);
   const provider = input.embeddingsProvider ?? createEmbeddingsProvider();
 
   const rawText = await extractText(input.filePath, sourceType);
@@ -39,6 +39,8 @@ export async function ingestDocument(
   if (!cleaned) {
     throw new Error(`Aucun contenu extrait de "${input.filePath}".`);
   }
+
+  const title = input.title ?? deriveTitle(cleaned) ?? basename(input.filePath);
 
   const chunks = chunkText(cleaned);
   if (chunks.length === 0) {
