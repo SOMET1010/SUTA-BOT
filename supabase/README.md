@@ -211,8 +211,8 @@ Puis `embed-chunks` jusqu'à `remaining = 0`.
 Deux propriétés à connaître :
 
 - **Seules les fiches communicables passent par ici.** Le dépôt est public :
-  y déposer une fiche `ADMIN` reviendrait à la publier. Les fiches internes se
-  chargent directement en SQL, par `upsert_document_fiches`.
+  y déposer une fiche `ADMIN` reviendrait à la publier. Les fiches internes
+  empruntent la voie compressée décrite juste après.
 - **La fonction n'accepte qu'une adresse de ce dépôt.** Elle est invocable
   avec la clé anonyme ; sans cette restriction, elle deviendrait un relais
   permettant de lui faire chercher n'importe quelle adresse depuis
@@ -223,3 +223,55 @@ Le format d'un lot est un tableau JSON dont chaque élément porte `id`,
 Une fiche sans contenu est refusée avant tout écriture : elle produirait un
 fragment vide, donc un vecteur qui ne veut rien dire et qui remonterait au
 hasard dans les recherches.
+
+## Charger les fiches internes sans les publier
+
+Les fiches `ADMIN` ne peuvent pas être versionnées ici. Elles arrivent donc
+dans la requête elle-même, en `payloadGz` : le tableau JSON, gzippé puis encodé
+en base64. La compression divise le volume par trois — un lot de trente fiches
+passe de 34 000 à 15 000 caractères — et `load-fiches` le déplie avec
+`DecompressionStream`.
+
+```sql
+select post_edge('load-fiches', jsonb_build_object(
+  'sourceId', 'identifiant-de-la-source',
+  'sourceName', 'Nom lisible de la source',
+  'sourceDescription', 'D''où viennent ces fiches et ce qu''elles couvrent.',
+  'payloadGz', $gz$H4sIAAAA…$gz$
+));
+```
+
+**La contrainte réelle n'est pas la taille du lot, c'est la recopie.** Le
+payload traverse une session d'assistant, qui recopie caractère par caractère
+plusieurs milliers de signes ; au-delà d'une dizaine de milliers, un morceau
+saute. Le gzip le détecte — `corrupt gzip stream does not have a matching
+checksum`, `Failed to decode base64` — et rien n'est écrit, mais la tentative
+est perdue. En pratique : **des lots de neuf fiches environ**, et on lit la
+réponse de chacun avant de passer au suivant. Pour une poignée de fiches, le
+JSON en clair dans `upsert_document_fiches` est plus sûr encore : une troncature
+y devient une erreur de syntaxe, pas une corruption silencieuse.
+
+La réponse porte `visibilites`, qui dit ce qui vient réellement d'être écrit —
+le moyen de vérifier qu'un lot annoncé interne l'est bien.
+
+## État du corpus
+
+Au 21 août 2026 : **9 903 fragments, 22 sources**, tous vectorisés.
+
+L'essentiel du nombre vient de l'observatoire (9 286 fiches : une par localité,
+une par site) ; l'essentiel du sens vient des documents de la direction et des
+textes de référence, lus et réécrits en fiches — plan stratégique 2026-2030 et
+son business plan, rapport du cabinet, rapports d'activité 2024 et 2025, plan
+de travail T1 2026, programme PASS, étude e-services, statistiques ARTCI du
+premier trimestre 2026, PND 2026-2030, RGPH 2021, décret constitutif et lois
+sur le numérique, feuille de route du ministère, base des 8 757 localités du
+Zone Prioritizer.
+
+Trois écarts sont **inscrits dans le corpus plutôt qu'arbitrés**, parce que les
+sources se contredisent : le découpage des trois lots du programme rural
+(équilibré en population contre découpage géographique), le nombre de
+kilomètres de fibre à allumer (15 763 contre 34 821), et les deux totaux
+budgétaires du plan (99,7 milliards de programmes contre 219 milliards
+d'emplois complets). Chacun a sa fiche, qui donne les deux valeurs et dit d'où
+elles viennent. SUTA doit répondre « les documents divergent, voici les deux
+chiffres », jamais choisir.
