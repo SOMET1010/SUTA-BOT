@@ -32,10 +32,11 @@ export function TextComposer({
         id="suta-text-input"
         type="text"
         value={value}
+        autoFocus
         onChange={(event) => setValue(event.target.value)}
         disabled={disabled}
-        placeholder="Ou écrivez votre question ici..."
-        className="flex-1 rounded-full border border-ansut-border bg-ansut-surface px-5 py-3 text-sm text-ansut-blue placeholder:text-ansut-text-muted focus:border-ansut-orange focus:outline-none disabled:cursor-not-allowed disabled:opacity-40"
+        placeholder="Écrivez votre question…"
+        className="flex-1 rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm text-white placeholder:text-white/40 backdrop-blur-sm focus:border-ansut-orange focus:outline-none disabled:cursor-not-allowed disabled:opacity-40"
       />
       <button
         type="submit"

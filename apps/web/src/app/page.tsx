@@ -17,7 +17,7 @@ export default function Home() {
   const kiosk = useKioskMode();
   const event = getEventConfig();
   const controller = useSutaConversation();
-  const { state, messages, isLive, scene, pillar, sendText, reset } = controller;
+  const { state, messages, isLive, scene, sendText, reset } = controller;
   useIdleReset(kiosk, reset);
 
   const lastSutaMessage = [...messages].reverse().find((m) => m.role === "suta");
@@ -26,12 +26,13 @@ export default function Home() {
   const speaking = state === "SPEAKING";
   const handleAction = (action: SutaAction) => { if (action.prompt) void sendText(action.prompt); };
 
-  return <div className="relative flex min-h-screen flex-1 flex-col overflow-hidden bg-ansut-background">
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(0,82,155,0.08),transparent_32%),radial-gradient(circle_at_80%_55%,rgba(242,125,32,0.08),transparent_30%)]" />
+  return <div className="relative flex min-h-screen flex-1 flex-col overflow-hidden bg-ansut-night text-white">
+    {/* Scène de nuit : dégradé bleu nuit + lueur chaude — la profondeur vient
+        du fond, pas d'un empilement de cartes (direction de référence). */}
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-10%,rgba(53,84,140,0.55),transparent_55%),radial-gradient(ellipse_at_85%_100%,rgba(245,130,32,0.16),transparent_45%),radial-gradient(ellipse_at_0%_85%,rgba(20,42,82,0.8),transparent_55%)]" />
     <SutaHeader kiosk={kiosk}/>
-    <main className="relative mx-auto flex w-full max-w-[1500px] flex-1 flex-col px-5 py-5 lg:px-10 lg:py-7">
+    <main className="relative mx-auto flex w-full max-w-[1500px] flex-1 flex-col px-5 py-4 lg:px-10 lg:py-6">
       {kiosk && pristine ? <div className="flex flex-1 items-center justify-center"><SalonWelcome onStart={(prompt) => void sendText(prompt)}/></div> : <>
-        <div className="mb-4 flex items-center justify-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-ansut-text-muted">{([["connecter","Connecter"],["equiper","Équiper"],["former","Former"]] as const).map(([key,label])=><span key={key} className={`rounded-full px-3 py-1.5 transition-all ${pillar===key?"bg-ansut-blue text-white shadow-sm":"bg-white/60"}`}>{label}</span>)}</div>
         <div className={`grid min-h-0 flex-1 items-stretch gap-7 transition-[grid-template-columns] duration-500 ease-out ${hasScene?"lg:grid-cols-[minmax(390px,0.82fr)_minmax(520px,1.18fr)]":"lg:grid-cols-[1fr]"}`}>
           <section className={`flex min-h-0 items-center justify-center transition-all duration-500 ${speaking && hasScene ? "lg:-translate-x-2" : ""}`}><SutaVoiceExperience controller={controller} event={event}/></section>
           {hasScene && <aside className={`min-h-[360px] transition-all duration-500 lg:min-h-0 ${speaking ? "lg:scale-[1.015]" : "lg:scale-100"}`}><SutaVisualPanel visual={scene.visual} onAction={handleAction} speaking={speaking}/></aside>}
@@ -39,6 +40,6 @@ export default function Home() {
         {lastSutaMessage?.sources?.length?<div className="mx-auto mt-4 w-full max-w-5xl"><SourceDrawer sources={lastSutaMessage.sources}/></div>:null}
       </>}
     </main>
-    <SutaFooter kiosk={kiosk}/>{kiosk&&!pristine&&<button type="button" onClick={reset} aria-label="Réinitialiser la démonstration" className="fixed bottom-3 right-3 rounded-full bg-ansut-blue/5 px-3 py-1.5 text-[10px] text-ansut-text-muted hover:bg-ansut-blue/10">Nouvelle conversation</button>}
+    <SutaFooter kiosk={kiosk}/>{kiosk&&!pristine&&<button type="button" onClick={reset} aria-label="Réinitialiser la démonstration" className="fixed bottom-3 right-3 rounded-full bg-white/5 px-3 py-1.5 text-[10px] text-white/50 hover:bg-white/10">Nouvelle conversation</button>}
   </div>;
 }

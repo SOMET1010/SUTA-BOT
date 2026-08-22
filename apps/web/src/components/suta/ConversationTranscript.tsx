@@ -21,15 +21,13 @@ export function ConversationTranscript({ messages }: { messages: TranscriptMessa
   return (
     <div className="flex w-full max-w-xl flex-col items-center gap-3">
       {last.role === "suta" && lastUserQuestion && lastUserQuestion.id !== last.id && (
-        <p className="text-xs uppercase tracking-wide text-ansut-text-muted">
+        <p className="text-xs uppercase tracking-wide text-white/45">
           Vous avez demandé : « {lastUserQuestion.text} »
         </p>
       )}
 
       <p
-        className={`w-full rounded-2xl border border-ansut-border bg-ansut-surface px-5 py-4 text-center text-base leading-relaxed sm:text-lg ${
-          last.role === "user" ? "text-ansut-blue" : "text-ansut-blue"
-        }`}
+        className="w-full rounded-2xl border border-white/10 bg-white/[0.07] px-5 py-4 text-center text-base leading-relaxed text-white/95 backdrop-blur-sm sm:text-lg"
         aria-live="polite"
       >
         {last.text || "…"}
@@ -40,7 +38,7 @@ export function ConversationTranscript({ messages }: { messages: TranscriptMessa
           <button
             type="button"
             onClick={() => setHistoryOpen((prev) => !prev)}
-            className="mx-auto block text-xs text-ansut-text-muted underline-offset-2 hover:text-ansut-blue hover:underline"
+            className="mx-auto block text-xs text-white/45 underline-offset-2 hover:text-white/80 hover:underline"
           >
             {historyOpen
               ? "Masquer l'historique"
@@ -48,10 +46,10 @@ export function ConversationTranscript({ messages }: { messages: TranscriptMessa
           </button>
 
           {historyOpen && (
-            <ul className="mt-2 flex max-h-48 flex-col gap-2 overflow-y-auto rounded-xl border border-ansut-border bg-ansut-background p-3 text-left text-sm">
+            <ul className="mt-2 flex max-h-48 flex-col gap-2 overflow-y-auto rounded-xl border border-white/10 bg-white/[0.05] p-3 text-left text-sm">
               {previous.map((message) => (
-                <li key={message.id} className="text-ansut-text-muted">
-                  <span className="font-medium text-ansut-blue">
+                <li key={message.id} className="text-white/55">
+                  <span className="font-medium text-white/85">
                     {message.role === "user" ? "Vous" : "SUTA"} :
                   </span>{" "}
                   {message.text}

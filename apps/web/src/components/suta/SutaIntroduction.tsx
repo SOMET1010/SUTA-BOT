@@ -7,19 +7,19 @@ const STARTERS = [
   { label: "Expliquez-moi simplement", prompt: "Pouvez-vous m'expliquer simplement ce qui peut être utile dans ma situation ?" },
 ];
 
-/** Accueil conversationnel : on invite à parler, sans transformer SUTA en menu de FAQ. */
+/**
+ * Accueil voice-first : une seule invitation, presque pas de texte — la
+ * présence de SUTA porte l'écran (direction de référence). Les amorces
+ * restent, discrètes, pour guider un visiteur de salon qui hésite.
+ */
 export function SutaIntroduction({ event, onStarter }: { event: EventConfig; onStarter?: (prompt: string) => void }) {
   return (
     <div className="flex max-w-2xl flex-col items-center gap-4 text-center">
-      <div>
-        <p className="text-xs font-bold uppercase tracking-[0.24em] text-ansut-orange">SUTA — par l&apos;ANSUT</p>
-        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-ansut-blue sm:text-4xl">Parlez-moi naturellement.</h1>
-        <p className="mx-auto mt-2 max-w-xl text-sm text-ansut-text-muted sm:text-base">Expliquez-moi votre situation avec vos mots. Je peux vous poser une question, chercher avec vous et garder le fil de notre conversation.</p>
-      </div>
+      <h1 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">Parlez-moi, je vous écoute.</h1>
       <div className="grid w-full grid-cols-2 gap-2 sm:flex sm:w-auto sm:flex-wrap sm:justify-center">
-        {STARTERS.map((starter) => <button key={starter.label} type="button" onClick={() => onStarter?.(starter.prompt)} className="rounded-2xl border border-ansut-blue/10 bg-white/80 px-3 py-2 text-[11px] font-semibold text-ansut-blue shadow-sm transition hover:-translate-y-0.5 hover:border-ansut-orange/40 hover:bg-white sm:rounded-full sm:px-4 sm:text-xs">{starter.label}</button>)}
+        {STARTERS.map((starter) => <button key={starter.label} type="button" onClick={() => onStarter?.(starter.prompt)} className="rounded-2xl border border-white/10 bg-white/[0.06] px-3 py-2 text-[11px] font-medium text-white/75 backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-ansut-orange/50 hover:bg-white/10 hover:text-white sm:rounded-full sm:px-4 sm:text-xs">{starter.label}</button>)}
       </div>
-      {event.enabled && <div className="mt-1 flex items-center gap-2 rounded-full border border-ansut-border bg-ansut-background px-4 py-1.5 text-xs text-ansut-text-muted"><span className="h-1.5 w-1.5 rounded-full bg-ansut-orange" /><span className="font-medium text-ansut-blue">{event.name}</span>{event.location && <span>· {event.location}</span>}{event.startDate && event.endDate && <span>· {event.startDate} – {event.endDate}</span>}</div>}
+      {event.enabled && <div className="mt-1 flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-white/55"><span className="h-1.5 w-1.5 rounded-full bg-ansut-orange" /><span className="font-medium text-white/85">{event.name}</span>{event.location && <span>· {event.location}</span>}{event.startDate && event.endDate && <span>· {event.startDate} – {event.endDate}</span>}</div>}
     </div>
   );
 }

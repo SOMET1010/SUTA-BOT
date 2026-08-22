@@ -4,21 +4,21 @@ import type { SutaEmotion } from "@/lib/suta/scene";
 const WAVE_RING_COUNT = 3;
 
 /**
- * Avatar SUTA — présence abstraite (halo, anneaux, ondes), thème clair ANSUT.
- * Purement CSS/SVG : aucune image, aucun visage dessiné. Un personnage
- * cartoon a été essayé puis retiré : il faisait « site web avec mascotte »,
- * pas « assistant IA premium ». L'émotion de la scène (`emotion`) module la
- * teinte du halo et le rythme du cœur, jamais une figure humaine.
+ * Avatar SUTA — présence lumineuse sur scène de nuit (halo, anneaux, ondes).
+ * Purement CSS/SVG : aucune image, aucun visage dessiné (un personnage
+ * cartoon a été essayé puis retiré : il faisait « mascotte de site web »).
+ * L'émotion de la scène module la teinte du halo ; l'orbe est le bouton
+ * vocal — la pastille sous elle porte l'invite.
  */
 const EMOTION_HALO: Record<SutaEmotion, string> = {
-  neutral: "from-ansut-blue/25 to-ansut-orange/20",
-  warm: "from-ansut-blue/30 to-ansut-orange/30",
-  curious: "from-ansut-blue/35 to-ansut-orange/25",
-  thinking: "from-ansut-blue/35 to-ansut-blue/15",
-  explaining: "from-ansut-blue/30 to-ansut-orange/30",
-  reassuring: "from-ansut-blue/25 to-ansut-orange/25",
-  celebrating: "from-ansut-orange/35 to-ansut-blue/25",
-  alert: "from-status-error/30 to-status-error/15",
+  neutral: "from-ansut-blue-light/50 to-ansut-orange/30",
+  warm: "from-ansut-blue-light/55 to-ansut-orange/45",
+  curious: "from-ansut-blue-light/65 to-ansut-orange/35",
+  thinking: "from-ansut-blue-light/65 to-ansut-blue-light/25",
+  explaining: "from-ansut-blue-light/55 to-ansut-orange/45",
+  reassuring: "from-ansut-blue-light/45 to-ansut-orange/40",
+  celebrating: "from-ansut-orange/55 to-ansut-blue-light/40",
+  alert: "from-status-error/50 to-status-error/20",
 };
 
 export function SutaOrb({ state, emotion = "warm" }: { state: ConversationState; emotion?: SutaEmotion }) {
@@ -33,11 +33,11 @@ export function SutaOrb({ state, emotion = "warm" }: { state: ConversationState;
       role="img"
       aria-label={`Avatar SUTA, état : ${state.toLowerCase()}`}
       data-emotion={activeEmotion}
-      className="relative flex h-52 w-52 items-center justify-center sm:h-60 sm:w-60"
+      className="relative flex h-56 w-56 items-center justify-center sm:h-64 sm:w-64"
     >
       {/* Halo diffus — la teinte suit l'émotion de la scène */}
       <div
-        className={`absolute inset-0 rounded-full bg-gradient-to-br blur-2xl animate-suta-halo-breathe ${EMOTION_HALO[activeEmotion]}`}
+        className={`absolute inset-0 rounded-full bg-gradient-to-br blur-3xl animate-suta-halo-breathe ${EMOTION_HALO[activeEmotion]}`}
       />
 
       {/* Ondes sonores (parole en cours) */}
@@ -45,31 +45,31 @@ export function SutaOrb({ state, emotion = "warm" }: { state: ConversationState;
         Array.from({ length: WAVE_RING_COUNT }).map((_, index) => (
           <div
             key={index}
-            className="absolute h-36 w-36 rounded-full border border-ansut-orange/50 animate-suta-wave sm:h-40 sm:w-40"
+            className="absolute h-40 w-40 rounded-full border border-ansut-orange/60 animate-suta-wave sm:h-44 sm:w-44"
             style={{ animationDelay: `${index * 0.5}s` }}
           />
         ))}
 
       {/* Anneau extérieur, rotation lente et continue */}
       <div
-        className="absolute h-44 w-44 rounded-full border border-dashed border-ansut-blue/25 animate-suta-ring-slow sm:h-48 sm:w-48"
+        className="absolute h-48 w-48 rounded-full border border-dashed border-white/20 animate-suta-ring-slow sm:h-52 sm:w-52"
         aria-hidden="true"
       />
 
       {/* Anneau intérieur, rotation rapide pendant l'écoute */}
       <div
-        className={`absolute h-36 w-36 rounded-full border-2 border-transparent sm:h-40 sm:w-40 ${
-          isListening ? "border-t-ansut-orange animate-suta-ring-fast" : "border-t-ansut-blue/20"
+        className={`absolute h-40 w-40 rounded-full border-2 border-transparent sm:h-44 sm:w-44 ${
+          isListening ? "border-t-ansut-orange animate-suta-ring-fast" : "border-t-white/15"
         }`}
         aria-hidden="true"
       />
 
-      {/* Cœur */}
+      {/* Cœur lumineux */}
       <div
-        className={`relative flex h-24 w-24 items-center justify-center rounded-full shadow-lg sm:h-28 sm:w-28 ${
+        className={`relative flex h-28 w-28 items-center justify-center rounded-full sm:h-32 sm:w-32 ${
           isError
-            ? "bg-status-error/90"
-            : "bg-gradient-to-br from-ansut-blue to-ansut-orange animate-suta-core-pulse"
+            ? "bg-status-error/90 shadow-[0_0_60px_rgba(198,40,40,0.45)]"
+            : "bg-gradient-to-br from-ansut-blue-light to-ansut-orange shadow-[0_0_80px_rgba(245,130,32,0.35)] animate-suta-core-pulse"
         }`}
       >
         {isSearching && (
@@ -77,10 +77,9 @@ export function SutaOrb({ state, emotion = "warm" }: { state: ConversationState;
         )}
       </div>
 
-      {/* Statut court sous l'orbe — seule pastille visible (VoiceStatus reste
-          en lecteur d'écran) : une seule voix de statut à l'écran. */}
-      <div className="absolute -bottom-2 rounded-full border border-white/80 bg-white/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-ansut-blue shadow-sm">
-        {isSpeaking ? "Je vous réponds" : isListening ? "Je vous écoute" : isSearching ? "Je cherche" : state === "CONNECTING" ? "Connexion…" : isError ? "Voix interrompue" : "À votre service"}
+      {/* Invite / statut — l'orbe est le bouton, la pastille le dit. */}
+      <div className="absolute -bottom-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/85 backdrop-blur-sm">
+        {isSpeaking ? "Je vous réponds" : isListening ? "Je vous écoute" : isSearching ? "Je cherche" : state === "CONNECTING" ? "Connexion…" : isError ? "Voix interrompue" : "Touchez-moi pour parler"}
       </div>
     </div>
   );

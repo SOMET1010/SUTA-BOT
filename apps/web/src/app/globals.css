@@ -27,6 +27,15 @@
   --ansut-text-muted: #5b6b85;
 
   /*
+   * Scène de nuit — écran public voice-first (direction de référence :
+   * bleu nuit chaleureux, présence lumineuse, cf. maquette hero ANSUT et
+   * coloris « Bleu Nuit » ANSUT Connect). Dérivés du bleu charte, jamais
+   * des teintes étrangères.
+   */
+  --ansut-night: #0a1730;
+  --ansut-night-soft: #142a52;
+
+  /*
    * Variables de marque héritées (thème sombre) — utilisées uniquement par
    * l'administration (/admin), hors périmètre de la charte ci-dessus.
    * Valeurs toujours approximatives (charte graphique non fournie pour
@@ -55,6 +64,8 @@
   --color-ansut-orange-light: var(--ansut-orange-light);
   --color-ansut-border: var(--ansut-border);
   --color-ansut-text-muted: var(--ansut-text-muted);
+  --color-ansut-night: var(--ansut-night);
+  --color-ansut-night-soft: var(--ansut-night-soft);
 
   --color-brand-primary: var(--brand-primary);
   --color-brand-secondary: var(--brand-secondary);
