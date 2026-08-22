@@ -1,0 +1,38 @@
+[
+  {
+    "id": "pass-public-01",
+    "title": "Le programme PASS : un smartphone à petit prix",
+    "content": "PASS est le Programme d'Accès aux Smartphones Subventionnés, porté par l'ANSUT sous la tutelle du Ministère de la Transition Numérique et de l'Innovation Technologique. Son but : permettre aux ménages défavorisés d'acheter un smartphone à un prix accessible, partout sur le territoire — l'Agence prend en charge la différence entre le prix payé par le bénéficiaire et le coût réel du téléphone. Sa raison d'être tient en une phrase : « Le réseau existe. Le terminal manque. » La couverture mobile atteint environ 94 % de la population, mais beaucoup de foyers n'ont pas de smartphone pour en profiter. Le programme a été validé par le Conseil d'administration de l'ANSUT le 30 juillet 2026 et il est en cours de préparation. Il s'appuiera sur un registre social existant et sur les réseaux de distribution des opérateurs : l'Agence pilote, elle ne distribue pas elle-même.",
+    "metadata": { "domaine": "equiper", "programme": "PASS" }
+  },
+  {
+    "id": "pass-public-02",
+    "title": "À qui s'adresse le programme PASS",
+    "content": "Le programme PASS s'adresse aux personnes insuffisamment équipées, en particulier les plus vulnérables et celles que le marché ne sert pas bien. Sa doctrine : « Inclure largement, prioriser objectivement. » La question qui compte n'est pas « avez-vous déjà eu un téléphone ? » mais « disposez-vous aujourd'hui d'un smartphone personnel qui fonctionne et que vous utilisez ? ». Une personne sans téléphone, ou qui n'a qu'un téléphone 2G à touches, est fortement prioritaire. Vivre en ville n'exclut pas du programme : habiter un village est un facteur de priorité, pas une condition — une personne très vulnérable d'un quartier précaire d'Abidjan peut en bénéficier. Aucun critère isolé ne décide à lui seul du sort d'une demande : la situation est appréciée dans son ensemble, avec des critères objectifs.",
+    "metadata": { "domaine": "equiper", "programme": "PASS" }
+  },
+  {
+    "id": "pass-public-03",
+    "title": "Les deux téléphones PASS et leurs prix",
+    "content": "Le programme PASS proposera deux modèles de smartphones, chacun à prix unique sur tout le territoire, quel que soit le lieu de retrait : un modèle d'entrée à 9 900 francs CFA et un modèle supérieur à 14 900 francs CFA. Ce ne sont pas deux tarifs appliqués selon le dossier du demandeur : ce sont deux produits distincts, accessibles à tous les bénéficiaires, et personne n'a à « classer » qui que ce soit. Les deux partagent le même socle : 4 Go de mémoire vive, 64 Go de stockage, une batterie de 5 000 mAh pour tenir la journée, la 4G sur les fréquences ivoiriennes. Le modèle supérieur ajoute le paiement sans contact (NFC), un lecteur d'empreintes, un meilleur écran et un meilleur processeur. Le reste du coût réel du téléphone est pris en charge par le programme.",
+    "metadata": { "domaine": "equiper", "programme": "PASS" }
+  },
+  {
+    "id": "pass-public-04",
+    "title": "Comment se passera l'inscription au programme PASS",
+    "content": "Quand une localité sera ouverte au programme PASS, ses habitants en seront informés par les relais locaux, la radio de proximité et les agents sociaux. L'inscription se fera par deux canaux : en ligne, pour ceux qui ont déjà un téléphone et une pièce d'identité et sont à l'aise avec le numérique ; ou assistée, en présence d'un agent, pour ceux qui n'ont ni l'un ni l'autre — c'est le public principal du programme. Le dossier est ensuite vérifié, puis la décision est prise par un agent habilité : ce n'est jamais une machine seule qui tranche, un refus est toujours motivé et il ouvre un recours. À la remise, le bénéficiaire verse sa contribution, reçoit l'appareil, et la ligne est activée devant lui.",
+    "metadata": { "domaine": "equiper", "programme": "PASS" }
+  },
+  {
+    "id": "pass-public-05",
+    "title": "Où retirer son téléphone : les Points PASS",
+    "content": "Le téléphone du programme PASS se retire dans un Point PASS : les agences des opérateurs et leurs distributeurs agréés. C'est la réglementation qui l'impose — la remise d'une carte SIM est réservée à ces points, et aucun téléphone ne peut être livré avec une ligne déjà activée : la ligne s'active sur place, devant le bénéficiaire, au moment de la remise. Le Point PASS vérifie l'identité, encaisse la contribution, remet l'appareil et active la ligne, même quand la connexion locale est mauvaise. Pour les zones éloignées des agences, des unités mobiles se déplaceront temporairement dans les localités ouvertes.",
+    "metadata": { "domaine": "equiper", "programme": "PASS" }
+  },
+  {
+    "id": "pass-public-06",
+    "title": "Programme PASS : ce qui sera annoncé plus tard",
+    "content": "Plusieurs éléments du programme PASS ne sont pas encore arrêtés et seront annoncés officiellement par l'ANSUT : la date de lancement, le nombre total de téléphones, la liste des localités ouvertes, le registre social qui servira à l'identification, et une éventuelle possibilité de paiement en plusieurs fois. Tant que ces annonces ne sont pas faites, personne ne peut promettre une date, un volume ou une localité précise — et il ne faut pas s'inscrire auprès d'intermédiaires qui prétendraient le contraire. La bonne réponse à « quand est-ce que ça commence ? » est : le programme est validé et en préparation, l'annonce officielle viendra de l'ANSUT.",
+    "metadata": { "domaine": "equiper", "programme": "PASS" }
+  }
+]
