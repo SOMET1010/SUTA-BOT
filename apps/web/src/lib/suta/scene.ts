@@ -1,6 +1,6 @@
 import type { SutaAction, SutaVisual } from "./visuals";
 
-/** Etat emotionnel independant de l'etat technique de la conversation. */
+/** État émotionnel indépendant de l'état technique de la conversation. */
 export type SutaEmotion =
   | "neutral"
   | "warm"
@@ -12,8 +12,8 @@ export type SutaEmotion =
   | "alert";
 
 /**
- * Une scene decrit la mise en scene de la reponse de SUTA.
- * L'etat vocal (LISTENING, SPEAKING...) reste gere par la machine existante.
+ * Une scène décrit la mise en scène de la réponse de SUTA.
+ * L'état vocal (LISTENING, SPEAKING...) reste géré par la machine existante.
  */
 export interface SutaScene {
   emotion: SutaEmotion;

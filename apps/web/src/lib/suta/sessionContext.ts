@@ -9,11 +9,15 @@ export interface SutaSessionContext {
 
 export const EMPTY_SUTA_CONTEXT: SutaSessionContext = { lastTopics: [] };
 
+/* Un « à » isolé capturait n'importe quel mot capitalisé après la lettre « a »
+ * (« on a WhatsApp » → localité WhatsApp) : la préposition n'est acceptée
+ * qu'accolée à un verbe d'habitation. */
 const LOCALITY_PATTERNS = [
-  /(?:je suis|j'habite|je vis|chez moi|ma localite est|mon village est|a|à)\s+([A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÿ' -]{2,35})/,
+  /(?:j'habite|je vis|je suis)\s+(?:à|a|au|aux)?\s*([A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÿ' -]{2,35})/,
+  /(?:ma localit[eé] est|mon village est|mon village s'appelle)\s+([A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÿ' -]{2,35})/,
 ];
 
-/** Memoire legere de session. Elle ne persiste rien hors de la conversation. */
+/** Mémoire légère de session. Elle ne persiste rien hors de la conversation. */
 export function updateSessionContext(previous: SutaSessionContext, utterance: string): SutaSessionContext {
   const next = { ...previous, lastTopics: [...previous.lastTopics] };
   const lower = utterance.toLowerCase();
@@ -21,10 +25,10 @@ export function updateSessionContext(previous: SutaSessionContext, utterance: st
     const match = utterance.match(pattern);
     if (match?.[1]) { next.locality = match[1].trim().replace(/[?.!,;:]+$/, ""); break; }
   }
-  if (/ma mere|ma mère/.test(lower)) next.person = "sa mere";
-  else if (/mon pere|mon père/.test(lower)) next.person = "son pere";
+  if (/ma mere|ma mère/.test(lower)) next.person = "sa mère";
+  else if (/mon pere|mon père/.test(lower)) next.person = "son père";
   else if (/mon enfant|ma fille|mon fils/.test(lower)) next.person = "son enfant";
-  else if (/pour moi|je veux|j'aimerais|je voudrais/.test(lower)) next.person = "lui-meme";
+  else if (/pour moi|je veux|j'aimerais|je voudrais/.test(lower)) next.person = "elle-même ou lui-même";
 
   if (/smartphone|telephone|téléphone/.test(lower)) next.device = "smartphone";
   else if (/ordinateur|pc|laptop/.test(lower)) next.device = "ordinateur";
@@ -37,11 +41,11 @@ export function updateSessionContext(previous: SutaSessionContext, utterance: st
 
 export function contextForModel(context: SutaSessionContext): string {
   const facts = [
-    context.locality && `Localite deja donnee : ${context.locality}`,
+    context.locality && `Localité déjà donnée : ${context.locality}`,
     context.person && `La demande concerne : ${context.person}`,
-    context.device && `Equipement mentionne : ${context.device}`,
+    context.device && `Équipement mentionné : ${context.device}`,
     context.goal && `Objectif : ${context.goal}`,
-    context.lastTopics.length && `Sujets recents : ${context.lastTopics.join(", ")}`,
+    context.lastTopics.length && `Sujets récents : ${context.lastTopics.join(", ")}`,
   ].filter(Boolean);
-  return facts.length ? `\n\nCONTEXTE DE SESSION A NE PAS REDEMANDER :\n- ${facts.join("\n- ")}` : "";
+  return facts.length ? `\n\nCONTEXTE DE SESSION À NE PAS REDEMANDER :\n- ${facts.join("\n- ")}` : "";
 }

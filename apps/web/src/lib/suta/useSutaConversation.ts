@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type RefObject } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { ConversationState } from "@suta/shared";
 import { getIdentityResponse } from "@/lib/identity-response";
 import { useRealtimeSession } from "@/lib/realtime/useRealtimeSession";
@@ -10,7 +10,6 @@ import { EMPTY_SUTA_CONTEXT, contextForModel, updateSessionContext, type SutaSes
 import type { VisualPoint } from "@/lib/suta/visuals";
 
 const NO_INFO_ANSWER = "Je n'ai pas encore suffisamment d'informations fiables dans ma base pour répondre à cette question.";
-const TECHNICAL_ERROR_ANSWER = "Je rencontre momentanément une difficulté technique. Vous pouvez réessayer.";
 const ANSWER_PREVIEW_MAX_CHARS = 400;
 
 export interface TranscriptSource { title: string; source: string; }

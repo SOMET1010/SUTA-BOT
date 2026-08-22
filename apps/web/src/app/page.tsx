@@ -12,7 +12,7 @@ import { useKioskMode } from "@/lib/use-kiosk-mode";
 import { useSutaConversation } from "@/lib/suta/useSutaConversation";
 import type { SutaAction } from "@/lib/suta/visuals";
 
-/** Le salon met en scene le produit citoyen sans creer une application jetable. */
+/** Le salon met en scène le produit citoyen sans créer une application jetable. */
 export default function Home() {
   const kiosk = useKioskMode();
   const event = getEventConfig();
@@ -31,7 +31,7 @@ export default function Home() {
     <SutaHeader kiosk={kiosk}/>
     <main className="relative mx-auto flex w-full max-w-[1500px] flex-1 flex-col px-5 py-5 lg:px-10 lg:py-7">
       {kiosk && pristine ? <div className="flex flex-1 items-center justify-center"><SalonWelcome onStart={(prompt) => void sendText(prompt)}/></div> : <>
-        <div className="mb-4 flex items-center justify-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-ansut-text-muted">{(["connecter","equiper","former"] as const).map((item)=><span key={item} className={`rounded-full px-3 py-1.5 transition-all ${pillar===item?"bg-ansut-blue text-white shadow-sm":"bg-white/60"}`}>{item}</span>)}</div>
+        <div className="mb-4 flex items-center justify-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-ansut-text-muted">{([["connecter","Connecter"],["equiper","Équiper"],["former","Former"]] as const).map(([key,label])=><span key={key} className={`rounded-full px-3 py-1.5 transition-all ${pillar===key?"bg-ansut-blue text-white shadow-sm":"bg-white/60"}`}>{label}</span>)}</div>
         <div className={`grid min-h-0 flex-1 items-stretch gap-7 transition-[grid-template-columns] duration-500 ease-out ${hasScene?"lg:grid-cols-[minmax(390px,0.82fr)_minmax(520px,1.18fr)]":"lg:grid-cols-[1fr]"}`}>
           <section className={`flex min-h-0 items-center justify-center transition-all duration-500 ${speaking && hasScene ? "lg:-translate-x-2" : ""}`}><SutaVoiceExperience controller={controller} event={event}/></section>
           {hasScene && <aside className={`min-h-[360px] transition-all duration-500 lg:min-h-0 ${speaking ? "lg:scale-[1.015]" : "lg:scale-100"}`}><SutaVisualPanel visual={scene.visual} onAction={handleAction} speaking={speaking}/></aside>}
@@ -39,6 +39,6 @@ export default function Home() {
         {lastSutaMessage?.sources?.length?<div className="mx-auto mt-4 w-full max-w-5xl"><SourceDrawer sources={lastSutaMessage.sources}/></div>:null}
       </>}
     </main>
-    <SutaFooter kiosk={kiosk}/>{kiosk&&!pristine&&<button type="button" onClick={reset} aria-label="Reinitialiser la demonstration" className="fixed bottom-3 right-3 rounded-full bg-ansut-blue/5 px-3 py-1.5 text-[10px] text-ansut-text-muted hover:bg-ansut-blue/10">Nouvelle conversation</button>}
+    <SutaFooter kiosk={kiosk}/>{kiosk&&!pristine&&<button type="button" onClick={reset} aria-label="Réinitialiser la démonstration" className="fixed bottom-3 right-3 rounded-full bg-ansut-blue/5 px-3 py-1.5 text-[10px] text-ansut-text-muted hover:bg-ansut-blue/10">Nouvelle conversation</button>}
   </div>;
 }

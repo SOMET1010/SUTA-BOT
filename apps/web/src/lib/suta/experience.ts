@@ -96,7 +96,7 @@ function emotionFor(pillar: SutaPillar, results: ExperienceResult[]): SutaEmotio
 
 function firstSummary(results: ExperienceResult[]): string {
   const first = results[0]?.content?.trim();
-  if (!first) return "Voici les informations fiables que j'ai trouvees pour vous.";
+  if (!first) return "Voici les informations fiables que j'ai trouvées pour vous.";
   return first.length > 260 ? `${first.slice(0, 257).trim()}...` : first;
 }
 
@@ -112,8 +112,8 @@ function visualFor(
       status: "connected",
       details: results.slice(0, 3).map((r) => r.title),
       actions: [
-        { id: "network-details", label: "Voir les details", prompt: `Donne-moi plus de details sur ${question}` },
-        { id: "nearby", label: "Autres localites proches", prompt: "Quelles localites proches sont couvertes ?" },
+        { id: "network-details", label: "Voir les détails", prompt: `Donne-moi plus de détails sur ${question}` },
+        { id: "nearby", label: "Autres localités proches", prompt: "Quelles localités proches sont couvertes ?" },
       ],
     };
   }
@@ -121,22 +121,22 @@ function visualFor(
   if (pillar === "equiper") {
     return {
       kind: "program",
-      title: results[0]?.title || "Dispositifs pour s'equiper",
+      title: results[0]?.title || "Dispositifs pour s'équiper",
       pillar: "equiper",
       summary: firstSummary(results),
       benefits: results.slice(0, 3).map((r) => r.title),
-      actions: [{ id: "eligibility", label: "Verifier mon eligibilite", prompt: "Suis-je eligible a ce dispositif ?" }],
+      actions: [{ id: "eligibility", label: "Vérifier mon éligibilité", prompt: "Suis-je éligible à ce dispositif ?" }],
     };
   }
 
   if (pillar === "former") {
     return {
       kind: "program",
-      title: results[0]?.title || "Formations numeriques",
+      title: results[0]?.title || "Formations numériques",
       pillar: "former",
       summary: firstSummary(results),
       benefits: results.slice(0, 3).map((r) => r.title),
-      actions: [{ id: "training-nearby", label: "Trouver une formation", prompt: "Quelle formation est disponible pres de moi ?" }],
+      actions: [{ id: "training-nearby", label: "Trouver une formation", prompt: "Quelle formation est disponible près de moi ?" }],
     };
   }
 
@@ -146,14 +146,14 @@ function visualFor(
     title: results[0]?.title || "Ce qu'il faut savoir",
     summary: firstSummary(results),
     facts: results.slice(0, 3).map((r) => ({ label: r.title, value: r.source })),
-    actions: [{ id: "next-step", label: "Que dois-je faire ?", prompt: "Quelle est la prochaine demarche a faire ?" }],
+    actions: [{ id: "next-step", label: "Que dois-je faire ?", prompt: "Quelle est la prochaine démarche à faire ?" }],
   };
 }
 
 /**
- * Transforme une question citoyenne et des resultats RAG en scene controlee.
- * Cette couche ne cree aucun fait : elle ne fait que choisir une presentation
- * a partir des informations deja retournees par les outils.
+ * Transforme une question citoyenne et des résultats RAG en scène contrôlée.
+ * Cette couche ne crée aucun fait : elle ne fait que choisir une présentation
+ * à partir des informations déjà retournées par les outils.
  */
 export function experienceFromKnowledge(
   question: string,

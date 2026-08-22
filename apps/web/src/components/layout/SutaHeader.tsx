@@ -7,7 +7,7 @@ export function SutaHeader({ kiosk }: { kiosk: boolean }) {
       <div className="flex min-w-0 items-center gap-3 sm:gap-4">
         <Image
           src="/suta/brand/logo-ansut.png"
-          alt="ANSUT — Agence Nationale du Service Universel des Telecommunications-TIC"
+          alt="ANSUT — Agence Nationale du Service Universel des Télécommunications-TIC"
           width={900}
           height={320}
           priority
@@ -22,11 +22,8 @@ export function SutaHeader({ kiosk }: { kiosk: boolean }) {
           {!kiosk && <span className="hidden text-[11px] text-ansut-text-muted sm:block">Votre assistant citoyen</span>}
         </div>
       </div>
-      <div className="hidden items-center gap-3 text-[11px] font-bold uppercase tracking-[0.16em] sm:flex">
-        <span className="text-ansut-blue">Connecter</span><span className="h-1 w-1 rounded-full bg-ansut-orange" />
-        <span className="text-ansut-blue">Equiper</span><span className="h-1 w-1 rounded-full bg-ansut-orange" />
-        <span className="text-ansut-blue">Former</span>
-      </div>
+      {/* Pas de rappel des piliers ici : la rangée de puces sous le header
+          les porte déjà, avec l'état actif — les doubler ferait « site web ». */}
     </header>
   );
 }

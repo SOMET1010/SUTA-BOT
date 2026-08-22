@@ -91,7 +91,7 @@ function dedupePoints(points: VisualPoint[]): VisualPoint[] {
 
 function caption(points: VisualPoint[]): string {
   if (points.length === 1) return points[0].label;
-  return `${points.length} localites`;
+  return `${points.length} localités`;
 }
 
 /**
