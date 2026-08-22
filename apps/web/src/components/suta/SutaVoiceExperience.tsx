@@ -2,6 +2,7 @@
 
 import type { EventConfig } from "@/lib/event-config";
 import type { SutaConversationController } from "@/lib/suta/useSutaConversation";
+import type { SutaEmotion } from "@/lib/suta/scene";
 import { ConversationTranscript } from "./ConversationTranscript";
 import { MicrophoneButton } from "./MicrophoneButton";
 import { SutaIntroduction } from "./SutaIntroduction";
@@ -10,12 +11,29 @@ import { TextComposer } from "./TextComposer";
 import { VoiceStatus } from "./VoiceStatus";
 import { VoiceVisualizer } from "./VoiceVisualizer";
 
+function emotionForState(state: SutaConversationController["state"]): SutaEmotion {
+  switch (state) {
+    case "LISTENING":
+    case "INTERRUPTED":
+      return "curious";
+    case "THINKING":
+    case "SEARCHING":
+      return "thinking";
+    case "SPEAKING":
+      return "explaining";
+    case "ERROR":
+    case "OFFLINE":
+      return "alert";
+    default:
+      return "warm";
+  }
+}
+
 /**
- * Composition centrale de l'expérience vocale SUTA : avatar, statut,
- * transcription et saisie. Ne parle jamais directement à Azure/OpenAI —
- * toute l'orchestration vient de `controller` (`useSutaConversation`),
- * conformément à la séparation moteur/UI (cahier des charges UI, section
- * 21).
+ * Composition centrale de l'experience vocale SUTA. La machine de conversation
+ * reste independante de l'UI ; ici nous traduisons simplement son etat en une
+ * premiere intention emotionnelle. Une scene pourra ensuite surcharger cette
+ * emotion (bonne nouvelle, alerte, reassurance...) selon le contenu.
  */
 export function SutaVoiceExperience({
   controller,
@@ -25,6 +43,7 @@ export function SutaVoiceExperience({
   event: EventConfig;
 }) {
   const { state, messages, isLive, startListening, stopListening, sendText } = controller;
+  const emotion = emotionForState(state);
 
   const handleMicPress = () => {
     if (isLive || state === "LISTENING") {
@@ -39,7 +58,7 @@ export function SutaVoiceExperience({
   return (
     <div className="flex flex-1 flex-col items-center justify-center gap-6 px-4 py-8">
       <div className="flex flex-col items-center gap-3">
-        <SutaOrb state={state} />
+        <SutaOrb state={state} emotion={emotion} />
         <VoiceStatus state={state} />
         <VoiceVisualizer state={state} />
       </div>
