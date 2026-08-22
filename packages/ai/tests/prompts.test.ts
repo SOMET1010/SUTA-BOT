@@ -33,6 +33,16 @@ describe("loadSutaSystemPrompt", () => {
     expect(prompt).toContain("un chiffre exact reste exact");
   });
 
+  it("makes SUTA answer the question, never recite the record", () => {
+    const prompt = loadSutaSystemPrompt();
+    // Constat de salon : pour « mon village est-il connecté ? », le modèle
+    // déroulait population, écoles et distances au lieu de répondre.
+    expect(prompt).toContain("RÉPONDS À LA QUESTION, PAS À LA FICHE");
+    expect(prompt).toContain("des preuves à synthétiser");
+    expect(prompt).toContain("une à trois phrases");
+    expect(prompt).toContain("Je peux vous en dire plus si vous voulez.");
+  });
+
   it("keeps the mandatory waiting phrase before every search", () => {
     const prompt = loadSutaSystemPrompt();
     // Sans elle, le silence de trois secondes revient (constaté en test réel).

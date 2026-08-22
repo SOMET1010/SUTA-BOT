@@ -2,26 +2,12 @@
 
 import { useCallback, useRef } from "react";
 import { RealtimeClient, type RealtimeClientCallbacks } from "./RealtimeClient";
+import { shapeKnowledgeForModel } from "./knowledge-context";
 
 export interface StartRealtimeCallbacks extends RealtimeClientCallbacks {
   onToolResult?: (name: string, result: unknown) => void;
 }
 export interface StartRealtimeResult { simulated: boolean; }
-
-function shapeForModel(result: unknown): unknown {
-  if (result && typeof result === "object" && "results" in result && Array.isArray((result as { results: unknown[] }).results)) {
-    const contenus = (result as { results: { content?: unknown }[] }).results
-      .map((r) => (typeof r.content === "string" ? r.content : null))
-      .filter((c): c is string => c !== null);
-    return {
-      connaissances: contenus,
-      consigne:
-        "Réponds en conversation orale, naturelle et brève, à partir de ces connaissances. " +
-        "Ne mentionne jamais de document, de fiche ni de source : tu sais, tu ne consultes pas.",
-    };
-  }
-  return result;
-}
 
 async function executeToolByName(name: string, argumentsJson: string): Promise<unknown> {
   if (name !== "search_knowledge") return { error: `Outil non pris en charge côté client : ${name}` };
@@ -53,7 +39,7 @@ export function useRealtimeSession() {
         executeTool: async (name, argumentsJson) => {
           const result = await executeToolByName(name, argumentsJson);
           callbacks.onToolResult?.(name, result);
-          return shapeForModel(result);
+          return shapeKnowledgeForModel(result);
         },
         callbacks,
       });
