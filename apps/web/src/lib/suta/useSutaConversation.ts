@@ -12,6 +12,21 @@ import type { VisualPoint } from "@/lib/suta/visuals";
 const NO_INFO_ANSWER = "Je n'ai pas encore suffisamment d'informations fiables dans ma base pour répondre à cette question.";
 const ANSWER_PREVIEW_MAX_CHARS = 400;
 
+/**
+ * Réponse du mode texte sans session vocale (dégradé assumé : pas de modèle
+ * conversationnel sur ce chemin). L'ancienne version tronquait le premier
+ * fragment brut en plein mot — l'effet « transfert vers une fiche » dans sa
+ * pire forme. On coupe désormais à la frontière de phrase, sans rien inventer.
+ */
+function composeTextAnswer(results: { content: string }[]): string {
+  const first = results[0]?.content?.trim();
+  if (!first) return NO_INFO_ANSWER;
+  if (first.length <= ANSWER_PREVIEW_MAX_CHARS) return first;
+  const window = first.slice(0, ANSWER_PREVIEW_MAX_CHARS);
+  const lastSentenceEnd = Math.max(window.lastIndexOf(". "), window.lastIndexOf("! "), window.lastIndexOf("? "));
+  return lastSentenceEnd > 80 ? window.slice(0, lastSentenceEnd + 1) : `${window.trimEnd()}…`;
+}
+
 export interface TranscriptSource { title: string; source: string; }
 export interface TranscriptMessage { id: string; role: "user" | "suta"; text: string; sources?: TranscriptSource[]; }
 interface SearchResult { title: string; content: string; source: string; score: number; location?: VisualPoint; }
@@ -53,13 +68,17 @@ export function useSutaConversation(): SutaConversationController {
     timeouts.current = [];
   }, []);
 
+  /**
+   * Mémoire locale de session. On ne pousse RIEN au modèle pendant une session
+   * vocale : il a entendu la phrase lui-même, et ré-empiler un item système
+   * « CONTEXTE… » cumulatif à chaque tour le poussait à se répéter et à
+   * ré-orienter. Le contexte n'est injecté qu'à l'ouverture d'une session
+   * (démarrage ou reconnexion, dans startListening) — le seul moment où le
+   * modèle a réellement perdu le fil.
+   */
   const remember = useCallback((utterance: string) => {
-    const before = contextForModel(sessionContext.current);
-    const next = updateSessionContext(sessionContext.current, utterance);
-    const after = contextForModel(next);
-    sessionContext.current = next;
-    if (after && after !== before && realtime.isActive()) realtime.addContext(after);
-  }, [realtime]);
+    sessionContext.current = updateSessionContext(sessionContext.current, utterance);
+  }, []);
 
   const respond = useCallback((text: string, sources?: TranscriptSource[]) => {
     setState("SPEAKING");
@@ -97,8 +116,7 @@ export function useSutaConversation(): SutaConversationController {
       const results = data.results ?? [];
       applyExperience(question, results);
       const sources = results.slice(0, 4).map((r) => ({ title: r.title, source: r.source }));
-      const answer = results[0]?.content?.trim();
-      respond(answer ? answer.slice(0, ANSWER_PREVIEW_MAX_CHARS) : NO_INFO_ANSWER, sources.length ? sources : undefined);
+      respond(composeTextAnswer(results), sources.length ? sources : undefined);
     } catch (error) {
       if (error instanceof DOMException && error.name === "AbortError") return;
       setState(typeof navigator !== "undefined" && !navigator.onLine ? "OFFLINE" : "ERROR");
@@ -160,9 +178,25 @@ export function useSutaConversation(): SutaConversationController {
           pendingSources.current = undefined;
           setState("LISTENING");
         },
-        onSpeechStarted: async () => {
+        onResponseDone: () => {
           if (generation !== sessionGeneration.current) return;
-          if (state === "SPEAKING") await realtime.interrupt();
+          // Une réponse interrompue n'émet jamais son transcript.done : sans
+          // cette clôture, la bulle restait ouverte et la réponse suivante
+          // s'y concaténait — à l'écran, SUTA semblait « se reprendre ».
+          if (currentAssistantMsgId.current) {
+            const id = currentAssistantMsgId.current;
+            const sources = pendingSources.current;
+            currentAssistantMsgId.current = null;
+            pendingSources.current = undefined;
+            setMessages((prev) => prev.map((m) => m.id === id ? { ...m, sources } : m));
+          }
+        },
+        onSpeechStarted: () => {
+          if (generation !== sessionGeneration.current) return;
+          // Toujours tenter l'annulation : le client ne l'envoie que si une
+          // réponse est active. (L'ancien test `state === "SPEAKING"` lisait
+          // un état capturé à la connexion — l'interruption ne partait jamais.)
+          realtime.interrupt();
           setState("LISTENING");
         },
         onError: () => {
@@ -198,7 +232,7 @@ export function useSutaConversation(): SutaConversationController {
       setIsLive(false);
       setState(typeof navigator !== "undefined" && !navigator.onLine ? "OFFLINE" : "ERROR");
     }
-  }, [applyExperience, realtime, remember, state]);
+  }, [applyExperience, realtime, remember]);
 
   const stopListening = useCallback(async () => {
     resumeVoiceAfterNetwork.current = false;

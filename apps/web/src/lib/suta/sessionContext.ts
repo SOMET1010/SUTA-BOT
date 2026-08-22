@@ -13,8 +13,8 @@ export const EMPTY_SUTA_CONTEXT: SutaSessionContext = { lastTopics: [] };
  * (« on a WhatsApp » → localité WhatsApp) : la préposition n'est acceptée
  * qu'accolée à un verbe d'habitation. */
 const LOCALITY_PATTERNS = [
-  /(?:j'habite|je vis|je suis)\s+(?:à|a|au|aux)?\s*([A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÿ' -]{2,35})/,
-  /(?:ma localit[eé] est|mon village est|mon village s'appelle)\s+([A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÿ' -]{2,35})/,
+  /(?:j'habite|je vis|je suis)\s+(?:à|a|au|aux)?\s*([A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÿ' -]{2,35})/i,
+  /(?:ma localit[eé] est|mon village est|mon village s'appelle)\s+([A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÿ' -]{2,35})/i,
 ];
 
 /** Mémoire légère de session. Elle ne persiste rien hors de la conversation. */
