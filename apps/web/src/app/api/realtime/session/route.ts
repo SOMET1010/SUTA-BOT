@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       sessionId: session.sessionId,
       provider: session.provider,
       model: session.model,
-      voice: requestedVoice ?? process.env.REALTIME_VOICE ?? "marin",
+      voice: requestedVoice ?? process.env.REALTIME_VOICE ?? "cedar",
       clientSecret: session.clientSecret,
       expiresAt: session.expiresAt,
       webrtcUrl: session.webrtcUrl ?? null,
