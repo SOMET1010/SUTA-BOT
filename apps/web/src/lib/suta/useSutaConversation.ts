@@ -79,7 +79,6 @@ export function useSutaConversation(): SutaConversationController {
   const contextualQuestion = useCallback((question: string) => `${question}${contextForModel(sessionContext.current)}`, []);
 
   const runSimulatedTurn = useCallback(async (question: string) => {
-    const generation = sessionGeneration.current;
     searchAbort.current?.abort();
     const controller = new AbortController();
     searchAbort.current = controller;
@@ -91,7 +90,6 @@ export function useSutaConversation(): SutaConversationController {
         body: JSON.stringify({ query: contextualQuestion(question) }),
         signal: controller.signal,
       });
-      if (generation !== sessionGeneration.current) return;
       if (!response.ok) {
         setState("ERROR");
         return;
@@ -99,15 +97,11 @@ export function useSutaConversation(): SutaConversationController {
       const data = await response.json() as { results?: SearchResult[] };
       const results = data.results ?? [];
       applyExperience(question, results);
-      if (!results.length) {
-        respond(NO_INFO_ANSWER);
-        return;
-      }
-      const answer = results[0]?.content?.trim() || NO_INFO_ANSWER;
-      respond(answer.slice(0, ANSWER_PREVIEW_MAX_CHARS), results.slice(0, 4).map((r) => ({ title: r.title, source: r.source })));
+      const sources = results.slice(0, 4).map((r) => ({ title: r.title, source: r.source }));
+      const answer = results[0]?.content?.trim();
+      respond(answer ? answer.slice(0, ANSWER_PREVIEW_MAX_CHARS) : NO_INFO_ANSWER, sources.length ? sources : undefined);
     } catch (error) {
-      if ((error as Error)?.name === "AbortError") return;
-      if (generation !== sessionGeneration.current) return;
+      if (error instanceof DOMException && error.name === "AbortError") return;
       setState(typeof navigator !== "undefined" && !navigator.onLine ? "OFFLINE" : "ERROR");
     } finally {
       if (searchAbort.current === controller) searchAbort.current = null;
@@ -123,7 +117,7 @@ export function useSutaConversation(): SutaConversationController {
     expectedDisconnect.current = false;
     setState("CONNECTING");
     try {
-      await realtime.start({
+      const result = await realtime.start({
         onConnectionStateChange: (connected) => {
           if (generation !== sessionGeneration.current) return;
           if (connected) {
@@ -177,31 +171,27 @@ export function useSutaConversation(): SutaConversationController {
           setIsLive(false);
           setState(typeof navigator !== "undefined" && !navigator.onLine ? "OFFLINE" : "ERROR");
         },
-        onToolCall: async (name, args) => {
-          if (generation !== sessionGeneration.current) return { error: "session-expired" };
-          if (name !== "search_knowledge") return { error: `unknown-tool:${name}` };
-          const question = typeof args?.query === "string" ? args.query : latestQuestion.current;
-          try {
-            const response = await fetch("/api/knowledge/search", {
-              method: "POST",
-              headers: { "content-type": "application/json" },
-              body: JSON.stringify({ query: contextualQuestion(question) }),
-            });
-            if (!response.ok) return { error: "knowledge-search-failed" };
-            const data = await response.json() as { results?: SearchResult[] };
-            const results = data.results ?? [];
-            applyExperience(question, results);
-            pendingSources.current = results.slice(0, 4).map((r) => ({ title: r.title, source: r.source }));
-            return { results: results.map((r) => ({ content: r.content })) };
-          } catch {
-            return { error: "knowledge-search-failed" };
-          }
+        onToolResult: (name, result) => {
+          if (generation !== sessionGeneration.current || name !== "search_knowledge") return;
+          const data = result as { results?: SearchResult[] };
+          const results = Array.isArray(data?.results) ? data.results : [];
+          const question = latestQuestion.current;
+          applyExperience(question, results);
+          pendingSources.current = results.slice(0, 4).map((r) => ({ title: r.title, source: r.source }));
         },
       });
+
       if (generation !== sessionGeneration.current) {
-        await realtime.stop();
+        realtime.stop();
         return;
       }
+
+      if (result.simulated) {
+        setIsLive(false);
+        setState("IDLE");
+        return;
+      }
+
       const context = contextForModel(sessionContext.current);
       if (context) realtime.addContext(context);
     } catch {
@@ -209,43 +199,39 @@ export function useSutaConversation(): SutaConversationController {
       setIsLive(false);
       setState(typeof navigator !== "undefined" && !navigator.onLine ? "OFFLINE" : "ERROR");
     }
-  }, [applyExperience, contextualQuestion, realtime, remember, state]);
+  }, [applyExperience, realtime, remember, state]);
 
   const stopListening = useCallback(async () => {
     resumeVoiceAfterNetwork.current = false;
     expectedDisconnect.current = true;
-    await realtime.stop();
+    realtime.stop();
     setIsLive(false);
     setState("IDLE");
   }, [realtime]);
 
   const interrupt = useCallback(async () => {
-    await realtime.interrupt();
+    realtime.interrupt();
     setState("LISTENING");
   }, [realtime]);
 
   const sendText = useCallback(async (message: string) => {
     const text = message.trim();
     if (!text) return;
-    clearTimeouts();
+    latestQuestion.current = text;
     remember(text);
     setMessages((prev) => [...prev, { id: `user-${Date.now()}`, role: "user", text }]);
-
+    if (realtime.isActive()) {
+      setState("THINKING");
+      realtime.sendText(text);
+      return;
+    }
     const identity = getIdentityResponse(text);
     if (identity) {
       respond(identity);
       return;
     }
-
-    if (realtime.isActive()) {
-      latestQuestion.current = text;
-      setState("THINKING");
-      await realtime.sendText(text);
-      return;
-    }
-
     await runSimulatedTurn(text);
-  }, [clearTimeouts, realtime, remember, respond, runSimulatedTurn]);
+  }, [realtime, remember, respond, runSimulatedTurn]);
 
   const reset = useCallback(() => {
     sessionGeneration.current += 1;
@@ -254,40 +240,40 @@ export function useSutaConversation(): SutaConversationController {
     searchAbort.current = null;
     resumeVoiceAfterNetwork.current = false;
     expectedDisconnect.current = true;
-    void realtime.stop();
-    sessionContext.current = { ...EMPTY_SUTA_CONTEXT, lastTopics: [] };
+    realtime.stop();
+    setMessages([]);
+    setScene(DEFAULT_SUTA_SCENE);
+    setPillar(null);
+    setIsLive(false);
+    setState("IDLE");
+    latestQuestion.current = "";
     currentUserMsgId.current = null;
     currentAssistantMsgId.current = null;
     pendingSources.current = undefined;
-    latestQuestion.current = "";
-    setMessages([]);
-    setIsLive(false);
-    setPillar(null);
-    setScene(DEFAULT_SUTA_SCENE);
-    setState("IDLE");
+    sessionContext.current = { ...EMPTY_SUTA_CONTEXT, lastTopics: [] };
   }, [clearTimeouts, realtime]);
 
   useEffect(() => {
-    const handleOffline = () => {
+    const onOffline = () => {
       searchAbort.current?.abort();
       resumeVoiceAfterNetwork.current = isLive || realtime.isActive();
-      if (resumeVoiceAfterNetwork.current) {
+      if (realtime.isActive()) {
         expectedDisconnect.current = true;
-        void realtime.stop();
+        realtime.stop();
       }
       setIsLive(false);
       setState("OFFLINE");
     };
-    const handleOnline = () => {
+    const onOnline = () => {
       if (!resumeVoiceAfterNetwork.current) return;
       resumeVoiceAfterNetwork.current = false;
       void startListening();
     };
-    window.addEventListener("offline", handleOffline);
-    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", onOffline);
+    window.addEventListener("online", onOnline);
     return () => {
-      window.removeEventListener("offline", handleOffline);
-      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", onOffline);
+      window.removeEventListener("online", onOnline);
     };
   }, [isLive, realtime, startListening]);
 
