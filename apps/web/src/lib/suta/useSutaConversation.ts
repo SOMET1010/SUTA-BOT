@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState, type RefObject } from "react";
+import { useCallback, useEffect, useRef, useState, type RefObject } from "react";
 import type { ConversationState } from "@suta/shared";
 import { getIdentityResponse } from "@/lib/identity-response";
 import { useRealtimeSession } from "@/lib/realtime/useRealtimeSession";
@@ -45,6 +45,8 @@ export function useSutaConversation(): SutaConversationController {
   const pendingSources = useRef<TranscriptSource[] | undefined>();
   const latestQuestion = useRef("");
   const sessionContext = useRef<SutaSessionContext>({ ...EMPTY_SUTA_CONTEXT, lastTopics: [] });
+  const searchAbort = useRef<AbortController | null>(null);
+  const resumeVoiceAfterNetwork = useRef(false);
   const realtime = useRealtimeSession();
 
   const clearTimeouts = useCallback(() => {
@@ -78,6 +80,7 @@ export function useSutaConversation(): SutaConversationController {
 
   const runSimulatedTurn = useCallback(async (question: string) => {
     clearTimeouts();
+    searchAbort.current?.abort();
     latestQuestion.current = question;
     remember(question);
     setMessages((prev) => [...prev, { id: `user-${Date.now()}`, role: "user", text: question }]);
@@ -92,11 +95,14 @@ export function useSutaConversation(): SutaConversationController {
 
     const timer = setTimeout(async () => {
       setState("SEARCHING");
+      const controller = new AbortController();
+      searchAbort.current = controller;
       try {
         const response = await fetch("/api/tools/search-knowledge", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ query: contextualQuestion(question) }),
+          signal: controller.signal,
         });
         const body = await response.json().catch(() => ({}));
         if (!response.ok) { setState("ERROR"); setScene({ emotion: "alert", visual: null }); return; }
@@ -106,9 +112,12 @@ export function useSutaConversation(): SutaConversationController {
         const answer = top.content.length > ANSWER_PREVIEW_MAX_CHARS ? `${top.content.slice(0, ANSWER_PREVIEW_MAX_CHARS).trim()}…` : top.content;
         applyExperience(question, results);
         respond(answer, results.map((r) => ({ title: r.title, source: r.source })));
-      } catch {
-        setState("OFFLINE");
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+        setState(typeof navigator !== "undefined" && navigator.onLine === false ? "OFFLINE" : "ERROR");
         setScene({ emotion: "alert", visual: null });
+      } finally {
+        if (searchAbort.current === controller) searchAbort.current = null;
       }
     }, 400);
     timeouts.current.push(timer);
@@ -141,6 +150,8 @@ export function useSutaConversation(): SutaConversationController {
 
   const startListening = useCallback(async () => {
     if (isLive || state === "CONNECTING") return;
+    if (typeof navigator !== "undefined" && navigator.onLine === false) { setState("OFFLINE"); return; }
+
     sessionGeneration.current += 1;
     const generation = sessionGeneration.current;
     clearTimeouts();
@@ -211,7 +222,35 @@ export function useSutaConversation(): SutaConversationController {
     }
   }, [realtime, clearTimeouts, appendDelta, finalizeMessage, disconnectLive, runSimulatedTurn, applyExperience, isLive, state]);
 
+  useEffect(() => {
+    const handleOffline = () => {
+      searchAbort.current?.abort();
+      searchAbort.current = null;
+      resumeVoiceAfterNetwork.current = isLive || realtime.isActive();
+      if (realtime.isActive()) {
+        expectedDisconnect.current = true;
+        realtime.stop();
+      }
+      setIsLive(false);
+      setState("OFFLINE");
+    };
+
+    const handleOnline = () => {
+      if (!resumeVoiceAfterNetwork.current) return;
+      resumeVoiceAfterNetwork.current = false;
+      void startListening();
+    };
+
+    window.addEventListener("offline", handleOffline);
+    window.addEventListener("online", handleOnline);
+    return () => {
+      window.removeEventListener("offline", handleOffline);
+      window.removeEventListener("online", handleOnline);
+    };
+  }, [isLive, realtime, startListening]);
+
   const stopListening = useCallback(async () => {
+    resumeVoiceAfterNetwork.current = false;
     if (isLive) { disconnectLive("IDLE"); return; }
     if (state === "LISTENING" || state === "CONNECTING") {
       sessionGeneration.current += 1;
@@ -239,6 +278,10 @@ export function useSutaConversation(): SutaConversationController {
 
   const reset = useCallback(() => {
     clearTimeouts();
+    searchAbort.current?.abort();
+    searchAbort.current = null;
+    resumeVoiceAfterNetwork.current = false;
+    sessionGeneration.current += 1;
     if (isLive || realtime.isActive()) { expectedDisconnect.current = true; realtime.stop(); }
     setIsLive(false);
     setState("IDLE");
