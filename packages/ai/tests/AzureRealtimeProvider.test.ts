@@ -43,10 +43,13 @@ describe("AzureRealtimeProvider", () => {
     expect(body.session.instructions).toBe("Tu es SUTA.");
     expect(body.session.tools).toBeUndefined();
     expect(body.session.audio.input.turn_detection).toEqual({ type: "server_vad" });
-    expect(body.session.audio.input.transcription).toEqual({
+    expect(body.session.audio.input.transcription).toMatchObject({
       model: "whisper-1",
       language: "fr",
     });
+    // Amorce de vocabulaire : les toponymes ivoiriens que Whisper écorchait
+    // en test réel (« Korhogo » entendu « Hugo »).
+    expect(body.session.audio.input.transcription.prompt).toContain("Korhogo");
   });
 
   it("maps the ephemeral client_secret response to a RealtimeSession", async () => {

@@ -80,7 +80,18 @@ export class AzureRealtimeProvider implements RealtimeProvider {
               // SUTA serait transcrite. `language: "fr"` fixe la langue
               // attendue (sinon le modèle peut dériver vers une autre
               // langue en cours de conversation si l'audio est ambigu).
-              transcription: { model: "whisper-1", language: "fr" },
+              // `prompt` amorce Whisper avec les toponymes ivoiriens que le
+              // public prononcera : en test réel, « Korhogo » était transcrit
+              // « Hugo » — et une localité mal entendue fausse tout le tour.
+              transcription: {
+                model: "whisper-1",
+                language: "fr",
+                prompt:
+                  "Conversation sur les localités de Côte d'Ivoire : Abidjan, Korhogo, Bouaké, " +
+                  "Yamoussoukro, Daloa, San-Pédro, Man, Odienné, Séguéla, Gagnoa, Divo, Abengourou, " +
+                  "Bondoukou, Ferkessédougou, Boundiali, Katiola, Touba, Guiglo, Duékoué, Soubré, " +
+                  "Agboville, Adzopé, Dabou, Grand-Bassam, Tiémé, Facobly, ANSUT, SUTA.",
+              },
               // server_vad : détection automatique de la fin de prise de
               // parole et de l'interruption naturelle (section 13).
               turn_detection: { type: "server_vad" },
