@@ -51,10 +51,18 @@ export class RealtimeClient {
   constructor(private readonly options: RealtimeClientOptions) {}
 
   async connect(): Promise<void> {
+    if (this.peerConnection) {
+      throw new Error("RealtimeClient: connect() appelé deux fois sur la même instance.");
+    }
     this.setConnectionState("connecting");
 
     try {
-      this.micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      this.micStream = await navigator.mediaDevices.getUserMedia({
+        // Annulation d'écho explicite : sur une installation avec
+        // haut-parleurs, le micro qui réentend la voix de SUTA déclenche
+        // des tours de parole fantômes qui se superposent.
+        audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true },
+      });
     } catch {
       this.setConnectionState("disconnected");
       throw new Error(

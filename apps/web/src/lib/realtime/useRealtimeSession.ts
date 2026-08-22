@@ -36,9 +36,25 @@ async function executeToolByName(name: string, argumentsJson: string): Promise<u
  */
 export function useRealtimeSession() {
   const clientRef = useRef<RealtimeClient | null>(null);
+  /** Vrai pendant qu'une session s'établit. Sans ce verrou, un second appui
+   * sur le micro pendant la connexion ouvrait une DEUXIÈME session sans
+   * fermer la première : deux flux audio, deux voix superposées — le
+   * symptôme constaté au premier test en ligne. */
+  const startingRef = useRef(false);
 
   const start = useCallback(
     async (callbacks: StartRealtimeCallbacks): Promise<StartRealtimeResult> => {
+      if (startingRef.current) {
+        return { simulated: false };
+      }
+      startingRef.current = true;
+
+      // Une session encore vivante (relance après erreur, appui répété) se
+      // ferme AVANT d'en ouvrir une autre : il ne doit jamais en exister deux.
+      clientRef.current?.disconnect();
+      clientRef.current = null;
+
+      try {
       const response = await fetch("/api/realtime/session", { method: "POST" });
       const session = await response.json().catch(() => ({}));
 
@@ -64,6 +80,9 @@ export function useRealtimeSession() {
       clientRef.current = client;
       await client.connect();
       return { simulated: false };
+      } finally {
+        startingRef.current = false;
+      }
     },
     [],
   );

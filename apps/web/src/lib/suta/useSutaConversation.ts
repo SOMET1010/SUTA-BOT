@@ -65,6 +65,9 @@ export function useSutaConversation(): SutaConversationController {
 
   const timeouts = useRef<ReturnType<typeof setTimeout>[]>([]);
   const expectedDisconnect = useRef(false);
+  /** Incrémenté à chaque démarrage ou annulation : une connexion qui
+   * aboutit après une annulation se reconnaît périmée et se ferme. */
+  const sessionGeneration = useRef(0);
   const currentUserMsgId = useRef<string | null>(null);
   const currentAssistantMsgId = useRef<string | null>(null);
   const pendingSources = useRef<TranscriptSource[] | undefined>(undefined);
@@ -177,6 +180,12 @@ export function useSutaConversation(): SutaConversationController {
   }, [realtime]);
 
   const startListening = useCallback(async () => {
+    // Un appui pendant l'établissement ou pendant une session vivante ne
+    // doit jamais relancer une connexion : c'est ainsi que deux sessions
+    // finissaient superposées, chacune avec sa voix.
+    if (isLive || state === "CONNECTING") return;
+    sessionGeneration.current += 1;
+    const generation = sessionGeneration.current;
     clearTimeouts();
     // Surtout pas "LISTENING" ici : établir la session (clé éphémère puis
     // WebRTC) prend un temps perceptible. Annoncer « Je vous écoute » avant
@@ -243,6 +252,14 @@ export function useSutaConversation(): SutaConversationController {
         return;
       }
 
+      // L'utilisateur a annulé (ou relancé) pendant l'établissement : la
+      // session qui vient de s'ouvrir est en trop, on la ferme sans bruit.
+      if (generation !== sessionGeneration.current) {
+        expectedDisconnect.current = true;
+        realtime.stop();
+        return;
+      }
+
       // La session est réellement ouverte : c'est seulement maintenant que
       // l'utilisateur peut parler sans être perdu.
       setIsLive(true);
@@ -260,7 +277,7 @@ export function useSutaConversation(): SutaConversationController {
       const t = setTimeout(() => setState("IDLE"), 3000);
       timeouts.current.push(t);
     }
-  }, [realtime, clearTimeouts, appendDelta, finalizeMessage, endLiveCall, runSimulatedTurn]);
+  }, [realtime, clearTimeouts, appendDelta, finalizeMessage, endLiveCall, runSimulatedTurn, isLive, state]);
 
   const stopListening = useCallback(async () => {
     if (isLive) {
@@ -268,9 +285,15 @@ export function useSutaConversation(): SutaConversationController {
       return;
     }
     if (state === "LISTENING" || state === "CONNECTING") {
+      // Pendant CONNECTING, éteindre l'affichage ne suffit pas : la session
+      // en cours d'établissement finirait de s'ouvrir et resterait vivante,
+      // pour parler plus tard par-dessus la suivante. On l'invalide.
+      sessionGeneration.current += 1;
+      expectedDisconnect.current = true;
+      realtime.stop();
       setState("IDLE");
     }
-  }, [isLive, state, endLiveCall]);
+  }, [isLive, state, endLiveCall, realtime]);
 
   const interrupt = useCallback(async () => {
     if (isLive) {
