@@ -1,5 +1,6 @@
 import { normalizeServerEvent } from "./events";
 import { BargeInGate } from "./interruption";
+import { vlog } from "./voice-debug";
 
 export type RealtimeConnectionState = "connecting" | "connected" | "disconnected";
 const DATA_CHANNEL_OPEN_TIMEOUT_MS = 15_000;
@@ -41,15 +42,15 @@ export class RealtimeClient {
   sendUserText(text:string):void{if(this.hasActiveResponse)this.send({type:"response.cancel"});this.send({type:"conversation.item.create",item:{type:"message",role:"user",content:[{type:"input_text",text}]}});this.send({type:"response.create"});}
   /** Ajoute un contexte silencieux à la session sans déclencher de réponse. */
   addContext(text:string):void{if(!text.trim())return;this.send({type:"conversation.item.create",item:{type:"message",role:"system",content:[{type:"input_text",text}]}});}
-  interrupt():void{if(this.hasActiveResponse)this.send({type:"response.cancel"});}
+  interrupt():void{vlog("response.cancel",{envoye:this.hasActiveResponse});if(this.hasActiveResponse)this.send({type:"response.cancel"});}
   private send(event:Record<string,unknown>):void{if(this.dataChannel?.readyState==="open")this.dataChannel.send(JSON.stringify(event));}
   private handleServerEvent(raw:string):void{let parsed:unknown;try{parsed=JSON.parse(raw);}catch{return;}const event=normalizeServerEvent(parsed);if(!event)return;const c=this.options.callbacks;switch(event.type){
       // L'annulation n'est plus réflexe : pendant une réponse, elle attend la
       // confirmation de la garde (parole soutenue). La coupure automatique du
       // VAD serveur est désactivée (interrupt_response:false, côté provider) —
       // c'est donc ici, et seulement ici, que SUTA peut être interrompue.
-      case"speech_started":this.bargeIn.speechStarted(this.hasActiveResponse,()=>c?.onSpeechStarted?.(),()=>{this.interrupt();c?.onSpeechStarted?.();});break;
-      case"speech_stopped":this.bargeIn.speechStopped();c?.onSpeechStopped?.();break;case"user_transcript_delta":c?.onUserTranscriptDelta?.(event.delta);break;case"user_transcript_done":c?.onUserTranscriptDone?.(event.transcript);break;case"assistant_transcript_delta":c?.onAssistantTranscriptDelta?.(event.delta);break;case"assistant_transcript_done":c?.onAssistantTranscriptDone?.(event.transcript);break;case"response_created":this.hasActiveResponse=true;this.responseSeq+=1;this.pendingToolResponse=false;c?.onResponseCreated?.();break;case"response_done":this.hasActiveResponse=false;if(this.pendingToolResponse){this.pendingToolResponse=false;this.send({type:"response.create"});}c?.onResponseDone?.();break;case"function_call_done":void this.runToolCall(event.callId,event.name,event.argumentsJson);break;case"error":c?.onError?.(event.message);}}
+      case"speech_started":vlog("speech_started",{reponseActive:this.hasActiveResponse});this.bargeIn.speechStarted(this.hasActiveResponse,()=>c?.onSpeechStarted?.(),()=>{vlog("barge-in confirmé (parole soutenue)");this.interrupt();c?.onSpeechStarted?.();});break;
+      case"speech_stopped":{const fausseAlerte=this.bargeIn.speechStopped();vlog("speech_stopped",{fausseAlerte});c?.onSpeechStopped?.();break;}case"user_transcript_delta":c?.onUserTranscriptDelta?.(event.delta);break;case"user_transcript_done":c?.onUserTranscriptDone?.(event.transcript);break;case"assistant_transcript_delta":c?.onAssistantTranscriptDelta?.(event.delta);break;case"assistant_transcript_done":c?.onAssistantTranscriptDone?.(event.transcript);break;case"response_created":vlog("response.created");this.hasActiveResponse=true;this.responseSeq+=1;this.pendingToolResponse=false;c?.onResponseCreated?.();break;case"response_done":vlog("response.done",{suiteOutilEnAttente:this.pendingToolResponse});this.hasActiveResponse=false;if(this.pendingToolResponse){this.pendingToolResponse=false;this.send({type:"response.create"});}c?.onResponseDone?.();break;case"function_call_done":void this.runToolCall(event.callId,event.name,event.argumentsJson);break;case"error":c?.onError?.(event.message);}}
   private async runToolCall(callId:string,name:string,argumentsJson:string):Promise<void>{const seqAtCall=this.responseSeq;let output:unknown;try{output=await this.options.executeTool(name,argumentsJson);}catch(error){output={error:error instanceof Error?error.message:"Échec de l'outil."};}this.send({type:"conversation.item.create",item:{type:"function_call_output",call_id:callId,output:JSON.stringify(output)}});
     // Trois cas après avoir posé le résultat :
     // - une NOUVELLE réponse a démarré pendant la recherche (la personne a

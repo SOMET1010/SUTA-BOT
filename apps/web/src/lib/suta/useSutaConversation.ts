@@ -7,6 +7,7 @@ import { useRealtimeSession } from "@/lib/realtime/useRealtimeSession";
 import { experienceFromKnowledge, type SutaPillar } from "@/lib/suta/experience";
 import { DEFAULT_SUTA_SCENE, type SutaScene } from "@/lib/suta/scene";
 import { EMPTY_SUTA_CONTEXT, contextForModel, updateSessionContext, type SutaSessionContext } from "@/lib/suta/sessionContext";
+import { vlog } from "@/lib/realtime/voice-debug";
 import type { VisualPoint } from "@/lib/suta/visuals";
 
 const NO_INFO_ANSWER = "Je n'ai pas encore suffisamment d'informations fiables dans ma base pour répondre à cette question.";
@@ -160,6 +161,7 @@ export function useSutaConversation(): SutaConversationController {
         },
         onAssistantTranscriptDelta: (delta) => {
           if (generation !== sessionGeneration.current) return;
+          if (!currentAssistantMsgId.current) vlog("état → SPEAKING (premier delta)");
           setState("SPEAKING");
           setMessages((prev) => {
             const id = currentAssistantMsgId.current;
@@ -179,6 +181,7 @@ export function useSutaConversation(): SutaConversationController {
           }
           currentAssistantMsgId.current = null;
           pendingSources.current = undefined;
+          vlog("état → LISTENING (transcript terminé)");
           setState("LISTENING");
         },
         onResponseDone: () => {
@@ -187,6 +190,7 @@ export function useSutaConversation(): SutaConversationController {
           // cette clôture, la bulle restait ouverte et la réponse suivante
           // s'y concaténait — à l'écran, SUTA semblait « se reprendre ».
           if (currentAssistantMsgId.current) {
+            vlog("clôture de bulle sur response.done (réponse interrompue)");
             const id = currentAssistantMsgId.current;
             const sources = pendingSources.current;
             currentAssistantMsgId.current = null;
@@ -199,6 +203,7 @@ export function useSutaConversation(): SutaConversationController {
           // Toujours tenter l'annulation : le client ne l'envoie que si une
           // réponse est active. (L'ancien test `state === "SPEAKING"` lisait
           // un état capturé à la connexion — l'interruption ne partait jamais.)
+          vlog("état → LISTENING (prise de parole)");
           realtime.interrupt();
           setState("LISTENING");
         },
