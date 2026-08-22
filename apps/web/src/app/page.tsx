@@ -1,10 +1,8 @@
 "use client";
 
-import { DEMO_QUESTIONS } from "@suta/shared";
 import { SutaFooter } from "@/components/layout/SutaFooter";
 import { SutaHeader } from "@/components/layout/SutaHeader";
 import { SourceDrawer } from "@/components/suta/SourceDrawer";
-import { SuggestionGrid } from "@/components/suta/SuggestionGrid";
 import { SutaVisualPanel } from "@/components/suta/SutaVisualPanel";
 import { SutaVoiceExperience } from "@/components/suta/SutaVoiceExperience";
 import { getEventConfig } from "@/lib/event-config";
@@ -13,6 +11,10 @@ import { useKioskMode } from "@/lib/use-kiosk-mode";
 import { useSutaConversation } from "@/lib/suta/useSutaConversation";
 import type { SutaAction } from "@/lib/suta/visuals";
 
+/**
+ * Le mode salon est une presentation du meme produit citoyen, jamais une
+ * application parallele. Apres l'evenement, l'URL principale reste utilisable.
+ */
 export default function Home() {
   const kiosk = useKioskMode();
   const event = getEventConfig();
@@ -20,13 +22,12 @@ export default function Home() {
   const { state, messages, isLive, scene, pillar, sendText, reset } = controller;
   useIdleReset(kiosk, reset);
 
-  const isBusy = !isLive && (state === "THINKING" || state === "SEARCHING" || state === "SPEAKING");
   const lastSutaMessage = [...messages].reverse().find((m) => m.role === "suta");
   const hasScene = Boolean(scene.visual);
   const handleAction = (action: SutaAction) => { if (action.prompt) void sendText(action.prompt); };
 
   return (
-    <div className="relative flex flex-1 flex-col overflow-hidden bg-ansut-background">
+    <div className="relative flex min-h-screen flex-1 flex-col overflow-hidden bg-ansut-background">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(0,82,155,0.08),transparent_32%),radial-gradient(circle_at_80%_55%,rgba(242,125,32,0.08),transparent_30%)]" />
       <SutaHeader kiosk={kiosk} />
 
@@ -36,17 +37,11 @@ export default function Home() {
         </div>
 
         <div className={`grid min-h-0 flex-1 items-stretch gap-7 transition-[grid-template-columns] duration-500 ease-out ${hasScene ? "lg:grid-cols-[minmax(390px,0.82fr)_minmax(520px,1.18fr)]" : "lg:grid-cols-[1fr]"}`}>
-          <section className={`flex min-h-0 items-center justify-center transition-all duration-500 ${hasScene ? "lg:translate-x-2" : ""}`}>
-            <SutaVoiceExperience controller={controller} event={event} />
-          </section>
-
+          <section className="flex min-h-0 items-center justify-center"><SutaVoiceExperience controller={controller} event={event} /></section>
           {hasScene && <aside className="min-h-[360px] animate-[suta-scene-in_420ms_ease-out] lg:min-h-0"><SutaVisualPanel visual={scene.visual} onAction={handleAction} /></aside>}
         </div>
 
-        <div className="mx-auto mt-4 w-full max-w-5xl">
-          {messages.length === 0 && <SuggestionGrid questions={DEMO_QUESTIONS} onSelect={(question) => void sendText(question)} disabled={isBusy || isLive} />}
-          {lastSutaMessage?.sources?.length ? <div className="mt-3"><SourceDrawer sources={lastSutaMessage.sources} /></div> : null}
-        </div>
+        {lastSutaMessage?.sources?.length ? <div className="mx-auto mt-4 w-full max-w-5xl"><SourceDrawer sources={lastSutaMessage.sources} /></div> : null}
       </main>
 
       <SutaFooter kiosk={kiosk} />
