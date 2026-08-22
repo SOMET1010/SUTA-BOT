@@ -39,7 +39,14 @@ export function useRealtimeSession() {
         executeTool: async (name, argumentsJson) => {
           const result = await executeToolByName(name, argumentsJson);
           callbacks.onToolResult?.(name, result);
-          return shapeKnowledgeForModel(result);
+          // La requête de l'outil porte l'intention (le modèle y reformule la
+          // question) : c'est elle qui pilote la sélection des preuves.
+          let query = "";
+          try {
+            const parsed = JSON.parse(argumentsJson) as { query?: unknown };
+            if (typeof parsed.query === "string") query = parsed.query;
+          } catch { /* arguments illisibles : sélection sans intention */ }
+          return shapeKnowledgeForModel(result, query);
         },
         callbacks,
       });
