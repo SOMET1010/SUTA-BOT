@@ -13,6 +13,30 @@ export interface StartRealtimeResult {
   simulated: boolean;
 }
 
+/** Réduit un résultat de recherche à ce que le modèle doit savoir : les
+ * contenus, sans titres ni sources ni scores. Les fiches sont écrites pour
+ * se comprendre seules ; le reste est de l'appareil documentaire qui
+ * déteint sur le ton. */
+function shapeForModel(result: unknown): unknown {
+  if (
+    result &&
+    typeof result === "object" &&
+    "results" in result &&
+    Array.isArray((result as { results: unknown[] }).results)
+  ) {
+    const contenus = (result as { results: { content?: unknown }[] }).results
+      .map((r) => (typeof r.content === "string" ? r.content : null))
+      .filter((c): c is string => c !== null);
+    return {
+      connaissances: contenus,
+      consigne:
+        "Réponds en conversation orale, naturelle et brève, à partir de ces connaissances. " +
+        "Ne mentionne jamais de document, de fiche ni de source : tu sais, tu ne consultes pas.",
+    };
+  }
+  return result;
+}
+
 async function executeToolByName(name: string, argumentsJson: string): Promise<unknown> {
   if (name !== "search_knowledge") {
     return { error: `Outil non pris en charge côté client : ${name}` };
@@ -71,8 +95,13 @@ export function useRealtimeSession() {
         webrtcUrl: session.webrtcUrl,
         executeTool: async (name, argumentsJson) => {
           const result = await executeToolByName(name, argumentsJson);
+          // L'interface reçoit le résultat complet (titres, sources, carte).
           callbacks.onToolResult?.(name, result);
-          return result;
+          // Le modèle, lui, ne reçoit que la matière : lui montrer des champs
+          // « title » et « source » l'invitait à parler de documents — le
+          // ton documentaliste reproché au premier test. Ce qu'il lit ici
+          // doit ressembler à sa propre mémoire, pas à une pile de fiches.
+          return shapeForModel(result);
         },
         callbacks,
       });
