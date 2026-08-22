@@ -256,7 +256,15 @@ le moyen de vérifier qu'un lot annoncé interne l'est bien.
 
 ## État du corpus
 
-Au 21 août 2026 : **10 063 fragments, 26 sources**, tous vectorisés.
+Au 22 août 2026 : **10 069 fragments, 27 sources**, tous vectorisés.
+
+Le programme PASS existe désormais en deux visibilités : les 35 fiches du
+compendium (scoring, quotas, budget, commande publique) restent ADMIN, et un
+lot citoyen de 6 fiches (`fiches/pass-public.json`) porte la version publique
+— ce qu'est le programme, à qui il s'adresse, les deux téléphones et leurs
+prix, le parcours, les Points PASS, et ce qui n'est pas encore annoncé. Sans
+ce lot, le kiosque (PUBLIC+DEMO) était structurellement aveugle sur PASS :
+premier test salon, SUTA muette en plein scénario « équipement ».
 
 Les bases Lovable comblent une partie des trous de l'observatoire, et le
 corpus le sait désormais : les déclarations de couverture des trois opérateurs
