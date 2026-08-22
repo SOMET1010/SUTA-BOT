@@ -1,18 +1,10 @@
 /**
- * Ce que SUTA affiche à côté de sa parole.
+ * Ce que SUTA affiche pendant qu'il parle.
  *
- * La voix et l'écran ne se concurrencent pas : ce que l'écran montre, SUTA
- * n'a pas à l'énumérer. C'est ce qui permet des réponses orales courtes sans
- * perdre en précision.
- *
- * Type ouvert : la carte est le premier écran, pas le seul prévu.
+ * La voix et l'ecran se completent : SUTA reste bref a l'oral et l'interface
+ * prend en charge la precision visuelle. Les visuels sont des objets structures
+ * controles par le frontend : le modele ne genere jamais de HTML libre.
  */
-export type SutaVisual = {
-  kind: "map";
-  points: VisualPoint[];
-  /** Phrase courte décrivant ce que la carte montre. */
-  caption: string;
-};
 
 export interface VisualPoint {
   lat: number;
@@ -20,17 +12,69 @@ export interface VisualPoint {
   label: string;
 }
 
+export interface SutaAction {
+  id: string;
+  label: string;
+  prompt?: string;
+}
+
+export type SutaVisual =
+  | {
+      kind: "map";
+      points: VisualPoint[];
+      caption: string;
+      status?: "connected" | "partial" | "planned" | "unknown";
+      details?: string[];
+      actions?: SutaAction[];
+    }
+  | {
+      kind: "info-card";
+      title: string;
+      eyebrow?: string;
+      summary: string;
+      facts?: Array<{ label: string; value: string }>;
+      actions?: SutaAction[];
+    }
+  | {
+      kind: "steps";
+      title: string;
+      summary?: string;
+      steps: Array<{ title: string; description?: string }>;
+      actions?: SutaAction[];
+    }
+  | {
+      kind: "program";
+      title: string;
+      pillar: "connecter" | "equiper" | "former";
+      summary: string;
+      eligibility?: string[];
+      benefits?: string[];
+      actions?: SutaAction[];
+    }
+  | {
+      kind: "law-summary";
+      title: string;
+      summary: string;
+      whatChanges: string[];
+      concerned?: string[];
+      actions?: SutaAction[];
+    }
+  | {
+      kind: "alert";
+      title: string;
+      message: string;
+      severity: "info" | "warning" | "critical";
+      actions?: SutaAction[];
+    };
+
 /**
- * Forme minimale attendue d'un résultat de recherche. Volontairement décrite
- * ici plutôt qu'importée de `@suta/tools` : ce module est chargé par le
- * navigateur, et cet import entraînerait toute la chaîne serveur (Prisma,
- * accès base) dans le paquet client.
+ * Forme minimale attendue d'un resultat de recherche. Ce type reste leger car
+ * le module est charge dans le navigateur.
  */
 export interface VisualisableResult {
   location?: VisualPoint;
 }
 
-/** Deux fragments d'un même lieu ne doivent pas produire deux marqueurs. */
 function dedupePoints(points: VisualPoint[]): VisualPoint[] {
   const seen = new Set<string>();
   const unique: VisualPoint[] = [];
@@ -45,16 +89,14 @@ function dedupePoints(points: VisualPoint[]): VisualPoint[] {
 
 function caption(points: VisualPoint[]): string {
   if (points.length === 1) return points[0].label;
-  return `${points.length} localités`;
+  return `${points.length} localites`;
 }
 
 /**
- * Déduit l'écran à afficher des résultats de recherche.
- *
- * Rien n'est inventé : seuls les fragments portant de vraies coordonnées
- * produisent un marqueur. Une question de doctrine, qui n'a pas de dimension
- * géographique, n'affiche donc aucune carte — plutôt qu'une carte vide ou,
- * pire, une carte plausible mais fausse.
+ * Deduit un premier visuel des resultats de recherche. Cette fonction conserve
+ * le comportement historique : seules de vraies coordonnees produisent une
+ * carte. Les autres familles de visuels seront construites par la couche scene
+ * a partir de donnees structurees provenant des outils.
  */
 export function visualFromSearchResults(results: VisualisableResult[]): SutaVisual | null {
   const points = dedupePoints(
