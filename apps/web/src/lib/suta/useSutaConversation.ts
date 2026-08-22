@@ -42,7 +42,7 @@ export function useSutaConversation(): SutaConversationController {
   const sessionGeneration = useRef(0);
   const currentUserMsgId = useRef<string | null>(null);
   const currentAssistantMsgId = useRef<string | null>(null);
-  const pendingSources = useRef<TranscriptSource[] | undefined>();
+  const pendingSources = useRef<TranscriptSource[] | undefined>(undefined);
   const latestQuestion = useRef("");
   const sessionContext = useRef<SutaSessionContext>({ ...EMPTY_SUTA_CONTEXT, lastTopics: [] });
   const searchAbort = useRef<AbortController | null>(null);
@@ -79,168 +79,210 @@ export function useSutaConversation(): SutaConversationController {
   const contextualQuestion = useCallback((question: string) => `${question}${contextForModel(sessionContext.current)}`, []);
 
   const runSimulatedTurn = useCallback(async (question: string) => {
-    clearTimeouts();
+    const generation = sessionGeneration.current;
     searchAbort.current?.abort();
-    latestQuestion.current = question;
-    remember(question);
-    setMessages((prev) => [...prev, { id: `user-${Date.now()}`, role: "user", text: question }]);
-    setState("THINKING");
+    const controller = new AbortController();
+    searchAbort.current = controller;
+    setState("SEARCHING");
+    try {
+      const response = await fetch("/api/knowledge/search", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ query: contextualQuestion(question) }),
+        signal: controller.signal,
+      });
+      if (generation !== sessionGeneration.current) return;
+      if (!response.ok) {
+        setState("ERROR");
+        return;
+      }
+      const data = await response.json() as { results?: SearchResult[] };
+      const results = data.results ?? [];
+      applyExperience(question, results);
+      if (!results.length) {
+        respond(NO_INFO_ANSWER);
+        return;
+      }
+      const answer = results[0]?.content?.trim() || NO_INFO_ANSWER;
+      respond(answer.slice(0, ANSWER_PREVIEW_MAX_CHARS), results.slice(0, 4).map((r) => ({ title: r.title, source: r.source })));
+    } catch (error) {
+      if ((error as Error)?.name === "AbortError") return;
+      if (generation !== sessionGeneration.current) return;
+      setState(typeof navigator !== "undefined" && !navigator.onLine ? "OFFLINE" : "ERROR");
+    } finally {
+      if (searchAbort.current === controller) searchAbort.current = null;
+    }
+  }, [applyExperience, contextualQuestion, respond]);
 
-    const identity = getIdentityResponse(question);
+  const startListening = useCallback(async () => {
+    if (typeof navigator !== "undefined" && !navigator.onLine) {
+      setState("OFFLINE");
+      return;
+    }
+    const generation = sessionGeneration.current;
+    expectedDisconnect.current = false;
+    setState("CONNECTING");
+    try {
+      await realtime.start({
+        onConnectionStateChange: (connected) => {
+          if (generation !== sessionGeneration.current) return;
+          if (connected) {
+            setIsLive(true);
+            setState("LISTENING");
+          } else if (!expectedDisconnect.current) {
+            setIsLive(false);
+            setState(typeof navigator !== "undefined" && !navigator.onLine ? "OFFLINE" : "ERROR");
+          }
+        },
+        onUserTranscriptDelta: () => {},
+        onUserTranscriptDone: (text) => {
+          if (generation !== sessionGeneration.current || !text.trim()) return;
+          latestQuestion.current = text.trim();
+          remember(text);
+          const id = `user-${Date.now()}`;
+          currentUserMsgId.current = id;
+          setMessages((prev) => [...prev, { id, role: "user", text: text.trim() }]);
+          setState("THINKING");
+        },
+        onAssistantTranscriptDelta: (delta) => {
+          if (generation !== sessionGeneration.current) return;
+          setState("SPEAKING");
+          setMessages((prev) => {
+            const id = currentAssistantMsgId.current;
+            if (!id) {
+              const nextId = `suta-${Date.now()}`;
+              currentAssistantMsgId.current = nextId;
+              return [...prev, { id: nextId, role: "suta", text: delta }];
+            }
+            return prev.map((m) => m.id === id ? { ...m, text: `${m.text}${delta}` } : m);
+          });
+        },
+        onAssistantTranscriptDone: (text) => {
+          if (generation !== sessionGeneration.current) return;
+          const id = currentAssistantMsgId.current;
+          if (id) {
+            setMessages((prev) => prev.map((m) => m.id === id ? { ...m, text: text || m.text, sources: pendingSources.current } : m));
+          }
+          currentAssistantMsgId.current = null;
+          pendingSources.current = undefined;
+          setState("LISTENING");
+        },
+        onSpeechStarted: async () => {
+          if (generation !== sessionGeneration.current) return;
+          if (state === "SPEAKING") await realtime.interrupt();
+          setState("LISTENING");
+        },
+        onError: () => {
+          if (generation !== sessionGeneration.current) return;
+          setIsLive(false);
+          setState(typeof navigator !== "undefined" && !navigator.onLine ? "OFFLINE" : "ERROR");
+        },
+        onToolCall: async (name, args) => {
+          if (generation !== sessionGeneration.current) return { error: "session-expired" };
+          if (name !== "search_knowledge") return { error: `unknown-tool:${name}` };
+          const question = typeof args?.query === "string" ? args.query : latestQuestion.current;
+          try {
+            const response = await fetch("/api/knowledge/search", {
+              method: "POST",
+              headers: { "content-type": "application/json" },
+              body: JSON.stringify({ query: contextualQuestion(question) }),
+            });
+            if (!response.ok) return { error: "knowledge-search-failed" };
+            const data = await response.json() as { results?: SearchResult[] };
+            const results = data.results ?? [];
+            applyExperience(question, results);
+            pendingSources.current = results.slice(0, 4).map((r) => ({ title: r.title, source: r.source }));
+            return { results: results.map((r) => ({ content: r.content })) };
+          } catch {
+            return { error: "knowledge-search-failed" };
+          }
+        },
+      });
+      if (generation !== sessionGeneration.current) {
+        await realtime.stop();
+        return;
+      }
+      const context = contextForModel(sessionContext.current);
+      if (context) realtime.addContext(context);
+    } catch {
+      if (generation !== sessionGeneration.current) return;
+      setIsLive(false);
+      setState(typeof navigator !== "undefined" && !navigator.onLine ? "OFFLINE" : "ERROR");
+    }
+  }, [applyExperience, contextualQuestion, realtime, remember, state]);
+
+  const stopListening = useCallback(async () => {
+    resumeVoiceAfterNetwork.current = false;
+    expectedDisconnect.current = true;
+    await realtime.stop();
+    setIsLive(false);
+    setState("IDLE");
+  }, [realtime]);
+
+  const interrupt = useCallback(async () => {
+    await realtime.interrupt();
+    setState("LISTENING");
+  }, [realtime]);
+
+  const sendText = useCallback(async (message: string) => {
+    const text = message.trim();
+    if (!text) return;
+    clearTimeouts();
+    remember(text);
+    setMessages((prev) => [...prev, { id: `user-${Date.now()}`, role: "user", text }]);
+
+    const identity = getIdentityResponse(text);
     if (identity) {
-      const timer = setTimeout(() => respond(identity), 500);
-      timeouts.current.push(timer);
+      respond(identity);
       return;
     }
 
-    const timer = setTimeout(async () => {
-      setState("SEARCHING");
-      const controller = new AbortController();
-      searchAbort.current = controller;
-      try {
-        const response = await fetch("/api/tools/search-knowledge", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ query: contextualQuestion(question) }),
-          signal: controller.signal,
-        });
-        const body = await response.json().catch(() => ({}));
-        if (!response.ok) { setState("ERROR"); setScene({ emotion: "alert", visual: null }); return; }
-        const results = body.results as SearchResult[];
-        if (!results?.length) { respond(NO_INFO_ANSWER); return; }
-        const [top] = results;
-        const answer = top.content.length > ANSWER_PREVIEW_MAX_CHARS ? `${top.content.slice(0, ANSWER_PREVIEW_MAX_CHARS).trim()}…` : top.content;
-        applyExperience(question, results);
-        respond(answer, results.map((r) => ({ title: r.title, source: r.source })));
-      } catch (error) {
-        if (error instanceof DOMException && error.name === "AbortError") return;
-        setState(typeof navigator !== "undefined" && navigator.onLine === false ? "OFFLINE" : "ERROR");
-        setScene({ emotion: "alert", visual: null });
-      } finally {
-        if (searchAbort.current === controller) searchAbort.current = null;
-      }
-    }, 400);
-    timeouts.current.push(timer);
-  }, [applyExperience, clearTimeouts, contextualQuestion, remember, respond]);
-
-  const appendDelta = useCallback((role: TranscriptMessage["role"], idRef: RefObject<string | null>, delta: string) => {
-    setMessages((prev) => {
-      if (idRef.current) return prev.map((m) => m.id === idRef.current ? { ...m, text: m.text + delta } : m);
-      const id = `${role}-${Date.now()}`;
-      idRef.current = id;
-      return [...prev, { id, role, text: delta }];
-    });
-  }, []);
-
-  const finalizeMessage = useCallback((role: TranscriptMessage["role"], idRef: RefObject<string | null>, text: string, sources?: TranscriptSource[]) => {
-    if (role === "user") { latestQuestion.current = text; remember(text); }
-    setMessages((prev) => {
-      if (idRef.current) return prev.map((m) => m.id === idRef.current ? { ...m, text, sources } : m);
-      return [...prev, { id: `${role}-${Date.now()}`, role, text, sources }];
-    });
-    idRef.current = null;
-  }, [remember]);
-
-  const disconnectLive = useCallback((nextState: ConversationState = "IDLE") => {
-    expectedDisconnect.current = true;
-    realtime.stop();
-    setIsLive(false);
-    setState(nextState);
-  }, [realtime]);
-
-  const startListening = useCallback(async () => {
-    if (isLive || state === "CONNECTING") return;
-    if (typeof navigator !== "undefined" && navigator.onLine === false) { setState("OFFLINE"); return; }
-
-    sessionGeneration.current += 1;
-    const generation = sessionGeneration.current;
-    clearTimeouts();
-    setState("CONNECTING");
-
-    try {
-      const result = await realtime.start({
-        onConnectionStateChange: (connectionState) => {
-          if (connectionState === "disconnected") {
-            setIsLive(false);
-            if (!expectedDisconnect.current) setState("OFFLINE");
-            expectedDisconnect.current = false;
-          }
-        },
-        onSpeechStarted: () => {
-          currentUserMsgId.current = null;
-          setState((prev) => prev === "SPEAKING" ? "INTERRUPTED" : "LISTENING");
-        },
-        onSpeechStopped: () => setState("THINKING"),
-        onUserTranscriptDelta: (delta) => appendDelta("user", currentUserMsgId, delta),
-        onUserTranscriptDone: (transcript) => finalizeMessage("user", currentUserMsgId, transcript),
-        onAssistantTranscriptDelta: (delta) => { setState("SPEAKING"); appendDelta("suta", currentAssistantMsgId, delta); },
-        onAssistantTranscriptDone: (transcript) => {
-          finalizeMessage("suta", currentAssistantMsgId, transcript, pendingSources.current);
-          pendingSources.current = undefined;
-        },
-        onResponseDone: () => setState((prev) => prev === "ERROR" || prev === "OFFLINE" ? prev : "LISTENING"),
-        onToolResult: (name, result) => {
-          if (name === "search_knowledge" && result && typeof result === "object" && "results" in result) {
-            setState("SEARCHING");
-            const found = (result as { results: SearchResult[] }).results;
-            pendingSources.current = found.map((r) => ({ title: r.title, source: r.source }));
-            applyExperience(latestQuestion.current, found);
-          }
-        },
-        onError: (message) => {
-          setScene({ emotion: "alert", visual: null });
-          setMessages((prev) => [...prev, { id: `suta-${Date.now()}`, role: "suta", text: message }]);
-          disconnectLive("ERROR");
-        },
-      });
-
-      if (result.simulated) {
-        const timer = setTimeout(() => runSimulatedTurn("Bonjour SUTA, qui es-tu ?"), 1800);
-        timeouts.current.push(timer);
-        return;
-      }
-
-      if (generation !== sessionGeneration.current) {
-        expectedDisconnect.current = true;
-        realtime.stop();
-        return;
-      }
-
-      setIsLive(true);
-      const restoredContext = contextForModel(sessionContext.current);
-      if (restoredContext) realtime.addContext(restoredContext);
-      setState("LISTENING");
-    } catch (error) {
-      setIsLive(false);
-      setScene({ emotion: "alert", visual: null });
-      setMessages((prev) => [...prev, {
-        id: `suta-${Date.now()}`,
-        role: "suta",
-        text: error instanceof Error ? error.message : TECHNICAL_ERROR_ANSWER,
-      }]);
-      setState(typeof navigator !== "undefined" && navigator.onLine === false ? "OFFLINE" : "ERROR");
+    if (realtime.isActive()) {
+      latestQuestion.current = text;
+      setState("THINKING");
+      await realtime.sendText(text);
+      return;
     }
-  }, [realtime, clearTimeouts, appendDelta, finalizeMessage, disconnectLive, runSimulatedTurn, applyExperience, isLive, state]);
+
+    await runSimulatedTurn(text);
+  }, [clearTimeouts, realtime, remember, respond, runSimulatedTurn]);
+
+  const reset = useCallback(() => {
+    sessionGeneration.current += 1;
+    clearTimeouts();
+    searchAbort.current?.abort();
+    searchAbort.current = null;
+    resumeVoiceAfterNetwork.current = false;
+    expectedDisconnect.current = true;
+    void realtime.stop();
+    sessionContext.current = { ...EMPTY_SUTA_CONTEXT, lastTopics: [] };
+    currentUserMsgId.current = null;
+    currentAssistantMsgId.current = null;
+    pendingSources.current = undefined;
+    latestQuestion.current = "";
+    setMessages([]);
+    setIsLive(false);
+    setPillar(null);
+    setScene(DEFAULT_SUTA_SCENE);
+    setState("IDLE");
+  }, [clearTimeouts, realtime]);
 
   useEffect(() => {
     const handleOffline = () => {
       searchAbort.current?.abort();
-      searchAbort.current = null;
       resumeVoiceAfterNetwork.current = isLive || realtime.isActive();
-      if (realtime.isActive()) {
+      if (resumeVoiceAfterNetwork.current) {
         expectedDisconnect.current = true;
-        realtime.stop();
+        void realtime.stop();
       }
       setIsLive(false);
       setState("OFFLINE");
     };
-
     const handleOnline = () => {
       if (!resumeVoiceAfterNetwork.current) return;
       resumeVoiceAfterNetwork.current = false;
       void startListening();
     };
-
     window.addEventListener("offline", handleOffline);
     window.addEventListener("online", handleOnline);
     return () => {
@@ -248,49 +290,6 @@ export function useSutaConversation(): SutaConversationController {
       window.removeEventListener("online", handleOnline);
     };
   }, [isLive, realtime, startListening]);
-
-  const stopListening = useCallback(async () => {
-    resumeVoiceAfterNetwork.current = false;
-    if (isLive) { disconnectLive("IDLE"); return; }
-    if (state === "LISTENING" || state === "CONNECTING") {
-      sessionGeneration.current += 1;
-      expectedDisconnect.current = true;
-      realtime.stop();
-      setState("IDLE");
-    }
-  }, [isLive, state, disconnectLive, realtime]);
-
-  const interrupt = useCallback(async () => { if (isLive) realtime.interrupt(); }, [isLive, realtime]);
-
-  const sendText = useCallback(async (message: string) => {
-    const trimmed = message.trim();
-    if (!trimmed) return;
-    latestQuestion.current = trimmed;
-    if (isLive) {
-      remember(trimmed);
-      setMessages((prev) => [...prev, { id: `user-${Date.now()}`, role: "user", text: trimmed }]);
-      setState("THINKING");
-      realtime.sendText(trimmed);
-      return;
-    }
-    await runSimulatedTurn(trimmed);
-  }, [isLive, realtime, runSimulatedTurn, remember]);
-
-  const reset = useCallback(() => {
-    clearTimeouts();
-    searchAbort.current?.abort();
-    searchAbort.current = null;
-    resumeVoiceAfterNetwork.current = false;
-    sessionGeneration.current += 1;
-    if (isLive || realtime.isActive()) { expectedDisconnect.current = true; realtime.stop(); }
-    setIsLive(false);
-    setState("IDLE");
-    setMessages([]);
-    setScene(DEFAULT_SUTA_SCENE);
-    setPillar(null);
-    latestQuestion.current = "";
-    sessionContext.current = { ...EMPTY_SUTA_CONTEXT, lastTopics: [] };
-  }, [clearTimeouts, isLive, realtime]);
 
   return { state, messages, isLive, scene, pillar, startListening, stopListening, interrupt, sendText, reset };
 }
