@@ -102,7 +102,10 @@ export function useSutaConversation(): SutaConversationController {
     searchAbort.current = controller;
     setState("SEARCHING");
     try {
-      const response = await fetch("/api/knowledge/search", {
+      // `/api/tools/search-knowledge` : la même route que la boucle d'outils
+      // vocale (l'ancienne adresse `/api/knowledge/search` n'a jamais existé —
+      // le chemin texte tombait en 404 depuis sa création).
+      const response = await fetch("/api/tools/search-knowledge", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ query: contextualQuestion(question) }),
