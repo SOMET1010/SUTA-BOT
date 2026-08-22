@@ -11,6 +11,9 @@ export interface AzureRealtimeProviderConfig {
   region?: string;
   /** Nom du modèle Realtime, tel que confirmé par l'équipe IT/PIE. */
   model?: string;
+  /** Voix de synthèse. Sans elle, la voix par défaut parle un français
+   * mécanique — c'était l'un des trois reproches du premier test réel. */
+  voice?: string;
 }
 
 interface AzureClientSecretResponse {
@@ -81,6 +84,12 @@ export class AzureRealtimeProvider implements RealtimeProvider {
               // server_vad : détection automatique de la fin de prise de
               // parole et de l'interruption naturelle (section 13).
               turn_detection: { type: "server_vad" },
+            },
+            output: {
+              // « marin » est l'une des voix naturelles du modèle GA. La
+              // voix par défaut, jamais choisie explicitement, rendait un
+              // français robotique.
+              voice: this.config.voice || "marin",
             },
           },
           ...(tools && tools.length > 0 ? { tools } : {}),

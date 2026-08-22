@@ -16,6 +16,7 @@ export interface RealtimeProviderEnv {
   REALTIME_DEPLOYMENT?: string;
   AZURE_OPENAI_REGION?: string;
   REALTIME_MODEL?: string;
+  REALTIME_VOICE?: string;
   OPENAI_API_KEY?: string;
   OPENAI_REALTIME_MODEL?: string;
 }
@@ -39,6 +40,7 @@ export function createRealtimeProvider(
         deployment: env.REALTIME_DEPLOYMENT ?? "",
         region: env.AZURE_OPENAI_REGION,
         model: env.REALTIME_MODEL,
+        voice: env.REALTIME_VOICE,
       });
     case "openai":
       return new OpenAIRealtimeProvider({

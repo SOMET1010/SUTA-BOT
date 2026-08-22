@@ -73,7 +73,11 @@ export class RealtimeClient {
     this.audioEl.autoplay = true;
     pc.ontrack = (event) => {
       if (this.audioEl) {
-        this.audioEl.srcObject = event.streams[0];
+        // La piste distante arrive souvent sans stream associé (pas de msid
+        // dans le SDP du service Realtime) : `event.streams[0]` est alors
+        // undefined et aucun son ne sort, jamais. On reconstruit un stream
+        // depuis la piste elle-même dans ce cas.
+        this.audioEl.srcObject = event.streams[0] ?? new MediaStream([event.track]);
         this.audioEl.play().catch(() => {
           this.options.callbacks?.onError?.(
             "La lecture audio n'a pas pu démarrer automatiquement.",
