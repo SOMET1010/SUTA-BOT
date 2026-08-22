@@ -39,6 +39,15 @@ describe("loadSutaSystemPrompt", () => {
     expect(prompt).toContain("Avant CHAQUE recherche");
   });
 
+  it("forbids restituting selection or funding decisions", () => {
+    const prompt = loadSutaSystemPrompt();
+    // Incident de salon : « non retenu », « score AIGF », « vague de
+    // financement » restitués à un citoyen. Le garde-fou serveur filtre en
+    // amont ; le prompt doit l'interdire aussi, en toutes lettres.
+    expect(prompt).toContain("JAMAIS DE DÉCISIONS INTERNES");
+    expect(prompt).toContain("vague de financement");
+  });
+
   it("keeps French as the answering language", () => {
     const prompt = loadSutaSystemPrompt();
     expect(prompt).toContain("TOUJOURS en français");

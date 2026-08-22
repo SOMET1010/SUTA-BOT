@@ -65,6 +65,8 @@ interface CorpusEntry {
   departement: string | null;
   content: string;
   metadata: Record<string, unknown>;
+  /** Visibilité souhaitée ; l'ingestion force de toute façon ADMIN pour le scoring. */
+  visibility?: "PUBLIC" | "ADMIN";
 }
 
 /** Un site déployé ou programmé : école, centre, abri, satellite, BTS, fibre… */
@@ -178,9 +180,67 @@ function villageToEntry(row: Record<string, unknown>): CorpusEntry {
   };
 }
 
+/**
+ * Fiche jumelle CITOYENNE d'un village scoré — incident de salon : la fiche
+ * de scoring mêlait faits citoyens et décision de sélection, et une fois le
+ * scoring basculé ADMIN, un village comme DJACE n'avait plus AUCUNE fiche
+ * publique. Celle-ci ne porte que ce qu'un citoyen a le droit d'entendre :
+ * localisation, population, équipements, électrification, distances aux
+ * infrastructures. Jamais de retenu/score/rang/vague/éligibilité.
+ */
+function villageToCitizenEntry(row: Record<string, unknown>): CorpusEntry {
+  const nom = String(row.nom ?? "village sans nom");
+
+  const equipements = sentence([
+    Number(row.nb_ecoles) > 0 ? `${num(row.nb_ecoles)} école(s)` : null,
+    Number(row.nb_centres_sante) > 0 ? `${num(row.nb_centres_sante)} centre(s) de santé` : null,
+  ]);
+
+  const content = sentence([
+    `Village de ${nom},`,
+    sentence([
+      row.sous_prefecture ? `sous-préfecture de ${row.sous_prefecture},` : null,
+      row.departement ? `département de ${row.departement},` : null,
+      row.region ? `région ${row.region}.` : null,
+    ]),
+    num(row.population) ? `Population : ${num(row.population)} habitants.` : null,
+    equipements ? `Équipements présents : ${equipements}.` : "Aucune école ni centre de santé recensé.",
+    row.electrifie ? `Électrification : ${row.electrifie}.` : null,
+    sentence([
+      "Distances aux infrastructures :",
+      metres(row.dist_route_m) ? `route praticable ${metres(row.dist_route_m)},` : null,
+      metres(row.dist_fo_m) ? `raccordement fibre ${metres(row.dist_fo_m)},` : null,
+      metres(row.dist_fh_m) ? `relais hertzien ${metres(row.dist_fh_m)},` : null,
+      metres(row.dist_site_3g_m) ? `site 3G le plus proche ${metres(row.dist_site_3g_m)}.` : null,
+    ]),
+  ]);
+
+  return {
+    id: `localite-${row.id}`,
+    source: "scoring_villages",
+    type: "village_infos",
+    title: `Localité — ${nom}${row.departement ? ` (${row.departement})` : ""}`,
+    region: (row.region as string) ?? null,
+    departement: (row.departement as string) ?? null,
+    content,
+    visibility: "PUBLIC",
+    metadata: {
+      nom,
+      lat: row.latitude,
+      lng: row.longitude,
+      population: row.population ?? null,
+      nb_ecoles: row.nb_ecoles ?? 0,
+      nb_centres_sante: row.nb_centres_sante ?? 0,
+      electrifie: row.electrifie ?? null,
+    },
+  };
+}
+
 const TABLES = {
-  localites: { select: "*", toEntry: siteToEntry },
-  scoring_villages: { select: "*", toEntry: villageToEntry },
+  localites: { select: "*", toEntries: (row: Record<string, unknown>) => [siteToEntry(row)] },
+  // Chaque village produit deux fiches : la fiche de scoring (décision —
+  // née ADMIN par la règle d'ingestion) et sa jumelle citoyenne (PUBLIC).
+  scoring_villages: { select: "*", toEntries: (row: Record<string, unknown>) => [villageToEntry(row), villageToCitizenEntry(row)] },
 } as const;
 
 type TableName = keyof typeof TABLES;
@@ -197,7 +257,7 @@ Deno.serve(async (req: Request) => {
     if (!(table in TABLES)) {
       throw new Error(`Table inconnue : ${table}. Attendu : ${Object.keys(TABLES).join(", ")}.`);
     }
-    const { select, toEntry } = TABLES[table];
+    const { select, toEntries } = TABLES[table];
 
     const observatoireUrl =
       Deno.env.get("OBSERVATOIRE_URL") || DEFAULT_OBSERVATOIRE_URL;
@@ -233,7 +293,7 @@ Deno.serve(async (req: Request) => {
         break;
       }
 
-      const entries = rows.map(toEntry);
+      const entries = rows.flatMap(toEntries);
       for (let index = 0; index < entries.length; index += UPSERT_BATCH) {
         const batch = entries.slice(index, index + UPSERT_BATCH);
         const { error } = await suta.rpc("upsert_corpus_entries", { payload: batch });

@@ -32,6 +32,26 @@ const LIMITE_MAX = 8;
 const PROFONDEUR_VECTEUR = 12;
 const PROFONDEUR_GEO = 6;
 
+/**
+ * GARDE-FOU DÉCISIONNEL — indépendant du prompt et de la visibilité.
+ * Incident de salon : SUTA a restitué « non retenu », « score AIGF 0/100 »,
+ * « vague de financement » à un citoyen. Même si une fiche de décision
+ * repassait un jour en PUBLIC, elle ne sort pas d'ici : résultat écarté si
+ * son titre est décisionnel, phrases de décision retirées du contenu et de
+ * la localisation sinon. Un citoyen a droit aux faits (couverture,
+ * infrastructures, population), jamais aux décisions de sélection.
+ */
+const TITRE_DECISIONNEL = /scoring|non[- ]retenue?|rang (national|régional)|vague de financement|\bs[ée]lection/i;
+const PHRASE_DECISIONNELLE = /non[- ]retenue?s?\b|\bretenue?s?\b[^.]*\b(programme|vague|sélection|priorisation)|score (aigf|total|de priorisation)|rang (national|régional)|vague de financement|éligibilit|\bnon class|priorisation/i;
+
+function purgerDecisions(texte: string): string {
+  return texte
+    .split(/(?<=[.!?;])\s+/)
+    .filter((phrase) => !PHRASE_DECISIONNELLE.test(phrase))
+    .join(" ")
+    .trim();
+}
+
 /** Mots outils français : jamais des toponymes, inutile de les vérifier. */
 const MOTS_OUTILS = new Set([
   "les", "des", "une", "aux", "est", "sur", "par", "pas", "que", "qui", "quoi",
@@ -90,15 +110,19 @@ function extractLocation(metadata: Record<string, unknown> | null, fallbackLabel
   return { lat, lng, label: typeof nom === "string" && nom.length > 0 ? nom : fallbackLabel };
 }
 
+/** Rend `null` si le résultat est décisionnel (titre) ou vidé par la purge. */
 function formater(row: { document_title: string; section: string | null; content: string; metadata: Record<string, unknown> | null }, score: number) {
+  if (TITRE_DECISIONNEL.test(row.document_title)) return null;
+  const contenu = purgerDecisions(row.content);
+  if (contenu.length === 0) return null;
   return {
     title: row.document_title,
     section: row.section,
     source: row.section ?? "Corpus ANSUT",
     score: Math.round(score * 1000) / 1000,
     location: extractLocation(row.metadata, row.document_title),
-    content: row.content.slice(0, CONTENU_MAX),
-    extrait: row.content.slice(0, 220),
+    content: contenu.slice(0, CONTENU_MAX),
+    extrait: contenu.slice(0, 220),
   };
 }
 
@@ -167,7 +191,7 @@ Deno.serve(async (req: Request) => {
       ...deuxVoies.map((v) => formater(v.row, v.score)),
       ...geoSeuls.map((g, i) => formater(g, 0.5 - i * 0.01)),
       ...vecteurSeuls.map((v) => formater(v.row, v.score)),
-    ].slice(0, matchCount);
+    ].filter((r): r is NonNullable<typeof r> => r !== null).slice(0, matchCount);
 
     // Journal temporaire (diagnostic du classement géographique) : jamais de
     // contenu de fiche, uniquement requête, toponymes et titres classés.
