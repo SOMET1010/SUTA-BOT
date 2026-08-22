@@ -16,12 +16,13 @@ export interface RealtimeClientOptions { clientSecret:string; webrtcUrl:string; 
 
 export class RealtimeClient {
   private peerConnection:RTCPeerConnection|null=null; private dataChannel:RTCDataChannel|null=null; private micStream:MediaStream|null=null; private audioEl:HTMLAudioElement|null=null; private hasActiveResponse=false;
-  /** Compte les réponses ouvertes ; sert à détecter qu'une nouvelle réponse a démarré pendant l'exécution d'un outil. */
   private responseSeq=0;
-  /** Un résultat d'outil attend que la réponse en cours se termine pour demander la suivante. */
   private pendingToolResponse=false;
-  /** Filtre les faux barge-in (bruit bref, respiration) pendant que SUTA parle. */
   private readonly bargeIn=new BargeInGate();
+  /** Un même function_call_done ne doit jamais déclencher deux recherches. */
+  private readonly handledToolCallIds=new Set<string>();
+  /** Garde secondaire : même outil + mêmes arguments dans la même réponse. */
+  private readonly handledToolKeys=new Set<string>();
   constructor(private readonly options:RealtimeClientOptions){}
   async connect():Promise<void>{
     if(this.peerConnection) throw new Error("RealtimeClient: connect() appelé deux fois sur la même instance.");
@@ -35,39 +36,36 @@ export class RealtimeClient {
     if(!response.ok)throw new Error(`Échec de l'établissement de la session Realtime (HTTP ${response.status}).`);await pc.setRemoteDescription({type:"answer",sdp:await response.text()});await this.waitForDataChannelOpen(dc);
   }
   private waitForDataChannelOpen(channel:RTCDataChannel):Promise<void>{if(channel.readyState==="open")return Promise.resolve();return new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(new Error("La session vocale n'a pas fini de s'ouvrir. Réessayez.")),DATA_CHANNEL_OPEN_TIMEOUT_MS);channel.addEventListener("open",()=>{clearTimeout(timer);resolve();},{once:true});channel.addEventListener("close",()=>{clearTimeout(timer);reject(new Error("La session vocale s'est fermée avant d'être prête."));},{once:true});});}
-  /**
-   * EXPÉRIENCE DE STABILISATION (branche dédiée) : pendant que SUTA répond,
-   * on coupe uniquement l'émission de la piste micro vers Realtime. Le but
-   * est d'isoler sans ambiguïté les faux barge-in acoustiques causés par le
-   * haut-parleur du téléphone. Le track reste ouvert, il est simplement
-   * réactivé dès response.done. Le texte peut toujours interrompre.
-   */
-  private setMicEnabled(enabled:boolean):void{
-    this.micStream?.getAudioTracks().forEach((track)=>{track.enabled=enabled;});
-    vlog("micro",{actif:enabled,mode:"half-duplex"});
-  }
-  disconnect():void{this.bargeIn.reset();this.dataChannel?.close();this.dataChannel=null;this.peerConnection?.close();this.peerConnection=null;this.micStream?.getTracks().forEach(t=>t.stop());this.micStream=null;if(this.audioEl){this.audioEl.pause();this.audioEl.srcObject=null;this.audioEl=null;}this.hasActiveResponse=false;this.options.callbacks?.onConnectionStateChange?.("disconnected");}
-  /** Un texte envoyé pendant que SUTA parle vaut interruption : on annule la
-   * réponse en cours avant d'en demander une nouvelle, sinon le serveur
-   * rejette le `response.create` (« already has an active response »). */
+  private setMicEnabled(enabled:boolean):void{this.micStream?.getAudioTracks().forEach((track)=>{track.enabled=enabled;});vlog("micro",{actif:enabled,mode:"half-duplex"});}
+  disconnect():void{this.bargeIn.reset();this.handledToolCallIds.clear();this.handledToolKeys.clear();this.dataChannel?.close();this.dataChannel=null;this.peerConnection?.close();this.peerConnection=null;this.micStream?.getTracks().forEach(t=>t.stop());this.micStream=null;if(this.audioEl){this.audioEl.pause();this.audioEl.srcObject=null;this.audioEl=null;}this.hasActiveResponse=false;this.options.callbacks?.onConnectionStateChange?.("disconnected");}
   sendUserText(text:string):void{if(this.hasActiveResponse)this.send({type:"response.cancel"});this.send({type:"conversation.item.create",item:{type:"message",role:"user",content:[{type:"input_text",text}]}});this.send({type:"response.create"});}
-  /** Ajoute un contexte silencieux à la session sans déclencher de réponse. */
   addContext(text:string):void{if(!text.trim())return;this.send({type:"conversation.item.create",item:{type:"message",role:"system",content:[{type:"input_text",text}]}});}
   interrupt():void{vlog("response.cancel",{envoye:this.hasActiveResponse});if(this.hasActiveResponse)this.send({type:"response.cancel"});}
   private send(event:Record<string,unknown>):void{if(this.dataChannel?.readyState==="open")this.dataChannel.send(JSON.stringify(event));}
   private handleServerEvent(raw:string):void{let parsed:unknown;try{parsed=JSON.parse(raw);}catch{return;}const event=normalizeServerEvent(parsed);if(!event)return;const c=this.options.callbacks;switch(event.type){
-      // Sur cette branche expérimentale, le micro est désactivé pendant toute
-      // réponse active. Si un speech_started arrive malgré tout, on le journalise
-      // mais on n'annule jamais la réponse : c'est précisément ce qu'on cherche
-      // à isoler avant de réintroduire le barge-in.
       case"speech_started":vlog("speech_started",{reponseActive:this.hasActiveResponse,mode:"half-duplex"});if(this.hasActiveResponse){vlog("speech_started ignoré pendant réponse",{mode:"half-duplex"});break;}this.bargeIn.speechStarted(false,()=>c?.onSpeechStarted?.(),()=>c?.onSpeechStarted?.());break;
-      case"speech_stopped":{const fausseAlerte=this.bargeIn.speechStopped();vlog("speech_stopped",{fausseAlerte,mode:"half-duplex"});c?.onSpeechStopped?.();break;}case"user_transcript_delta":c?.onUserTranscriptDelta?.(event.delta);break;case"user_transcript_done":c?.onUserTranscriptDone?.(event.transcript);break;case"assistant_transcript_delta":c?.onAssistantTranscriptDelta?.(event.delta);break;case"assistant_transcript_done":c?.onAssistantTranscriptDone?.(event.transcript);break;case"response_created":vlog("response.created",{mode:"half-duplex"});this.hasActiveResponse=true;this.responseSeq+=1;this.pendingToolResponse=false;this.setMicEnabled(false);c?.onResponseCreated?.();break;case"response_done":vlog("response.done",{suiteOutilEnAttente:this.pendingToolResponse,mode:"half-duplex"});this.hasActiveResponse=false;this.setMicEnabled(true);if(this.pendingToolResponse){this.pendingToolResponse=false;this.send({type:"response.create"});}c?.onResponseDone?.();break;case"function_call_done":void this.runToolCall(event.callId,event.name,event.argumentsJson);break;case"error":c?.onError?.(event.message);}}
-  private async runToolCall(callId:string,name:string,argumentsJson:string):Promise<void>{const seqAtCall=this.responseSeq;let output:unknown;try{output=await this.options.executeTool(name,argumentsJson);}catch(error){output={error:error instanceof Error?error.message:"Échec de l'outil."};}this.send({type:"conversation.item.create",item:{type:"function_call_output",call_id:callId,output:JSON.stringify(output)}});
-    // Trois cas après avoir posé le résultat :
-    // - une NOUVELLE réponse a démarré pendant la recherche : ne rien demander ;
-    // - la réponse porteuse de l'appel est déjà close : demander la suite ;
-    // - elle n'est pas encore close : attendre response.done avant la suite.
+      case"speech_stopped":{const fausseAlerte=this.bargeIn.speechStopped();vlog("speech_stopped",{fausseAlerte,mode:"half-duplex"});c?.onSpeechStopped?.();break;}
+      case"user_transcript_delta":c?.onUserTranscriptDelta?.(event.delta);break;
+      case"user_transcript_done":c?.onUserTranscriptDone?.(event.transcript);break;
+      case"assistant_transcript_delta":c?.onAssistantTranscriptDelta?.(event.delta);break;
+      case"assistant_transcript_done":c?.onAssistantTranscriptDone?.(event.transcript);break;
+      case"response_created":vlog("response.created",{mode:"half-duplex"});this.hasActiveResponse=true;this.responseSeq+=1;this.pendingToolResponse=false;this.handledToolKeys.clear();this.setMicEnabled(false);c?.onResponseCreated?.();break;
+      case"response_done":vlog("response.done",{suiteOutilEnAttente:this.pendingToolResponse,mode:"half-duplex"});this.hasActiveResponse=false;this.setMicEnabled(true);if(this.pendingToolResponse){this.pendingToolResponse=false;this.send({type:"response.create"});}c?.onResponseDone?.();break;
+      case"function_call_done":void this.runToolCall(event.callId,event.name,event.argumentsJson);break;
+      case"error":c?.onError?.(event.message);
+    }}
+  private async runToolCall(callId:string,name:string,argumentsJson:string):Promise<void>{
+    const key=`${this.responseSeq}:${name}:${argumentsJson}`;
+    if(this.handledToolCallIds.has(callId)||this.handledToolKeys.has(key)){
+      vlog("tool_call dupliqué ignoré",{callId,name,responseSeq:this.responseSeq});
+      return;
+    }
+    this.handledToolCallIds.add(callId);this.handledToolKeys.add(key);
+    const seqAtCall=this.responseSeq;let output:unknown;
+    try{output=await this.options.executeTool(name,argumentsJson);}catch(error){output={error:error instanceof Error?error.message:"Échec de l'outil."};}
+    this.send({type:"conversation.item.create",item:{type:"function_call_output",call_id:callId,output:JSON.stringify(output)}});
     if(this.responseSeq!==seqAtCall)return;
     if(!this.hasActiveResponse)this.send({type:"response.create"});
-    else this.pendingToolResponse=true;}
+    else this.pendingToolResponse=true;
+  }
 }
