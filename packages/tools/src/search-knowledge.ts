@@ -42,11 +42,18 @@ export interface SearchKnowledgeOutput {
 
 export const searchKnowledgeTool: ToolDefinition<SearchKnowledgeInput, SearchKnowledgeOutput> = {
   name: "search_knowledge",
+  // La première version disait « à utiliser pour toute question » : le modèle
+  // obéissait et cherchait à chaque tour, transformant la conversation en FAQ.
+  // La description est le premier levier de la discipline d'outil.
   description:
-    "Recherche des informations dans la base de connaissances de l'ANSUT " +
-    "(programmes, services, procédures, contacts). À utiliser pour toute " +
-    "question portant sur des informations institutionnelles de l'ANSUT. " +
-    "Ne jamais présenter comme un fait une information absente des résultats.",
+    "Retrouve un fait précis et vérifiable (couverture d'une localité, " +
+    "chiffre, programme, condition d'éligibilité, démarche) dans la base de " +
+    "connaissances de l'ANSUT. N'appelle cet outil que si la réponse exige " +
+    "un fait que tu n'as pas déjà dans la conversation. Jamais pour une " +
+    "salutation, une réaction, une clarification ou un fait déjà donné. " +
+    "Mets dans query le besoin complet avec son contexte (ex. « formation " +
+    "numérique femme senior Korhogo »), pas les mots exacts de la personne. " +
+    "Ne présente jamais comme un fait une information absente des résultats.",
   inputSchema: searchKnowledgeInputSchema,
   async execute(input) {
     const { results } = await searchDocuments(input.query, {
