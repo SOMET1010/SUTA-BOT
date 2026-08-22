@@ -2,122 +2,25 @@ import type { ConversationState } from "@suta/shared";
 import type { SutaEmotion } from "@/lib/suta/scene";
 
 const WAVE_RING_COUNT = 3;
+const LABELS: Record<SutaEmotion,string> = { neutral:"calme", warm:"accueillant", curious:"curieux", thinking:"en reflexion", explaining:"pedagogue", reassuring:"rassurant", celebrating:"enthousiaste", alert:"alerte" };
 
-const EMOTION_STYLES: Record<
-  SutaEmotion,
-  { halo: string; core: string; accent: string; label: string }
-> = {
-  neutral: {
-    halo: "from-ansut-blue/20 to-ansut-orange/15",
-    core: "from-ansut-blue to-ansut-orange",
-    accent: "border-t-ansut-blue/30",
-    label: "calme",
-  },
-  warm: {
-    halo: "from-ansut-orange/25 to-ansut-blue/20",
-    core: "from-ansut-orange to-ansut-blue",
-    accent: "border-t-ansut-orange",
-    label: "accueillant",
-  },
-  curious: {
-    halo: "from-ansut-blue/30 to-cyan-300/20",
-    core: "from-ansut-blue to-cyan-500",
-    accent: "border-t-cyan-400",
-    label: "curieux",
-  },
-  thinking: {
-    halo: "from-indigo-300/25 to-ansut-blue/25",
-    core: "from-indigo-500 to-ansut-blue",
-    accent: "border-t-indigo-400",
-    label: "en reflexion",
-  },
-  explaining: {
-    halo: "from-ansut-blue/30 to-ansut-orange/25",
-    core: "from-ansut-blue to-ansut-orange",
-    accent: "border-t-ansut-orange",
-    label: "pedagogue",
-  },
-  reassuring: {
-    halo: "from-emerald-300/25 to-ansut-blue/20",
-    core: "from-emerald-500 to-ansut-blue",
-    accent: "border-t-emerald-400",
-    label: "rassurant",
-  },
-  celebrating: {
-    halo: "from-amber-300/35 to-ansut-orange/30",
-    core: "from-amber-400 to-ansut-orange",
-    accent: "border-t-amber-400",
-    label: "enthousiaste",
-  },
-  alert: {
-    halo: "from-red-300/25 to-ansut-orange/20",
-    core: "from-red-500 to-ansut-orange",
-    accent: "border-t-red-400",
-    label: "alerte",
-  },
-};
-
-/**
- * Presence visuelle de SUTA. L'etat technique pilote le rythme tandis que
- * l'emotion pilote la couleur et la tonalite visuelle.
- */
-export function SutaOrb({
-  state,
-  emotion = "warm",
-}: {
-  state: ConversationState;
-  emotion?: SutaEmotion;
-}) {
-  const isError = state === "ERROR" || state === "OFFLINE";
-  const isListening = state === "LISTENING" || state === "INTERRUPTED";
-  const isSpeaking = state === "SPEAKING";
-  const isSearching = state === "SEARCHING" || state === "THINKING";
-  const style = isError ? EMOTION_STYLES.alert : EMOTION_STYLES[emotion];
-
-  return (
-    <div
-      role="img"
-      aria-label={`Avatar SUTA, etat ${state.toLowerCase()}, emotion ${style.label}`}
-      className="relative flex h-48 w-48 items-center justify-center sm:h-56 sm:w-56"
-      data-emotion={isError ? "alert" : emotion}
-    >
-      <div
-        className={`absolute inset-0 rounded-full bg-gradient-to-br ${style.halo} blur-2xl animate-suta-halo-breathe`}
-      />
-
-      {isSpeaking &&
-        Array.from({ length: WAVE_RING_COUNT }).map((_, index) => (
-          <div
-            key={index}
-            className="absolute h-32 w-32 rounded-full border border-ansut-orange/50 animate-suta-wave sm:h-36 sm:w-36"
-            style={{ animationDelay: `${index * 0.5}s` }}
-          />
-        ))}
-
-      <div
-        className="absolute h-40 w-40 rounded-full border border-dashed border-ansut-blue/25 animate-suta-ring-slow sm:h-44 sm:w-44"
-        aria-hidden="true"
-      />
-
-      <div
-        className={`absolute h-32 w-32 rounded-full border-2 border-transparent sm:h-36 sm:w-36 ${
-          isListening ? `${style.accent} animate-suta-ring-fast` : style.accent
-        }`}
-        aria-hidden="true"
-      />
-
-      <div
-        className={`relative flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br ${style.core} shadow-lg animate-suta-core-pulse sm:h-28 sm:w-28`}
-      >
-        {isSearching && (
-          <span className="h-3 w-3 rounded-full bg-white animate-suta-search-pulse" />
-        )}
-        {isSpeaking && emotion === "celebrating" && (
-          <span className="absolute -right-2 -top-2 text-lg" aria-hidden="true">
-            ✨
-          </span>
-        )}
-      </div>
+/** Avatar vectoriel SUTA sans asset externe : le visage peut ensuite etre remplace par l'asset 3D officiel. */
+export function SutaOrb({ state, emotion="warm" }: { state: ConversationState; emotion?: SutaEmotion }) {
+  const isError=state==="ERROR"||state==="OFFLINE"; const activeEmotion=isError?"alert":emotion;
+  const isListening=state==="LISTENING"||state==="INTERRUPTED"; const isSpeaking=state==="SPEAKING"; const isThinking=state==="SEARCHING"||state==="THINKING";
+  return <div role="img" aria-label={`SUTA, ${LABELS[activeEmotion]}`} data-emotion={activeEmotion} className="relative flex h-56 w-56 items-center justify-center sm:h-64 sm:w-64">
+    <div className="absolute inset-3 rounded-full bg-gradient-to-br from-ansut-blue/20 via-white to-ansut-orange/25 blur-2xl animate-suta-halo-breathe" />
+    {isSpeaking&&Array.from({length:WAVE_RING_COUNT}).map((_,i)=><div key={i} className="absolute h-40 w-40 rounded-full border border-ansut-orange/45 animate-suta-wave" style={{animationDelay:`${i*.5}s`}} />)}
+    <div className={`absolute h-48 w-48 rounded-full border border-dashed border-ansut-blue/25 ${isListening?"animate-suta-ring-fast":"animate-suta-ring-slow"}`} />
+    <div className="relative h-40 w-40 overflow-hidden rounded-full border-4 border-white bg-gradient-to-b from-sky-100 to-blue-50 shadow-[0_20px_60px_rgba(10,55,110,.22)]">
+      <div className="absolute left-1/2 top-3 h-20 w-28 -translate-x-1/2 rounded-[50%_50%_46%_46%] bg-[#7a431f]" />
+      <div className="absolute left-1/2 top-0 h-11 w-32 -translate-x-1/2 rounded-b-[55%] rounded-t-full bg-ansut-blue shadow-md"><span className="absolute left-1/2 top-3 -translate-x-1/2 text-[10px] font-black tracking-wider text-white">ANSUT</span><span className="absolute bottom-0 left-2 right-2 h-1 rounded-full bg-ansut-orange" /></div>
+      <div className="absolute left-[42px] top-[62px] h-5 w-5 rounded-full bg-white shadow-inner"><span className={`absolute left-1 top-1 h-3 w-3 rounded-full bg-[#18243a] ${isThinking?"animate-pulse":""}`} /></div>
+      <div className="absolute right-[42px] top-[62px] h-5 w-5 rounded-full bg-white shadow-inner"><span className={`absolute left-1 top-1 h-3 w-3 rounded-full bg-[#18243a] ${isThinking?"animate-pulse":""}`} /></div>
+      <div className={`absolute left-1/2 top-[92px] -translate-x-1/2 border-[#3b1f16] ${activeEmotion==="celebrating"||activeEmotion==="warm"?"h-5 w-10 rounded-b-full border-b-4":"h-3 w-8 rounded-full border-b-2"}`} />
+      <div className="absolute -bottom-12 left-1/2 h-24 w-28 -translate-x-1/2 rounded-t-[45%] bg-ansut-blue"><span className="absolute left-1/2 top-4 h-7 w-7 -translate-x-1/2 rounded-full border-[5px] border-white bg-ansut-orange" /></div>
+      {isThinking&&<div className="absolute inset-0 bg-white/10 animate-pulse" />}
     </div>
-  );
+    <div className="absolute -bottom-1 rounded-full border border-white/80 bg-white/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-[.14em] text-ansut-blue shadow-sm">{isSpeaking?"Je vous reponds":isListening?"Je vous ecoute":isThinking?"Je cherche":"SUTA est pret"}</div>
+  </div>;
 }
