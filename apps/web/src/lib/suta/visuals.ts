@@ -67,6 +67,8 @@ export type SutaVisual =
       actions?: SutaAction[];
     };
 
+export type SutaMapVisual = Extract<SutaVisual, { kind: "map" }>;
+
 /**
  * Forme minimale attendue d'un resultat de recherche. Ce type reste leger car
  * le module est charge dans le navigateur.
@@ -95,10 +97,9 @@ function caption(points: VisualPoint[]): string {
 /**
  * Deduit un premier visuel des resultats de recherche. Cette fonction conserve
  * le comportement historique : seules de vraies coordonnees produisent une
- * carte. Les autres familles de visuels seront construites par la couche scene
- * a partir de donnees structurees provenant des outils.
+ * carte. Les autres familles de visuels sont construites par la couche scene.
  */
-export function visualFromSearchResults(results: VisualisableResult[]): SutaVisual | null {
+export function visualFromSearchResults(results: VisualisableResult[]): SutaMapVisual | null {
   const points = dedupePoints(
     results
       .map((result) => result.location)
