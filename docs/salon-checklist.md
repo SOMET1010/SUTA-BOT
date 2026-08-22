@@ -1,5 +1,9 @@
 # Checklist Salon
 
+**Adresse de la version en ligne : https://suta-bot-web.vercel.app**
+(diagnostics : https://suta-bot-web.vercel.app/admin/diagnostics —
+projet Vercel `suta-bot-web`, déployé depuis la branche de travail).
+
 Cahier des charges, section 48. À dérouler avant toute démonstration
 publique (idéalement la veille et une dernière fois juste avant
 l'ouverture).
