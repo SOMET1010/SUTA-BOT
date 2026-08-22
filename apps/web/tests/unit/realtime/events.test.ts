@@ -98,6 +98,14 @@ describe("normalizeServerEvent", () => {
         error: { message: "cancellation failed: no active response found" },
       }),
     ).toBeNull();
+    // Course inverse : le VAD serveur demande une réponse alors qu'une autre
+    // est encore active (bruit bref non confirmé). Rejet superflu, pas fatal.
+    expect(
+      normalizeServerEvent({
+        type: "error",
+        error: { message: "Conversation already has an active response" },
+      }),
+    ).toBeNull();
   });
 
   it("ignores events it doesn't recognize or care about", () => {

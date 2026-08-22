@@ -42,7 +42,13 @@ describe("AzureRealtimeProvider", () => {
     expect(body.session.model).toBe("gpt-realtime-2.1");
     expect(body.session.instructions).toBe("Tu es SUTA.");
     expect(body.session.tools).toBeUndefined();
-    expect(body.session.audio.input.turn_detection).toEqual({ type: "server_vad" });
+    // Seuils salon : pas de coupure serveur automatique (la garde client
+    // décide), sensibilité relevée contre les bruits ambiants.
+    expect(body.session.audio.input.turn_detection).toMatchObject({
+      type: "server_vad",
+      interrupt_response: false,
+    });
+    expect(body.session.audio.input.turn_detection.threshold).toBeGreaterThan(0.5);
     expect(body.session.audio.input.transcription).toMatchObject({
       model: "whisper-1",
       language: "fr",

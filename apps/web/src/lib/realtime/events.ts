@@ -100,6 +100,16 @@ export function normalizeServerEvent(raw: unknown): NormalizedRealtimeEvent | nu
         return null;
       }
 
+      // « Conversation already has an active response » — même famille de
+      // course inoffensive, dans l'autre sens : le VAD serveur peut créer
+      // automatiquement une réponse en fin de tour alors qu'une réponse
+      // est encore active (bruit bref non confirmé par la garde, résultat
+      // d'outil arrivé au même moment). La demande superflue est rejetée,
+      // la réponse en cours continue : rien à casser côté utilisateur.
+      if (/already has an active response/i.test(message)) {
+        return null;
+      }
+
       return { type: "error", message };
     }
 

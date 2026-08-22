@@ -92,9 +92,22 @@ export class AzureRealtimeProvider implements RealtimeProvider {
                   "Bondoukou, Ferkessédougou, Boundiali, Katiola, Touba, Guiglo, Duékoué, Soubré, " +
                   "Agboville, Adzopé, Dabou, Grand-Bassam, Tiémé, Facobly, ANSUT, SUTA.",
               },
-              // server_vad : détection automatique de la fin de prise de
-              // parole et de l'interruption naturelle (section 13).
-              turn_detection: { type: "server_vad" },
+              // server_vad : détection de fin de prise de parole. Les seuils
+              // par défaut (threshold 0.5) sont calibrés pour un casque au
+              // calme : en conditions de salon, respirations et bruits brefs
+              // déclenchaient des « prises de parole » fantômes qui coupaient
+              // SUTA en pleine phrase. threshold relevé, silence allongé, et
+              // surtout interrupt_response désactivé : le serveur ne coupe
+              // plus tout seul — l'annulation est décidée côté client par la
+              // garde de confirmation (BargeInGate, ~280 ms de parole
+              // soutenue), qui distingue un bruit d'un vrai « attends ».
+              turn_detection: {
+                type: "server_vad",
+                threshold: 0.75,
+                prefix_padding_ms: 300,
+                silence_duration_ms: 600,
+                interrupt_response: false,
+              },
             },
             output: {
               // « marin » est l'une des voix naturelles du modèle GA. La
