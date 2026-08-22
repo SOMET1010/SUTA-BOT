@@ -35,6 +35,17 @@ export class RealtimeClient {
     if(!response.ok)throw new Error(`Échec de l'établissement de la session Realtime (HTTP ${response.status}).`);await pc.setRemoteDescription({type:"answer",sdp:await response.text()});await this.waitForDataChannelOpen(dc);
   }
   private waitForDataChannelOpen(channel:RTCDataChannel):Promise<void>{if(channel.readyState==="open")return Promise.resolve();return new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(new Error("La session vocale n'a pas fini de s'ouvrir. Réessayez.")),DATA_CHANNEL_OPEN_TIMEOUT_MS);channel.addEventListener("open",()=>{clearTimeout(timer);resolve();},{once:true});channel.addEventListener("close",()=>{clearTimeout(timer);reject(new Error("La session vocale s'est fermée avant d'être prête."));},{once:true});});}
+  /**
+   * EXPÉRIENCE DE STABILISATION (branche dédiée) : pendant que SUTA répond,
+   * on coupe uniquement l'émission de la piste micro vers Realtime. Le but
+   * est d'isoler sans ambiguïté les faux barge-in acoustiques causés par le
+   * haut-parleur du téléphone. Le track reste ouvert, il est simplement
+   * réactivé dès response.done. Le texte peut toujours interrompre.
+   */
+  private setMicEnabled(enabled:boolean):void{
+    this.micStream?.getAudioTracks().forEach((track)=>{track.enabled=enabled;});
+    vlog("micro",{actif:enabled,mode:"half-duplex"});
+  }
   disconnect():void{this.bargeIn.reset();this.dataChannel?.close();this.dataChannel=null;this.peerConnection?.close();this.peerConnection=null;this.micStream?.getTracks().forEach(t=>t.stop());this.micStream=null;if(this.audioEl){this.audioEl.pause();this.audioEl.srcObject=null;this.audioEl=null;}this.hasActiveResponse=false;this.options.callbacks?.onConnectionStateChange?.("disconnected");}
   /** Un texte envoyé pendant que SUTA parle vaut interruption : on annule la
    * réponse en cours avant d'en demander une nouvelle, sinon le serveur
@@ -45,19 +56,17 @@ export class RealtimeClient {
   interrupt():void{vlog("response.cancel",{envoye:this.hasActiveResponse});if(this.hasActiveResponse)this.send({type:"response.cancel"});}
   private send(event:Record<string,unknown>):void{if(this.dataChannel?.readyState==="open")this.dataChannel.send(JSON.stringify(event));}
   private handleServerEvent(raw:string):void{let parsed:unknown;try{parsed=JSON.parse(raw);}catch{return;}const event=normalizeServerEvent(parsed);if(!event)return;const c=this.options.callbacks;switch(event.type){
-      // L'annulation n'est plus réflexe : pendant une réponse, elle attend la
-      // confirmation de la garde (parole soutenue). La coupure automatique du
-      // VAD serveur est désactivée (interrupt_response:false, côté provider) —
-      // c'est donc ici, et seulement ici, que SUTA peut être interrompue.
-      case"speech_started":vlog("speech_started",{reponseActive:this.hasActiveResponse});this.bargeIn.speechStarted(this.hasActiveResponse,()=>c?.onSpeechStarted?.(),()=>{vlog("barge-in confirmé (parole soutenue)");this.interrupt();c?.onSpeechStarted?.();});break;
-      case"speech_stopped":{const fausseAlerte=this.bargeIn.speechStopped();vlog("speech_stopped",{fausseAlerte});c?.onSpeechStopped?.();break;}case"user_transcript_delta":c?.onUserTranscriptDelta?.(event.delta);break;case"user_transcript_done":c?.onUserTranscriptDone?.(event.transcript);break;case"assistant_transcript_delta":c?.onAssistantTranscriptDelta?.(event.delta);break;case"assistant_transcript_done":c?.onAssistantTranscriptDone?.(event.transcript);break;case"response_created":vlog("response.created");this.hasActiveResponse=true;this.responseSeq+=1;this.pendingToolResponse=false;c?.onResponseCreated?.();break;case"response_done":vlog("response.done",{suiteOutilEnAttente:this.pendingToolResponse});this.hasActiveResponse=false;if(this.pendingToolResponse){this.pendingToolResponse=false;this.send({type:"response.create"});}c?.onResponseDone?.();break;case"function_call_done":void this.runToolCall(event.callId,event.name,event.argumentsJson);break;case"error":c?.onError?.(event.message);}}
+      // Sur cette branche expérimentale, le micro est désactivé pendant toute
+      // réponse active. Si un speech_started arrive malgré tout, on le journalise
+      // mais on n'annule jamais la réponse : c'est précisément ce qu'on cherche
+      // à isoler avant de réintroduire le barge-in.
+      case"speech_started":vlog("speech_started",{reponseActive:this.hasActiveResponse,mode:"half-duplex"});if(this.hasActiveResponse){vlog("speech_started ignoré pendant réponse",{mode:"half-duplex"});break;}this.bargeIn.speechStarted(false,()=>c?.onSpeechStarted?.(),()=>c?.onSpeechStarted?.());break;
+      case"speech_stopped":{const fausseAlerte=this.bargeIn.speechStopped();vlog("speech_stopped",{fausseAlerte,mode:"half-duplex"});c?.onSpeechStopped?.();break;}case"user_transcript_delta":c?.onUserTranscriptDelta?.(event.delta);break;case"user_transcript_done":c?.onUserTranscriptDone?.(event.transcript);break;case"assistant_transcript_delta":c?.onAssistantTranscriptDelta?.(event.delta);break;case"assistant_transcript_done":c?.onAssistantTranscriptDone?.(event.transcript);break;case"response_created":vlog("response.created",{mode:"half-duplex"});this.hasActiveResponse=true;this.responseSeq+=1;this.pendingToolResponse=false;this.setMicEnabled(false);c?.onResponseCreated?.();break;case"response_done":vlog("response.done",{suiteOutilEnAttente:this.pendingToolResponse,mode:"half-duplex"});this.hasActiveResponse=false;this.setMicEnabled(true);if(this.pendingToolResponse){this.pendingToolResponse=false;this.send({type:"response.create"});}c?.onResponseDone?.();break;case"function_call_done":void this.runToolCall(event.callId,event.name,event.argumentsJson);break;case"error":c?.onError?.(event.message);}}
   private async runToolCall(callId:string,name:string,argumentsJson:string):Promise<void>{const seqAtCall=this.responseSeq;let output:unknown;try{output=await this.options.executeTool(name,argumentsJson);}catch(error){output={error:error instanceof Error?error.message:"Échec de l'outil."};}this.send({type:"conversation.item.create",item:{type:"function_call_output",call_id:callId,output:JSON.stringify(output)}});
     // Trois cas après avoir posé le résultat :
-    // - une NOUVELLE réponse a démarré pendant la recherche (la personne a
-    //   repris la parole) : ne rien demander, elle utilisera le résultat ;
+    // - une NOUVELLE réponse a démarré pendant la recherche : ne rien demander ;
     // - la réponse porteuse de l'appel est déjà close : demander la suite ;
-    // - elle n'est pas encore close (course rare) : attendre son response.done
-    //   avant de demander la suite, sinon le serveur rejette la création.
+    // - elle n'est pas encore close : attendre response.done avant la suite.
     if(this.responseSeq!==seqAtCall)return;
     if(!this.hasActiveResponse)this.send({type:"response.create"});
     else this.pendingToolResponse=true;}
