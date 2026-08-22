@@ -1,6 +1,6 @@
 import { normalizeServerEvent } from "./events";
-import { BargeInGate } from "./interruption";
-import { vlog } from "./voice-debug";
+import { BargeInGate, BARGE_IN_CONFIRM_MS } from "./interruption";
+import { bargeInConfigFromUrl, vlog } from "./voice-debug";
 
 export type RealtimeConnectionState = "connecting" | "connected" | "disconnected";
 const DATA_CHANNEL_OPEN_TIMEOUT_MS = 15_000;
@@ -21,8 +21,20 @@ export class RealtimeClient {
   /** Un résultat d'outil attend que la réponse en cours se termine pour demander la suivante. */
   private pendingToolResponse=false;
   /** Filtre les faux barge-in (bruit bref, respiration) pendant que SUTA parle. */
-  private readonly bargeIn=new BargeInGate();
-  constructor(private readonly options:RealtimeClientOptions){}
+  private readonly bargeIn:BargeInGate;
+  /** Réglage diagnostic lu de l'URL (?bargein=off | ?bargein=<ms>). */
+  private readonly bargeInDisabled:boolean;
+  private readonly bargeInConfirmMs:number;
+  /** Instant du dernier speech_started, pour journaliser la durée de parole. */
+  private speechStartedAt=0;
+  constructor(private readonly options:RealtimeClientOptions){
+    const config=bargeInConfigFromUrl();
+    this.bargeInDisabled=config.disabled;
+    this.bargeInConfirmMs=config.confirmMs??BARGE_IN_CONFIRM_MS;
+    this.bargeIn=new BargeInGate(this.bargeInConfirmMs);
+    if(config.disabled)vlog("barge-in DÉSACTIVÉ pour cette session (?bargein=off) : la parole pendant une réponse n'annule rien");
+    else if(config.confirmMs)vlog("délai de confirmation barge-in ajusté",{confirmMs:config.confirmMs});
+  }
   async connect():Promise<void>{
     if(this.peerConnection) throw new Error("RealtimeClient: connect() appelé deux fois sur la même instance.");
     this.options.callbacks?.onConnectionStateChange?.("connecting");
@@ -49,8 +61,13 @@ export class RealtimeClient {
       // confirmation de la garde (parole soutenue). La coupure automatique du
       // VAD serveur est désactivée (interrupt_response:false, côté provider) —
       // c'est donc ici, et seulement ici, que SUTA peut être interrompue.
-      case"speech_started":vlog("speech_started",{reponseActive:this.hasActiveResponse});this.bargeIn.speechStarted(this.hasActiveResponse,()=>c?.onSpeechStarted?.(),()=>{vlog("barge-in confirmé (parole soutenue)");this.interrupt();c?.onSpeechStarted?.();});break;
-      case"speech_stopped":{const fausseAlerte=this.bargeIn.speechStopped();vlog("speech_stopped",{fausseAlerte});c?.onSpeechStopped?.();break;}case"user_transcript_delta":c?.onUserTranscriptDelta?.(event.delta);break;case"user_transcript_done":c?.onUserTranscriptDone?.(event.transcript);break;case"assistant_transcript_delta":c?.onAssistantTranscriptDelta?.(event.delta);break;case"assistant_transcript_done":c?.onAssistantTranscriptDone?.(event.transcript);break;case"response_created":vlog("response.created");this.hasActiveResponse=true;this.responseSeq+=1;this.pendingToolResponse=false;c?.onResponseCreated?.();break;case"response_done":vlog("response.done",{suiteOutilEnAttente:this.pendingToolResponse});this.hasActiveResponse=false;if(this.pendingToolResponse){this.pendingToolResponse=false;this.send({type:"response.create"});}c?.onResponseDone?.();break;case"function_call_done":void this.runToolCall(event.callId,event.name,event.argumentsJson);break;case"error":c?.onError?.(event.message);}}
+      case"speech_started":{this.speechStartedAt=performance.now();vlog("speech_started",{reponseActive:this.hasActiveResponse});
+        // Mode diagnostic ?bargein=off : pendant une réponse, la parole est
+        // journalisée mais n'annule jamais — si la voix se coupe encore, la
+        // cause n'est pas le barge-in client.
+        if(this.bargeInDisabled&&this.hasActiveResponse){vlog("BargeInGate : ignoré (mode diagnostic ?bargein=off)");break;}
+        this.bargeIn.speechStarted(this.hasActiveResponse,()=>c?.onSpeechStarted?.(),()=>{vlog("BargeInGate : barge-in CONFIRMÉ",{parolesSoutenuesMs:this.bargeInConfirmMs,dureeReelleMs:Math.round(performance.now()-this.speechStartedAt)});this.interrupt();c?.onSpeechStarted?.();});break;}
+      case"speech_stopped":{const dureeMs=this.speechStartedAt>0?Math.round(performance.now()-this.speechStartedAt):null;const fausseAlerte=this.bargeIn.speechStopped();vlog("speech_stopped",{dureeMs,decision:fausseAlerte?"BargeInGate : fausse alerte (bruit bref, rien annulé)":"hors garde"});c?.onSpeechStopped?.();break;}case"user_transcript_delta":c?.onUserTranscriptDelta?.(event.delta);break;case"user_transcript_done":c?.onUserTranscriptDone?.(event.transcript);break;case"assistant_transcript_delta":c?.onAssistantTranscriptDelta?.(event.delta);break;case"assistant_transcript_done":c?.onAssistantTranscriptDone?.(event.transcript);break;case"response_created":vlog("response.created");this.hasActiveResponse=true;this.responseSeq+=1;this.pendingToolResponse=false;c?.onResponseCreated?.();break;case"response_done":vlog("response.done",{suiteOutilEnAttente:this.pendingToolResponse});this.hasActiveResponse=false;if(this.pendingToolResponse){this.pendingToolResponse=false;this.send({type:"response.create"});}c?.onResponseDone?.();break;case"function_call_done":void this.runToolCall(event.callId,event.name,event.argumentsJson);break;case"error":c?.onError?.(event.message);}}
   private async runToolCall(callId:string,name:string,argumentsJson:string):Promise<void>{const seqAtCall=this.responseSeq;let output:unknown;try{output=await this.options.executeTool(name,argumentsJson);}catch(error){output={error:error instanceof Error?error.message:"Échec de l'outil."};}this.send({type:"conversation.item.create",item:{type:"function_call_output",call_id:callId,output:JSON.stringify(output)}});
     // Trois cas après avoir posé le résultat :
     // - une NOUVELLE réponse a démarré pendant la recherche (la personne a

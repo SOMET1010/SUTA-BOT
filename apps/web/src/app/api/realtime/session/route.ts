@@ -1,7 +1,11 @@
 import { createResilientRealtimeProvider, loadSutaSystemPrompt } from "@suta/ai";
 import { SUTA_TOOLS, describeTool } from "@suta/tools";
 
-const CASTING_VOICES = new Set(["marin", "cedar", "coral", "sage"]);
+// Les voix réellement servies par gpt-realtime (GA) sur Azure — le casting
+// doit pouvoir les auditionner toutes, pas seulement une présélection.
+const CASTING_VOICES = new Set([
+  "alloy", "ash", "ballad", "cedar", "coral", "echo", "marin", "sage", "shimmer", "verse",
+]);
 
 export async function POST(request: Request) {
   const body: unknown = await request.json().catch(() => null);
