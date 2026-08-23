@@ -53,6 +53,10 @@ describe("loadSutaSystemPrompt", () => {
     // décrivait le programme sans un seul chiffre alors que les preuves en
     // portaient.
     expect(prompt).toContain("Préfère le concret au générique");
+    // Banc vocal, run n°4 (V-CONCRET) : le modèle citait « ANSUT Academy »
+    // (un exemple précis, à la lettre du prompt) en taisant les chiffres
+    // présents dans deux preuves sur trois.
+    expect(prompt).toContain("Un exemple nommé ne remplace pas un chiffre disponible");
   });
 
   it("keeps the mandatory waiting phrase before every search", () => {
@@ -68,6 +72,16 @@ describe("loadSutaSystemPrompt", () => {
     // amont ; le prompt doit l'interdire aussi, en toutes lettres.
     expect(prompt).toContain("JAMAIS DE DÉCISIONS INTERNES");
     expect(prompt).toContain("vague de financement");
+  });
+
+  it("answers selection questions immediately, never a wait phrase then silence", () => {
+    const prompt = loadSutaSystemPrompt();
+    // Banc vocal, run n°4 (V-SAFE) : « votre village a-t-il été retenu ? » →
+    // « Je regarde ça pour vous… » puis PLUS RIEN — ni recherche, ni réponse.
+    // La question de sélection a une réponse connue d'avance : la donner
+    // tout de suite.
+    expect(prompt).toContain("sans phrase d'attente et sans recherche");
+    expect(prompt).toContain("Les localités concernées seront annoncées officiellement par l'ANSUT.");
   });
 
   it("makes SUTA lead the conversation on broad requests", () => {
