@@ -69,6 +69,10 @@ const CONTENU_HORS_QUESTION_CITOYENNE =
  */
 const NIVEAUX_STRATEGIQUES = [
   { nom: "PTBA", motif: /\bptba\b|plan de travail et budget annuel/i },
+  // Un rapport d'audit interne est ADMIN par nature : aucune fiche publique
+  // n'en parlera jamais — la question doit toujours aboutir à zéro preuve,
+  // plutôt qu'à des rapports d'activités voisins résumés comme un audit.
+  { nom: "AUDIT_INTERNE", motif: /audit interne|rapport d'audit/i },
 ];
 
 /** Mots d'un nom de site sans valeur d'identification. */

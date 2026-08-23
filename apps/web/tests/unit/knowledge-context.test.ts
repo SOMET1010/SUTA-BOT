@@ -133,6 +133,17 @@ describe("selectionnerPreuves", () => {
     expect(preuves?.[0]).toContain("plan de travail et budget annuel");
   });
 
+  it("rend zéro preuve pour un rapport d'audit interne (jamais public)", () => {
+    // STRAT-NIVEAU-ABSENT : des rapports d'activités voisins ne doivent pas
+    // être résumés comme un audit interne.
+    const preuves = selectionnerPreuves("Que dit le rapport d'audit interne ?", {
+      results: [
+        { title: "Atelier international SUTEL à Abidjan", content: "L'ANSUT a co-organisé un atelier.", score: 0.45 },
+      ],
+    });
+    expect(preuves).toEqual([]);
+  });
+
   it("plafonne à trois preuves", () => {
     const preuves = selectionnerPreuves("le programme PASS", {
       results: Array.from({ length: 8 }, (_, i) => ({
