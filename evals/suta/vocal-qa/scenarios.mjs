@@ -85,19 +85,20 @@ export const SCENARIOS = {
       "Trois tours dans la même session (Korhogo → formation → « et pour ma mère ? ») : la localité du tour 1 aiguille les suivants, jamais redemandée ni substituée.",
     // Les pauses laissent SUTA finir chaque réponse avant le tour suivant :
     // parler pendant sa réponse déclencherait le barge-in (ce que mesure
-    // V-INTERRUPTION, pas ce scénario). Réponse 1 courte (~accusé) ; réponse 2
-    // avec recherche (phrase d'attente + synthèse).
+    // V-INTERRUPTION, pas ce scénario). Run réel n°4 : l'accueil et la
+    // réponse formation étaient plus longs que les pauses initiales
+    // (9 s / 22 s) — les tours 2 et 3 coupaient SUTA en pleine phrase.
     stimulus: [
       { silenceMs: 1500 },
       { file: "korhogo-1.wav" },
-      { silenceMs: 9_000 },
+      { silenceMs: 14_000 },
       { file: "korhogo-2.wav" },
-      { silenceMs: 22_000 },
+      { silenceMs: 32_000 },
       { file: "korhogo-3.wav" },
     ],
     speechFiles: ["korhogo-1.wav", "korhogo-2.wav", "korhogo-3.wav"],
     generatedFiles: [],
-    durationMs: 75_000,
+    durationMs: 100_000,
   },
 
   "V-COUPURE": {
