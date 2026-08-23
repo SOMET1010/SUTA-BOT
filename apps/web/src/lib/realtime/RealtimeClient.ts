@@ -17,7 +17,7 @@ export interface RealtimeClientOptions { clientSecret:string; webrtcUrl:string; 
 export class RealtimeClient {
   private peerConnection:RTCPeerConnection|null=null; private dataChannel:RTCDataChannel|null=null; private micStream:MediaStream|null=null; private audioEl:HTMLAudioElement|null=null; private hasActiveResponse=false;
   /** Compte les réponses ouvertes ; sert à détecter qu'une nouvelle réponse a démarré pendant l'exécution d'un outil. */
-  private responseSeq=0;
+  private responseSeq=0; private cancelledResponseSeq=-1;
   /** Un résultat d'outil attend que la réponse en cours se termine pour demander la suivante. */
   private pendingToolResponse=false;
   /** Filtre les faux barge-in (bruit bref, respiration) pendant que SUTA parle. */
@@ -60,10 +60,15 @@ export class RealtimeClient {
   /** Un texte envoyé pendant que SUTA parle vaut interruption : on annule la
    * réponse en cours avant d'en demander une nouvelle, sinon le serveur
    * rejette le `response.create` (« already has an active response »). */
-  sendUserText(text:string):void{if(this.hasActiveResponse)this.send({type:"response.cancel"});this.send({type:"conversation.item.create",item:{type:"message",role:"user",content:[{type:"input_text",text}]}});this.send({type:"response.create"});}
+  sendUserText(text:string):void{this.interrupt();this.send({type:"conversation.item.create",item:{type:"message",role:"user",content:[{type:"input_text",text}]}});this.send({type:"response.create"});}
   /** Ajoute un contexte silencieux à la session sans déclencher de réponse. */
   addContext(text:string):void{if(!text.trim())return;this.send({type:"conversation.item.create",item:{type:"message",role:"system",content:[{type:"input_text",text}]}});}
-  interrupt():void{vlog("response.cancel",{envoye:this.hasActiveResponse});if(this.hasActiveResponse)this.send({type:"response.cancel"});}
+  /** Au plus UNE annulation par réponse, quel que soit l'appelant. Banc vocal
+   * run n°6 (V-INTERRUPTION) : la garde BargeInGate annulait puis notifiait le
+   * hook, qui rappelait interrupt() — la réponse n'étant pas encore marquée
+   * terminée, deux response.cancel partaient pour une seule interruption, et
+   * le second pouvait tuer la NOUVELLE réponse en course. */
+  interrupt():void{const envoye=this.hasActiveResponse&&this.responseSeq!==this.cancelledResponseSeq;vlog("response.cancel",{envoye});if(!envoye)return;this.cancelledResponseSeq=this.responseSeq;this.send({type:"response.cancel"});}
   private send(event:Record<string,unknown>):void{if(this.dataChannel?.readyState==="open")this.dataChannel.send(JSON.stringify(event));}
   private handleServerEvent(raw:string):void{let parsed:unknown;try{parsed=JSON.parse(raw);}catch{return;}const event=normalizeServerEvent(parsed);if(!event)return;const c=this.options.callbacks;switch(event.type){
       // L'annulation n'est plus réflexe : pendant une réponse, elle attend la
