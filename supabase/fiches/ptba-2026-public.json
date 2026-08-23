@@ -1,0 +1,90 @@
+[
+  {
+    "id": "ptba-2026-01",
+    "source": "pta-2026-draft-v2",
+    "type": "ptba",
+    "title": "PTBA 2026 — le plan de travail annuel de l'ANSUT",
+    "region": null,
+    "departement": null,
+    "visibility": "PUBLIC",
+    "metadata": { "version": "projet du 22 juin 2026, v2.0", "statut": "version de travail, non encore arrêtée" },
+    "content": "Le PTBA — plan de travail et budget annuel — est le document qui traduit la stratégie de l'ANSUT en actions concrètes pour l'année. Le PTBA 2026, dans sa version de travail du 22 juin 2026, organise l'année en quatre piliers : la connectivité numérique universelle (le réseau), les services numériques et l'inclusion sociale, les usages digitaux (la formation et la culture numérique), et un pilier interne d'excellence opérationnelle. Chaque action y est suivie par un indicateur précis et des cibles trimestrielles. C'est une programmation : elle dit ce que l'ANSUT prévoit de faire, pas ce qui est déjà réalisé, et cette version reste un projet non encore arrêté."
+  },
+  {
+    "id": "ptba-2026-02",
+    "source": "pta-2026-draft-v2",
+    "type": "ptba",
+    "title": "PTBA 2026 — ce qui est programmé sur le réseau",
+    "region": null,
+    "departement": null,
+    "visibility": "PUBLIC",
+    "metadata": { "version": "projet du 22 juin 2026, v2.0", "statut": "version de travail, non encore arrêtée" },
+    "content": "Sur le réseau, le projet de PTBA 2026 de l'ANSUT programme la construction de 3 562 km de fibre optique supplémentaires sur le backbone national, 2 080 km en réseau métropolitain et 7 452 km en dessertes finales (last miles), ainsi que l'allumage de 15 763 km de fibre — dont environ 900 km visés dès 2026. Il prévoit aussi de porter l'utilisation du backbone par les opérateurs à au moins 40 %, de raccorder 65 % des administrations au Réseau National Haut Débit, d'en superviser 86 % avec deux salles de supervision (NOC) à mettre en place, et de connecter le backbone national à la frontière de la Guinée. Ce sont des objectifs programmés pour l'année, pas des réalisations déjà faites."
+  },
+  {
+    "id": "ptba-2026-03",
+    "source": "pta-2026-draft-v2",
+    "type": "ptba",
+    "title": "PTBA 2026 — écoles, hôpitaux et administrations à connecter",
+    "region": null,
+    "departement": null,
+    "visibility": "PUBLIC",
+    "metadata": { "version": "projet du 22 juin 2026, v2.0", "statut": "version de travail, non encore arrêtée" },
+    "content": "Le projet de PTBA 2026 programme la connexion de lieux publics essentiels : 356 établissements scolaires et universitaires, 480 administrations territoriales et 104 établissements sanitaires. Ces raccordements s'appuient sur le Réseau National Haut Débit et visent à ce que l'école, l'hôpital et les services de l'État disposent d'une connexion fiable. Ce sont des cibles annuelles programmées, dont l'exécution est suivie trimestre par trimestre."
+  },
+  {
+    "id": "ptba-2026-04",
+    "source": "pta-2026-draft-v2",
+    "type": "ptba",
+    "title": "PTBA 2026 — services numériques et guichet citoyen",
+    "region": null,
+    "departement": null,
+    "visibility": "PUBLIC",
+    "metadata": { "version": "projet du 22 juin 2026, v2.0", "statut": "version de travail, non encore arrêtée" },
+    "content": "Côté services, le projet de PTBA 2026 prévoit la mise en œuvre de 24 eServices et plateformes sectorielles, la dématérialisation de 5 services prioritaires de l'État et l'appui à la dématérialisation de 10 autres, ainsi que la mise en place et la promotion d'un guichet unique citoyen pour les services essentiels (l'application SUCE). Les eServices développés par l'ANSUT doivent tous intégrer l'identité numérique. L'objectif citoyen : accéder aux services de l'État plus simplement, sans multiplier les déplacements."
+  },
+  {
+    "id": "ptba-2026-05",
+    "source": "pta-2026-draft-v2",
+    "type": "ptba",
+    "title": "PTBA 2026 — inclusion numérique des populations",
+    "region": null,
+    "departement": null,
+    "visibility": "PUBLIC",
+    "metadata": { "version": "projet du 22 juin 2026, v2.0", "statut": "version de travail, non encore arrêtée" },
+    "content": "L'inclusion est au cœur du projet de PTBA 2026 : renforcer l'accès au digital de 10 000 personnes en milieu rural, 6 500 jeunes, 2 500 femmes et 1 000 personnes en situation de handicap ; favoriser l'accès de 10 000 personnes aux services digitaux de l'État et améliorer l'accessibilité des services prioritaires aux personnes vulnérables. Le plan programme aussi la mise en service de 125 points d'accès universels, la connexion de 300 localités en zone rurale et blanche de plus de 500 habitants, et un comité de réflexion sur la tarification des données en milieu rural. Ce sont des objectifs programmés pour l'année."
+  },
+  {
+    "id": "ptba-2026-06",
+    "source": "pta-2026-draft-v2",
+    "type": "ptba",
+    "title": "PTBA 2026 — innovation, start-ups et contenus locaux",
+    "region": null,
+    "departement": null,
+    "visibility": "PUBLIC",
+    "metadata": { "version": "projet du 22 juin 2026, v2.0", "statut": "version de travail, non encore arrêtée" },
+    "content": "Pour l'écosystème, le projet de PTBA 2026 prévoit dix activités de promotion des technologies émergentes, un programme d'accompagnement des start-ups, le soutien de sept projets d'innovation et de recherche dans les technologies émergentes et de sept projets de développement de contenus locaux. L'idée : que l'entrepreneuriat et la recherche ivoiriens profitent des infrastructures déployées."
+  },
+  {
+    "id": "ptba-2026-07",
+    "source": "pta-2026-draft-v2",
+    "type": "ptba",
+    "title": "PTBA 2026 — se former et s'approprier le numérique",
+    "region": null,
+    "departement": null,
+    "visibility": "PUBLIC",
+    "metadata": { "version": "projet du 22 juin 2026, v2.0", "statut": "version de travail, non encore arrêtée" },
+    "content": "Sur les usages, le projet de PTBA 2026 programme cinq programmes de renforcement des capacités des populations sur les technologies émergentes, un programme de sensibilisation à l'usage des services numériques, un programme de promotion de la culture numérique, un programme de formation aux technologies innovantes et des programmes d'accès aux outils, technologies et équipements innovants. Ces programmes sont prévus pour l'année : leurs lieux et modalités précises seront communiqués par l'ANSUT au fur et à mesure de leur lancement."
+  },
+  {
+    "id": "ptba-2026-08",
+    "source": "pta-2026-draft-v2",
+    "type": "ptba",
+    "title": "PTBA 2026 — ce que le plan ne dit pas",
+    "region": null,
+    "departement": null,
+    "visibility": "PUBLIC",
+    "metadata": { "version": "projet du 22 juin 2026, v2.0", "statut": "version de travail, non encore arrêtée" },
+    "content": "Le PTBA programme des volumes d'action à l'échelle nationale — des kilomètres de fibre, des nombres d'établissements, de localités ou de personnes à accompagner. Il ne désigne pas quelles localités précises seront équipées en premier : ces annonces sont faites officiellement par l'ANSUT, canal par canal. Par ailleurs, la version disponible est un projet de travail du 22 juin 2026, non encore arrêté : les chiffres décrivent une intention de programmation et peuvent évoluer. Tout ce qui figure au PTBA se dit au futur — prévu, programmé — jamais comme un service déjà disponible."
+  }
+]
