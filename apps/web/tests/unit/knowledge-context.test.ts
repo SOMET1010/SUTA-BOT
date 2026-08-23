@@ -76,6 +76,25 @@ describe("selectionnerPreuves", () => {
     expect(preuves).toEqual([FICHE_PASS.content]);
   });
 
+  it("laisse le sujet répondre : une seule fiche de lieu quand le plan existe", () => {
+    // Retour de terrain : « où me former à Korhogo ? » recevait trois fiches
+    // d'infrastructure et jamais le plan — réponse orientée connectivité.
+    const preuves = selectionnerPreuves("où me former au numérique à Korhogo ?", {
+      results: [
+        { title: "Localité — KORHOGO (KORHOGO)", content: "Couverture de Korhogo.", score: 0.52 },
+        { title: "Poste — Korhogo", content: "Bureau de poste de Korhogo.", score: 0.5 },
+        { title: "BTS — BTS Korhogo Nord", content: "Antenne BTS de Korhogo.", score: 0.49 },
+        { title: "Le programme national d'inclusion numérique", content: "L'ANSUT prévoit un programme d'inclusion numérique.", score: 0.55 },
+        { title: "L'école et l'université numériques d'ici 2030", content: "La loi prévoit le numérique à l'école.", score: 0.52 },
+      ],
+    });
+    expect(preuves).toEqual([
+      "Couverture de Korhogo.",
+      "L'ANSUT prévoit un programme d'inclusion numérique.",
+      "La loi prévoit le numérique à l'école.",
+    ]);
+  });
+
   it("écarte le bruit vectoriel sous le plancher de score", () => {
     // Audit réel : « qui a gagné le match hier soir ? » remonte des fiches à
     // ~0,23 — aucune ne doit devenir une preuve.

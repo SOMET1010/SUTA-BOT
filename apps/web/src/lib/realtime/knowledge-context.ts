@@ -136,22 +136,29 @@ export function selectionnerPreuves(question: string, result: unknown): string[]
   const questionNormalisee = normaliser(question);
   const questionGenerale = QUESTION_GENERALE.test(question);
 
-  return tous
-    .filter((p) => {
-      if (p.score < SCORE_PLANCHER) return false;
-      if (!questionGenerale && (
-        TITRE_HORS_QUESTION_CITOYENNE.test(p.titre) ||
-        CONTENU_HORS_QUESTION_CITOYENNE.test(p.contenu)
-      )) {
-        return false;
-      }
-      if (estFicheDeLieu(p.titre) && !lieuNommeDansLaQuestion(p.titre, questionNormalisee)) {
-        return false;
-      }
-      return true;
-    })
-    .slice(0, MAX_PREUVES)
-    .map((p) => p.contenu);
+  const retenues = tous.filter((p) => {
+    if (p.score < SCORE_PLANCHER) return false;
+    if (!questionGenerale && (
+      TITRE_HORS_QUESTION_CITOYENNE.test(p.titre) ||
+      CONTENU_HORS_QUESTION_CITOYENNE.test(p.contenu)
+    )) {
+      return false;
+    }
+    if (estFicheDeLieu(p.titre) && !lieuNommeDansLaQuestion(p.titre, questionNormalisee)) {
+      return false;
+    }
+    return true;
+  });
+
+  // Diversité : retour de terrain du 23/08 — « où me former à Korhogo ? »
+  // recevait trois fiches d'infrastructure de Korhogo et jamais les fiches de
+  // sujet (le plan), coupées par le plafond. Quand des fiches de sujet
+  // existent, une seule fiche du lieu suffit à ancrer la réponse ; le sujet
+  // remplit le reste.
+  const lieux = retenues.filter((p) => estFicheDeLieu(p.titre));
+  const sujets = retenues.filter((p) => !estFicheDeLieu(p.titre));
+  const preuves = sujets.length > 0 ? [...lieux.slice(0, 1), ...sujets] : lieux;
+  return preuves.slice(0, MAX_PREUVES).map((p) => p.contenu);
 }
 
 /**
