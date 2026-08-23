@@ -80,6 +80,32 @@ poser sa question a l'impression qu'on l'a compris et qu'on l'aide à agir ? »
 Si la réponse ressemble à une consultation de base — un titre de document,
 un extrait, une liste — c'est non, quelle que soit la qualité du retrieval.
 
+## La méthode de finition (décision du 23/08)
+
+Le socle existe. On n'ajoute plus de fonctions : on aligne cinq couches —
+conversation, connaissance, voix, visuel, gouvernance — par une campagne de
+20 à 30 conversations réelles, en traitant chaque défaut jusqu'à ce que
+l'expérience soit fluide. À chaque conversation, quatre questions, et
+seulement quatre :
+
+1. Est-ce qu'elle a compris ?
+2. Est-ce qu'elle a répondu juste ?
+3. Est-ce qu'elle a parlé naturellement ?
+4. Est-ce que l'écran a aidé ?
+
+Un défaut = un transcript + la question en échec + un correctif ciblé +
+une re-vérification. Rien d'autre n'entre dans le lot tant que la boucle
+n'est pas fluide.
+
+## Le cap final
+
+Quelqu'un arrive, touche SUTA et dit : « Je veux comprendre ce que l'ANSUT
+peut faire pour moi. » À partir de là, SUTA conduit toute la conversation —
+accueil, orientation vers son besoin (village connecté ? s'équiper ? se
+former ?), réponses concrètes, prochaine étape — sans que la personne ait
+besoin de connaître le PND, le PTBA, les programmes ou un seul sigle.
+C'est là qu'on saura qu'on a réussi.
+
 ## Gouvernance de travail
 
 - Branche de référence : `feature/suta-experience` ; la branche par défaut

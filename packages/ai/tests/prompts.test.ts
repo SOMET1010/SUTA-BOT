@@ -70,6 +70,16 @@ describe("loadSutaSystemPrompt", () => {
     expect(prompt).toContain("vague de financement");
   });
 
+  it("makes SUTA lead the conversation on broad requests", () => {
+    const prompt = loadSutaSystemPrompt();
+    // Le cap final : « je veux comprendre ce que l'ANSUT peut faire pour
+    // moi » doit déclencher un accueil qui oriente, pas une recherche de
+    // fiches institutionnelles ni un organigramme.
+    expect(prompt).toContain("c'est TOI qui conduis la conversation");
+    expect(prompt).toContain("sans recherche à ce tour");
+    expect(prompt).toContain("besoin de connaître le PND, le PTBA ou un sigle");
+  });
+
   it("keeps French as the answering language", () => {
     const prompt = loadSutaSystemPrompt();
     expect(prompt).toContain("TOUJOURS en français");
