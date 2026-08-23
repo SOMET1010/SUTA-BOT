@@ -76,6 +76,28 @@ describe("selectionnerPreuves", () => {
     expect(preuves).toEqual([FICHE_PASS.content]);
   });
 
+  it("écarte le bruit vectoriel sous le plancher de score", () => {
+    // Audit réel : « qui a gagné le match hier soir ? » remonte des fiches à
+    // ~0,23 — aucune ne doit devenir une preuve.
+    const preuves = selectionnerPreuves("qui a gagné le match hier soir ?", {
+      results: [
+        { title: "Synthèse couverture — région GONTOUGO", content: "Synthèse de couverture.", score: 0.233 },
+      ],
+    });
+    expect(preuves).toEqual([]);
+  });
+
+  it("traite les fiches « Zone blanche — X » comme des fiches de lieu", () => {
+    // Audit réel : « c'est quoi une zone blanche ? » remontait cinq fiches de
+    // villages précis — hors sujet pour une définition.
+    const preuves = selectionnerPreuves("c'est quoi une zone blanche ?", {
+      results: [
+        { title: "Zone blanche — WIREDOUO (BOUNKANI)", content: "Village en zone blanche.", score: 0.538 },
+      ],
+    });
+    expect(preuves).toEqual([]);
+  });
+
   it("plafonne à trois preuves", () => {
     const preuves = selectionnerPreuves("le programme PASS", {
       results: Array.from({ length: 8 }, (_, i) => ({

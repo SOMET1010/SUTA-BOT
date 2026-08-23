@@ -31,6 +31,11 @@ const LIMITE_MAX = 8;
 /** Profondeur interne des deux voies avant fusion. */
 const PROFONDEUR_VECTEUR = 12;
 const PROFONDEUR_GEO = 6;
+/** Audit du 23/08 : « où me former au numérique à Korhogo ? » remontait six
+ * fiches d'infrastructure de Korhogo et zéro fiche formation — la voie géo
+ * écrasait le sujet. Les correspondances géo SEULES (non confirmées par le
+ * vecteur) sont plafonnées : le lieu ouvre la réponse, le sujet la remplit. */
+const GEO_SEULS_MAX = 2;
 
 /**
  * GARDE-FOU DÉCISIONNEL — indépendant du prompt et de la visibilité.
@@ -41,8 +46,12 @@ const PROFONDEUR_GEO = 6;
  * la localisation sinon. Un citoyen a droit aux faits (couverture,
  * infrastructures, population), jamais aux décisions de sélection.
  */
-const TITRE_DECISIONNEL = /scoring|non[- ]retenue?|rang (national|régional)|vague de financement|\bs[ée]lection/i;
-const PHRASE_DECISIONNELLE = /non[- ]retenue?s?\b|\bretenue?s?\b[^.]*\b(programme|vague|sélection|priorisation)|score (aigf|total|de priorisation)|rang (national|régional)|vague de financement|éligibilit|\bnon class|priorisation/i;
+const TITRE_DECISIONNEL = /scoring|non[- ]retenue?|rang (national|régional)|vague de financement|\bs[ée]lection|priorisation/i;
+// Audit du 23/08 : « 400 localités candidates, dont 350 sont retenues pour
+// être équipées » passait la purge (aucun mot déclencheur dans la phrase).
+// Les motifs (localités…retenues) et (retenues…équipées) la couvrent, en
+// épargnant le français ordinaire (« les indicateurs retenus portent sur… »).
+const PHRASE_DECISIONNELLE = /non[- ]retenue?s?\b|\bretenue?s?\b[^.]*\b(programme|vague|sélection|priorisation)|(localit[ée]s?|villages?)[^.]{0,80}\bretenue?s?\b|\bretenue?s?\b[^.]{0,80}[ée]quip|score (aigf|total|de priorisation)|rang (national|régional)|vague de financement|éligibilit|\bnon class|priorisation/i;
 
 function purgerDecisions(texte: string): string {
   return texte
@@ -184,7 +193,7 @@ Deno.serve(async (req: Request) => {
     // village existe même si le vecteur l'a manquée), (3) reste vectoriel.
     const deuxVoies = vectoriels.filter((v) => geoIds.has(v.row.chunk_id));
     const idsRetenus = new Set(deuxVoies.map((v) => v.row.chunk_id));
-    const geoSeuls = geo.filter((g) => !idsRetenus.has(g.chunk_id));
+    const geoSeuls = geo.filter((g) => !idsRetenus.has(g.chunk_id)).slice(0, GEO_SEULS_MAX);
     const vecteurSeuls = vectoriels.filter((v) => !geoIds.has(v.row.chunk_id));
 
     const results = [

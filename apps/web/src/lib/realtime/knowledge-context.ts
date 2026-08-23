@@ -21,6 +21,10 @@
 
 /** Au-delà de trois fiches, le modèle inventorie au lieu de synthétiser. */
 const MAX_PREUVES = 3;
+/** Audit du 23/08 : une question hors périmètre (« qui a gagné le match ? »)
+ * remonte des fiches à ~0,23 de score — du bruit vectoriel. En dessous de ce
+ * plancher, un résultat n'est pas une preuve. */
+const SCORE_PLANCHER = 0.3;
 
 export const CONSIGNE_SYNTHESE =
   "Ces textes sont des preuves, pas une réponse : ne les récite jamais. " +
@@ -59,6 +63,7 @@ const JETONS_GENERIQUES = new Set([
   "bts", "site", "poste", "fibre", "padci", "abri", "ecole", "centre",
   "nord", "sud", "est", "ouest", "ville", "village", "localite",
   "departement", "region", "district", "autonome",
+  "zone", "blanche", "grise", "noire",
 ]);
 
 /** Même normalisation que la voie géographique : minuscules, sans accents,
@@ -79,7 +84,7 @@ function jetonsSignificatifs(texte: string): string[] {
  * fiche d'un AUTRE village, pire qu'une absence de réponse.
  */
 function estFicheDeLieu(titre: string): boolean {
-  if (/^(localit[ée]|bts|fibre|poste|site|abri|[ée]cole|centre) — /i.test(titre)) return true;
+  if (/^(localit[ée]|bts|fibre|poste|site|abri|[ée]cole|centre|zone blanche) — /i.test(titre)) return true;
   if (/d[ée]partement de /i.test(titre)) return true;
   // Fiches de couverture « NOM DE LOCALITÉ (RÉGION) » : nom tout en capitales
   // suivi d'une parenthèse.
@@ -97,11 +102,13 @@ function lieuNommeDansLaQuestion(titre: string, questionNormalisee: string): boo
 interface ResultatBrut {
   title?: unknown;
   content?: unknown;
+  score?: unknown;
 }
 
 interface Preuve {
   titre: string;
   contenu: string;
+  score: number;
 }
 
 function candidats(result: unknown): Preuve[] | null {
@@ -115,6 +122,8 @@ function candidats(result: unknown): Preuve[] | null {
     .map((r) => ({
       titre: typeof r.title === "string" ? r.title : "",
       contenu: typeof r.content === "string" ? r.content : "",
+      // Sans score exploitable, on ne pénalise pas : plancher inapplicable.
+      score: typeof r.score === "number" ? r.score : 1,
     }))
     .filter((p) => p.contenu.length > 0);
 }
@@ -129,6 +138,7 @@ export function selectionnerPreuves(question: string, result: unknown): string[]
 
   return tous
     .filter((p) => {
+      if (p.score < SCORE_PLANCHER) return false;
       if (!questionGenerale && (
         TITRE_HORS_QUESTION_CITOYENNE.test(p.titre) ||
         CONTENU_HORS_QUESTION_CITOYENNE.test(p.contenu)
