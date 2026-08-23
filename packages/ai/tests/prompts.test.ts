@@ -49,6 +49,10 @@ describe("loadSutaSystemPrompt", () => {
     expect(prompt).toContain("des preuves à synthétiser");
     expect(prompt).toContain("une à trois phrases");
     expect(prompt).toContain("Je peux vous en dire plus si vous voulez.");
+    // Retour de terrain : « on brosse trop dans le générique » — la réponse
+    // décrivait le programme sans un seul chiffre alors que les preuves en
+    // portaient.
+    expect(prompt).toContain("Préfère le concret au générique");
   });
 
   it("keeps the mandatory waiting phrase before every search", () => {

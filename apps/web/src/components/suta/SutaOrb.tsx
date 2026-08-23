@@ -36,7 +36,7 @@ export function SutaOrb({ state, emotion = "warm" }: { state: ConversationState;
       role="img"
       aria-label={`Avatar SUTA, état : ${state.toLowerCase()}`}
       data-emotion={activeEmotion}
-      className="relative flex h-60 w-60 items-center justify-center sm:h-72 sm:w-72"
+      className="relative flex h-60 w-60 items-center justify-center sm:h-72 sm:w-72 lg:h-96 lg:w-96"
     >
       {/* Halo diffus — la teinte suit l'émotion de la scène */}
       <div
@@ -48,20 +48,20 @@ export function SutaOrb({ state, emotion = "warm" }: { state: ConversationState;
         Array.from({ length: WAVE_RING_COUNT }).map((_, index) => (
           <div
             key={index}
-            className="absolute h-48 w-48 rounded-full border border-ansut-orange/60 animate-suta-wave sm:h-56 sm:w-56"
+            className="absolute h-48 w-48 rounded-full border border-ansut-orange/60 animate-suta-wave sm:h-56 sm:w-56 lg:h-80 lg:w-80"
             style={{ animationDelay: `${index * 0.5}s` }}
           />
         ))}
 
       {/* Anneau extérieur, rotation lente et continue */}
       <div
-        className="absolute h-56 w-56 rounded-full border border-dashed border-white/20 animate-suta-ring-slow sm:h-64 sm:w-64"
+        className="absolute h-56 w-56 rounded-full border border-dashed border-white/20 animate-suta-ring-slow sm:h-64 sm:w-64 lg:h-[22rem] lg:w-[22rem]"
         aria-hidden="true"
       />
 
       {/* Anneau intérieur, rotation rapide pendant l'écoute */}
       <div
-        className={`absolute h-48 w-48 rounded-full border-2 border-transparent sm:h-56 sm:w-56 ${
+        className={`absolute h-48 w-48 rounded-full border-2 border-transparent sm:h-56 sm:w-56 lg:h-80 lg:w-80 ${
           isListening ? "border-t-ansut-orange animate-suta-ring-fast" : "border-t-white/15"
         }`}
         aria-hidden="true"
@@ -69,7 +69,7 @@ export function SutaOrb({ state, emotion = "warm" }: { state: ConversationState;
 
       {/* Médaillon : le visuel de référence, cadré sur le visage. */}
       <div
-        className={`relative h-44 w-44 overflow-hidden rounded-full border-2 sm:h-52 sm:w-52 ${
+        className={`relative h-44 w-44 overflow-hidden rounded-full border-2 sm:h-52 sm:w-52 lg:h-72 lg:w-72 ${
           isError
             ? "border-status-error/70 shadow-[0_0_60px_rgba(198,40,40,0.4)]"
             : "border-white/25 shadow-[0_0_80px_rgba(245,130,32,0.35)]"
@@ -80,7 +80,7 @@ export function SutaOrb({ state, emotion = "warm" }: { state: ConversationState;
           alt=""
           fill
           priority
-          sizes="(min-width: 640px) 13rem, 11rem"
+          sizes="(min-width: 1024px) 18rem, (min-width: 640px) 13rem, 11rem"
           className="object-cover object-[50%_12%]"
         />
         {/* Voile nuit sur le bord bas du médaillon pour fondre l'image dans la scène. */}
