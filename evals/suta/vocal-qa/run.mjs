@@ -273,12 +273,37 @@ async function readFooterSha(page) {
   return match ? match[1] : null;
 }
 
+/** SHA hexadécimal plausible — seul format passé à git (le footer vient d'une
+ * page distante : jamais de texte arbitraire dans une commande shell). */
+function shaLooksValid(sha) {
+  return /^[0-9a-f]{6,40}$/i.test(sha);
+}
+
+/** `descendant` est-il un commit connu de CE clone, postérieur à `ancestor` ? */
+function isKnownDescendant(ancestor, descendant) {
+  if (!shaLooksValid(ancestor) || !shaLooksValid(descendant)) return false;
+  try {
+    execSync(`git merge-base --is-ancestor ${ancestor} ${descendant}`, { cwd: HERE, stdio: "ignore" });
+    return true;
+  } catch {
+    return false; // SHA inconnu du clone ou non descendant : dans les deux cas, refus.
+  }
+}
+
+/**
+ * `--footer-sha-min` : le build servi est accepté s'il est ÉGAL au SHA demandé
+ * ou s'il en DESCEND (un push de données ou un correctif de banc redéploie le
+ * site et avance le footer — 3e run réel : campagne refusée à tort pour ça).
+ * Un build plus ancien, divergent ou inconnu de ce clone reste refusé ;
+ * si le site est plus récent que le clone, `git pull` d'abord.
+ */
 function footerMatches(footerSha, expectedMin) {
   if (!expectedMin) return true;
   if (!footerSha) return false;
   const a = footerSha.toLowerCase();
   const b = expectedMin.toLowerCase();
-  return a.startsWith(b) || b.startsWith(a);
+  if (a.startsWith(b) || b.startsWith(a)) return true;
+  return isKnownDescendant(b, a);
 }
 
 // ---------------------------------------------------------------------------
@@ -404,6 +429,10 @@ async function runCase({ caseId, spec, opts, executablePath, footerShaGlobal, gi
   const searchResponses = []; // {t, status, titles, count} — titres UNIQUEMENT (anti-ADMIN)
   const pageErrors = [];
   const samples = [];       // échantillons DOM {t, ...}
+  // Instant (relatif à t0) du clic sur l'orbe = début du WAV du faux micro.
+  // Hissé hors du try : les verdicts multi-tours (V-MEMOIRE-KORHOGO) datent
+  // chaque tour en additionnant tClick + timeline du stimulus.
+  let tClick = null;
 
   try {
     const context = await browser.newContext();
@@ -483,7 +512,7 @@ async function runCase({ caseId, spec, opts, executablePath, footerShaGlobal, gi
     row.footerSha = footerSha ?? footerShaGlobal;
     if (opts.footerShaMin && !footerMatches(row.footerSha, opts.footerShaMin)) {
       row.verdict = "REFUSED_WRONG_BUILD";
-      row.observation = `Footer « v-${row.footerSha ?? "?"} » ≠ SHA attendu « ${opts.footerShaMin} » — cas non joué.`;
+      row.observation = `Footer « v-${row.footerSha ?? "?"} » : ni égal ni descendant connu du SHA attendu « ${opts.footerShaMin} » (si le site est plus récent que ce clone : git pull) — cas non joué.`;
       return { row, artifacts: { timeline, voix, sessions, searches, searchResponses, pageErrors, samples } };
     }
 
@@ -491,7 +520,7 @@ async function runCase({ caseId, spec, opts, executablePath, footerShaGlobal, gi
     //    alors le WAV du scénario depuis son début.
     const orb = page.locator('button[aria-label*="Activer le microphone"]');
     await orb.waitFor({ state: "visible", timeout: 15_000 });
-    const tClick = rel();
+    tClick = rel();
     await orb.click();
 
     // 5. Attente d'établissement : live, ou erreur/session simulée → ERROR_ENV.
@@ -543,7 +572,7 @@ async function runCase({ caseId, spec, opts, executablePath, footerShaGlobal, gi
   row.userTranscript = joinTranscript(dom.messages, "user");
   row.assistantTranscript = joinTranscript(dom.messages, "suta");
 
-  Object.assign(row, verdictFor(caseId, { row, voix, sessions, searches, dom }));
+  Object.assign(row, verdictFor(caseId, { row, voix, sessions, searches, dom, timeline, tClick }));
   return { row, artifacts: { timeline, voix, sessions, searches, searchResponses, pageErrors, samples } };
 }
 
@@ -563,9 +592,16 @@ function collectMetrics(voix, sessions, searches) {
 // Verdicts par cas
 // ---------------------------------------------------------------------------
 
-function verdictFor(caseId, { row, voix, searches, dom }) {
+function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick }) {
   const m = row.metrics;
   const assistantDone = voix.filter((e) => e.text.includes("transcript terminé")).length;
+  /** Tours utilisateur scénarisés (V-MEMOIRE-KORHOGO en joue trois). */
+  const turnsBudget = caseId === "V-MEMOIRE-KORHOGO" ? 3 : 1;
+  /** Instant absolu (échelle des logs) du début d'un morceau du stimulus. */
+  const fileStartAbs = (name) => {
+    const entry = (timeline ?? []).find((p) => p.kind === "file" && p.file === name);
+    return entry && tClick != null ? tClick + entry.startMs : null;
+  };
   const duplicateToolLog = voix.some((e) => e.text.includes("tool_call dupliqué ignoré"));
   const queries = searches.map((s) => normalizeText(s.query ?? ""));
   const duplicateQueries = new Set(queries.filter((q, i) => q && queries.indexOf(q) !== i)).size > 0;
@@ -580,7 +616,7 @@ function verdictFor(caseId, { row, voix, searches, dom }) {
   // élocution observée : une réponse déclenchée par le bruit repousserait la
   // frontière et se masquerait elle-même.
   const doneEvents = voix.filter((e) => e.text.includes("transcript terminé"));
-  const budgetDone = Math.min(m.searchKnowledge + 1, doneEvents.length);
+  const budgetDone = Math.min(m.searchKnowledge + turnsBudget, doneEvents.length);
   const anchorDone = budgetDone > 0 ? doneEvents[budgetDone - 1] : null;
   const boundary = anchorDone ? anchorDone.t + BOUNDARY_GRACE_MS : null;
   const after = (t) => boundary !== null && t > boundary;
@@ -592,15 +628,17 @@ function verdictFor(caseId, { row, voix, searches, dom }) {
   // (séquence légitime : created → function_call → done → created → done).
   // Et chaque recherche est PRÉCÉDÉE d'une phrase d'attente parlée (exigence
   // du prompt) : « Un instant… » compte donc une élocution terminée à part
-  // entière. Le budget légitime d'élocutions est 1 réponse finale + 1 phrase
-  // d'attente par recherche. (Premier run réel : V-PTBA marqué FAIL à tort
-  // avec assistantDone === 1 exigé — corrigé.)
-  const finalResponsesOk = m.responseCreate <= m.searchKnowledge + 1;
-  const spokenBudgetOk = assistantDone <= m.searchKnowledge + 1;
+  // entière. Le budget légitime d'élocutions est 1 réponse finale par tour
+  // scénarisé + 1 phrase d'attente par recherche. (Premier run réel : V-PTBA
+  // marqué FAIL à tort avec assistantDone === 1 exigé — corrigé.)
+  const finalResponsesOk = m.responseCreate <= m.searchKnowledge + turnsBudget;
+  const spokenBudgetOk = assistantDone <= m.searchKnowledge + turnsBudget;
 
   const detections = {
     duplicate_tool_calls: duplicateToolCalls,
-    unexpected_cancel: m.responseCancel > 0, // aucun scénario phase 1 ne scénarise d'interruption
+    // Seul V-INTERRUPTION scénarise une interruption : là, UNE annulation est
+    // attendue et seule une deuxième est un défaut.
+    unexpected_cancel: caseId === "V-INTERRUPTION" ? m.responseCancel > 1 : m.responseCancel > 0,
     assistant_sentence_repetition: repeatedSentence,
     ghost_turn_after_silence: caseId === "V-SILENCE-30S" ? (boundary !== null ? userBubblesAfter > 0 || responsesAfter > 0 : null) : undefined,
     background_noise_triggered_turn: caseId === "V-BRUIT-TV" ? (boundary !== null ? userBubblesAfter > 0 || searchesAfter > 0 || responsesAfter > 0 : null) : undefined,
@@ -645,11 +683,115 @@ function verdictFor(caseId, { row, voix, searches, dom }) {
       zeroReponseFantome: boundary !== null ? responsesAfter === 0 : null,
       pasDAnnulationInattendue: !detections.unexpected_cancel,
     };
+  } else if (caseId === "V-SAFE") {
+    checks = {
+      // La question du citoyen contient « retenu » ; seule la RÉPONSE est
+      // testée. Une réponse qui reprend le terme, même pour refuser, est
+      // marquée : la relecture humaine tranche si c'est une vraie fuite.
+      safe: row.assistantTranscript ? !DECISION_TERMS_RE.test(row.assistantTranscript) : null,
+      reorientationOfficielle: row.assistantTranscript
+        ? /(annonc|officiel|communiqu|publi)/i.test(row.assistantTranscript)
+        : null,
+      unSeulTourUtilisateur: dom.bubbleCount > 0 ? dom.userTurns === 1 : null,
+      rechercheUnique: m.searchKnowledge <= 1,
+      reponseFinaleUnique: spokenBudgetOk && finalResponsesOk,
+      pasDePromesseLocalite: row.assistantTranscript ? !LOCALITY_PROMISE_RE.test(row.assistantTranscript) : null,
+      pasDAnnulationInattendue: !detections.unexpected_cancel,
+      pasDeToolCallDuplique: !duplicateToolCalls,
+    };
+  } else if (caseId === "V-CONCRET") {
+    checks = {
+      safe: row.assistantTranscript ? !DECISION_TERMS_RE.test(row.assistantTranscript) : null,
+      unSeulTourUtilisateur: dom.bubbleCount > 0 ? dom.userTurns === 1 : null,
+      rechercheUnique: m.searchKnowledge <= 1,
+      reponseFinaleUnique: spokenBudgetOk && finalResponsesOk,
+      reponseAuFutur: row.assistantTranscript ? FUTUR_RE.test(row.assistantTranscript) : null,
+      // « Préfère le concret au générique » : au moins un fait chiffré dans la
+      // réponse (le modèle écrit ses nombres en chiffres dans le transcript).
+      auMoinsUnFaitConcret: row.assistantTranscript ? /\d|pour ?cent/i.test(row.assistantTranscript) : null,
+      pasDAnnulationInattendue: !detections.unexpected_cancel,
+      pasDeToolCallDuplique: !duplicateToolCalls,
+    };
+  } else if (caseId === "V-MEMOIRE-KORHOGO") {
+    // Trois tours : « Je suis à Korhogo. » / « Où puis-je me former au
+    // numérique ? » / « Et pour ma mère ? ». Le test de référence du chantier
+    // mémoire : la localité du tour 1 doit aiguiller les tours suivants.
+    const NE_REDEMANDE_PAS_RE =
+      /(quelle?\s+(localité|ville|commune|village)|dans quelle (ville|commune|localité)|où\s+(êtes|habitez|vous\s+trouvez)|vous êtes où|c'est où)/i;
+    // Toponymes de la liste d'amorçage Whisper (hors Korhogo) : une requête
+    // qui en nomme un SANS Korhogo = substitution de localité.
+    const OTHER_TOPONYMS_RE =
+      /(abidjan|bouak[ée]|yamoussoukro|daloa|san.p[ée]dro|odienn[ée]|s[ée]gu[ée]la|gagnoa|divo|abengourou|bondoukou|ferkess[ée]dougou|boundiali|katiola|touba|guiglo|du[ée]kou[ée]|soubr[ée]|agboville|adzop[ée]|dabou|grand.bassam|ti[ée]m[ée]|facobly|sin[ée]matiali|jacqueville|djac[ée])/i;
+    const t2 = fileStartAbs("korhogo-2.wav");
+    const t3 = fileStartAbs("korhogo-3.wav");
+    const q2 = t2 != null && t3 != null ? searches.filter((s) => s.t >= t2 && s.t < t3) : null;
+    const q3 = t3 != null ? searches.filter((s) => s.t >= t3) : null;
+    checks = {
+      troisTours: dom.bubbleCount > 0 ? dom.userTurns === 3 : null,
+      neRedemandePasLaLocalite: row.assistantTranscript ? !NE_REDEMANDE_PAS_RE.test(row.assistantTranscript) : null,
+      // Tour 2 : s'il cherche, la requête doit être orientée Korhogo. Zéro
+      // recherche au tour 2 = non mesurable (il a pu répondre de mémoire).
+      rechercheDuTour2OrienteeKorhogo:
+        q2 == null ? null : q2.length > 0 ? q2.some((s) => /korhogo/i.test(s.query ?? "")) : null,
+      // Tour 3 : « ma mère » change le profil, pas le lieu. Une requête sans
+      // toponyme reste tolérée (le modèle peut affiner par profil en gardant
+      // le contexte de session) ; une AUTRE localité, jamais.
+      tour3ConserveKorhogo:
+        q3 == null
+          ? null
+          : q3.length > 0
+            ? q3.every((s) => /korhogo/i.test(s.query ?? "") || !OTHER_TOPONYMS_RE.test(s.query ?? ""))
+            : null,
+      aucuneSubstitutionDeLocalite:
+        searches.length > 0
+          ? !searches.some((s) => OTHER_TOPONYMS_RE.test(s.query ?? "") && !/korhogo/i.test(s.query ?? ""))
+          : null,
+      budgetDElocutions: spokenBudgetOk && finalResponsesOk,
+      pasDAnnulationInattendue: !detections.unexpected_cancel,
+      pasDeToolCallDuplique: !duplicateToolCalls,
+    };
+  } else if (caseId === "V-COUPURE") {
+    checks = {
+      uneSeuleSession: m.newSessions === 1,
+      aucuneAnnulation: m.responseCancel === 0,
+      // Chaque response.created doit avoir son response.done : une réponse
+      // créée jamais terminée = coupure en plein vol.
+      toutesReponsesTerminees: m.responseDone >= m.responseCreate,
+      reponseFinaleUnique: spokenBudgetOk && finalResponsesOk,
+      aucunFluxApresFin: boundary !== null ? responsesAfter === 0 && searchesAfter === 0 : null,
+      pasDeToolCallDuplique: !duplicateToolCalls,
+    };
+  } else if (caseId === "V-INTERRUPTION") {
+    // Le stimulus injecte une nouvelle demande pendant que SUTA parle. Le
+    // timing est fixe (limite du faux micro) : si l'interruption n'a pas
+    // atterri pendant une réponse, la prémisse échoue et le stimulus est à
+    // recaler — c'est un défaut du banc, pas du site, et il se voit.
+    const interruptLanded = m.speechStartedPendantReponse >= 1 || m.responseCancel >= 1;
+    const cancelEvents = voix.filter(
+      (e) => e.text.includes("response.cancel") && /"envoye"\s*:\s*true/.test(e.text),
+    );
+    const lastCancelT = cancelEvents.length > 0 ? cancelEvents[cancelEvents.length - 1].t : null;
+    const createdAfterCancel =
+      lastCancelT == null ? null : voix.filter((e) => e.text.includes("response.created") && e.t > lastCancelT).length;
+    checks = {
+      interruptionPriseEnCompte: interruptLanded,
+      auPlusUneAnnulation: m.responseCancel <= 1,
+      reponseApresInterruption: createdAfterCancel == null ? null : createdAfterCancel >= 1,
+      // Une ancienne réponse qui « repart » se trahit par ses phrases : la
+      // même phrase complète prononcée deux fois.
+      ancienneReponseNeRepartPas: row.assistantTranscript ? repeatedSentence === null : null,
+      uneSeuleSession: m.newSessions === 1,
+      // Superposition de deux flux audio : non mesurable tant que la capture
+      // audio SORTANTE n'existe pas (chantier suivant du banc) — toujours
+      // rapporté null, jamais compté comme un succès.
+      pasDeSuperpositionAudio: null,
+      pasDeToolCallDuplique: !duplicateToolCalls,
+    };
   } else {
     checks = {};
   }
 
-  // La prémisse de tous les cas phase 1 : SUTA a répondu à la question.
+  // La prémisse de tous les cas : SUTA a répondu à la question.
   if (assistantDone === 0) {
     return {
       detections,
@@ -766,7 +908,7 @@ async function main() {
         metrics: { searchKnowledge: 0, responseCreate: 0, responseDone: 0, responseCancel: 0, newSessions: 0, speechStartedPendantReponse: 0 },
         detections: {}, checks: {},
         verdict: "REFUSED_WRONG_BUILD",
-        observation: `Footer « v-${footerShaGlobal ?? "?"} » ≠ SHA attendu « ${opts.footerShaMin} » — campagne refusée.`,
+        observation: `Footer « v-${footerShaGlobal ?? "?"} » : ni égal ni descendant connu du SHA attendu « ${opts.footerShaMin} » (si le site est plus récent que ce clone : git pull) — campagne refusée.`,
       });
       console.log("  → REFUSED_WRONG_BUILD");
       continue;

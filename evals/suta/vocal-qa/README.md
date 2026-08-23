@@ -1,11 +1,19 @@
-# Vocal QA Agent — runner (phase 1)
+# Vocal QA Agent — runner
 
 Automatisation de la campagne vocale SUTA (spec complète :
 `docs/vocal-qa-agent.md`). Le runner teste le **vrai** chemin
 navigateur + Realtime + audio — ce n'est pas un simulateur de texte.
 
-Cas couverts en phase 1 : `V-PTBA`, `V-REPETITION`, `V-BRUIT-TV`,
-`V-SILENCE-30S` (= suite `core`).
+Suites :
+
+- `core` (phase 1, **verte le 23/08** — trois runs réels versionnés dans
+  `results/`) : `V-PTBA`, `V-REPETITION`, `V-BRUIT-TV`, `V-SILENCE-30S` ;
+- `phase2` : `V-SAFE`, `V-CONCRET`, `V-MEMOIRE-KORHOGO`, `V-COUPURE`,
+  `V-INTERRUPTION` — `SKIPPED_MISSING_STIMULUS` tant que leurs WAV de parole
+  ne sont pas enregistrés (`evals/suta/audio/README.md`) ;
+- `memoire` : `V-MEMOIRE-KORHOGO` seul (le test de référence du chantier
+  mémoire — trois tours dans la même session) ;
+- `all` : les neuf cas.
 
 ## Prérequis
 
@@ -33,8 +41,8 @@ node evals/suta/vocal-qa/run.mjs --url https://<deployment> \
 |---|---|
 | `--url <URL>` | Déploiement SUTA à tester (obligatoire). |
 | `--case <ID>` | Joue ce cas (répétable). Sans `--case` : la suite. |
-| `--suite core` | Suite nommée (défaut : `core`). |
-| `--footer-sha-min <sha>` | Refuse la campagne (`REFUSED_WRONG_BUILD`) si le hash du footer (`v-<hash>`) ne correspond pas à ce préfixe. |
+| `--suite core` | Suite nommée : `core`, `phase2`, `memoire`, `all` (défaut : `core`). |
+| `--footer-sha-min <sha>` | Refuse la campagne (`REFUSED_WRONG_BUILD`) si le hash du footer (`v-<hash>`) n'est **ni égal ni descendant** de ce SHA. Descendant accepté : un site redéployé PLUS RÉCENT que le SHA demandé passe (vérifié par `git merge-base --is-ancestor` dans le clone local — si le site est plus récent que votre clone, `git pull` d'abord). Un build plus ancien ou divergent reste refusé. |
 | `--headed` | Chromium visible (phase 1 : recommandé pour valider le protocole). |
 | `--keep-artifacts` | Sauve les événements bruts par cas dans `results/artifacts/…/<cas>/events.json` + le WAV composé. |
 | `--out-dir <dir>` | Dossier de sortie (défaut : `evals/suta/results/`). |
@@ -64,7 +72,7 @@ Variable utile : `SUTA_VOCALQA_AUDIO_DIR` remplace le corpus audio (tests).
    joue alors le WAV composé du scénario (question + pauses + bruit dans un
    seul fichier — limite du flag Chromium ; composition en mémoire par le
    runner, mêmes règles que `evals/suta/audio/compose.py`).
-5. **Observation à durée fixe** (45-60 s selon le cas) : échantillonnage du
+5. **Observation à durée fixe** (45-75 s selon le cas) : échantillonnage du
    transcript DOM (bulle courante + historique « Vous : / SUTA : ») +
    collecte des événements `[suta:voix]`.
 6. **Métriques** : `searchKnowledge`, `responseCreate`, `responseDone`,
@@ -94,22 +102,28 @@ Variable utile : `SUTA_VOCALQA_AUDIO_DIR` remplace le corpus audio (tests).
 |---|---|
 | `PASS` / `FAIL` | Mesuré réellement ; le premier check en échec est nommé. |
 | `SKIPPED_MISSING_STIMULUS` | WAV de parole manquant — cas non joué. |
-| `REFUSED_WRONG_BUILD` | Footer ≠ `--footer-sha-min` — cas non joué. |
+| `REFUSED_WRONG_BUILD` | Footer ni égal ni descendant de `--footer-sha-min` — cas non joué. |
 | `ERROR_ENV` | La session vocale ne s'établit pas (pas de réseau vers Azure/Supabase, session « simulée » du provider mock…). Les événements capturés jusqu'au blocage sont conservés. À rejouer depuis un poste avec accès Realtime — le runner ne fait jamais semblant. |
 
 Code retour : `1` si au moins un `FAIL`/`REFUSED_WRONG_BUILD`, `2` sur erreur
 fatale du runner, `0` sinon (y compris `SKIPPED`/`ERROR_ENV`, qui ne sont pas
 des verdicts de qualité).
 
-## Limites connues (phase 1)
+## Limites connues
 
-- Pas d'analyse de l'audio SORTANT (doublons acoustiques) : v2, comme prévu
-  par la spec.
+- Pas d'analyse de l'audio SORTANT (doublons/superpositions acoustiques) :
+  chantier suivant du banc. En attendant, `pasDeSuperpositionAudio`
+  (V-INTERRUPTION) est toujours rapporté `null` — jamais compté en succès.
 - Le rôle de la **dernière** bulle du transcript est déduit (historique DOM +
   logs `premier delta`) — fiable dans les scénarios joués, mais signalé ici.
-- « Pas de promesse de localité » (V-PTBA) est une heuristique regex
-  prudente ; la relecture humaine du transcript reste la référence.
-- `--footer-sha-min` compare par préfixe exact — la notion de « descendant
-  accepté » (spec) viendra avec l'intégration CI.
-- V-SILENCE-30S et V-BRUIT-TV requièrent la question parlée `pass.wav` :
-  `SKIPPED_MISSING_STIMULUS` tant qu'elle n'est pas enregistrée — attendu.
+- « Pas de promesse de localité », « ne redemande pas la localité »
+  (V-MEMOIRE-KORHOGO) et « réorientation officielle » (V-SAFE) sont des
+  heuristiques regex prudentes ; la relecture humaine du transcript reste la
+  référence.
+- V-INTERRUPTION dépend d'un timing fixe (limite du faux micro : un seul WAV
+  par lancement). Si la réponse de SUTA tarde et que l'interruption atterrit
+  hors réponse, `interruptionPriseEnCompte` échoue explicitement — c'est le
+  stimulus à recaler, pas le site.
+- Les verdicts phase 2 n'ont pas encore été confrontés à un run réel : comme
+  pour la phase 1 (deux faux positifs corrigés sur trois runs), c'est le
+  premier run qui les éprouvera.
