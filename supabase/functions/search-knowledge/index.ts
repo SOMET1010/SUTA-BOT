@@ -28,14 +28,32 @@ const VISIBILITE_IMPOSEE = ["PUBLIC", "DEMO"];
 /** Longueur de contenu transmise au modèle vocal : une fiche entière ou presque. */
 const CONTENU_MAX = 1600;
 const LIMITE_MAX = 8;
-/** Profondeur interne des deux voies avant fusion. */
-const PROFONDEUR_VECTEUR = 12;
+/** Profondeur interne des deux voies avant fusion. Assez profond pour que
+ * les fiches de sujet subsistent même quand des fiches de villages au nom
+ * proche occupent les premiers rangs vectoriels. */
+const PROFONDEUR_VECTEUR = 16;
 const PROFONDEUR_GEO = 6;
 /** Audit du 23/08 : « où me former au numérique à Korhogo ? » remontait six
  * fiches d'infrastructure de Korhogo et zéro fiche formation — la voie géo
  * écrasait le sujet. Les correspondances géo SEULES (non confirmées par le
  * vecteur) sont plafonnées : le lieu ouvre la réponse, le sujet la remplit. */
 const GEO_SEULS_MAX = 2;
+/** Nombre de fiches de SUJET (recherche sans le toponyme) insérées après les
+ * fiches du lieu. Audit du 23/08 : « où me former au numérique à Korhogo ? »
+ * n'avait AUCUNE fiche de sujet dans le top-16 vectoriel — le toponyme
+ * dominait l'embedding et remontait des villages au nom proche. La seconde
+ * recherche, débarrassée du toponyme, laisse les fiches du plan stratégique
+ * (« ce que l'ANSUT prévoit ») répondre quand aucune fiche locale n'existe. */
+const SUJETS_MAX = 4;
+/** Une fiche de lieu précis (village, site, zone blanche) que la voie géo n'a
+ * PAS confirmée est presque sûrement le mauvais lieu : l'embedding accroche
+ * un nom voisin (« KORHOGOLA » pour Korhogo). Rétrogradée derrière les
+ * fiches de sujet. */
+const TITRE_LIEU = /^(localité|bts|fibre|poste|site|abri|école|centre|zone blanche) — /i;
+function estFicheDeLieu(row: { document_title: string; metadata: Record<string, unknown> | null }): boolean {
+  if (TITRE_LIEU.test(row.document_title)) return true;
+  return Boolean(row.metadata && typeof row.metadata.nom === "string" && row.metadata.nom.length > 0);
+}
 
 /**
  * GARDE-FOU DÉCISIONNEL — indépendant du prompt et de la visibilité.
@@ -188,25 +206,77 @@ Deno.serve(async (req: Request) => {
     const geo = (geoResult.data ?? []) as GeoChunk[];
     const geoIds = new Set(geo.map((g) => g.chunk_id));
 
+    // Recherche de SUJET : quand un toponyme est détecté, la même question
+    // débarrassée du lieu dit le besoin (« où me former au numérique »).
+    // Seconde passe vectorielle pour que le sujet ne soit pas noyé par le
+    // lieu — c'est là que répondent les fiches du plan stratégique.
+    const toponymesDetectes = [...new Set(
+      geo.map((g) => g.toponyme).filter((t): t is string => Boolean(t)).map((t) => normaliser(t)),
+    )];
+    let querySujet = "";
+    let sujets: { row: MatchedChunk; score: number }[] = [];
+    if (toponymesDetectes.length > 0) {
+      const motsSansLieu = query.split(/[^\p{L}-]+/u).filter((mot: string) => {
+        const n = normaliser(mot);
+        return n.length > 0 && !toponymesDetectes.some((t) => t === n || t.includes(n));
+      });
+      const porteurDeSujet = motsSansLieu.some((m: string) => {
+        const n = normaliser(m);
+        return n.length >= 3 && !MOTS_OUTILS.has(n);
+      });
+      const candidate = motsSansLieu.join(" ").trim();
+      if (porteurDeSujet && candidate.length > 0 && normaliser(candidate) !== normaliser(query)) {
+        querySujet = candidate;
+        const embedSujet = await fetch(new URL("/openai/v1/embeddings", endpoint), {
+          method: "POST",
+          headers: { "api-key": apiKey, "Content-Type": "application/json" },
+          body: JSON.stringify({ model: deployment, input: [querySujet.slice(0, 500)] }),
+        });
+        if (embedSujet.ok) {
+          const { data: dataSujet } = await embedSujet.json();
+          const { data: matchesSujet } = await supabase.rpc("match_chunks", {
+            query_embedding: `[${(dataSujet[0].embedding as number[]).join(",")}]`,
+            match_count: PROFONDEUR_VECTEUR,
+            allowed_visibility: VISIBILITE_IMPOSEE,
+          });
+          sujets = ((matchesSujet ?? []) as MatchedChunk[])
+            .map((m) => ({ row: m, score: Math.max(0, Math.min(1, 1 - m.distance)) }))
+            .filter((v) => !estFicheDeLieu(v.row));
+        }
+      }
+    }
+
     // Fusion : (1) trouvés par les deux voies — le lieu ET le sujet —,
     // (2) correspondances géographiques exactes restantes (la fiche du
     // village existe même si le vecteur l'a manquée), (3) reste vectoriel.
     const deuxVoies = vectoriels.filter((v) => geoIds.has(v.row.chunk_id));
     const idsRetenus = new Set(deuxVoies.map((v) => v.row.chunk_id));
     const geoSeuls = geo.filter((g) => !idsRetenus.has(g.chunk_id)).slice(0, GEO_SEULS_MAX);
-    const vecteurSeuls = vectoriels.filter((v) => !geoIds.has(v.row.chunk_id));
+    const dejaVus = new Set<string>([...idsRetenus, ...geoSeuls.map((g) => g.chunk_id)]);
+    const sujetSeuls = sujets
+      .filter((s) => !dejaVus.has(s.row.chunk_id) && !geoIds.has(s.row.chunk_id))
+      .slice(0, SUJETS_MAX);
+    sujetSeuls.forEach((s) => dejaVus.add(s.row.chunk_id));
+    const vecteurSeuls = vectoriels.filter((v) => !geoIds.has(v.row.chunk_id) && !dejaVus.has(v.row.chunk_id));
+    // Les fiches de sujet passent avant les fiches d'un lieu que la géo n'a
+    // pas confirmé (mauvais village accroché par le nom).
+    const vecteurSujets = vecteurSeuls.filter((v) => !estFicheDeLieu(v.row));
+    const vecteurLieuxNonConfirmes = vecteurSeuls.filter((v) => estFicheDeLieu(v.row));
 
     const results = [
       ...deuxVoies.map((v) => formater(v.row, v.score)),
       ...geoSeuls.map((g, i) => formater(g, 0.5 - i * 0.01)),
-      ...vecteurSeuls.map((v) => formater(v.row, v.score)),
+      ...sujetSeuls.map((s) => formater(s.row, s.score)),
+      ...vecteurSujets.map((v) => formater(v.row, v.score)),
+      ...vecteurLieuxNonConfirmes.map((v) => formater(v.row, v.score)),
     ].filter((r): r is NonNullable<typeof r> => r !== null).slice(0, matchCount);
 
     // Journal temporaire (diagnostic du classement géographique) : jamais de
     // contenu de fiche, uniquement requête, toponymes et titres classés.
     console.log(JSON.stringify({
       query: query.slice(0, 120),
-      toponymes: [...new Set(geo.map((g) => g.toponyme).filter(Boolean))],
+      toponymes: toponymesDetectes,
+      querySujet: querySujet || null,
       geoTrouves: geo.length,
       top5: results.slice(0, 5).map((r) => `${r.title} (${r.score})`),
     }));

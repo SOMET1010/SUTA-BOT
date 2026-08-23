@@ -33,6 +33,14 @@ describe("loadSutaSystemPrompt", () => {
     expect(prompt).toContain("un chiffre exact reste exact");
   });
 
+  it("keeps planned projects distinct from existing services", () => {
+    const prompt = loadSutaSystemPrompt();
+    // Quand aucun fait local n'existe, la réponse vient du plan stratégique —
+    // au futur, jamais présentée comme un service déjà disponible.
+    expect(prompt).toContain("ce qui existe déjà de ce qui est prévu");
+    expect(prompt).toContain("l'ANSUT prévoit");
+  });
+
   it("makes SUTA answer the question, never recite the record", () => {
     const prompt = loadSutaSystemPrompt();
     // Constat de salon : pour « mon village est-il connecté ? », le modèle
