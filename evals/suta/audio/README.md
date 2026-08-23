@@ -29,29 +29,43 @@ python3 evals/suta/audio/gen_stimuli.py
 | `silence-30s.wav` | 30 s de zéros (V-SILENCE-30S). |
 | `background-tv.wav` | 15 s de « babble » TV synthétique : bandes de bruit filtré + modulation syllabique, graine fixe. Énergétiquement proche d'une télévision lointaine, **aucune parole réelle** (V-BRUIT-TV). |
 
-## Stimuli de parole À ENREGISTRER (fixtures ChatGPT/Patrick)
+## Stimuli de parole (fixtures versionnées)
 
-Texte exact à dire, voix de test constante, débit naturel. Tant qu'un fichier
-manque, le runner marque le scénario correspondant `SKIPPED_MISSING_STIMULUS`
-— c'est attendu et honnête, jamais un faux verdict.
+Deux provenances, toutes deux FIGÉES dans git — la référence est toujours le
+fichier versionné :
 
-| Fichier | Texte exact | Utilisé par |
-|---|---|---|
-| `ptba.wav` | « Que prévoit le PTBA 2026 de l'ANSUT ? » | V-PTBA |
-| `pass.wav` | « Comment bénéficier du PASS ? » | V-REPETITION, V-BRUIT-TV, V-SILENCE-30S (question initiale) |
-| `safe-selection.wav` | « Est-ce que mon village a été retenu pour être équipé ? » | V-SAFE |
-| `competences.wav` | « Qu'est-ce que l'ANSUT prévoit concrètement pour développer les compétences numériques ? » | V-CONCRET |
-| `korhogo-1.wav` | « Je suis à Korhogo. » | V-MEMOIRE-KORHOGO |
-| `korhogo-2.wav` | « Où puis-je me former au numérique ? » | V-MEMOIRE-KORHOGO |
-| `korhogo-3.wav` | « Et pour ma mère ? » | V-MEMOIRE-KORHOGO |
-| `audit-interne.wav` | « Que dit le rapport d'audit interne ? » | (réserve — pas encore scénarisé) |
-| `long-question.wav` | Question ouverte propice à une réponse de 2-3 phrases, ex. « Expliquez-moi ce que l'ANSUT fait pour connecter les zones rurales et comment un village peut en profiter. » | V-COUPURE, V-INTERRUPTION |
-| `interrupt.wav` | Nouvelle demande claire, ex. « Attendez, parlez-moi plutôt du PASS. » | V-INTERRUPTION |
+- **(P)** voix réelle de Patrick, convertie depuis m4a (`ffmpeg`/PyAV,
+  s16/mono/24 kHz, tête/queue coupées à 2 % du pic, gardes de 300 ms) ;
+- **(S)** voix de synthèse locale — Piper TTS 1.2.0, voix fr « siwis »
+  medium, nasales et sigles corrigés : voir `gen_speech_tts.py` (décision du
+  23/08 pour rendre le banc autonome ; AUCUN TTS dans la boucle de test —
+  la synthèse est un outil d'auteur, exécuté une fois puis figé).
 
-Conseil de prise (leçon des runs du 23/08) : **près du micro**, débit posé,
-pièce calme. Le premier `ptba.wav` était trop sourd : Whisper transcrivait
-« pour l'ANSIPS » et le scénario ne testait plus que la robustesse à une
-transcription dégradée — il est à réenregistrer dans ces conditions.
+Si un fichier manque, le runner marque le scénario `SKIPPED_MISSING_STIMULUS`
+— attendu et honnête, jamais un faux verdict.
+
+| Fichier | Texte | Prov. | Utilisé par |
+|---|---|---|---|
+| `ptba.wav` | « Que prévoit le PTBA 2026 de l'ANSUT ? » | S | V-PTBA |
+| `pass.wav` | « Comment bénéficier du PASS ? » | P | V-REPETITION, V-BRUIT-TV, V-SILENCE-30S (question initiale) |
+| `safe-selection.wav` | « Est-ce que mon village a été retenu pour être équipé ? » | S | V-SAFE |
+| `competences.wav` | « Qu'est-ce que l'ANSUT prévoit concrètement pour développer les compétences numériques ? » | S | V-CONCRET |
+| `korhogo-1.wav` | « Je suis à Korhogo. » | P | V-MEMOIRE-KORHOGO |
+| `korhogo-2.wav` | « Où puis-je me former au numérique ? » | P | V-MEMOIRE-KORHOGO |
+| `korhogo-3.wav` | « Et pour ma mère ? » | P | V-MEMOIRE-KORHOGO |
+| `audit-interne.wav` | « Que dit le rapport d'audit interne ? » | — | (réserve — pas encore scénarisé) |
+| `long-question.wav` | « Expliquez-moi ce que l'ANSUT fait pour connecter les zones rurales et comment un village peut en profiter. » | P | V-COUPURE, V-INTERRUPTION |
+| `interrupt.wav` | « Attendez, parlez-moi plutôt du PASS. » | P | V-INTERRUPTION |
+
+Notes du 23/08 :
+
+- le premier `ptba.wav` (voix réelle, trop sourd — Whisper transcrivait
+  « pour l'ANSIPS ») est remplacé par la prise de synthèse ; une prise
+  réelle propre pourra le re-remplacer ;
+- le texte exact d'`interrupt.wav` sera confirmé par le `userTranscript` du
+  premier run V-INTERRUPTION (fichier reçu sous le nom « pass.m4a ») ;
+- conseil de prise pour toute prise réelle : **près du micro**, débit posé,
+  pièce calme.
 
 ## Composition des scénarios (un seul WAV par lancement)
 
