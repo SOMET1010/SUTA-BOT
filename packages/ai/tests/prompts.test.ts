@@ -80,6 +80,22 @@ describe("loadSutaSystemPrompt", () => {
     expect(prompt).toContain("besoin de connaître le PND, le PTBA ou un sigle");
   });
 
+  it("recognizes PASS as the flagship program, never asks which pass", () => {
+    const prompt = loadSutaSystemPrompt();
+    // Banc vocal du 23/08 : « bénéficier du PASSE » → SUTA demandait
+    // « quel pass exactement ? » sans chercher.
+    expect(prompt).toContain("programme phare d'équipement");
+    expect(prompt).toContain("ne demande jamais « quel pass ? »");
+  });
+
+  it("treats noise-hallucinated transcripts as ambient noise", () => {
+    const prompt = loadSutaSystemPrompt();
+    // Banc vocal du 23/08 (V-BRUIT-TV) : le bruit TV transcrit en crédits de
+    // sous-titres déclenchait une vraie réponse conversationnelle.
+    expect(prompt).toContain("sous-titres réalisés par");
+    expect(prompt).toContain("bruit ambiant transcrit par erreur");
+  });
+
   it("keeps French as the answering language", () => {
     const prompt = loadSutaSystemPrompt();
     expect(prompt).toContain("TOUJOURS en français");

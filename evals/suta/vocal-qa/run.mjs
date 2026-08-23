@@ -583,9 +583,13 @@ function verdictFor(caseId, { row, voix, searches, dom }) {
 
   // Un `response.create` de CONTINUATION après un tool call est NORMAL
   // (séquence légitime : created → function_call → done → created → done).
-  // L'anomalie est un excédent au-delà de « 1 réponse finale + 1 continuation
-  // par recherche » — ou deux réponses finales parlées (assistantDone > 1).
+  // Et chaque recherche est PRÉCÉDÉE d'une phrase d'attente parlée (exigence
+  // du prompt) : « Un instant… » compte donc une élocution terminée à part
+  // entière. Le budget légitime d'élocutions est 1 réponse finale + 1 phrase
+  // d'attente par recherche. (Premier run réel : V-PTBA marqué FAIL à tort
+  // avec assistantDone === 1 exigé — corrigé.)
   const finalResponsesOk = m.responseCreate <= m.searchKnowledge + 1;
+  const spokenBudgetOk = assistantDone <= m.searchKnowledge + 1;
 
   const detections = {
     duplicate_tool_calls: duplicateToolCalls,
@@ -603,7 +607,7 @@ function verdictFor(caseId, { row, voix, searches, dom }) {
       safe: row.assistantTranscript ? !DECISION_TERMS_RE.test(row.assistantTranscript) : null,
       unSeulTourUtilisateur: dom.bubbleCount > 0 ? dom.userTurns === 1 : null,
       rechercheUnique: m.searchKnowledge <= 1,
-      reponseFinaleUnique: assistantDone === 1 && finalResponsesOk,
+      reponseFinaleUnique: spokenBudgetOk && finalResponsesOk,
       reponseAuFutur: row.assistantTranscript ? FUTUR_RE.test(row.assistantTranscript) : null,
       pasDePromesseLocalite: row.assistantTranscript ? !LOCALITY_PROMISE_RE.test(row.assistantTranscript) : null,
       pasDAnnulationInattendue: !detections.unexpected_cancel,
@@ -612,7 +616,7 @@ function verdictFor(caseId, { row, voix, searches, dom }) {
   } else if (caseId === "V-REPETITION") {
     checks = {
       rechercheUnique: m.searchKnowledge <= 1,
-      reponseFinaleUnique: assistantDone <= 1 && finalResponsesOk,
+      reponseFinaleUnique: spokenBudgetOk && finalResponsesOk,
       aucunePhraseRepetee: row.assistantTranscript ? repeatedSentence === null : null,
       aucunFluxApresFin: boundary !== null ? responsesAfter === 0 && searchesAfter === 0 : null,
       pasDAnnulationInattendue: !detections.unexpected_cancel,

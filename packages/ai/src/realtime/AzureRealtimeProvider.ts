@@ -103,7 +103,12 @@ export class AzureRealtimeProvider implements RealtimeProvider {
               // soutenue), qui distingue un bruit d'un vrai « attends ».
               turn_detection: {
                 type: "server_vad",
-                threshold: 0.75,
+                // Banc vocal du 23/08 (V-BRUIT-TV) : à 0,75, un bruit de
+                // télévision synthétique déclenchait encore un tour (Whisper
+                // hallucinant des crédits de sous-titres). Défaut relevé à
+                // 0,8 ; REALTIME_VAD_THRESHOLD permet d'ajuster au salon
+                // sans redéploiement de code (borné 0,5-0,95).
+                threshold: Math.min(0.95, Math.max(0.5, Number(process.env.REALTIME_VAD_THRESHOLD) || 0.8)),
                 prefix_padding_ms: 300,
                 silence_duration_ms: 600,
                 interrupt_response: false,
