@@ -104,7 +104,7 @@ function emotionFor(pillar: SutaPillar, results: ExperienceResult[]): SutaEmotio
 function firstSummary(results: ExperienceResult[]): string {
   const first = results[0]?.content?.trim();
   if (!first) return "Voici les informations fiables que j'ai trouvées pour vous.";
-  return premieresPhrases(first, 2, 240);
+  return premieresPhrases(first, 2, 300);
 }
 
 function visualFor(
@@ -153,8 +153,10 @@ function visualFor(
     title: results[0]?.title || "Ce qu'il faut savoir",
     summary: firstSummary(results),
     // La fiche de tête est déjà le titre de la carte : les preuves discrètes
-    // sont les suivantes, pas sa répétition.
-    facts: results.slice(1, 4).map((r) => ({ label: r.title, value: r.source })),
+    // sont les suivantes, pas sa répétition. « Corpus ANSUT » répété en gras
+    // sous chaque preuve était un label technique sans valeur citoyenne — la
+    // valeur n'est affichée que quand elle apporte quelque chose (une région).
+    facts: results.slice(1, 4).map((r) => ({ label: r.title, value: r.source === "Corpus ANSUT" ? "" : r.source })),
     actions: [{ id: "next-step", label: "Que dois-je faire ?", prompt: "Quelle est la prochaine démarche à faire ?" }],
   };
 }
