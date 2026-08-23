@@ -42,3 +42,6 @@ data/postgres/
 
 # Prisma generated client (regenerated via `prisma generate`)
 packages/database/generated/
+
+# Sorties locales du banc vocal (l'historique officiel est committé à la main dans evals/suta/results/)
+evals/suta/results/local/

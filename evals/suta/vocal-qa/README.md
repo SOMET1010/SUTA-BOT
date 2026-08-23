@@ -88,11 +88,17 @@ Variable utile : `SUTA_VOCALQA_AUDIO_DIR` remplace le corpus audio (tests).
 
 ## Sorties
 
-- `evals/suta/results/vocal-qa-<date>-<sha>.jsonl` — une ligne par cas
-  (format de la spec §Format de sortie, enrichi d'un champ `detections`).
-- `…/vocal-qa-<date>-<sha>.md` — résumé lisible : PASS/FAIL par cas, premier
-  défaut, critères **non mesurables** signalés tels quels (un critère `null`
-  n'est jamais compté ni converti en score).
+- `evals/suta/results/local/vocal-qa-<date>-<sha-du-footer>.jsonl` — une
+  ligne par cas (format de la spec §Format de sortie, enrichi d'un champ
+  `detections`). Le dossier `local/` est IGNORÉ par git : les runs 4-5 réels
+  écrivaient dans `results/` et le commit de l'historique officiel bloquait
+  ensuite le `git pull` du poste de test (fichiers non suivis homonymes).
+  Le nom porte la version du SITE testé (footer), pas celle du clone.
+- `…/local/vocal-qa-<date>-<sha-du-footer>.md` — résumé lisible : PASS/FAIL
+  par cas, premier défaut, critères **non mesurables** signalés tels quels
+  (un critère `null` n'est jamais compté ni converti en score).
+- L'historique officiel des runs reste committé à la main dans
+  `evals/suta/results/` (hors `local/`).
 - `--keep-artifacts` : `…/artifacts/vocal-qa-<date>-<sha>/<cas>/events.json`
   (événements bruts) + le WAV composé du scénario.
 

@@ -39,6 +39,13 @@ const { chromium } = require("playwright-core");
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const AUDIO_DIR = process.env.SUTA_VOCALQA_AUDIO_DIR || resolve(HERE, "..", "audio");
+/** Sortie par défaut : results/local/, IGNORÉ par git. Les runs 4 et 5 réels
+ * ont écrit directement dans results/ ; quand l'historique officiel des mêmes
+ * fichiers a été committé, le git pull du poste de test s'est retrouvé bloqué
+ * deux fois (« untracked working tree files would be overwritten »). Le banc
+ * écrit local, l'historique officiel est committé à la main depuis ces
+ * fichiers. */
+const DEFAULT_OUT_DIR = resolve(HERE, "..", "results", "local");
 const SAMPLE_RATE = 24_000;
 const SAMPLE_INTERVAL_MS = 400;
 const ESTABLISH_TIMEOUT_MS = 25_000;
@@ -826,9 +833,11 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick }) {
 
 function writeOutputs(rows, opts, gitSha, artifactsDir, perCaseArtifacts) {
   const date = new Date().toISOString().slice(0, 10);
-  const outDir = opts.outDir ? resolve(opts.outDir) : resolve(HERE, "..", "results");
+  const outDir = opts.outDir ? resolve(opts.outDir) : DEFAULT_OUT_DIR;
   mkdirSync(outDir, { recursive: true });
-  const base = `vocal-qa-${date}-${gitSha}`;
+  // Nommé d'après la version du SITE testé (footer), pas celle du clone :
+  // c'est le site qu'on mesure — un même clone peut tester deux déploiements.
+  const base = `vocal-qa-${date}-${rows[0]?.footerSha ?? gitSha}`;
   const jsonlPath = join(outDir, `${base}.jsonl`);
   writeFileSync(jsonlPath, rows.map((r) => JSON.stringify(r)).join("\n") + "\n");
 
@@ -880,7 +889,7 @@ async function main() {
   console.log(`Corpus audio : ${AUDIO_DIR}`);
 
   const date = new Date().toISOString().slice(0, 10);
-  const outDirForArtifacts = opts.outDir ? resolve(opts.outDir) : resolve(HERE, "..", "results");
+  const outDirForArtifacts = opts.outDir ? resolve(opts.outDir) : DEFAULT_OUT_DIR;
   const artifactsDir = opts.keepArtifacts ? join(outDirForArtifacts, "artifacts", `vocal-qa-${date}-${gitSha}`) : null;
   if (artifactsDir) mkdirSync(artifactsDir, { recursive: true });
 
