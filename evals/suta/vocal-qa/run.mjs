@@ -572,10 +572,17 @@ function verdictFor(caseId, { row, voix, searches, dom }) {
   const duplicateToolCalls = duplicateToolLog || duplicateQueries;
   const repeatedSentence = row.assistantTranscript ? findRepeatedSentence(row.assistantTranscript) : null;
 
-  // Fin de la PREMIÈRE réponse assistant : frontière « avant/après » des
-  // scénarios bruit/silence. (`transcript terminé` = fin d'élocution.)
-  const firstDone = voix.find((e) => e.text.includes("transcript terminé")) ?? null;
-  const boundary = firstDone ? firstDone.t + BOUNDARY_GRACE_MS : null;
+  // Frontière « avant/après » des scénarios bruit/silence/flux : la fin de la
+  // DERNIÈRE élocution du budget légitime — 1 phrase d'attente par recherche
+  // + 1 réponse finale. (2e run réel : la frontière posée sur la PREMIÈRE
+  // élocution comptait la continuation légitime comme un « flux après la
+  // fin » — V-REPETITION FAIL à tort.) On n'ancre PAS sur la toute dernière
+  // élocution observée : une réponse déclenchée par le bruit repousserait la
+  // frontière et se masquerait elle-même.
+  const doneEvents = voix.filter((e) => e.text.includes("transcript terminé"));
+  const budgetDone = Math.min(m.searchKnowledge + 1, doneEvents.length);
+  const anchorDone = budgetDone > 0 ? doneEvents[budgetDone - 1] : null;
+  const boundary = anchorDone ? anchorDone.t + BOUNDARY_GRACE_MS : null;
   const after = (t) => boundary !== null && t > boundary;
   const responsesAfter = voix.filter((e) => e.text.includes("response.created") && after(e.t)).length;
   const searchesAfter = searches.filter((s) => after(s.t)).length;
