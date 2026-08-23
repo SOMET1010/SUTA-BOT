@@ -56,11 +56,14 @@ PHRASES = [
     # Run réel n°4 : « pé té bé a 2026 » ressortait de Whisper en « Et à
     # 2020-ci » — l'épellation et l'année sont remplacées par le nom complet
     # du plan, en mots naturels (le motif PTBA du garde stratégique reconnaît
-    # aussi « plan de travail et budget annuel »).
+    # aussi « plan de travail et budget annuel »). Run n°6 : le VAD (seuil
+    # 0,80) rate le début doux de la synthèse — « Que prévoit le plan de »
+    # perdu. Le « Bonjour ! » d'ouverture est SACRIFIABLE : c'est lui que le
+    # VAD peut rogner, la question reste entière.
     (
         "ptba.wav",
-        "Que prévoit le plan de travail et budget annuel de l'Ansute ?",
-        "Que prévoit le plan de travail et budget annuel de l'ANSUT ?",
+        "Bonjour ! Que prévoit le plan de travail et budget annuel de l'Ansute ?",
+        "Bonjour ! Que prévoit le plan de travail et budget annuel de l'ANSUT ?",
     ),
     (
         "safe-selection.wav",
@@ -71,6 +74,15 @@ PHRASES = [
         "competences.wav",
         "Qu'est-ce que l'Ansute prévoit concrètement pour développer les compétences numériques ?",
         "Qu'est-ce que l'ANSUT prévoit concrètement pour développer les compétences numériques ?",
+    ),
+    # Run réel n°6 : la prise réelle « Et pour ma mère ? » (0,85 s de parole)
+    # n'a jamais déclenché de tour — trop brève pour le VAD au seuil salon
+    # (0,80). Phrase allongée, même intention (« ma mère » change le profil,
+    # pas le lieu).
+    (
+        "korhogo-3.wav",
+        "Et pour ma mère, est-ce qu'elle peut se former aussi ?",
+        "Et pour ma mère, est-ce qu'elle peut se former aussi ?",
     ),
 ]
 
