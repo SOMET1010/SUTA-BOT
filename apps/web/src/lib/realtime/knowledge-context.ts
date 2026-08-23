@@ -58,6 +58,19 @@ const TITRE_HORS_QUESTION_CITOYENNE =
 const CONTENU_HORS_QUESTION_CITOYENNE =
   /coordonn[ée]es g[ée]ographiques exploitables|ne peut pas [êe]tre calcul[ée]e|compt(er|[ée]es) comme non couvertes par pr[ée]caution/i;
 
+/**
+ * Niveaux stratégiques que le corpus ne couvre pas (audit du 23/08 : le PTBA
+ * n'a aucune fiche, et des voisins vectoriels à ~0,45 passaient le plancher —
+ * le modèle risquait de broder au lieu d'avouer). Quand la question demande
+ * explicitement un tel niveau et qu'AUCUNE preuve retenue n'en parle, on rend
+ * zéro preuve : SUTA dit qu'elle n'a pas encore cette information.
+ * Auto-guérissant : le jour où des fiches PTBA sont ingérées, leurs
+ * titres/contenus matcheront le motif et passeront normalement.
+ */
+const NIVEAUX_STRATEGIQUES = [
+  { nom: "PTBA", motif: /\bptba\b|plan de travail et budget annuel/i },
+];
+
 /** Mots d'un nom de site sans valeur d'identification. */
 const JETONS_GENERIQUES = new Set([
   "bts", "site", "poste", "fibre", "padci", "abri", "ecole", "centre",
@@ -149,6 +162,14 @@ export function selectionnerPreuves(question: string, result: unknown): string[]
     }
     return true;
   });
+
+  // Niveau stratégique explicitement demandé mais absent du corpus : mieux
+  // vaut zéro preuve qu'un texte voisin tendu comme réponse de substitution.
+  for (const niveau of NIVEAUX_STRATEGIQUES) {
+    if (niveau.motif.test(question) && !retenues.some((p) => niveau.motif.test(p.titre) || niveau.motif.test(p.contenu))) {
+      return [];
+    }
+  }
 
   // Diversité : retour de terrain du 23/08 — « où me former à Korhogo ? »
   // recevait trois fiches d'infrastructure de Korhogo et jamais les fiches de

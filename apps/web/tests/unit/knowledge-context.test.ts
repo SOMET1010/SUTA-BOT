@@ -117,6 +117,22 @@ describe("selectionnerPreuves", () => {
     expect(preuves).toEqual([]);
   });
 
+  it("rend zéro preuve quand un niveau absent du corpus (PTBA) est demandé", () => {
+    // Audit du 23/08 (STRAT-PTBA-ABSENT) : aucune fiche PTBA n'existe, mais
+    // des voisins vectoriels (~0,45) passaient le plancher — risque de
+    // broderie au lieu d'aveu.
+    const voisins = [
+      { title: "Le très haut débit dans les immeubles", content: "Fiche THD immeubles.", score: 0.455 },
+      { title: "Une politique nationale des infrastructures numériques", content: "Fiche politique.", score: 0.429 },
+    ];
+    expect(selectionnerPreuves("Que prévoit le PTBA sur ce projet ?", { results: voisins })).toEqual([]);
+    // Auto-guérison : une vraie fiche PTBA passerait.
+    const preuves = selectionnerPreuves("Que prévoit le PTBA sur ce projet ?", {
+      results: [{ title: "PTBA 2026 de l'ANSUT — programmation annuelle", content: "Le plan de travail et budget annuel programme…", score: 0.6 }, ...voisins],
+    });
+    expect(preuves?.[0]).toContain("plan de travail et budget annuel");
+  });
+
   it("plafonne à trois preuves", () => {
     const preuves = selectionnerPreuves("le programme PASS", {
       results: Array.from({ length: 8 }, (_, i) => ({
