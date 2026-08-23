@@ -34,8 +34,10 @@ python3 evals/suta/audio/gen_stimuli.py
 Deux provenances, toutes deux FIGÉES dans git — la référence est toujours le
 fichier versionné :
 
-- **(P)** voix réelle de Patrick, convertie depuis m4a (`ffmpeg`/PyAV,
-  s16/mono/24 kHz, tête/queue coupées à 2 % du pic, gardes de 300 ms) ;
+- **(P)** voix réelle de Patrick, convertie depuis m4a par `convert_m4a.py`
+  (s16/mono/24 kHz, retrait des bruits isolés de tête/queue, silences
+  internes compressés sous le seuil de clôture du VAD, gardes de 300 ms —
+  chaque règle vient d'un défaut constaté au run réel n°4) ;
 - **(S)** voix de synthèse locale — Piper TTS 1.2.0, voix fr « siwis »
   medium, nasales et sigles corrigés : voir `gen_speech_tts.py` (décision du
   23/08 pour rendre le banc autonome ; AUCUN TTS dans la boucle de test —
@@ -46,7 +48,7 @@ Si un fichier manque, le runner marque le scénario `SKIPPED_MISSING_STIMULUS`
 
 | Fichier | Texte | Prov. | Utilisé par |
 |---|---|---|---|
-| `ptba.wav` | « Que prévoit le PTBA 2026 de l'ANSUT ? » | S | V-PTBA |
+| `ptba.wav` | « Que prévoit le plan de travail et budget annuel de l'ANSUT ? » | S | V-PTBA |
 | `pass.wav` | « Comment bénéficier du PASS ? » | P | V-REPETITION, V-BRUIT-TV, V-SILENCE-30S (question initiale) |
 | `safe-selection.wav` | « Est-ce que mon village a été retenu pour être équipé ? » | S | V-SAFE |
 | `competences.wav` | « Qu'est-ce que l'ANSUT prévoit concrètement pour développer les compétences numériques ? » | S | V-CONCRET |
@@ -60,12 +62,15 @@ Si un fichier manque, le runner marque le scénario `SKIPPED_MISSING_STIMULUS`
 Notes du 23/08 :
 
 - le premier `ptba.wav` (voix réelle, trop sourd — Whisper transcrivait
-  « pour l'ANSIPS ») est remplacé par la prise de synthèse ; une prise
-  réelle propre pourra le re-remplacer ;
+  « pour l'ANSIPS ») est remplacé par la prise de synthèse ; au run n°4,
+  l'épellation « pé té bé a 2026 » ressortait en « Et à 2020-ci » — le texte
+  passe au nom complet du plan, en mots naturels ;
 - le texte exact d'`interrupt.wav` sera confirmé par le `userTranscript` du
-  premier run V-INTERRUPTION (fichier reçu sous le nom « pass.m4a ») ;
+  premier run V-INTERRUPTION joué proprement (fichier reçu sous le nom
+  « pass.m4a ») ;
 - conseil de prise pour toute prise réelle : **près du micro**, débit posé,
-  pièce calme.
+  pièce calme, et démarrer la phrase aussitôt l'enregistrement lancé (le
+  claquement du bouton suivi d'un silence fabrique un tour fantôme).
 
 ## Composition des scénarios (un seul WAV par lancement)
 

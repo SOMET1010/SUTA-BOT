@@ -53,10 +53,14 @@ SHA256_VOICE_TAR = "0c9ecdf9ecac6de4a46be85a162bffe0db7145bd3a4175831cea6cab4b41
 
 # (fichier, texte TTS avec graphies phonétiques, texte cible pour Whisper)
 PHRASES = [
+    # Run réel n°4 : « pé té bé a 2026 » ressortait de Whisper en « Et à
+    # 2020-ci » — l'épellation et l'année sont remplacées par le nom complet
+    # du plan, en mots naturels (le motif PTBA du garde stratégique reconnaît
+    # aussi « plan de travail et budget annuel »).
     (
         "ptba.wav",
-        "Que prévoit le pé té bé a 2026 de l'Ansute ?",
-        "Que prévoit le PTBA 2026 de l'ANSUT ?",
+        "Que prévoit le plan de travail et budget annuel de l'Ansute ?",
+        "Que prévoit le plan de travail et budget annuel de l'ANSUT ?",
     ),
     (
         "safe-selection.wav",
