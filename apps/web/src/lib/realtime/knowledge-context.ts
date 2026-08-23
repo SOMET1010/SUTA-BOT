@@ -33,6 +33,20 @@ export const CONSIGNE_SYNTHESE =
   "exact. Puis propose d'en dire plus si c'est utile. Jamais de document, " +
   "de fiche, de source ni de coordonnées.";
 
+/** Ajouté à la consigne quand les preuves portent au moins un chiffre.
+ * Runs vocaux n°4 et 5 (V-CONCRET) : deux fois de suite, le modèle a cité
+ * « ANSUT Academy » — un exemple nommé — en taisant les chiffres présents
+ * dans deux preuves sur trois. La règle générale du prompt ne suffisait
+ * pas ; la consigne devient explicite au moment précis où c'est vrai. */
+export const CONSIGNE_CHIFFRE =
+  " Ces preuves portent des chiffres : ta réponse en cite au moins un — " +
+  "un exemple nommé ne suffit pas.";
+
+/** Chiffres en chiffres, ou en toutes lettres (les fiches écrivent aussi
+ * « vingt-quatre mois »). */
+const PORTE_UN_CHIFFRE =
+  /\d|\b(deux|trois|quatre|cinq|six|sept|huit|neuf|dix|douze|quinze|vingt|trente|quarante|cinquante|soixante|cents?|mille|millions?|milliards?)\b/i;
+
 export const CONSIGNE_INSUFFISANTE =
   "La recherche n'a rien trouvé qui réponde directement à cette question. " +
   "Dis-le simplement et honnêtement, sans donner un autre fait en guise de " +
@@ -195,7 +209,10 @@ export function shapeKnowledgeForModel(result: unknown, question = ""): unknown 
   const preuves = selectionnerPreuves(question, result);
   if (preuves === null) return result;
   if (preuves.length === 0) return { preuves: [], consigne: CONSIGNE_INSUFFISANTE };
-  return { preuves, consigne: CONSIGNE_SYNTHESE };
+  const consigne = preuves.some((p) => PORTE_UN_CHIFFRE.test(p))
+    ? CONSIGNE_SYNTHESE + CONSIGNE_CHIFFRE
+    : CONSIGNE_SYNTHESE;
+  return { preuves, consigne };
 }
 
 /** Les premières phrases COMPLÈTES d'un texte, sans jamais couper un mot. */

@@ -217,9 +217,35 @@ describe("shapeKnowledgeForModel", () => {
       "mon village DJACE est-il connecté ?",
     ) as { preuves: string[]; consigne: string };
     expect(shaped.preuves).toEqual([FICHE_DJACE.content]);
-    expect(shaped.consigne).toBe(CONSIGNE_SYNTHESE);
+    expect(shaped.consigne).toContain(CONSIGNE_SYNTHESE);
     expect(shaped.consigne).toContain("ne les récite jamais");
     expect(shaped.consigne).toContain("une à trois phrases");
+  });
+
+  it("exige un chiffre quand les preuves en portent", () => {
+    // Runs vocaux n°4-5 (V-CONCRET) : deux fois de suite, « ANSUT Academy »
+    // cité sans un chiffre alors que deux preuves sur trois en portaient.
+    const shaped = shapeKnowledgeForModel(
+      { results: [FICHE_DJACE] },
+      "mon village DJACE est-il connecté ?",
+    ) as { consigne: string };
+    // La fiche porte « 371 habitants », « 613 m » : la consigne le dit.
+    expect(shaped.consigne).toContain("ta réponse en cite au moins un");
+    expect(shaped.consigne).toContain("un exemple nommé ne suffit pas");
+  });
+
+  it("n'exige pas de chiffre quand les preuves n'en portent aucun", () => {
+    const sansChiffre = {
+      title: "Une mission de l'agence",
+      content: "L'agence accompagne la transformation des services publics.",
+      score: 0.62,
+      source: "Corpus ANSUT",
+    };
+    const shaped = shapeKnowledgeForModel(
+      { results: [sansChiffre] },
+      "comment l'agence accompagne-t-elle les services publics ?",
+    ) as { consigne: string };
+    expect(shaped.consigne).toBe(CONSIGNE_SYNTHESE);
   });
 
   it("dit au modèle qu'il n'a rien plutôt que de lui tendre un texte voisin", () => {
