@@ -1,3 +1,4 @@
+import { premieresPhrases } from "@/lib/realtime/knowledge-context";
 import { sceneForVisual, type SutaEmotion, type SutaScene } from "./scene";
 import { visualFromSearchResults, type SutaVisual, type VisualPoint } from "./visuals";
 
@@ -94,10 +95,16 @@ function emotionFor(pillar: SutaPillar, results: ExperienceResult[]): SutaEmotio
   return "explaining";
 }
 
+/**
+ * Constat d'écran du 23/08 : la carte affichait le contenu brut de la fiche,
+ * coupé en plein mot (« univ… ») — un moteur documentaire, pas un assistant.
+ * La carte illustre : deux phrases COMPLÈTES au maximum, jamais de coupure
+ * en plein mot. L'essentiel reste porté par la voix ou la bulle.
+ */
 function firstSummary(results: ExperienceResult[]): string {
   const first = results[0]?.content?.trim();
   if (!first) return "Voici les informations fiables que j'ai trouvées pour vous.";
-  return first.length > 260 ? `${first.slice(0, 257).trim()}...` : first;
+  return premieresPhrases(first, 2, 240);
 }
 
 function visualFor(
@@ -145,7 +152,9 @@ function visualFor(
     eyebrow: "SERVICE PUBLIC",
     title: results[0]?.title || "Ce qu'il faut savoir",
     summary: firstSummary(results),
-    facts: results.slice(0, 3).map((r) => ({ label: r.title, value: r.source })),
+    // La fiche de tête est déjà le titre de la carte : les preuves discrètes
+    // sont les suivantes, pas sa répétition.
+    facts: results.slice(1, 4).map((r) => ({ label: r.title, value: r.source })),
     actions: [{ id: "next-step", label: "Que dois-je faire ?", prompt: "Quelle est la prochaine démarche à faire ?" }],
   };
 }

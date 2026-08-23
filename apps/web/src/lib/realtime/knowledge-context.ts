@@ -197,3 +197,38 @@ export function shapeKnowledgeForModel(result: unknown, question = ""): unknown 
   if (preuves.length === 0) return { preuves: [], consigne: CONSIGNE_INSUFFISANTE };
   return { preuves, consigne: CONSIGNE_SYNTHESE };
 }
+
+/** Les premières phrases COMPLÈTES d'un texte, sans jamais couper un mot. */
+export function premieresPhrases(texte: string, maxPhrases: number, maxChars: number): string {
+  const phrases = texte.trim().split(/(?<=[.!?])\s+/).slice(0, maxPhrases);
+  let sortie = "";
+  for (const phrase of phrases) {
+    if (sortie.length > 0 && (sortie + " " + phrase).length > maxChars) break;
+    sortie = sortie.length > 0 ? `${sortie} ${phrase}` : phrase;
+  }
+  // Première phrase déjà trop longue : repli à la frontière de mot.
+  if (sortie.length > maxChars) {
+    const fenetre = sortie.slice(0, maxChars);
+    const dernierEspace = fenetre.lastIndexOf(" ");
+    sortie = `${fenetre.slice(0, dernierEspace > 40 ? dernierEspace : maxChars).trimEnd()}…`;
+  }
+  return sortie;
+}
+
+/**
+ * Réponse du chemin texte dégradé (aucun modèle conversationnel sur ce
+ * chemin). Constat d'écran du 23/08 : la bulle récitait la fiche brute,
+ * coupée en plein mot (« univ… ») — un moteur documentaire, pas un
+ * assistant. On compose désormais : mêmes preuves que la voix (sélection
+ * par intention), deux phrases complètes de la meilleure, puis l'offre
+ * d'approfondir. Les fiches étant écrites en langage citoyen, leurs
+ * premières phrases se lisent comme une réponse.
+ */
+export function composerReponseTexte(question: string, result: unknown): string {
+  const preuves = selectionnerPreuves(question, result);
+  if (preuves === null || preuves.length === 0) {
+    return "Je n'ai pas encore d'information fiable pour répondre précisément à cette question. Précisez votre localité ou reformulez, et je regarde avec vous.";
+  }
+  const essentiel = premieresPhrases(preuves[0], 2, 320);
+  return `${essentiel} Je peux vous en dire plus si vous voulez.`;
+}

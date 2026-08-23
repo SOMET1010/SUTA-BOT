@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 import {
   CONSIGNE_INSUFFISANTE,
   CONSIGNE_SYNTHESE,
+  composerReponseTexte,
+  premieresPhrases,
   selectionnerPreuves,
   shapeKnowledgeForModel,
 } from "@/lib/realtime/knowledge-context";
@@ -152,6 +154,59 @@ describe("selectionnerPreuves", () => {
       })),
     });
     expect(preuves).toHaveLength(3);
+  });
+});
+
+describe("composerReponseTexte (chemin texte dégradé)", () => {
+  // Constat d'écran du 23/08 : la bulle récitait la fiche PTBA brute, coupée
+  // en plein mot (« …la connectivité numérique univ… »).
+  const FICHE_PTBA_CHAPEAU = {
+    title: "PTBA 2026 — le plan de travail annuel de l'ANSUT",
+    content:
+      "Le PTBA — plan de travail et budget annuel — est le document qui traduit la stratégie de l'ANSUT " +
+      "en actions concrètes pour l'année. Le PTBA 2026, dans sa version de travail du 22 juin 2026, " +
+      "organise l'année en quatre piliers : la connectivité numérique universelle (le réseau), les " +
+      "services numériques et l'inclusion sociale, les usages digitaux, et un pilier interne. " +
+      "Chaque action y est suivie par un indicateur précis.",
+    score: 0.59,
+  };
+
+  it("compose des phrases complètes et propose d'approfondir — jamais de coupure en plein mot", () => {
+    const texte = composerReponseTexte("Que prévoit le PTBA 2026 de l'ANSUT ?", {
+      results: [FICHE_PTBA_CHAPEAU],
+    });
+    expect(texte).toContain("plan de travail et budget annuel");
+    expect(texte).toMatch(/Je peux vous en dire plus si vous voulez\.$/);
+    expect(texte).not.toMatch(/\wuniv…/);
+    // Chaque segment se termine proprement (ponctuation), pas en plein mot.
+    expect(texte).not.toMatch(/\w…\s/);
+  });
+
+  it("reste honnête quand la sélection ne retient aucune preuve", () => {
+    const texte = composerReponseTexte("mon village est-il connecté ?", {
+      results: [{ title: "Localité — VAPLEU (ZOUAN-HOUNIEN)", content: "Village de VAPLEU.", score: 0.52 }],
+    });
+    expect(texte).toContain("pas encore d'information fiable");
+  });
+});
+
+describe("premieresPhrases", () => {
+  it("coupe à la frontière de phrase, pas au caractère", () => {
+    const texte = "Première phrase. Deuxième phrase un peu plus longue. Troisième phrase.";
+    expect(premieresPhrases(texte, 2, 240)).toBe("Première phrase. Deuxième phrase un peu plus longue.");
+    expect(premieresPhrases(texte, 2, 20)).toBe("Première phrase.");
+  });
+
+  it("replie à la frontière de mot si la première phrase dépasse la limite", () => {
+    const longue = "Une très longue phrase sans ponctuation intermédiaire qui déborde largement la limite fixée pour la carte";
+    const sortie = premieresPhrases(longue, 2, 60);
+    expect(sortie.length).toBeLessThanOrEqual(61);
+    expect(sortie.endsWith("…")).toBe(true);
+    // Le préfixe gardé s'arrête sur un mot entier : le caractère suivant
+    // dans le texte d'origine est un espace, pas le milieu d'un mot.
+    const prefixe = sortie.slice(0, -1);
+    expect(longue.startsWith(prefixe)).toBe(true);
+    expect(longue[prefixe.length]).toBe(" ");
   });
 });
 

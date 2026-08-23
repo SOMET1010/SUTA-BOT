@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { ConversationState } from "@suta/shared";
 import { getIdentityResponse } from "@/lib/identity-response";
+import { composerReponseTexte } from "@/lib/realtime/knowledge-context";
 import { useRealtimeSession } from "@/lib/realtime/useRealtimeSession";
 import { experienceFromKnowledge, type SutaPillar } from "@/lib/suta/experience";
 import { DEFAULT_SUTA_SCENE, type SutaScene } from "@/lib/suta/scene";
@@ -10,23 +11,10 @@ import { EMPTY_SUTA_CONTEXT, contextForModel, updateSessionContext, type SutaSes
 import { vlog } from "@/lib/realtime/voice-debug";
 import type { VisualPoint } from "@/lib/suta/visuals";
 
-const NO_INFO_ANSWER = "Je n'ai pas encore suffisamment d'informations fiables dans ma base pour répondre à cette question.";
-const ANSWER_PREVIEW_MAX_CHARS = 400;
-
-/**
- * Réponse du mode texte sans session vocale (dégradé assumé : pas de modèle
- * conversationnel sur ce chemin). L'ancienne version tronquait le premier
- * fragment brut en plein mot — l'effet « transfert vers une fiche » dans sa
- * pire forme. On coupe désormais à la frontière de phrase, sans rien inventer.
- */
-function composeTextAnswer(results: { content: string }[]): string {
-  const first = results[0]?.content?.trim();
-  if (!first) return NO_INFO_ANSWER;
-  if (first.length <= ANSWER_PREVIEW_MAX_CHARS) return first;
-  const window = first.slice(0, ANSWER_PREVIEW_MAX_CHARS);
-  const lastSentenceEnd = Math.max(window.lastIndexOf(". "), window.lastIndexOf("! "), window.lastIndexOf("? "));
-  return lastSentenceEnd > 80 ? window.slice(0, lastSentenceEnd + 1) : `${window.trimEnd()}…`;
-}
+// Réponse du mode texte sans session vocale : composée par
+// `composerReponseTexte` (mêmes preuves que la voix — sélection par
+// intention —, deux phrases complètes, offre d'approfondir). L'ancien
+// extrait brut récitait la fiche, coupée en plein mot.
 
 export interface TranscriptSource { title: string; source: string; }
 export interface TranscriptMessage { id: string; role: "user" | "suta"; text: string; sources?: TranscriptSource[]; }
@@ -120,7 +108,7 @@ export function useSutaConversation(): SutaConversationController {
       const results = data.results ?? [];
       applyExperience(question, results);
       const sources = results.slice(0, 4).map((r) => ({ title: r.title, source: r.source }));
-      respond(composeTextAnswer(results), sources.length ? sources : undefined);
+      respond(composerReponseTexte(question, data), sources.length ? sources : undefined);
     } catch (error) {
       if (error instanceof DOMException && error.name === "AbortError") return;
       setState(typeof navigator !== "undefined" && !navigator.onLine ? "OFFLINE" : "ERROR");
