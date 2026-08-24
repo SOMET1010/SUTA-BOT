@@ -687,7 +687,18 @@ function collectMetrics(voix, sessions, searches) {
 
 function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick, audioSortie }) {
   const m = row.metrics;
-  const assistantDone = voix.filter((e) => e.text.includes("transcript terminé")).length;
+  // Une même réponse peut émettre DEUX « transcript terminé » à quelques ms
+  // d'écart (chronologie du run n°15 : 34041 puis 34046) : les logs à moins
+  // d'une seconde du précédent sont des doublons du même événement, pas une
+  // seconde élocution — sans ce filtre, le budget d'élocutions échouait à
+  // tort (V-COUPURE runs 13/15, V-MEMOIRE run 9).
+  const transcriptsTermines = [];
+  for (const e of voix) {
+    if (!e.text.includes("transcript terminé")) continue;
+    const prev = transcriptsTermines[transcriptsTermines.length - 1];
+    if (!prev || e.t - prev.t > 1_000) transcriptsTermines.push(e);
+  }
+  const assistantDone = transcriptsTermines.length;
   /** Tours utilisateur scénarisés (V-MEMOIRE-KORHOGO en joue trois). */
   const turnsBudget = caseId === "V-MEMOIRE-KORHOGO" ? 3 : 1;
   /** Instant absolu (échelle des logs) du début d'un morceau du stimulus. */
@@ -713,7 +724,7 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick, audioS
   // recherche sans la lancer) — et se voit dans les détections.
   const relances = voix.filter((e) => e.text.includes("relance : annonce sans suite")).length;
 
-  const doneEvents = voix.filter((e) => e.text.includes("transcript terminé"));
+  const doneEvents = transcriptsTermines;
   const budgetDone = Math.min(m.searchKnowledge + turnsBudget + relances, doneEvents.length);
   const anchorDone = budgetDone > 0 ? doneEvents[budgetDone - 1] : null;
   const boundary = anchorDone ? anchorDone.t + BOUNDARY_GRACE_MS : null;
