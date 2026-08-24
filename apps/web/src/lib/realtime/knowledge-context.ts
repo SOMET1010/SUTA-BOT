@@ -40,7 +40,8 @@ export const CONSIGNE_SYNTHESE =
  * pas ; la consigne devient explicite au moment précis où c'est vrai. */
 export const CONSIGNE_CHIFFRE =
   " Ces preuves portent des chiffres : ta réponse en cite au moins un — " +
-  "un exemple nommé ne suffit pas.";
+  "un exemple nommé ne suffit pas. Choisis un chiffre qui parle au citoyen " +
+  "(une cible, un prix, un délai) plutôt qu'un budget administratif.";
 
 /** Chiffres en chiffres, ou en toutes lettres (les fiches écrivent aussi
  * « vingt-quatre mois »). */
