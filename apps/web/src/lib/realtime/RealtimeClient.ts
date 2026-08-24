@@ -88,7 +88,13 @@ export class RealtimeClient {
    * hook, qui rappelait interrupt() — la réponse n'étant pas encore marquée
    * terminée, deux response.cancel partaient pour une seule interruption, et
    * le second pouvait tuer la NOUVELLE réponse en course. */
-  interrupt():void{const envoye=this.hasActiveResponse&&this.responseSeq!==this.cancelledResponseSeq;vlog("response.cancel",{envoye});if(!envoye)return;this.cancelledResponseSeq=this.responseSeq;this.send({type:"response.cancel"});}
+  interrupt():void{const envoye=this.hasActiveResponse&&this.responseSeq!==this.cancelledResponseSeq;vlog("response.cancel",{envoye});if(!envoye)return;this.cancelledResponseSeq=this.responseSeq;this.send({type:"response.cancel"});
+    // Run réel n°18 : le cancel arrête le CERVEAU, mais l'audio déjà émis
+    // continuait de jouer ~2 s dans le haut-parleur (mesuré par l'oreille du
+    // banc) — « Attendez ! » et SUTA finit sa lancée. Pause du lecteur local :
+    // sur un flux WebRTC en direct, play() (à la prochaine réponse) reprend au
+    // direct, la traîne bufferisée est abandonnée.
+    this.audioEl?.pause();}
   private send(event:Record<string,unknown>):void{if(this.dataChannel?.readyState==="open")this.dataChannel.send(JSON.stringify(event));}
   private handleServerEvent(raw:string):void{let parsed:unknown;try{parsed=JSON.parse(raw);}catch{return;}const event=normalizeServerEvent(parsed);if(!event)return;const c=this.options.callbacks;switch(event.type){
       // L'annulation n'est plus réflexe : pendant une réponse, elle attend la
@@ -113,7 +119,7 @@ export class RealtimeClient {
         // poser le cadre… » — au moment du test à response.done, le texte
         // était encore vide et la relance n'a pas tiré).
         if(!this.hasActiveResponse&&this.estAnnonceSansSuite()){this.relancesThisTurn+=1;vlog("relance : annonce sans suite",{texte:this.lastAssistantText.slice(0,80)});this.send({type:"response.create"});}
-        c?.onAssistantTranscriptDone?.(event.transcript);break;case"response_created":vlog("response.created");this.hasActiveResponse=true;this.responseSeq+=1;this.pendingToolResponse=false;this.toolCallSeen=false;this.lastAssistantText="";this.handledToolKeys.clear();this.setMicEnabled(false);c?.onResponseCreated?.();break;case"response_done":vlog("response.done",{suiteOutilEnAttente:this.pendingToolResponse});this.hasActiveResponse=false;this.setMicEnabled(true);if(this.pendingToolResponse){this.pendingToolResponse=false;this.send({type:"response.create"});}else if(this.estAnnonceSansSuite()){this.relancesThisTurn+=1;vlog("relance : annonce sans suite",{texte:this.lastAssistantText.slice(0,80)});this.send({type:"response.create"});}c?.onResponseDone?.();break;case"function_call_done":this.toolCallSeen=true;void this.runToolCall(event.callId,event.name,event.argumentsJson);break;case"error":c?.onError?.(event.message);}}
+        c?.onAssistantTranscriptDone?.(event.transcript);break;case"response_created":vlog("response.created");if(this.audioEl?.paused)this.audioEl.play().catch(()=>{});this.hasActiveResponse=true;this.responseSeq+=1;this.pendingToolResponse=false;this.toolCallSeen=false;this.lastAssistantText="";this.handledToolKeys.clear();this.setMicEnabled(false);c?.onResponseCreated?.();break;case"response_done":vlog("response.done",{suiteOutilEnAttente:this.pendingToolResponse});this.hasActiveResponse=false;this.setMicEnabled(true);if(this.pendingToolResponse){this.pendingToolResponse=false;this.send({type:"response.create"});}else if(this.estAnnonceSansSuite()){this.relancesThisTurn+=1;vlog("relance : annonce sans suite",{texte:this.lastAssistantText.slice(0,80)});this.send({type:"response.create"});}c?.onResponseDone?.();break;case"function_call_done":this.toolCallSeen=true;void this.runToolCall(event.callId,event.name,event.argumentsJson);break;case"error":c?.onError?.(event.message);}}
   private async runToolCall(callId:string,name:string,argumentsJson:string):Promise<void>{
     // Dédoublonnage : un function_call_done rejoué (par call_id) ou un même
     // outil avec les mêmes arguments dans la même réponse ne relance rien —
