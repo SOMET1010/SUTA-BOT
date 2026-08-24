@@ -731,9 +731,35 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick, audioS
     }
     return false;
   };
-  /** Aucune voix après t0 : true/false mesuré, null si pas de compteur. */
-  const aucunAudioApres = (t0) => {
-    const actif = audioActifApres(t0, 600);
+  /** Fin RÉELLE de la voix légitime : premier silence soutenu (>= 2 s)
+   * commençant après t0. Le transcript arrive par le canal de données, à la
+   * vitesse de génération ; la LECTURE audio, elle, s'écoule en temps réel —
+   * sur une réponse longue, la voix joue encore bien après « transcript
+   * terminé » (run n°11 : trois FAIL à tort en ancrant l'oreille sur le
+   * transcript). Null si la voix ne s'interrompt jamais dans la fenêtre. */
+  const finVoixApres = (t0) => {
+    if (!meter) return null;
+    let debutGap = null;
+    for (const m of meter) {
+      if (m.t < t0) continue;
+      if (m.rms <= seuilAudio) {
+        if (debutGap === null) debutGap = m.t;
+        if (m.t - debutGap >= 2_000) return debutGap;
+      } else {
+        debutGap = null;
+      }
+    }
+    return null;
+  };
+  /** Aucune voix fantôme : la voix légitime finit (silence soutenu après la
+   * frontière événementielle), puis PLUS RIEN ne doit rejouer. Null si pas de
+   * compteur ou si la voix n'a pas fini dans la fenêtre d'observation (on ne
+   * peut alors rien affirmer — jamais un succès par défaut). */
+  const aucuneVoixFantomeApres = (t0) => {
+    if (!meter) return null;
+    const fin = finVoixApres(t0);
+    if (fin === null) return null;
+    const actif = audioActifApres(fin + 2_000, 600);
     return actif === null ? null : !actif;
   };
   /** Premier vrai silence (>= gapMs sous le seuil) commençant dans les
@@ -797,7 +823,7 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick, audioS
       aucunFluxApresFin: boundary !== null ? responsesAfter === 0 && searchesAfter === 0 : null,
       // Acoustique : plus AUCUNE voix (>= 600 ms) après la fin légitime — la
       // version entendue du critère, pas seulement la version comptée.
-      aucunAudioApresFin: boundary !== null ? aucunAudioApres(boundary + 800) : null,
+      aucunAudioApresFin: boundary !== null ? aucuneVoixFantomeApres(boundary) : null,
       pasDAnnulationInattendue: !detections.unexpected_cancel,
       pasDeToolCallDuplique: !duplicateToolCalls,
     };
@@ -806,7 +832,7 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick, audioS
       aucunTourDeclencheParLeBruit: boundary !== null ? userBubblesAfter === 0 : null,
       aucuneRechercheSupplementaire: boundary !== null ? searchesAfter === 0 : null,
       aucuneReponseRelancee: boundary !== null ? responsesAfter === 0 : null,
-      aucunAudioApresFin: boundary !== null ? aucunAudioApres(boundary + 800) : null,
+      aucunAudioApresFin: boundary !== null ? aucuneVoixFantomeApres(boundary) : null,
       pasDAnnulationInattendue: !detections.unexpected_cancel,
       pasDeToolCallDuplique: !duplicateToolCalls,
     };
@@ -816,7 +842,7 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick, audioS
       zeroNouvelleSession: m.newSessions === 1,
       zeroOutilSupplementaire: boundary !== null ? searchesAfter === 0 : null,
       zeroReponseFantome: boundary !== null ? responsesAfter === 0 : null,
-      zeroAudioFantome: boundary !== null ? aucunAudioApres(boundary + 800) : null,
+      zeroAudioFantome: boundary !== null ? aucuneVoixFantomeApres(boundary) : null,
       pasDAnnulationInattendue: !detections.unexpected_cancel,
     };
   } else if (caseId === "V-SAFE") {
