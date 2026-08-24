@@ -93,6 +93,16 @@ PHRASES = [
         "Et pour ma mère, est-ce qu'elle peut se former aussi ?",
         "Et pour ma mère, est-ce qu'elle peut se former aussi ?",
     ),
+    # Runs réels n°7 et 9 : la prise réelle « Attendez, parlez-moi plutôt du
+    # PASS » (2 s) n'a jamais déclenché le VAD au seuil salon — l'interruption
+    # n'atteignait pas le serveur. Prise de synthèse plus longue et appuyée ;
+    # « passe » en toutes lettres (la transcription l'écrit ainsi et le prompt
+    # le reconnaît).
+    (
+        "interrupt.wav",
+        "Attendez, attendez ! Parlez-moi plutôt du passe, s'il vous plaît.",
+        "Attendez, attendez ! Parlez-moi plutôt du PASS, s'il vous plaît.",
+    ),
 ]
 
 

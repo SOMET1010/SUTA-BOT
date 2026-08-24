@@ -57,7 +57,7 @@ Si un fichier manque, le runner marque le scénario `SKIPPED_MISSING_STIMULUS`
 | `korhogo-3.wav` | « Et pour ma mère, est-ce qu'elle peut se former aussi ? » | S | V-MEMOIRE-KORHOGO |
 | `audit-interne.wav` | « Que dit le rapport d'audit interne ? » | — | (réserve — pas encore scénarisé) |
 | `long-question.wav` | « Expliquez-moi ce que l'ANSUT fait pour connecter les zones rurales et comment un village peut en profiter. » | P | V-COUPURE, V-INTERRUPTION |
-| `interrupt.wav` | « Attendez, parlez-moi plutôt du PASS. » | P | V-INTERRUPTION |
+| `interrupt.wav` | « Attendez, attendez ! Parlez-moi plutôt du PASS, s'il vous plaît. » | S | V-INTERRUPTION |
 
 Notes du 23/08 :
 
@@ -77,7 +77,10 @@ Notes du 23/08 :
   les prises réelles : viser au moins ~2 s de parole par tour ;
 - run n°7 : la prise réelle « Je suis à Korhogo » était comprise de travers
   par le modèle lui-même (« pour un robot ») — le scénario mémoire
-  s'écroulait dès le tour 1. Passée en synthèse claire.
+  s'écroulait dès le tour 1. Passée en synthèse claire ;
+- runs n°7 et 9 : la prise réelle « Attendez, parlez-moi plutôt du PASS »
+  (2 s) n'a jamais déclenché le VAD — l'interruption n'atteignait pas le
+  serveur. Passée en synthèse plus longue et appuyée.
 
 ## Composition des scénarios (un seul WAV par lancement)
 
