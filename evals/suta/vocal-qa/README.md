@@ -99,8 +99,14 @@ Variable utile : `SUTA_VOCALQA_AUDIO_DIR` remplace le corpus audio (tests).
   (un critère `null` n'est jamais compté ni converti en score).
 - L'historique officiel des runs reste committé à la main dans
   `evals/suta/results/` (hors `local/`).
+- `…/artifacts/vocal-qa-<date>-<sha>/<cas>/sortie.webm` — l'audio SORTANT
+  (la voix de SUTA), enregistré à chaque cas via l'instrumentation du
+  navigateur de test (le site ne change pas) : écoutable à l'oreille, et
+  son enveloppe RMS (100 ms) alimente les critères acoustiques
+  `aucunAudioApresFin` / `zeroAudioFantome` / `pasDeSuperpositionAudio`
+  (l'ancienne voix doit se taire dans les 1,5 s après une annulation).
 - `--keep-artifacts` : `…/artifacts/vocal-qa-<date>-<sha>/<cas>/events.json`
-  (événements bruts) + le WAV composé du scénario.
+  (événements bruts, enveloppe audio comprise) + le WAV composé du scénario.
 
 ## Verdicts
 
@@ -117,9 +123,11 @@ des verdicts de qualité).
 
 ## Limites connues
 
-- Pas d'analyse de l'audio SORTANT (doublons/superpositions acoustiques) :
-  chantier suivant du banc. En attendant, `pasDeSuperpositionAudio`
-  (V-INTERRUPTION) est toujours rapporté `null` — jamais compté en succès.
+- L'analyse de l'audio SORTANT est énergétique (enveloppe RMS) : elle
+  entend « ça parle / ça se tait », pas « qui parle ». Deux voix
+  superposées se détectent par l'absence de silence après une annulation ;
+  un doublon *verbal* dans un flux continu reste l'affaire du transcript et
+  de l'écoute humaine du `sortie.webm`.
 - Le rôle de la **dernière** bulle du transcript est déduit (historique DOM +
   logs `premier delta`) — fiable dans les scénarios joués, mais signalé ici.
 - « Pas de promesse de localité », « ne redemande pas la localité »

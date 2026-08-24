@@ -443,11 +443,57 @@ async function runCase({ caseId, spec, opts, executablePath, footerShaGlobal, gi
   // Hissé hors du try : les verdicts multi-tours (V-MEMOIRE-KORHOGO) datent
   // chaque tour en additionnant tClick + timeline du stimulus.
   let tClick = null;
+  /** Audio sortant : enveloppe RMS {t, rms} sur l'échelle du runner + erreur. */
+  let audioSortie = null;
+  /** Enregistrement sortie.webm (écoutable) de la voix de SUTA. */
+  let webm = null;
 
   try {
     const context = await browser.newContext();
     try { await context.grantPermissions(["microphone"], { origin: new URL(opts.url).origin }); } catch { /* selon le schéma d'URL */ }
     const page = await context.newPage();
+
+    // Capture de l'audio SORTANT (lot 2 du banc) : instrumentation du
+    // NAVIGATEUR DE TEST uniquement — le site ne change pas. On intercepte le
+    // flux WebRTC posé sur l'élément <audio> (srcObject) pour :
+    // 1. mesurer l'enveloppe RMS toutes les 100 ms (critères objectifs :
+    //    l'ancienne voix s'arrête après une annulation, pas de son fantôme) ;
+    // 2. enregistrer un sortie.webm écoutable à l'oreille (artefact).
+    await page.addInitScript(() => {
+      const etat = { meter: [], chunks: [], rec: null, erreur: null };
+      // @ts-expect-error instrumentation du banc
+      window.__sutaSortie = etat;
+      const desc = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, "srcObject");
+      if (!desc || !desc.set || !desc.get) return;
+      Object.defineProperty(HTMLMediaElement.prototype, "srcObject", {
+        configurable: true,
+        get() { return desc.get.call(this); },
+        set(flux) {
+          desc.set.call(this, flux);
+          if (!flux || typeof MediaStream === "undefined" || !(flux instanceof MediaStream)) return;
+          try {
+            const ctx = new AudioContext();
+            const source = ctx.createMediaStreamSource(flux);
+            const analyseur = ctx.createAnalyser();
+            analyseur.fftSize = 2048;
+            source.connect(analyseur);
+            ctx.resume().catch(() => {});
+            const tampon = new Uint8Array(analyseur.fftSize);
+            setInterval(() => {
+              analyseur.getByteTimeDomainData(tampon);
+              let somme = 0;
+              for (let i = 0; i < tampon.length; i += 1) { const d = (tampon[i] - 128) / 128; somme += d * d; }
+              etat.meter.push({ t: performance.now(), rms: Math.sqrt(somme / tampon.length) });
+            }, 100);
+            const type = MediaRecorder.isTypeSupported("audio/webm") ? "audio/webm" : "";
+            const rec = type ? new MediaRecorder(flux, { mimeType: type }) : new MediaRecorder(flux);
+            rec.ondataavailable = (e) => { if (e.data && e.data.size > 0) etat.chunks.push(e.data); };
+            rec.start(1_000);
+            etat.rec = rec;
+          } catch (e) { etat.erreur = String(e); }
+        },
+      });
+    });
 
     page.on("console", (msg) => {
       const t = rel();
@@ -568,6 +614,33 @@ async function runCase({ caseId, spec, opts, executablePath, footerShaGlobal, gi
       await sleep(SAMPLE_INTERVAL_MS);
     }
 
+    // 7. Récupération de l'audio sortant (enveloppe + enregistrement).
+    const relAvantAudio = rel();
+    const brut = await page.evaluate(async () => {
+      // @ts-expect-error instrumentation du banc
+      const s = window.__sutaSortie;
+      if (!s) return null;
+      try { s.rec?.stop(); } catch { /* déjà arrêté */ }
+      await new Promise((r) => setTimeout(r, 400));
+      const blob = new Blob(s.chunks, { type: "audio/webm" });
+      const base64 = await new Promise((resolve) => {
+        const fr = new FileReader();
+        fr.onload = () => resolve(String(fr.result).split(",")[1] ?? "");
+        fr.onerror = () => resolve("");
+        fr.readAsDataURL(blob);
+      });
+      return { pageNow: performance.now(), meter: s.meter, webmBase64: base64, erreur: s.erreur };
+    }).catch(() => null);
+    if (brut) {
+      // Les horodatages du navigateur sont ramenés sur l'échelle du runner.
+      const offset = brut.pageNow - relAvantAudio;
+      audioSortie = {
+        erreur: brut.erreur,
+        meter: (brut.meter ?? []).map((m) => ({ t: Math.round(m.t - offset), rms: Number(m.rms.toFixed(4)) })),
+      };
+      if (brut.webmBase64) webm = Buffer.from(brut.webmBase64, "base64");
+    }
+
     await context.close();
   } finally {
     await browser.close().catch(() => {});
@@ -582,8 +655,8 @@ async function runCase({ caseId, spec, opts, executablePath, footerShaGlobal, gi
   row.userTranscript = joinTranscript(dom.messages, "user");
   row.assistantTranscript = joinTranscript(dom.messages, "suta");
 
-  Object.assign(row, verdictFor(caseId, { row, voix, sessions, searches, dom, timeline, tClick }));
-  return { row, artifacts: { timeline, voix, sessions, searches, searchResponses, pageErrors, samples } };
+  Object.assign(row, verdictFor(caseId, { row, voix, sessions, searches, dom, timeline, tClick, audioSortie }));
+  return { row, artifacts: { timeline, voix, sessions, searches, searchResponses, pageErrors, samples, audioSortie }, webm };
 }
 
 function collectMetrics(voix, sessions, searches) {
@@ -602,7 +675,7 @@ function collectMetrics(voix, sessions, searches) {
 // Verdicts par cas
 // ---------------------------------------------------------------------------
 
-function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick }) {
+function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick, audioSortie }) {
   const m = row.metrics;
   const assistantDone = voix.filter((e) => e.text.includes("transcript terminé")).length;
   /** Tours utilisateur scénarisés (V-MEMOIRE-KORHOGO en joue trois). */
@@ -638,6 +711,48 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick }) {
   const responsesAfter = voix.filter((e) => e.text.includes("response.created") && after(e.t)).length;
   const searchesAfter = searches.filter((s) => after(s.t)).length;
   const userBubblesAfter = dom.bubbleEvents.filter((b) => b.role === "user" && after(b.t)).length;
+
+  // Audio SORTANT : enveloppe RMS (100 ms) de la voix de SUTA. Seuil relatif
+  // au maximum observé (plancher absolu contre un flux quasi muet).
+  const meter = audioSortie?.meter && audioSortie.meter.length > 0 ? audioSortie.meter : null;
+  const seuilAudio = meter ? Math.max(0.01, Math.max(...meter.map((m) => m.rms)) * 0.15) : null;
+  /** Une plage d'audio actif d'au moins `durMinMs` entièrement après `t0` ? */
+  const audioActifApres = (t0, durMinMs) => {
+    if (!meter) return null;
+    let debut = null;
+    for (const m of meter) {
+      if (m.t <= t0) continue;
+      if (m.rms > seuilAudio) {
+        if (debut === null) debut = m.t;
+        if (m.t - debut >= durMinMs) return true;
+      } else {
+        debut = null;
+      }
+    }
+    return false;
+  };
+  /** Aucune voix après t0 : true/false mesuré, null si pas de compteur. */
+  const aucunAudioApres = (t0) => {
+    const actif = audioActifApres(t0, 600);
+    return actif === null ? null : !actif;
+  };
+  /** Premier vrai silence (>= gapMs sous le seuil) commençant dans les
+   * `fenetreMs` après `depuisT` — null si l'audio ne s'interrompt jamais. */
+  const silenceApres = (depuisT, fenetreMs, gapMs) => {
+    if (!meter) return null;
+    let debutGap = null;
+    for (const m of meter) {
+      if (m.t < depuisT) continue;
+      if (m.rms <= seuilAudio) {
+        if (debutGap === null) debutGap = m.t;
+        if (m.t - debutGap >= gapMs) return debutGap;
+      } else {
+        if (debutGap === null && m.t > depuisT + fenetreMs) return null;
+        debutGap = null;
+      }
+    }
+    return debutGap !== null ? debutGap : null;
+  };
 
   // Un `response.create` de CONTINUATION après un tool call est NORMAL
   // (séquence légitime : created → function_call → done → created → done).
@@ -680,6 +795,9 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick }) {
       reponseFinaleUnique: spokenBudgetOk && finalResponsesOk,
       aucunePhraseRepetee: row.assistantTranscript ? repeatedSentence === null : null,
       aucunFluxApresFin: boundary !== null ? responsesAfter === 0 && searchesAfter === 0 : null,
+      // Acoustique : plus AUCUNE voix (>= 600 ms) après la fin légitime — la
+      // version entendue du critère, pas seulement la version comptée.
+      aucunAudioApresFin: boundary !== null ? aucunAudioApres(boundary + 800) : null,
       pasDAnnulationInattendue: !detections.unexpected_cancel,
       pasDeToolCallDuplique: !duplicateToolCalls,
     };
@@ -688,6 +806,7 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick }) {
       aucunTourDeclencheParLeBruit: boundary !== null ? userBubblesAfter === 0 : null,
       aucuneRechercheSupplementaire: boundary !== null ? searchesAfter === 0 : null,
       aucuneReponseRelancee: boundary !== null ? responsesAfter === 0 : null,
+      aucunAudioApresFin: boundary !== null ? aucunAudioApres(boundary + 800) : null,
       pasDAnnulationInattendue: !detections.unexpected_cancel,
       pasDeToolCallDuplique: !duplicateToolCalls,
     };
@@ -697,6 +816,7 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick }) {
       zeroNouvelleSession: m.newSessions === 1,
       zeroOutilSupplementaire: boundary !== null ? searchesAfter === 0 : null,
       zeroReponseFantome: boundary !== null ? responsesAfter === 0 : null,
+      zeroAudioFantome: boundary !== null ? aucunAudioApres(boundary + 800) : null,
       pasDAnnulationInattendue: !detections.unexpected_cancel,
     };
   } else if (caseId === "V-SAFE") {
@@ -800,10 +920,12 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick }) {
       // même phrase complète prononcée deux fois.
       ancienneReponseNeRepartPas: row.assistantTranscript ? repeatedSentence === null : null,
       uneSeuleSession: m.newSessions === 1,
-      // Superposition de deux flux audio : non mesurable tant que la capture
-      // audio SORTANTE n'existe pas (chantier suivant du banc) — toujours
-      // rapporté null, jamais compté comme un succès.
-      pasDeSuperpositionAudio: null,
+      // Acoustique : après l'annulation, l'ancienne voix doit se taire — un
+      // vrai silence (>= 300 ms) doit commencer dans les 1,5 s. Si l'ancienne
+      // réponse continue de jouer pendant que la nouvelle démarre, aucun
+      // silence n'apparaît : c'est la superposition, désormais entendue.
+      pasDeSuperpositionAudio:
+        meter && lastCancelT !== null ? silenceApres(lastCancelT, 1_500, 300) !== null : null,
       pasDeToolCallDuplique: !duplicateToolCalls,
     };
   } else {
@@ -837,7 +959,7 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick }) {
 // Sorties
 // ---------------------------------------------------------------------------
 
-function writeOutputs(rows, opts, gitSha, artifactsDir, perCaseArtifacts) {
+function writeOutputs(rows, opts, gitSha, artifactsDir, perCaseArtifacts, perCaseWebm) {
   const date = new Date().toISOString().slice(0, 10);
   const outDir = opts.outDir ? resolve(opts.outDir) : DEFAULT_OUT_DIR;
   mkdirSync(outDir, { recursive: true });
@@ -870,6 +992,16 @@ function writeOutputs(rows, opts, gitSha, artifactsDir, perCaseArtifacts) {
   const mdPath = join(outDir, `${base}.md`);
   writeFileSync(mdPath, lines.join("\n"));
 
+  // L'audio SORTANT de chaque cas (voix de SUTA, webm/opus, ~150 Ko/min) est
+  // toujours sauvé : c'est l'oreille du banc, et l'écoute humaine de la
+  // campagne de finition s'appuie dessus. Aucun contenu de fiche : c'est la
+  // voix publique du site.
+  for (const [caseId, webm] of Object.entries(perCaseWebm ?? {})) {
+    if (!webm || webm.length === 0) continue;
+    const dir = join(artifactsDir ?? join(outDir, "artifacts", base), caseId);
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, "sortie.webm"), webm);
+  }
   if (artifactsDir) {
     for (const [caseId, artifacts] of Object.entries(perCaseArtifacts)) {
       if (!artifacts) continue;
@@ -931,6 +1063,7 @@ async function main() {
 
   const rows = [];
   const perCaseArtifacts = {};
+  const perCaseWebm = {};
   const wrongBuild = opts.footerShaMin && !footerMatches(footerShaGlobal, opts.footerShaMin);
   for (const caseId of opts.caseIds) {
     const spec = SCENARIOS[caseId];
@@ -948,9 +1081,10 @@ async function main() {
       continue;
     }
     try {
-      const { row, artifacts } = await runCase({ caseId, spec, opts, executablePath, footerShaGlobal, gitSha, artifactsDir });
+      const { row, artifacts, webm } = await runCase({ caseId, spec, opts, executablePath, footerShaGlobal, gitSha, artifactsDir });
       rows.push(row);
       perCaseArtifacts[caseId] = artifacts;
+      if (webm) perCaseWebm[caseId] = webm;
       console.log(`  → ${row.verdict}${row.observation ? ` — ${row.observation}` : ""}`);
     } catch (error) {
       rows.push({
@@ -965,7 +1099,7 @@ async function main() {
     }
   }
 
-  const { jsonlPath, mdPath } = writeOutputs(rows, opts, gitSha, artifactsDir, perCaseArtifacts);
+  const { jsonlPath, mdPath } = writeOutputs(rows, opts, gitSha, artifactsDir, perCaseArtifacts, perCaseWebm);
   console.log(`\nRésultats : ${jsonlPath}`);
   console.log(`Résumé    : ${mdPath}`);
   if (artifactsDir) console.log(`Artefacts : ${artifactsDir}`);
