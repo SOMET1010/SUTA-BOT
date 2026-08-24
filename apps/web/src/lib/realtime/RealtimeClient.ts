@@ -79,7 +79,9 @@ export class RealtimeClient {
     if(this.toolCallSeen||this.relancesThisTurn>0)return false;
     const texte=this.lastAssistantText.trim();
     if(!texte||texte.length>160)return false;
-    return /(un instant|je regarde|je v[ée]rifie|je consulte|laissez[- ]moi|on va (regarder|voir)|je (re)?cherche)/i.test(texte);
+    // Formules relevées sur les runs réels 4 à 8 — le gabarit court (< 160
+    // caractères) écarte les vraies réponses qui commencent pareil.
+    return /(un instant|je regarde|je v[ée]rifie|je consulte|laissez[- ]moi|on va (regarder|voir)|voyons (ensemble|ça|cela)|je (re)?cherche|je vais (regarder|v[ée]rifier|chercher|voir)|je vous explique)/i.test(texte);
   }
   /** Au plus UNE annulation par réponse, quel que soit l'appelant. Banc vocal
    * run n°6 (V-INTERRUPTION) : la garde BargeInGate annulait puis notifiait le
