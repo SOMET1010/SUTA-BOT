@@ -75,6 +75,15 @@ PHRASES = [
         "Qu'est-ce que l'Ansute prévoit concrètement pour développer les compétences numériques ?",
         "Qu'est-ce que l'ANSUT prévoit concrètement pour développer les compétences numériques ?",
     ),
+    # Run réel n°7 : la prise réelle « Je suis à Korhogo » était comprise de
+    # travers par le modèle lui-même (« pour un robot ») — tout le scénario
+    # mémoire s'écroulait dès le tour 1. Prise de synthèse claire, « Bonjour »
+    # sacrifiable en tête.
+    (
+        "korhogo-1.wav",
+        "Bonjour, je suis à Korhogo.",
+        "Bonjour, je suis à Korhogo.",
+    ),
     # Run réel n°6 : la prise réelle « Et pour ma mère ? » (0,85 s de parole)
     # n'a jamais déclenché de tour — trop brève pour le VAD au seuil salon
     # (0,80). Phrase allongée, même intention (« ma mère » change le profil,

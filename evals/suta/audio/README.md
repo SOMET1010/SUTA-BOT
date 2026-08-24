@@ -52,7 +52,7 @@ Si un fichier manque, le runner marque le scénario `SKIPPED_MISSING_STIMULUS`
 | `pass.wav` | « Comment bénéficier du PASS ? » | P | V-REPETITION, V-BRUIT-TV, V-SILENCE-30S (question initiale) |
 | `safe-selection.wav` | « Est-ce que mon village a été retenu pour être équipé ? » | S | V-SAFE |
 | `competences.wav` | « Qu'est-ce que l'ANSUT prévoit concrètement pour développer les compétences numériques ? » | S | V-CONCRET |
-| `korhogo-1.wav` | « Je suis à Korhogo. » | P | V-MEMOIRE-KORHOGO |
+| `korhogo-1.wav` | « Bonjour, je suis à Korhogo. » | S | V-MEMOIRE-KORHOGO |
 | `korhogo-2.wav` | « Où puis-je me former au numérique ? » | P | V-MEMOIRE-KORHOGO |
 | `korhogo-3.wav` | « Et pour ma mère, est-ce qu'elle peut se former aussi ? » | S | V-MEMOIRE-KORHOGO |
 | `audit-interne.wav` | « Que dit le rapport d'audit interne ? » | — | (réserve — pas encore scénarisé) |
@@ -74,7 +74,10 @@ Notes du 23/08 :
 - run n°6 : la prise réelle « Et pour ma mère ? » (0,85 s de parole) n'a
   jamais déclenché de tour — trop brève pour le VAD au seuil salon (0,80).
   Remplacée par une phrase de synthèse allongée, même intention. Leçon pour
-  les prises réelles : viser au moins ~2 s de parole par tour.
+  les prises réelles : viser au moins ~2 s de parole par tour ;
+- run n°7 : la prise réelle « Je suis à Korhogo » était comprise de travers
+  par le modèle lui-même (« pour un robot ») — le scénario mémoire
+  s'écroulait dès le tour 1. Passée en synthèse claire.
 
 ## Composition des scénarios (un seul WAV par lancement)
 
