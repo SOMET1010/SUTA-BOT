@@ -20,6 +20,13 @@ export class RealtimeClient {
   private responseSeq=0; private cancelledResponseSeq=-1;
   /** Un résultat d'outil attend que la réponse en cours se termine pour demander la suivante. */
   private pendingToolResponse=false;
+  /** Détection « annonce sans suite » : le modèle dit « un instant, je
+   * regarde… », termine sa réponse SANS appeler l'outil, et plus rien ne
+   * vient (3 occurrences mesurées au banc : V-SAFE run 4, V-MEMOIRE tour 2 et
+   * V-COUPURE run 7). Quand la réponse terminée est une courte annonce de
+   * recherche sans tool call, on relance UNE fois : le modèle enchaîne alors
+   * réellement (recherche ou réponse). */
+  private lastAssistantText=""; private toolCallSeen=false; private relancesThisTurn=0;
   /** Filtre les faux barge-in (bruit bref, respiration) pendant que SUTA parle. */
   private readonly bargeIn:BargeInGate;
   /** Réglage diagnostic lu de l'URL (?bargein=off | half | <ms>). */
@@ -63,6 +70,17 @@ export class RealtimeClient {
   sendUserText(text:string):void{this.interrupt();this.send({type:"conversation.item.create",item:{type:"message",role:"user",content:[{type:"input_text",text}]}});this.send({type:"response.create"});}
   /** Ajoute un contexte silencieux à la session sans déclencher de réponse. */
   addContext(text:string):void{if(!text.trim())return;this.send({type:"conversation.item.create",item:{type:"message",role:"system",content:[{type:"input_text",text}]}});}
+  /** La réponse qui vient de finir n'était-elle qu'une annonce de recherche
+   * jamais suivie d'effet ? Courte, contenant une formule d'attente, sans
+   * tool call — et au plus UNE relance par tour utilisateur (jamais de
+   * boucle : si la relance produit encore une annonce, on laisse tel quel et
+   * le banc le mesurera). */
+  private estAnnonceSansSuite():boolean{
+    if(this.toolCallSeen||this.relancesThisTurn>0)return false;
+    const texte=this.lastAssistantText.trim();
+    if(!texte||texte.length>160)return false;
+    return /(un instant|je regarde|je v[ée]rifie|je consulte|laissez[- ]moi|on va (regarder|voir)|je (re)?cherche)/i.test(texte);
+  }
   /** Au plus UNE annulation par réponse, quel que soit l'appelant. Banc vocal
    * run n°6 (V-INTERRUPTION) : la garde BargeInGate annulait puis notifiait le
    * hook, qui rappelait interrupt() — la réponse n'étant pas encore marquée
@@ -75,14 +93,14 @@ export class RealtimeClient {
       // confirmation de la garde (parole soutenue). La coupure automatique du
       // VAD serveur est désactivée (interrupt_response:false, côté provider) —
       // c'est donc ici, et seulement ici, que SUTA peut être interrompue.
-      case"speech_started":{this.speechStartedAt=performance.now();vlog("speech_started",{reponseActive:this.hasActiveResponse});
+      case"speech_started":{this.speechStartedAt=performance.now();this.relancesThisTurn=0;vlog("speech_started",{reponseActive:this.hasActiveResponse});
         // Modes ?bargein=off / half : pendant une réponse, la parole est
         // journalisée mais n'annule jamais — si la voix se coupe encore, la
         // cause n'est pas le barge-in client. (En half, le micro est coupé :
         // cet événement ne devrait même plus arriver.)
         if(this.bargeInMode!=="normal"&&this.hasActiveResponse){vlog(`BargeInGate : ignoré (mode ${this.bargeInMode})`);break;}
         this.bargeIn.speechStarted(this.hasActiveResponse,()=>c?.onSpeechStarted?.(),()=>{vlog("BargeInGate : barge-in CONFIRMÉ",{parolesSoutenuesMs:this.bargeInConfirmMs,dureeReelleMs:Math.round(performance.now()-this.speechStartedAt)});this.interrupt();c?.onSpeechStarted?.();});break;}
-      case"speech_stopped":{const dureeMs=this.speechStartedAt>0?Math.round(performance.now()-this.speechStartedAt):null;const fausseAlerte=this.bargeIn.speechStopped();vlog("speech_stopped",{dureeMs,decision:fausseAlerte?"BargeInGate : fausse alerte (bruit bref, rien annulé)":"hors garde"});c?.onSpeechStopped?.();break;}case"user_transcript_delta":c?.onUserTranscriptDelta?.(event.delta);break;case"user_transcript_done":c?.onUserTranscriptDone?.(event.transcript);break;case"assistant_transcript_delta":c?.onAssistantTranscriptDelta?.(event.delta);break;case"assistant_transcript_done":c?.onAssistantTranscriptDone?.(event.transcript);break;case"response_created":vlog("response.created");this.hasActiveResponse=true;this.responseSeq+=1;this.pendingToolResponse=false;this.handledToolKeys.clear();this.setMicEnabled(false);c?.onResponseCreated?.();break;case"response_done":vlog("response.done",{suiteOutilEnAttente:this.pendingToolResponse});this.hasActiveResponse=false;this.setMicEnabled(true);if(this.pendingToolResponse){this.pendingToolResponse=false;this.send({type:"response.create"});}c?.onResponseDone?.();break;case"function_call_done":void this.runToolCall(event.callId,event.name,event.argumentsJson);break;case"error":c?.onError?.(event.message);}}
+      case"speech_stopped":{const dureeMs=this.speechStartedAt>0?Math.round(performance.now()-this.speechStartedAt):null;const fausseAlerte=this.bargeIn.speechStopped();vlog("speech_stopped",{dureeMs,decision:fausseAlerte?"BargeInGate : fausse alerte (bruit bref, rien annulé)":"hors garde"});c?.onSpeechStopped?.();break;}case"user_transcript_delta":c?.onUserTranscriptDelta?.(event.delta);break;case"user_transcript_done":c?.onUserTranscriptDone?.(event.transcript);break;case"assistant_transcript_delta":c?.onAssistantTranscriptDelta?.(event.delta);break;case"assistant_transcript_done":this.lastAssistantText=event.transcript;c?.onAssistantTranscriptDone?.(event.transcript);break;case"response_created":vlog("response.created");this.hasActiveResponse=true;this.responseSeq+=1;this.pendingToolResponse=false;this.toolCallSeen=false;this.lastAssistantText="";this.handledToolKeys.clear();this.setMicEnabled(false);c?.onResponseCreated?.();break;case"response_done":vlog("response.done",{suiteOutilEnAttente:this.pendingToolResponse});this.hasActiveResponse=false;this.setMicEnabled(true);if(this.pendingToolResponse){this.pendingToolResponse=false;this.send({type:"response.create"});}else if(this.estAnnonceSansSuite()){this.relancesThisTurn+=1;vlog("relance : annonce sans suite",{texte:this.lastAssistantText.slice(0,80)});this.send({type:"response.create"});}c?.onResponseDone?.();break;case"function_call_done":this.toolCallSeen=true;void this.runToolCall(event.callId,event.name,event.argumentsJson);break;case"error":c?.onError?.(event.message);}}
   private async runToolCall(callId:string,name:string,argumentsJson:string):Promise<void>{
     // Dédoublonnage : un function_call_done rejoué (par call_id) ou un même
     // outil avec les mêmes arguments dans la même réponse ne relance rien —
