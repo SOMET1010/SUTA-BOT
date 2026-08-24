@@ -960,11 +960,17 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick, audioS
 
   // La prémisse de tous les cas : SUTA a répondu à la question.
   if (assistantDone === 0) {
+    // Distinguer deux défauts très différents (run n°13) : la question n'a
+    // JAMAIS déclenché de tour (défaut d'écoute — VAD), ou un tour a existé
+    // mais aucune réponse n'a abouti (défaut de réponse).
+    const rienEntendu = dom.userTurns === 0 && m.searchKnowledge === 0 && m.responseCreate === 0;
     return {
       detections,
       checks,
       verdict: "FAIL",
-      observation: "Aucune réponse assistant terminée pendant la fenêtre d'observation — prémisse du scénario non remplie (défaut réel, pas un problème d'environnement : la session vocale était établie).",
+      observation: rienEntendu
+        ? "La question n'a jamais déclenché de tour utilisateur — défaut d'ÉCOUTE (VAD) : la session vocale était établie et le stimulus a été joué, mais rien n'a été entendu."
+        : "Aucune réponse assistant terminée pendant la fenêtre d'observation — prémisse du scénario non remplie (défaut réel, pas un problème d'environnement : la session vocale était établie).",
     };
   }
 
