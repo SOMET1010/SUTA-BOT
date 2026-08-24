@@ -121,6 +121,15 @@ describe("loadSutaSystemPrompt", () => {
     expect(prompt).toContain("bruit ambiant transcrit par erreur");
   });
 
+  it("bans the North American accent, demands West African French", () => {
+    const prompt = loadSutaSystemPrompt();
+    // Écoute de Patrick (24/08) : même sur la voix féminine, « le fond de
+    // l'accent canadien est encore là ». Le modèle vocal suit les consignes
+    // d'accent : elles doivent être explicites.
+    expect(prompt).toContain("français d'Afrique de l'Ouest");
+    expect(prompt).toContain("JAMAIS d'accent nord-américain");
+  });
+
   it("keeps French as the answering language", () => {
     const prompt = loadSutaSystemPrompt();
     expect(prompt).toContain("TOUJOURS en français");
