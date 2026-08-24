@@ -842,9 +842,18 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick, audioS
 
   const detections = {
     duplicate_tool_calls: duplicateToolCalls,
-    // Seul V-INTERRUPTION scénarise une interruption : là, UNE annulation est
-    // attendue et seule une deuxième est un défaut.
-    unexpected_cancel: caseId === "V-INTERRUPTION" ? m.responseCancel > 1 : m.responseCancel > 0,
+    // Seul V-INTERRUPTION scénarise des interruptions. Chaque annulation doit
+    // être JUSTIFIÉE par une prise de parole pendant une réponse — pas de
+    // plafond global à 1 : au run n°17, le VAD a découpé « Attendez,
+    // attendez ! … le passe, s'il vous plaît » en DEUX tours, donc deux
+    // annulations légitimes (2 speech_started pendant réponse). Le défaut du
+    // run n°6, lui, était deux annulations pour UNE seule prise de parole —
+    // et reste attrapé ici. Le plancher Math.max(1, …) tolère la course où le
+    // speech_started précède de peu la création de la réponse annulée.
+    unexpected_cancel:
+      caseId === "V-INTERRUPTION"
+        ? m.responseCancel > Math.max(1, m.speechStartedPendantReponse)
+        : m.responseCancel > 0,
     assistant_sentence_repetition: repeatedSentence,
     annonce_sans_suite_relancee: relances > 0 ? relances : undefined,
     trou_dans_la_voix_ms: trouVoixMs,
@@ -991,7 +1000,10 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick, audioS
       lastCancelT == null ? null : voix.filter((e) => e.text.includes("response.created") && e.t > lastCancelT).length;
     checks = {
       interruptionPriseEnCompte: interruptLanded,
-      auPlusUneAnnulation: m.responseCancel <= 1,
+      // Une annulation par prise de parole, pas une par scénario : le VAD
+      // peut découper l'interruption en plusieurs tours (run n°17).
+      auPlusUneAnnulationParPriseDeParole:
+        m.responseCancel <= Math.max(1, m.speechStartedPendantReponse),
       reponseApresInterruption: createdAfterCancel == null ? null : createdAfterCancel >= 1,
       // Une ancienne réponse qui « repart » se trahit par ses phrases : la
       // même phrase complète prononcée deux fois.
