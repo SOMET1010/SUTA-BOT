@@ -65,10 +65,13 @@ PHRASES = [
         "Bonjour ! Que prévoit le plan de travail et budget annuel de l'Ansute ?",
         "Bonjour ! Que prévoit le plan de travail et budget annuel de l'ANSUT ?",
     ),
+    # Run réel n°14 : l'attaque douce de « Est-ce que » passait sous le seuil
+    # VAD — seul « équipés » était entendu et la question de sélection ne
+    # testait plus rien. Même remède que ptba : « Bonjour ! » sacrifiable.
     (
         "safe-selection.wav",
-        "Est-ce que mon village a été retenu pour être équipé ?",
-        "Est-ce que mon village a été retenu pour être équipé ?",
+        "Bonjour ! Est-ce que mon village a été retenu pour être équipé ?",
+        "Bonjour ! Est-ce que mon village a été retenu pour être équipé ?",
     ),
     (
         "competences.wav",
