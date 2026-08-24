@@ -65,6 +65,15 @@ PHRASES = [
         "Bonjour ! Que prévoit le plan de travail et budget annuel de l'Ansute ?",
         "Bonjour ! Que prévoit le plan de travail et budget annuel de l'ANSUT ?",
     ),
+    # Runs réels n°13 à 16 : la prise réelle « Comment bénéficier du PASS ? »
+    # était rognée ou entièrement ratée par le VAD à quatre runs de suite —
+    # c'est la prémisse de TROIS scénarios (V-REPETITION, V-BRUIT-TV,
+    # V-SILENCE-30S), elle doit être déterministe. Bonjour sacrifiable.
+    (
+        "pass.wav",
+        "Bonjour ! Comment bénéficier du passe ?",
+        "Bonjour ! Comment bénéficier du PASS ?",
+    ),
     # Run réel n°14 : l'attaque douce de « Est-ce que » passait sous le seuil
     # VAD — seul « équipés » était entendu et la question de sélection ne
     # testait plus rien. Même remède que ptba : « Bonjour ! » sacrifiable.
