@@ -102,7 +102,12 @@ export class RealtimeClient {
         // cet événement ne devrait même plus arriver.)
         if(this.bargeInMode!=="normal"&&this.hasActiveResponse){vlog(`BargeInGate : ignoré (mode ${this.bargeInMode})`);break;}
         this.bargeIn.speechStarted(this.hasActiveResponse,()=>c?.onSpeechStarted?.(),()=>{vlog("BargeInGate : barge-in CONFIRMÉ",{parolesSoutenuesMs:this.bargeInConfirmMs,dureeReelleMs:Math.round(performance.now()-this.speechStartedAt)});this.interrupt();c?.onSpeechStarted?.();});break;}
-      case"speech_stopped":{const dureeMs=this.speechStartedAt>0?Math.round(performance.now()-this.speechStartedAt):null;const fausseAlerte=this.bargeIn.speechStopped();vlog("speech_stopped",{dureeMs,decision:fausseAlerte?"BargeInGate : fausse alerte (bruit bref, rien annulé)":"hors garde"});c?.onSpeechStopped?.();break;}case"user_transcript_delta":c?.onUserTranscriptDelta?.(event.delta);break;case"user_transcript_done":c?.onUserTranscriptDone?.(event.transcript);break;case"assistant_transcript_delta":c?.onAssistantTranscriptDelta?.(event.delta);break;case"assistant_transcript_done":this.lastAssistantText=event.transcript;
+      case"speech_stopped":{const dureeMs=this.speechStartedAt>0?Math.round(performance.now()-this.speechStartedAt):null;const fausseAlerte=this.bargeIn.speechStopped();vlog("speech_stopped",{dureeMs,decision:fausseAlerte?"BargeInGate : fausse alerte (bruit bref, rien annulé)":"hors garde"});c?.onSpeechStopped?.();break;}case"user_transcript_delta":c?.onUserTranscriptDelta?.(event.delta);break;case"user_transcript_done":c?.onUserTranscriptDone?.(event.transcript);break;case"assistant_transcript_delta":c?.onAssistantTranscriptDelta?.(event.delta);break;case"assistant_transcript_done":
+        // Chronologie du run n°15 (V-COUPURE) : une même réponse peut émettre
+        // DEUX transcript_done à quelques ms d'écart, le second vide — il
+        // écrasait le texte juste avant le test de la relance, qui restait
+        // muette. Un transcript vide n'écrase jamais le texte mémorisé.
+        if(event.transcript&&event.transcript.trim())this.lastAssistantText=event.transcript;
         // Second point de déclenchement de la relance : le transcript audio
         // arrive parfois APRÈS response.done (run réel n°9 : « Laissez-moi
         // poser le cadre… » — au moment du test à response.done, le texte
