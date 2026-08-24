@@ -625,8 +625,13 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick }) {
   // fin » — V-REPETITION FAIL à tort.) On n'ancre PAS sur la toute dernière
   // élocution observée : une réponse déclenchée par le bruit repousserait la
   // frontière et se masquerait elle-même.
+  // Relances client « annonce sans suite » : chacune ajoute une réponse
+  // LÉGITIME au budget (le client rattrape un modèle qui annonçait une
+  // recherche sans la lancer) — et se voit dans les détections.
+  const relances = voix.filter((e) => e.text.includes("relance : annonce sans suite")).length;
+
   const doneEvents = voix.filter((e) => e.text.includes("transcript terminé"));
-  const budgetDone = Math.min(m.searchKnowledge + turnsBudget, doneEvents.length);
+  const budgetDone = Math.min(m.searchKnowledge + turnsBudget + relances, doneEvents.length);
   const anchorDone = budgetDone > 0 ? doneEvents[budgetDone - 1] : null;
   const boundary = anchorDone ? anchorDone.t + BOUNDARY_GRACE_MS : null;
   const after = (t) => boundary !== null && t > boundary;
@@ -641,8 +646,8 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick }) {
   // entière. Le budget légitime d'élocutions est 1 réponse finale par tour
   // scénarisé + 1 phrase d'attente par recherche. (Premier run réel : V-PTBA
   // marqué FAIL à tort avec assistantDone === 1 exigé — corrigé.)
-  const finalResponsesOk = m.responseCreate <= m.searchKnowledge + turnsBudget;
-  const spokenBudgetOk = assistantDone <= m.searchKnowledge + turnsBudget;
+  const finalResponsesOk = m.responseCreate <= m.searchKnowledge + turnsBudget + relances;
+  const spokenBudgetOk = assistantDone <= m.searchKnowledge + turnsBudget + relances;
 
   const detections = {
     duplicate_tool_calls: duplicateToolCalls,
@@ -650,6 +655,7 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick }) {
     // attendue et seule une deuxième est un défaut.
     unexpected_cancel: caseId === "V-INTERRUPTION" ? m.responseCancel > 1 : m.responseCancel > 0,
     assistant_sentence_repetition: repeatedSentence,
+    annonce_sans_suite_relancee: relances > 0 ? relances : undefined,
     ghost_turn_after_silence: caseId === "V-SILENCE-30S" ? (boundary !== null ? userBubblesAfter > 0 || responsesAfter > 0 : null) : undefined,
     background_noise_triggered_turn: caseId === "V-BRUIT-TV" ? (boundary !== null ? userBubblesAfter > 0 || searchesAfter > 0 || responsesAfter > 0 : null) : undefined,
   };
@@ -868,6 +874,19 @@ function writeOutputs(rows, opts, gitSha, artifactsDir, perCaseArtifacts) {
     for (const [caseId, artifacts] of Object.entries(perCaseArtifacts)) {
       if (!artifacts) continue;
       const dir = join(artifactsDir, caseId);
+      mkdirSync(dir, { recursive: true });
+      writeFileSync(join(dir, "events.json"), JSON.stringify(artifacts, null, 2));
+    }
+  } else {
+    // Sans --keep-artifacts, les événements bruts des cas FAIL sont quand
+    // même sauvés : chaque échec doit livrer sa chronologie (run n°7 :
+    // impossible de dire pourquoi budgetDElocutions échouait sans elle).
+    // Même convention anti-ADMIN que le reste : jamais de contenu de fiche.
+    for (const row of rows) {
+      if (row.verdict !== "FAIL") continue;
+      const artifacts = perCaseArtifacts[row.id];
+      if (!artifacts) continue;
+      const dir = join(outDir, "artifacts", base, row.id);
       mkdirSync(dir, { recursive: true });
       writeFileSync(join(dir, "events.json"), JSON.stringify(artifacts, null, 2));
     }
