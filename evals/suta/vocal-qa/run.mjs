@@ -580,9 +580,19 @@ async function runCase({ caseId, spec, opts, executablePath, footerShaGlobal, gi
     await orb.click();
 
     // 5. Attente d'établissement : live, ou erreur/session simulée → ERROR_ENV.
+    // Runs réels n°9 et 15 : le clic partait parfois avant que la page n'ait
+    // fini de s'activer (hydratation React) — clic dans le vide, aucun appel
+    // /api/realtime/session. Tant que cet appel n'est pas observé, on
+    // re-clique l'orbe toutes les ~5 s (3 tentatives au plus).
     let established = false;
     let envFailure = null;
+    let clicsOrbe = 1;
     while (rel() - tClick < ESTABLISH_TIMEOUT_MS) {
+      if (sessions.length === 0 && clicsOrbe < 3 && rel() - tClick > clicsOrbe * 5_000) {
+        clicsOrbe += 1;
+        console.log(`  re-clic sur l'orbe (${clicsOrbe}/3) — aucun appel de session observé`);
+        await orb.click().catch(() => {});
+      }
       const sample = await page.evaluate(domSnapshot).catch(() => null);
       if (sample) samples.push({ t: rel(), ...sample });
       if (sample?.live) { established = true; break; }
