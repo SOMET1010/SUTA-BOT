@@ -82,6 +82,9 @@ describe("loadSutaSystemPrompt", () => {
     // tout de suite.
     expect(prompt).toContain("sans phrase d'attente et sans recherche");
     expect(prompt).toContain("Les localités concernées seront annoncées officiellement par l'ANSUT.");
+    // Run n°7 : la phrase officielle était suivie de « on ne peut pas
+    // confirmer une "retenue" » — le mot interdit repris pour refuser.
+    expect(prompt).toContain("ne reprends ni ne commente les mots « retenu »");
   });
 
   it("makes SUTA lead the conversation on broad requests", () => {
@@ -100,6 +103,14 @@ describe("loadSutaSystemPrompt", () => {
     // « quel pass exactement ? » sans chercher.
     expect(prompt).toContain("programme phare d'équipement");
     expect(prompt).toContain("ne demande jamais « quel pass ? »");
+  });
+
+  it("answers PTBA questions from its content, never a generic definition", () => {
+    const prompt = loadSutaSystemPrompt();
+    // Banc vocal, runs n°3/5/7 : « que prévoit le PTBA ? » → le modèle
+    // expliquait ce qu'EST un PTBA, sans jamais chercher son contenu.
+    expect(prompt).toContain("fais ta recherche et réponds sur son CONTENU");
+    expect(prompt).toContain("N'explique jamais ce qu'est un PTBA en général");
   });
 
   it("treats noise-hallucinated transcripts as ambient noise", () => {
