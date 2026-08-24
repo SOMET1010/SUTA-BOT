@@ -2,9 +2,24 @@
 
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { MapContainer, Marker, TileLayer, Tooltip, useMap } from "react-leaflet";
 import type { VisualPoint } from "@/lib/suta/visuals";
+
+/**
+ * Fond de carte : Azure Maps quand la ressource est configurée (relais
+ * serveur /api/map/tile — la clé ne paraît jamais ici), sinon OpenStreetMap
+ * comme avant. La réponse de /api/map/config est demandée UNE fois par
+ * chargement de page, pas à chaque affichage de carte.
+ */
+let fondAzurePromise: Promise<boolean> | null = null;
+function fondAzureDisponible(): Promise<boolean> {
+  fondAzurePromise ??= fetch("/api/map/config")
+    .then((r) => r.json())
+    .then((config: { fondAzure?: boolean }) => config.fondAzure === true)
+    .catch(() => false);
+  return fondAzurePromise;
+}
 
 /**
  * Carte des lieux dont SUTA parle.
@@ -48,6 +63,13 @@ function FitToPoints({ points }: { points: VisualPoint[] }) {
 }
 
 export default function SutaMap({ points }: { points: VisualPoint[] }) {
+  const [fondAzure, setFondAzure] = useState(false);
+  useEffect(() => {
+    let actif = true;
+    void fondAzureDisponible().then((disponible) => { if (actif) setFondAzure(disponible); });
+    return () => { actif = false; };
+  }, []);
+
   const first = points[0];
   if (!first) return null;
 
@@ -60,10 +82,15 @@ export default function SutaMap({ points }: { points: VisualPoint[] }) {
       // Sur un écran de salon, la carte se lit, elle ne se manipule pas.
       attributionControl
     >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+      {fondAzure ? (
+        <TileLayer key="azure" attribution="&copy; Microsoft, TomTom" url="/api/map/tile/{z}/{x}/{y}" />
+      ) : (
+        <TileLayer
+          key="osm"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+      )}
       {points.map((point) => (
         <Marker
           key={`${point.lat},${point.lng}`}
