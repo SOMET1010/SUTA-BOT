@@ -10,16 +10,16 @@ import { RealtimeClient } from "@/lib/realtime/RealtimeClient";
  * anglophone) impose d'auditionner TOUTES les voix du modèle.
  */
 const VOICES: { name: string; note: string }[] = [
-  { name: "cedar", note: "masculine — voix actuelle" },
+  { name: "marin", note: "féminine — voix actuelle (casting du 24/08)" },
+  { name: "sage", note: "féminine" },
+  { name: "coral", note: "féminine" },
+  { name: "shimmer", note: "féminine" },
+  { name: "alloy", note: "neutre" },
+  { name: "cedar", note: "masculine — écartée : accent nord-américain en français" },
   { name: "ash", note: "masculine" },
   { name: "echo", note: "masculine" },
   { name: "verse", note: "masculine" },
   { name: "ballad", note: "masculine" },
-  { name: "alloy", note: "neutre" },
-  { name: "marin", note: "féminine" },
-  { name: "sage", note: "féminine" },
-  { name: "coral", note: "féminine" },
-  { name: "shimmer", note: "féminine" },
 ];
 
 const SCRIPT =

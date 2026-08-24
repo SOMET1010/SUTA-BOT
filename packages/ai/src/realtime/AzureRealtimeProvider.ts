@@ -115,14 +115,12 @@ export class AzureRealtimeProvider implements RealtimeProvider {
               },
             },
             output: {
-              // « cedar » : voix naturelle masculine du modèle GA, alignée
-              // sur le visuel de référence de SUTA (un garçon) — constat de
-              // test : mascotte masculine + voix féminine, dissonant. La voix
-              // par défaut du service, jamais choisie explicitement, rendait
-              // de toute façon un français robotique. REALTIME_VOICE permet
-              // de changer sans toucher au code (« marin » pour revenir à la
-              // voix féminine).
-              voice: this.config.voice || "cedar",
+              // Casting du 24/08 (écoute de Patrick sur la campagne réelle) :
+              // « cedar », masculine, rend un français à l'accent
+              // nord-américain marqué — « la voix féminine était bien
+              // meilleure ». Retour à « marin ». REALTIME_VOICE permet
+              // toujours de changer sans toucher au code.
+              voice: this.config.voice || "marin",
             },
           },
           ...(tools && tools.length > 0 ? { tools } : {}),
