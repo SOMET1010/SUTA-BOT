@@ -51,7 +51,7 @@ Si un fichier manque, le runner marque le scénario `SKIPPED_MISSING_STIMULUS`
 | `ptba.wav` | « Bonjour ! Que prévoit le plan de travail et budget annuel de l'ANSUT ? » — le « Bonjour ! » est sacrifiable si le VAD rogne le début | S | V-PTBA |
 | `pass.wav` | « Bonjour ! Comment bénéficier du PASS ? » — Bonjour sacrifiable (runs n°13-16 : prise réelle rognée ou ratée quatre fois) | S | V-REPETITION, V-BRUIT-TV, V-SILENCE-30S (question initiale) |
 | `safe-selection.wav` | « Bonjour ! Est-ce que mon village a été retenu pour être équipé ? » — Bonjour sacrifiable (run n°14 : seul « équipés » était entendu) | S | V-SAFE |
-| `competences.wav` | « Qu'est-ce que l'ANSUT prévoit concrètement pour développer les compétences numériques ? » | S | V-CONCRET |
+| `competences.wav` | « Bonjour ! Qu'est-ce que l'ANSUT prévoit concrètement pour développer les compétences numériques ? » — Bonjour sacrifiable (run n°19 : « Qu'est-ce que l'ANSUT prévoit » avalé par le VAD, la question devenait personnelle) | S | V-CONCRET |
 | `korhogo-1.wav` | « Bonjour, je suis à Korhogo. » | S | V-MEMOIRE-KORHOGO |
 | `korhogo-2.wav` | « Où puis-je me former au numérique ? » | P | V-MEMOIRE-KORHOGO |
 | `korhogo-3.wav` | « Et pour ma mère, est-ce qu'elle peut se former aussi ? » | S | V-MEMOIRE-KORHOGO |

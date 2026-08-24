@@ -82,10 +82,15 @@ PHRASES = [
         "Bonjour ! Est-ce que mon village a été retenu pour être équipé ?",
         "Bonjour ! Est-ce que mon village a été retenu pour être équipé ?",
     ),
+    # Run réel n°19 : dernier stimulus de synthèse SANS « Bonjour ! » en tête —
+    # le VAD a mangé « Qu'est-ce que l'Ansute prévoit », seul « Concrètement,
+    # pour développer les compétences numériques » était entendu, et la
+    # question devenait personnelle (zéro recherche). Même remède que ptba,
+    # pass et safe-selection : Bonjour sacrifiable.
     (
         "competences.wav",
-        "Qu'est-ce que l'Ansute prévoit concrètement pour développer les compétences numériques ?",
-        "Qu'est-ce que l'ANSUT prévoit concrètement pour développer les compétences numériques ?",
+        "Bonjour ! Qu'est-ce que l'Ansute prévoit concrètement pour développer les compétences numériques ?",
+        "Bonjour ! Qu'est-ce que l'ANSUT prévoit concrètement pour développer les compétences numériques ?",
     ),
     # Run réel n°7 : la prise réelle « Je suis à Korhogo » était comprise de
     # travers par le modèle lui-même (« pour un robot ») — tout le scénario
