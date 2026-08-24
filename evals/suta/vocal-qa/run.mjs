@@ -752,12 +752,14 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick, audioS
     }
     return false;
   };
-  /** Fin RÉELLE de la voix légitime : premier silence soutenu (>= 2 s)
+  /** Fin RÉELLE de la voix légitime : premier silence soutenu (>= 4 s)
    * commençant après t0. Le transcript arrive par le canal de données, à la
    * vitesse de génération ; la LECTURE audio, elle, s'écoule en temps réel —
    * sur une réponse longue, la voix joue encore bien après « transcript
    * terminé » (run n°11 : trois FAIL à tort en ancrant l'oreille sur le
-   * transcript). Null si la voix ne s'interrompt jamais dans la fenêtre. */
+   * transcript). Seuil à 4 s : au run n°16, une pause inter-paragraphe de
+   * 3,2 s en plein milieu d'une réponse était prise pour la fin, et la suite
+   * légitime pour un fantôme. Null si la voix ne s'interrompt jamais. */
   const finVoixApres = (t0) => {
     if (!meter) return null;
     let debutGap = null;
@@ -765,13 +767,40 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick, audioS
       if (m.t < t0) continue;
       if (m.rms <= seuilAudio) {
         if (debutGap === null) debutGap = m.t;
-        if (m.t - debutGap >= 2_000) return debutGap;
+        if (m.t - debutGap >= 4_000) return debutGap;
       } else {
         debutGap = null;
       }
     }
     return null;
   };
+  /** Plus long TROU interne à la voix (silence >= 1,5 s entre deux plages
+   * actives) : au run n°16, 3,2 s de silence total en plein milieu d'une
+   * réponse — exactement le « silence de trois secondes » que le prompt
+   * interdit. Signalé en détection, pas (encore) bloquant : un cas observé,
+   * cause modèle ou réseau à départager sur plusieurs runs. */
+  let trouVoixMs;
+  if (meter) {
+    const actifs = meter.filter((s) => s.rms > seuilAudio);
+    if (actifs.length > 1) {
+      const debutVoix = actifs[0].t;
+      const finVoix = actifs[actifs.length - 1].t;
+      let debutGap = null;
+      let prevSilence = null;
+      let maxGap = 0;
+      for (const s of meter) {
+        if (s.t < debutVoix || s.t > finVoix) continue;
+        if (s.rms <= seuilAudio) {
+          if (debutGap === null) debutGap = s.t;
+          prevSilence = s.t;
+        } else {
+          if (debutGap !== null && prevSilence !== null) maxGap = Math.max(maxGap, prevSilence - debutGap);
+          debutGap = null;
+        }
+      }
+      if (maxGap >= 1_500) trouVoixMs = maxGap;
+    }
+  }
   /** Aucune voix fantôme : la voix légitime finit (silence soutenu après la
    * frontière événementielle), puis PLUS RIEN ne doit rejouer. Null si pas de
    * compteur ou si la voix n'a pas fini dans la fenêtre d'observation (on ne
@@ -818,6 +847,7 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick, audioS
     unexpected_cancel: caseId === "V-INTERRUPTION" ? m.responseCancel > 1 : m.responseCancel > 0,
     assistant_sentence_repetition: repeatedSentence,
     annonce_sans_suite_relancee: relances > 0 ? relances : undefined,
+    trou_dans_la_voix_ms: trouVoixMs,
     ghost_turn_after_silence: caseId === "V-SILENCE-30S" ? (boundary !== null ? userBubblesAfter > 0 || responsesAfter > 0 : null) : undefined,
     background_noise_triggered_turn: caseId === "V-BRUIT-TV" ? (boundary !== null ? userBubblesAfter > 0 || searchesAfter > 0 || responsesAfter > 0 : null) : undefined,
   };
