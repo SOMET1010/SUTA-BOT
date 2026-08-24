@@ -26,6 +26,11 @@ export interface CreateRealtimeSessionOptions {
   conversationId?: string;
   /** Outils (function calling) disponibles pour cette session (section 17-18). */
   tools?: RealtimeToolDescriptor[];
+  /** Modalités de sortie du modèle. Absent = le modèle parle (audio).
+   * ["text"] : le modèle ne produit que du texte — le mode du lot 3
+   * (VOICE_ENGINE=azure-tts), où la voix est synthétisée séparément par
+   * Azure Speech ; le modèle reste les oreilles et le cerveau. */
+  outputModalities?: ("audio" | "text")[];
 }
 
 export interface RealtimeSession {

@@ -3,6 +3,8 @@
 import { useCallback, useRef } from "react";
 import { RealtimeClient, type RealtimeClientCallbacks } from "./RealtimeClient";
 import { shapeKnowledgeForModel } from "./knowledge-context";
+import { SentenceStream } from "@/lib/voice/sentence-stream";
+import { SpeechPlayer } from "@/lib/voice/SpeechPlayer";
 
 export interface StartRealtimeCallbacks extends RealtimeClientCallbacks {
   onToolResult?: (name: string, result: unknown) => void;
@@ -20,19 +22,52 @@ async function executeToolByName(name: string, argumentsJson: string): Promise<u
   return response.json();
 }
 
+/**
+ * Mode azure-tts (lot 3) : le cerveau Realtime ne produit que du texte ; on
+ * enveloppe les callbacks pour découper ce texte en phrases et les faire
+ * prononcer par la bouche Azure (SpeechPlayer), sans toucher au cœur
+ * RealtimeClient. Toute prise de parole de l'utilisateur coupe la lecture
+ * locale — le pendant acoustique du response.cancel.
+ */
+function brancherBoucheAzure(callbacks: StartRealtimeCallbacks, player: SpeechPlayer): StartRealtimeCallbacks {
+  let phrases = new SentenceStream();
+  return {
+    ...callbacks,
+    onResponseCreated: () => { phrases = new SentenceStream(); callbacks.onResponseCreated?.(); },
+    onAssistantTranscriptDelta: (delta) => {
+      for (const phrase of phrases.push(delta)) player.enqueue(phrase);
+      callbacks.onAssistantTranscriptDelta?.(delta);
+    },
+    onAssistantTranscriptDone: (transcript) => {
+      const reste = phrases.flush();
+      if (reste) player.enqueue(reste);
+      callbacks.onAssistantTranscriptDone?.(transcript);
+    },
+    onSpeechStarted: () => { player.stop(); callbacks.onSpeechStarted?.(); },
+  };
+}
+
 export function useRealtimeSession() {
   const clientRef = useRef<RealtimeClient | null>(null);
+  const playerRef = useRef<SpeechPlayer | null>(null);
   const startingRef = useRef(false);
 
   const start = useCallback(async (callbacks: StartRealtimeCallbacks): Promise<StartRealtimeResult> => {
     if (startingRef.current) return { simulated: false };
     startingRef.current = true;
     clientRef.current?.disconnect(); clientRef.current = null;
+    playerRef.current?.stop(); playerRef.current = null;
     try {
       const response = await fetch("/api/realtime/session", { method: "POST" });
       const session = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(session.error ?? "Je rencontre momentanément une difficulté technique. Vous pouvez réessayer.");
       if (!session.webrtcUrl) return { simulated: true };
+      let effectiveCallbacks = callbacks;
+      if (session.voiceEngine === "azure-tts") {
+        const player = new SpeechPlayer({ onError: (message) => callbacks.onError?.(message) });
+        playerRef.current = player;
+        effectiveCallbacks = brancherBoucheAzure(callbacks, player);
+      }
       const client = new RealtimeClient({
         clientSecret: session.clientSecret,
         webrtcUrl: session.webrtcUrl,
@@ -48,7 +83,7 @@ export function useRealtimeSession() {
           } catch { /* arguments illisibles : sélection sans intention */ }
           return shapeKnowledgeForModel(result, query);
         },
-        callbacks,
+        callbacks: effectiveCallbacks,
       });
       clientRef.current = client;
       await client.connect();
@@ -56,9 +91,9 @@ export function useRealtimeSession() {
     } finally { startingRef.current = false; }
   }, []);
 
-  const stop = useCallback(() => { clientRef.current?.disconnect(); clientRef.current = null; }, []);
-  const interrupt = useCallback(() => { clientRef.current?.interrupt(); }, []);
-  const sendText = useCallback((text: string) => { clientRef.current?.sendUserText(text); }, []);
+  const stop = useCallback(() => { playerRef.current?.stop(); playerRef.current = null; clientRef.current?.disconnect(); clientRef.current = null; }, []);
+  const interrupt = useCallback(() => { playerRef.current?.stop(); clientRef.current?.interrupt(); }, []);
+  const sendText = useCallback((text: string) => { playerRef.current?.stop(); clientRef.current?.sendUserText(text); }, []);
   const addContext = useCallback((text: string) => { clientRef.current?.addContext(text); }, []);
   const isActive = useCallback(() => clientRef.current !== null, []);
 

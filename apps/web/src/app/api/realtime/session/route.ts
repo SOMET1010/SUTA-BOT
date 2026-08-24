@@ -1,5 +1,6 @@
 import { createResilientRealtimeProvider, loadSutaSystemPrompt } from "@suta/ai";
 import { SUTA_TOOLS, describeTool } from "@suta/tools";
+import { voiceEngine } from "@/lib/voice/azure-tts";
 
 // Les voix réellement servies par gpt-realtime (GA) sur Azure — le casting
 // doit pouvoir les auditionner toutes, pas seulement une présélection.
@@ -18,10 +19,16 @@ export async function POST(request: Request) {
       ...(process.env as Record<string, string | undefined>),
       ...(requestedVoice ? { REALTIME_VOICE: requestedVoice } : {}),
     });
+    // Lot 3 : en mode azure-tts, le modèle Realtime garde les oreilles et le
+    // cerveau mais ne produit que du texte — la voix est synthétisée par
+    // Azure Speech côté client (via /api/voice/speak). Défaut : realtime,
+    // strictement identique à avant.
+    const engine = voiceEngine(process.env as Record<string, string | undefined>);
     const session = await provider.createSession({
       conversationId,
       instructions: loadSutaSystemPrompt(),
       tools: SUTA_TOOLS.map(describeTool),
+      ...(engine === "azure-tts" ? { outputModalities: ["text" as const] } : {}),
     });
 
     return Response.json({
@@ -29,6 +36,7 @@ export async function POST(request: Request) {
       provider: session.provider,
       model: session.model,
       voice: requestedVoice ?? process.env.REALTIME_VOICE ?? "marin",
+      voiceEngine: engine,
       clientSecret: session.clientSecret,
       expiresAt: session.expiresAt,
       webrtcUrl: session.webrtcUrl ?? null,

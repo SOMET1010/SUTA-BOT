@@ -57,6 +57,12 @@ export class AzureRealtimeProvider implements RealtimeProvider {
       parameters: tool.parameters,
     }));
 
+    // Lot 3 (VOICE_ENGINE=azure-tts) : le modèle ne produit que du texte —
+    // les oreilles (VAD, transcription) restent identiques, mais la voix est
+    // synthétisée ailleurs (Azure Speech). Sans audio en sortie, le choix de
+    // voix n'a plus de sens et n'est pas envoyé.
+    const wantsAudioOut = !options?.outputModalities || options.outputModalities.includes("audio");
+
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -118,15 +124,20 @@ export class AzureRealtimeProvider implements RealtimeProvider {
                 interrupt_response: false,
               },
             },
-            output: {
-              // Casting du 24/08 (écoute de Patrick sur la campagne réelle) :
-              // « cedar », masculine, rend un français à l'accent
-              // nord-américain marqué — « la voix féminine était bien
-              // meilleure ». Retour à « marin ». REALTIME_VOICE permet
-              // toujours de changer sans toucher au code.
-              voice: this.config.voice || "marin",
-            },
+            ...(wantsAudioOut
+              ? {
+                  output: {
+                    // Casting du 24/08 (écoute de Patrick sur la campagne réelle) :
+                    // « cedar », masculine, rend un français à l'accent
+                    // nord-américain marqué — « la voix féminine était bien
+                    // meilleure ». Retour à « marin ». REALTIME_VOICE permet
+                    // toujours de changer sans toucher au code.
+                    voice: this.config.voice || "marin",
+                  },
+                }
+              : {}),
           },
+          ...(options?.outputModalities ? { output_modalities: options.outputModalities } : {}),
           ...(tools && tools.length > 0 ? { tools } : {}),
         },
       }),

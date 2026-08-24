@@ -67,6 +67,20 @@ export function normalizeServerEvent(raw: unknown): NormalizedRealtimeEvent | nu
         : null;
     }
 
+    // Sortie TEXTE du modèle (lot 3, session en output_modalities:["text"]) :
+    // même normalisation que le transcript audio — pour tout le reste du
+    // client (affichage, relance « annonce sans suite », banc vocal), le
+    // texte du cerveau est LE transcript de SUTA, quel que soit le mode.
+    case "response.output_text.delta": {
+      const delta = asString(raw.delta);
+      return delta !== undefined ? { type: "assistant_transcript_delta", delta } : null;
+    }
+
+    case "response.output_text.done": {
+      const text = asString(raw.text);
+      return text !== undefined ? { type: "assistant_transcript_done", transcript: text } : null;
+    }
+
     case "response.created":
       return { type: "response_created" };
 

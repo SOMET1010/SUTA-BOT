@@ -108,6 +108,18 @@ describe("normalizeServerEvent", () => {
     ).toBeNull();
   });
 
+  it("normalise la sortie TEXTE du cerveau (lot 3) comme un transcript assistant", () => {
+    expect(normalizeServerEvent({ type: "response.output_text.delta", delta: "Le PASS, " })).toEqual({
+      type: "assistant_transcript_delta",
+      delta: "Le PASS, ",
+    });
+    expect(normalizeServerEvent({ type: "response.output_text.done", text: "Le PASS, c'est simple." })).toEqual({
+      type: "assistant_transcript_done",
+      transcript: "Le PASS, c'est simple.",
+    });
+    expect(normalizeServerEvent({ type: "response.output_text.done" })).toBeNull();
+  });
+
   it("ignores events it doesn't recognize or care about", () => {
     expect(normalizeServerEvent({ type: "session.created", session: {} })).toBeNull();
     expect(normalizeServerEvent({ type: "rate_limits.updated" })).toBeNull();
