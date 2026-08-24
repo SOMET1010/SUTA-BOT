@@ -26,9 +26,16 @@ export function isAdminConfigured(): boolean {
 }
 
 export function checkAdminPassword(candidate: string): boolean {
-  const password = process.env.ADMIN_PASSWORD;
-  if (!password) return false;
-  return verifyAdminPassword(candidate, password);
+  if (!process.env.ADMIN_PASSWORD) return false;
+  // Deux mots de passe distincts, mêmes droits : celui de Patrick
+  // (ADMIN_PASSWORD, requis — c'est lui qui active le panneau) et celui des
+  // équipes (ADMIN_PASSWORD_EQUIPE, optionnel). Séparés pour pouvoir
+  // révoquer l'accès des équipes en changeant UNE variable Vercel, sans
+  // toucher au mot de passe principal. Toujours pas de comptes nominatifs :
+  // c'est l'authentification Entra ID de la phase 2 (section 57).
+  return [process.env.ADMIN_PASSWORD, process.env.ADMIN_PASSWORD_EQUIPE]
+    .filter((p): p is string => Boolean(p))
+    .some((p) => verifyAdminPassword(candidate, p));
 }
 
 export function issueAdminSessionToken(): string | null {
