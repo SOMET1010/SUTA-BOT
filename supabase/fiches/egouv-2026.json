@@ -1,0 +1,18 @@
+[
+ {
+  "id": "egouv-2026-01",
+  "title": "eGOUV : le socle numérique commun de l'administration ivoirienne",
+  "content": "Le programme de Gouvernance Électronique, eGOUV, équipe depuis 2011 les ministères et institutions de la République de Côte d'Ivoire d'un socle numérique commun, mutualisé et sécurisé. Concrètement, il met à la disposition des administrations des postes de travail authentiques et à jour, une messagerie électronique professionnelle, des outils de collaboration et de réunion à distance, des outils de création de tableaux de bord pour le pilotage, des solutions de dématérialisation des processus, des services de cloud et de cybersécurité. L'intérêt d'un socle commun : toutes les administrations travaillent avec les mêmes outils, les coûts sont mutualisés au lieu que chaque structure achète dans son coin, et la sécurité est gérée de façon cohérente. L'ANSUT contribue à la mise en œuvre de ce programme. eGOUV concerne l'outillage interne de l'administration — pour les démarches des citoyens, ce sont les services publics en ligne qui s'appuient sur ce socle.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": { "theme": "eGOUV — gouvernance électronique", "statut": "programme en cours depuis 2011" }
+ },
+ {
+  "id": "egouv-2026-02",
+  "title": "eCONSEIL et eCABINET : la dématérialisation au sommet de l'État",
+  "content": "Parmi les réalisations du programme eGOUV figurent des applications métiers développées pour le fonctionnement de l'État : eCONSEIL, qui gère la préparation et le suivi des conseils des ministres, et eCABINET, qui outille la gestion des cabinets ministériels. Ces applications illustrent ce que la dématérialisation change au quotidien : moins de papier, des circuits de validation suivis, une information partagée entre les acteurs autorisés. Elles s'appuient sur le socle numérique commun du programme eGOUV, qui fournit aussi aux administrations la messagerie, la bureautique, la collaboration et la sécurité informatique.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": { "theme": "eGOUV — gouvernance électronique", "statut": "applications en service" }
+ }
+]
