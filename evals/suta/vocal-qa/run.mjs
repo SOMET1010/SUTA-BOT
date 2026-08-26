@@ -777,10 +777,20 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick, audioS
   /** Plus long TROU interne à la voix (silence >= 1,5 s entre deux plages
    * actives) : au run n°16, 3,2 s de silence total en plein milieu d'une
    * réponse — exactement le « silence de trois secondes » que le prompt
-   * interdit. Signalé en détection, pas (encore) bloquant : un cas observé,
-   * cause modèle ou réseau à départager sur plusieurs runs. */
+   * interdit. Signalé en détection, pas (encore) bloquant.
+   *
+   * Élucidation du run n°17 (webm V-MEMOIRE décodé) : les « trous » de 5 à
+   * 7 s des scénarios à plusieurs tours étaient les respirations normales du
+   * dialogue — le citoyen parle, SUTA réfléchit — comptées à tort parce que
+   * la première version mesurait tout silence entre la première et la
+   * dernière voix. Un trou ne compte désormais que s'il ne traverse AUCUNE
+   * frontière de tour (prise de parole, nouvelle réponse) : le vrai gel en
+   * pleine phrase du run n°16 reste détecté, le dialogue ne l'est plus. */
   let trouVoixMs;
   if (meter) {
+    const frontieresTour = voix
+      .filter((e) => e.text.includes("speech_started") || e.text.includes("response.created"))
+      .map((e) => e.t);
     const actifs = meter.filter((s) => s.rms > seuilAudio);
     if (actifs.length > 1) {
       const debutVoix = actifs[0].t;
@@ -794,7 +804,9 @@ function verdictFor(caseId, { row, voix, searches, dom, timeline, tClick, audioS
           if (debutGap === null) debutGap = s.t;
           prevSilence = s.t;
         } else {
-          if (debutGap !== null && prevSilence !== null) maxGap = Math.max(maxGap, prevSilence - debutGap);
+          if (debutGap !== null && prevSilence !== null && !frontieresTour.some((t) => t >= debutGap && t <= prevSilence)) {
+            maxGap = Math.max(maxGap, prevSilence - debutGap);
+          }
           debutGap = null;
         }
       }
