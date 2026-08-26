@@ -89,6 +89,8 @@ export class AzureRealtimeProvider implements RealtimeProvider {
               // `prompt` amorce Whisper avec les toponymes ivoiriens que le
               // public prononcera : en test réel, « Korhogo » était transcrit
               // « Hugo » — et une localité mal entendue fausse tout le tour.
+              // Même remède pour les SIGLES du métier (24/08 : « le CICN »
+              // épelé n'était pas reconnu alors que le corpus le connaît).
               transcription: {
                 model: "whisper-1",
                 language: "fr",
@@ -96,7 +98,8 @@ export class AzureRealtimeProvider implements RealtimeProvider {
                   "Conversation sur les localités de Côte d'Ivoire : Abidjan, Korhogo, Bouaké, " +
                   "Yamoussoukro, Daloa, San-Pédro, Man, Odienné, Séguéla, Gagnoa, Divo, Abengourou, " +
                   "Bondoukou, Ferkessédougou, Boundiali, Katiola, Touba, Guiglo, Duékoué, Soubré, " +
-                  "Agboville, Adzopé, Dabou, Grand-Bassam, Tiémé, Facobly, ANSUT, SUTA.",
+                  "Agboville, Adzopé, Dabou, Grand-Bassam, Tiémé, Facobly, ANSUT, SUTA. " +
+                  "Sigles du service universel : CICN, PASS, PTBA, RNHD, BTS, ARTCI, AIGF, STNCI, IA.",
               },
               // server_vad : détection de fin de prise de parole. Les seuils
               // par défaut (threshold 0.5) sont calibrés pour un casque au
