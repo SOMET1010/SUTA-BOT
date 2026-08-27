@@ -1,0 +1,1790 @@
+[
+ {
+  "id": "rnhd-synthese-2026-05",
+  "title": "Le RNHD en mai 2026 : l'état réel de la dorsale de fibre optique",
+  "content": "Le Réseau National Haut Débit (RNHD) est la dorsale de fibre optique de l'État de Côte d'Ivoire : elle relie les villes du pays entre elles et transporte l'internet à haut débit que les opérateurs distribuent ensuite localement. Selon la liste des sections mise à jour en mai 2026, le réseau compte 148 sections recensées, totalisant environ 5314 kilomètres de fibre posée. 75 sections, soit environ 2776 kilomètres, sont en exploitation ; les 73 autres, environ 2538 kilomètres, sont posées mais pas encore exploitées — une réserve de capacité prête à être mise en service. Le RNHD est mis à la disposition des opérateurs de télécommunications, qui s'y raccordent pour desservir leurs clients. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "synthèse",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-agbo-agou",
+  "title": "RNHD — section Agboville-Agou",
+  "content": "La section Agboville-Agou fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 31 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bouna-bania",
+  "title": "RNHD — section Bouna-Bania",
+  "content": "La section Bouna-Bania fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 38 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bania-farak",
+  "title": "RNHD — section Bania-Farako",
+  "content": "La section Bania-Farako fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 49 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-farak-laoud",
+  "title": "RNHD — section Farako-Laoudiba",
+  "content": "La section Farako-Laoudiba fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 47 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-laoud-bondk",
+  "title": "RNHD — section Laoudiba-Bondoukou",
+  "content": "La section Laoudiba-Bondoukou fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 33 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bondk-tanda",
+  "title": "RNHD — section Bondoukou-Tanda",
+  "content": "La section Bondoukou-Tanda fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 33 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-tanda-kounf",
+  "title": "RNHD — section Tanda-Koun Fao",
+  "content": "La section Tanda-Koun Fao fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 44 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-kounf-agnib",
+  "title": "RNHD — section Koun Fao-Agnibilekrou",
+  "content": "La section Koun Fao-Agnibilekrou fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 54 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-agnib-yakas",
+  "title": "RNHD — section Agnibilékrou-Yakasse",
+  "content": "La section Agnibilékrou-Yakasse fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 41 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-yakas-abeng",
+  "title": "RNHD — section Yakasse-Abengourou",
+  "content": "La section Yakasse-Abengourou fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 33 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-manko-siana",
+  "title": "RNHD — section Mankono-Siana",
+  "content": "La section Mankono-Siana fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 27 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-siana-segue",
+  "title": "RNHD — section Siana-Seguela",
+  "content": "La section Siana-Seguela fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 18 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-segue-sifie",
+  "title": "RNHD — section Seguela-Sifie",
+  "content": "La section Seguela-Sifie fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 27 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-sifie-semie",
+  "title": "RNHD — section Sifie-Semien",
+  "content": "La section Sifie-Semien fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 50 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-semie-man",
+  "title": "RNHD — section Semien-Man",
+  "content": "La section Semien-Man fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 51 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-manko-sarhl",
+  "title": "RNHD — section Mankono-Sarhala",
+  "content": "La section Mankono-Sarhala fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 45 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-sarhl-farab",
+  "title": "RNHD — section Sarhala-Faraba",
+  "content": "La section Sarhala-Faraba fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 29 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-farab-dianr",
+  "title": "RNHD — section Faraba-Dianra",
+  "content": "La section Faraba-Dianra fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 36 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-dianr-kanor",
+  "title": "RNHD — section Dianra-Kanoroba",
+  "content": "La section Dianra-Kanoroba fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 26 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-kanor-siras",
+  "title": "RNHD — section Kanoroba-Sirasso",
+  "content": "La section Kanoroba-Sirasso fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 24 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-siras-siemp",
+  "title": "RNHD — section Sirasso-Siempurgo",
+  "content": "La section Sirasso-Siempurgo fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 41 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-toum-kkoum",
+  "title": "RNHD — section Toumodi-Kokoumbo",
+  "content": "La section Toumodi-Kokoumbo fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 32 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-kkoum-oume",
+  "title": "RNHD — section Kokoumbo-Oume",
+  "content": "La section Kokoumbo-Oume fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 28 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-oume-diego",
+  "title": "RNHD — section Oume-Diegonefla",
+  "content": "La section Oume-Diegonefla fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 22 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-diego-gagn",
+  "title": "RNHD — section Diegonefla-Gagnoa",
+  "content": "La section Diegonefla-Gagnoa fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 42 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-abeng-bonah",
+  "title": "RNHD — section Abengourou-Bonahouin",
+  "content": "La section Abengourou-Bonahouin fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 45 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bouak-botro",
+  "title": "RNHD — section Bouake-Botro",
+  "content": "La section Bouake-Botro fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 37 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-botro-marab",
+  "title": "RNHD — section Botro-Marabadiassa",
+  "content": "La section Botro-Marabadiassa fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 37 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-marab-tieni",
+  "title": "RNHD — section Marabadiassa-Tieningboue",
+  "content": "La section Marabadiassa-Tieningboue fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 44 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-tieni-manko",
+  "title": "RNHD — section Tieningboue-Mankono",
+  "content": "La section Tieningboue-Mankono fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 55 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-man-gbato",
+  "title": "RNHD — section Man-Gbatongouin",
+  "content": "La section Man-Gbatongouin fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 24 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-gbato-biank",
+  "title": "RNHD — section Gbatongouin-Biankouma",
+  "content": "La section Gbatongouin-Biankouma fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 26 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-biank-goh",
+  "title": "RNHD — section Biankouma-Goh",
+  "content": "La section Biankouma-Goh fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 39 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-goh-touba",
+  "title": "RNHD — section Goh-Touba",
+  "content": "La section Goh-Touba fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 31 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-touba-koro",
+  "title": "RNHD — section Touba-Koro",
+  "content": "La section Touba-Koro fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 49 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-koro-mamoy",
+  "title": "RNHD — section Koro-Mamouya",
+  "content": "La section Koro-Mamouya fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 35 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-mamoy-bako",
+  "title": "RNHD — section Mamouya-Bako",
+  "content": "La section Mamouya-Bako fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 32 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bako-odien",
+  "title": "RNHD — section Bako-Odienne",
+  "content": "La section Bako-Odienne fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 41 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-odien-segeb",
+  "title": "RNHD — section Odienne-Seguebe",
+  "content": "La section Odienne-Seguebe fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 40 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-segeb-madin",
+  "title": "RNHD — section Seguebe-Madinani",
+  "content": "La section Seguebe-Madinani fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 34 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-madin-gband",
+  "title": "RNHD — section Madinani-Gbando",
+  "content": "La section Madinani-Gbando fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 33 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-gband-bound",
+  "title": "RNHD — section Gbando-Boundiali",
+  "content": "La section Gbando-Boundiali fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 22 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bound-siemp",
+  "title": "RNHD — section Boundiali-Siempurgo",
+  "content": "La section Boundiali-Siempurgo fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 33 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-siemp-tanga",
+  "title": "RNHD — section Siempurgo-Tangafla",
+  "content": "La section Siempurgo-Tangafla fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 27 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-tanga-korho",
+  "title": "RNHD — section Tangafla-Korhogo",
+  "content": "La section Tangafla-Korhogo fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 33 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-tehin-varal",
+  "title": "RNHD — section Tehini-Varale",
+  "content": "La section Tehini-Varale fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 47 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-varal-bouko",
+  "title": "RNHD — section Varale-Bouko",
+  "content": "La section Varale-Bouko fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 24 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bouko-bouna",
+  "title": "RNHD — section Bouko-Bouna",
+  "content": "La section Bouko-Bouna fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 34 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-ferke-kalak",
+  "title": "RNHD — section Ferke-Kalakala",
+  "content": "La section Ferke-Kalakala fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 39 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-kalak-nassi",
+  "title": "RNHD — section Kalakala-Nassian",
+  "content": "La section Kalakala-Nassian fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 49 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-nassi-kafol",
+  "title": "RNHD — section Nassian-Kafolo",
+  "content": "La section Nassian-Kafolo fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 30 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-kafol-oufit",
+  "title": "RNHD — section Kafolo-Ouango Fitini",
+  "content": "La section Kafolo-Ouango Fitini fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 40 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-oufit-tehin",
+  "title": "RNHD — section Ouango Fitini-Téhini",
+  "content": "La section Ouango Fitini-Téhini fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 40 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-hann-grby",
+  "title": "RNHD — section Hannie-Grand Bereby",
+  "content": "La section Hannie-Grand Bereby fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 10 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-sanp-yoass",
+  "title": "RNHD — section San Pedro-Youassou",
+  "content": "La section San Pedro-Youassou fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 50 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-yoass-tabou",
+  "title": "RNHD — section Youassou-Tabou",
+  "content": "La section Youassou-Tabou fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 56 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bound-kouto",
+  "title": "RNHD — section Boundiali-Kouto",
+  "content": "La section Boundiali-Kouto fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 46 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-kouto-bless",
+  "title": "RNHD — section Kouto-Blessegue",
+  "content": "La section Kouto-Blessegue fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 38 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bless-tengr",
+  "title": "RNHD — section Blessegue-Tengrela",
+  "content": "La section Blessegue-Tengrela fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 43 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bffle-bfla",
+  "title": "RNHD — section Bouafle-Bouafla",
+  "content": "La section Bouafle-Bouafla fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 36 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bfla-zuen",
+  "title": "RNHD — section Bouafla-Zuenoula",
+  "content": "La section Bouafla-Zuenoula fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 33 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-zuen-konga",
+  "title": "RNHD — section Zuenoula-Kongasso",
+  "content": "La section Zuenoula-Kongasso fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 53 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-konga-manko",
+  "title": "RNHD — section Kongasso-Mankono",
+  "content": "La section Kongasso-Mankono fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 34 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-abdj-mntz",
+  "title": "RNHD — section Abidjan-Montezo",
+  "content": "La section Abidjan-Montezo fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 44 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-mntz-nzik",
+  "title": "RNHD — section Montezo-Nzikro",
+  "content": "La section Montezo-Nzikro fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 45 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-nzik-abois",
+  "title": "RNHD — section Nzikro-Aboisso",
+  "content": "La section Nzikro-Aboisso fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 27 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bonah-becou",
+  "title": "RNHD — section Bonahouin-Becouefin",
+  "content": "La section Bonahouin-Becouefin fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 15 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-becou-akoup",
+  "title": "RNHD — section Becouefin-Akoupe",
+  "content": "La section Becouefin-Akoupe fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 13 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-akoup-adzop",
+  "title": "RNHD — section Akoupe-Adzope",
+  "content": "La section Akoupe-Adzope fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 39 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-adzop-agou",
+  "title": "RNHD — section Adzopé-Agou",
+  "content": "La section Adzopé-Agou fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 18 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-agou-azagu",
+  "title": "RNHD — section Agou-Azaguie",
+  "content": "La section Agou-Azaguie fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 46 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-azagu-sococ",
+  "title": "RNHD — section Azaguie-Sococe Salle Blanche",
+  "content": "La section Azaguie-Sococe Salle Blanche fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 40 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-blabdj",
+  "title": "RNHD — section Boucle D'Abidjan",
+  "content": "La section Boucle D'Abidjan fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 54 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-azag-agbo",
+  "title": "RNHD — section Azaguie-Agboville",
+  "content": "La section Azaguie-Agboville fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 40 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-agou-rubi",
+  "title": "RNHD — section Agboville-Rubino",
+  "content": "La section Agboville-Rubino fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 21 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-rubi-cech",
+  "title": "RNHD — section Rubino-Cechi",
+  "content": "La section Rubino-Cechi fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 38 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-cech-tieme",
+  "title": "RNHD — section Cechi-Tiemelekro",
+  "content": "La section Cechi-Tiemelekro fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 43 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-tieme-mbat",
+  "title": "RNHD — section Tiemelekro-M'Batto",
+  "content": "La section Tiemelekro-M'Batto fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 35 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-mbat-bong",
+  "title": "RNHD — section Mbatto-Bongouanou",
+  "content": "La section Mbatto-Bongouanou fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 34 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-dimbo-toum",
+  "title": "RNHD — section Dimbokro-Toumodi",
+  "content": "La section Dimbokro-Toumodi fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 39 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-sass-mouss",
+  "title": "RNHD — section Sassandra-Moussadougou",
+  "content": "La section Sassandra-Moussadougou fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 33 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-mouss-sanp",
+  "title": "RNHD — section Moussadougou-San Pedro",
+  "content": "La section Moussadougou-San Pedro fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 44 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-oume-hire",
+  "title": "RNHD — section Oume-Hire",
+  "content": "La section Oume-Hire fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 29 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-hire-divo",
+  "title": "RNHD — section Hire-Divo",
+  "content": "La section Hire-Divo fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 40 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-divo-guit",
+  "title": "RNHD — section Divo-Guitry",
+  "content": "La section Divo-Guitry fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 46 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-oura-gagn",
+  "title": "RNHD — section Gagnoa-Ouragahio",
+  "content": "La section Gagnoa-Ouragahio fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 27 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-sinf-ourag",
+  "title": "RNHD — section Sinfra-Ouragahio",
+  "content": "La section Sinfra-Ouragahio fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 40 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-sinfr-konfl",
+  "title": "RNHD — section Sinfra-Kononfla (Konefla)",
+  "content": "La section Sinfra-Kononfla (Konefla) fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 36 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-konfl-yakro",
+  "title": "RNHD — section Kononfla-Yamoussoukro",
+  "content": "La section Kononfla-Yamoussoukro fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 49 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-issia-sa-ou",
+  "title": "RNHD — section Issia-Saïoua",
+  "content": "La section Issia-Saïoua fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 9 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-sa-ou-sinfr",
+  "title": "RNHD — section Saïoua-Sinfra",
+  "content": "La section Saïoua-Sinfra fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 50 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-daloa-issia",
+  "title": "RNHD — section Daloa-Issia",
+  "content": "La section Daloa-Issia fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 48 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-daloa-bnfla",
+  "title": "RNHD — section Daloa-Bonoufla",
+  "content": "La section Daloa-Bonoufla fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 30 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bnfla-vavo",
+  "title": "RNHD — section Bonoufla-Vavoua",
+  "content": "La section Bonoufla-Vavoua fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 29 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-vavo-bazr",
+  "title": "RNHD — section Vavoua-Bazra Nattis",
+  "content": "La section Vavoua-Bazra Nattis fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 26 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bazr-segu",
+  "title": "RNHD — section Bazra Nattis-Seguela",
+  "content": "La section Bazra Nattis-Seguela fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 45 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-segu-forou",
+  "title": "RNHD — section Seguela-Fourouna",
+  "content": "La section Seguela-Fourouna fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 20 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-forou-kani",
+  "title": "RNHD — section Fourouna (Diarabana)-Kani",
+  "content": "La section Fourouna (Diarabana)-Kani fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 45 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-man-sang",
+  "title": "RNHD — section Man-Sangouine",
+  "content": "La section Man-Sangouine fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 33 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-sang-dana",
+  "title": "RNHD — section Sangouine-Danane",
+  "content": "La section Sangouine-Danane fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 44 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-dana-zouah",
+  "title": "RNHD — section Danane-Zouan Hounien",
+  "content": "La section Danane-Zouan Hounien fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 46 kilomètres. À la date de mai 2026, cette section est en exploitation : la fibre y est posée et le tronçon est utilisé pour transporter le trafic. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "en exploitation",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-blol-zeagl",
+  "title": "RNHD — section Blolequin-Zeaglo",
+  "content": "La section Blolequin-Zeaglo fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 22 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-zeagl-guig",
+  "title": "RNHD — section Zeaglo-Guiglo",
+  "content": "La section Zeaglo-Guiglo fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 36 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-guig-duek",
+  "title": "RNHD — section Guiglo-Duekoue",
+  "content": "La section Guiglo-Duekoue fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 35 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-grlh-irob",
+  "title": "RNHD — section Grand Lahou-Irobo",
+  "content": "La section Grand Lahou-Irobo fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 28 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-irob-dabou",
+  "title": "RNHD — section Irobo-Dabou",
+  "content": "La section Irobo-Dabou fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 50 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-yamou-toumb",
+  "title": "RNHD — section Yamoussoukro-Toumbokro",
+  "content": "La section Yamoussoukro-Toumbokro fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 31 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bffle-toumb",
+  "title": "RNHD — section Toumbokro-Bouafle",
+  "content": "La section Toumbokro-Bouafle fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 32 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-abeng-niabl",
+  "title": "RNHD — section Abengourou-Niable",
+  "content": "La section Abengourou-Niable fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 36,4 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bonah-arrah",
+  "title": "RNHD — section Bonahouin-Arrah",
+  "content": "La section Bonahouin-Arrah fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 30,6 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-arrah-bongo",
+  "title": "RNHD — section Arrah-Bongouanou",
+  "content": "La section Arrah-Bongouanou fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 30,1 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bongo-ndrik",
+  "title": "RNHD — section Bongouanou-Ndrikro",
+  "content": "La section Bongouanou-Ndrikro fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 26,8 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-ndrik-dimbo",
+  "title": "RNHD — section Ndrikro-Dimbokro",
+  "content": "La section Ndrikro-Dimbokro fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 37,1 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-dimbo-dmoue",
+  "title": "RNHD — section Dimbokro-Dida Mouessou",
+  "content": "La section Dimbokro-Dida Mouessou fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 41,4 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-dmoue-bocan",
+  "title": "RNHD — section Dida Mouessou-Bocanda",
+  "content": "La section Dida Mouessou-Bocanda fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 20,4 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bocan-anand",
+  "title": "RNHD — section Bocanda-Ananda",
+  "content": "La section Bocanda-Ananda fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 37,3 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-anand-ouele",
+  "title": "RNHD — section Ananda-Ouelle",
+  "content": "La section Ananda-Ouelle fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 30 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-ouele-prik",
+  "title": "RNHD — section Ouelle-Prikro",
+  "content": "La section Ouelle-Prikro fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 45,2 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-prik-groum",
+  "title": "RNHD — section Prikro-Groumania",
+  "content": "La section Prikro-Groumania fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 35,3 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-groum-basaw",
+  "title": "RNHD — section Groumania-Bassawa",
+  "content": "La section Groumania-Bassawa fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 21,6 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-basaw-kangu",
+  "title": "RNHD — section Bouake-Kanguierenou",
+  "content": "La section Bouake-Kanguierenou fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 36,9 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-kangu-satam",
+  "title": "RNHD — section Kanguierenou-Satama Sokoro",
+  "content": "La section Kanguierenou-Satama Sokoro fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 35,4 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-satam-sokou",
+  "title": "RNHD — section Satama Sokoro-Satama Sokoura",
+  "content": "La section Satama Sokoro-Satama Sokoura fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 21,3 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-sokou-basaw",
+  "title": "RNHD — section Satama Sokoura-Bassawa",
+  "content": "La section Satama Sokoura-Bassawa fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 40,6 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-groum-diama",
+  "title": "RNHD — section Groumania-Diamandougou",
+  "content": "La section Groumania-Diamandougou fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 31,1 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-diama-namas",
+  "title": "RNHD — section Diamandougou-Namassi",
+  "content": "La section Diamandougou-Namassi fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 42,2 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-namas-tanda",
+  "title": "RNHD — section Namassi-Tanda",
+  "content": "La section Namassi-Tanda fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 38,9 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-satam-noudu",
+  "title": "RNHD — section Satama Sokoro-Noudougou",
+  "content": "La section Satama Sokoro-Noudougou fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 38,6 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-noudu-dabak",
+  "title": "RNHD — section Nondougou-Dabakala",
+  "content": "La section Nondougou-Dabakala fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 21,3 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-katio-karpe",
+  "title": "RNHD — section Katiola-Karpele",
+  "content": "La section Katiola-Karpele fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 44,3 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-karpe-dabak",
+  "title": "RNHD — section Karpele-Dabakala",
+  "content": "La section Karpele-Dabakala fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 40,9 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-karpe-dabak-2",
+  "title": "RNHD — section Bobosso-Dabakala",
+  "content": "La section Bobosso-Dabakala fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 41 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-bobos-kakpi",
+  "title": "RNHD — section Bobosso-Kakpin",
+  "content": "La section Bobosso-Kakpin fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 47,8 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-kakpi-nassi",
+  "title": "RNHD — section Kakpin-Nassian",
+  "content": "La section Kakpin-Nassian fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 47,7 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-nassi-lambi",
+  "title": "RNHD — section Nassian-Lambira",
+  "content": "La section Nassian-Lambira fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 23,3 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-lambi-farak",
+  "title": "RNHD — section Lambira-Farako",
+  "content": "La section Lambira-Farako fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 40,8 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-niaka-torti",
+  "title": "RNHD — section Niakara-Tortiya",
+  "content": "La section Niakara-Tortiya fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 51,8 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-torti-kadio",
+  "title": "RNHD — section Tortiya-Kadioha",
+  "content": "La section Tortiya-Kadioha fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 34,8 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-kadio-guiem",
+  "title": "RNHD — section Kadioha-Guiembe",
+  "content": "La section Kadioha-Guiembe fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 36,1 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-guiem-korho",
+  "title": "RNHD — section Guiembe-Korhogo",
+  "content": "La section Guiembe-Korhogo fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 28,6 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-korho-welle",
+  "title": "RNHD — section Korhogo-Welleo",
+  "content": "La section Korhogo-Welleo fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 29,1 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-welle-mbeng",
+  "title": "RNHD — section Welleo-Mbengue",
+  "content": "La section Welleo-Mbengue fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 46,8 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-mbeng-niele",
+  "title": "RNHD — section Mbengue-Nielle",
+  "content": "La section Mbengue-Nielle fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 39,4 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-korho-sinem",
+  "title": "RNHD — section Korhogo-Sinematiali",
+  "content": "La section Korhogo-Sinematiali fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 30,5 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-sinem-ferke",
+  "title": "RNHD — section Sinematiali-Ferke",
+  "content": "La section Sinematiali-Ferke fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 22,3 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-odien-kimbi",
+  "title": "RNHD — section Odienne-Kimbirila Sud",
+  "content": "La section Odienne-Kimbirila Sud fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 21 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-nassi-kong",
+  "title": "RNHD — section Nassian-Kong",
+  "content": "La section Nassian-Kong fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 35 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ },
+ {
+  "id": "rnhd-sec-tiebi-didie",
+  "title": "RNHD — section Tiebissou-Didievi",
+  "content": "La section Tiebissou-Didievi fait partie du Réseau National Haut Débit (RNHD), la dorsale de fibre optique de l'État de Côte d'Ivoire. Elle mesure environ 40 kilomètres. À la date de mai 2026, la fibre de cette section est posée, mais le tronçon n'est pas encore exploité — il est disponible et attend d'être mis en service. Une section exploitée ne veut pas dire que chaque village traversé a la fibre chez lui : la dorsale transporte le réseau entre les villes, et l'accès local dépend des raccordements réalisés autour de chaque localité.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": {
+   "theme": "RNHD — dorsale nationale de fibre optique",
+   "statut": "posée, non exploitée",
+   "date_donnees": "2026-05"
+  }
+ }
+]
