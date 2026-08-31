@@ -234,6 +234,24 @@ export function shapeKnowledgeForModel(result: unknown, question = ""): unknown 
  */
 export function enrichirQuestionRecherche(question: string): string {
   const q = question.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
+  // Recette v3 du 31/08 (C07), mesuré sur la base réelle : le jeton « eGOUV »
+  // écrit d'un seul tenant tire l'embedding dans le cluster des milliers de
+  // villages en « GOU- » — la fiche eGOUV n'entre même plus dans la
+  // profondeur de recherche. Réécrit « e-gouv », la même question la remonte
+  // en tête. On réécrit donc le sigle et on glose le programme.
+  if (/\begouv\b/.test(q)) {
+    return `${question.replace(/\begouv\b/gi, "e-gouv")} (programme de gouvernance électronique de l'administration)`;
+  }
+  // C06 : « combien de sections compte le RNHD ? » servait « les six
+  // programmes » — la synthèse RNHD passe de 2e (0,53) à 1re (0,75) avec la
+  // glose de la dorsale.
+  if (/\brnhd\b|dorsale/.test(q)) {
+    return `${question} (Réseau National Haut Débit, dorsale nationale de fibre optique de l'État, état des sections)`;
+  }
+  // C05 : le relevé de présence des opérateurs, village par village.
+  if (/operateurs?\b|\borange\b|\bmtn\b|\bmoov\b/.test(q)) {
+    return `${question} (présence des opérateurs mobiles relevée localité par localité)`;
+  }
   if (/equip|smartphone|ordinateur|tablette|telephone/.test(q)) {
     return `${question} (dispositifs d'aide à l'équipement numérique, programme PASS)`;
   }

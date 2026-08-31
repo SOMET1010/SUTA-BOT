@@ -417,3 +417,22 @@ describe("« dis-moi plus » — terrain du 31/08 (perte de fil sur le chemin te
     expect(reponse.suite).toEqual([]);
   });
 });
+
+describe("enrichirQuestionRecherche — recette v3 du 31/08 (C05/C06/C07)", () => {
+  it("réécrit « eGOUV » en « e-gouv » et glose le programme", () => {
+    // Mesuré sur la base réelle : « eGOUV » d'un seul tenant tombe dans le
+    // cluster des villages en « GOU- » ; « e-gouv » remonte les fiches eGOUV.
+    const enrichie = enrichirQuestionRecherche("À quoi sert eGOUV ?");
+    expect(enrichie).toContain("e-gouv");
+    expect(enrichie).toContain("gouvernance électronique");
+    expect(enrichie).not.toMatch(/\begouv\b/i);
+  });
+
+  it("glose le RNHD avec la dorsale nationale", () => {
+    expect(enrichirQuestionRecherche("Combien de sections compte le RNHD ?")).toContain("Réseau National Haut Débit");
+  });
+
+  it("glose la présence des opérateurs mobiles", () => {
+    expect(enrichirQuestionRecherche("Quels opérateurs sont présents dans mon village ?")).toContain("localité par localité");
+  });
+});
