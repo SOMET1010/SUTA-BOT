@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { ConversationState } from "@suta/shared";
 import { getEscaladeResponse } from "@/lib/escalade-response";
 import { getIdentityResponse } from "@/lib/identity-response";
+import { getActionResponse, getSelectionResponse } from "@/lib/reponses-reservees";
 import { composerReponseAvecSuite, composerSuite, enrichirQuestionRecherche, estDemandeDeSuite } from "@/lib/realtime/knowledge-context";
 import { useRealtimeSession } from "@/lib/realtime/useRealtimeSession";
 import { experienceFromKnowledge, type SutaPillar } from "@/lib/suta/experience";
@@ -315,6 +316,15 @@ export function useSutaConversation(): SutaConversationController {
     const escalade = getEscaladeResponse(text);
     if (escalade) {
       respond(escalade);
+      return;
+    }
+    // Recette v3 du 31/08 (C10/C14) : les statuts de sélection et les
+    // demandes de démarche ne partent JAMAIS en recherche documentaire —
+    // « quels villages retenus ? » restituait des agrégats, « prends un
+    // rendez-vous » une fiche sur le conseil d'administration.
+    const reservee = getSelectionResponse(text) ?? getActionResponse(text);
+    if (reservee) {
+      respond(reservee);
       return;
     }
     // « Dis-moi plus » continue la réponse précédente : on sert ce qu'elle

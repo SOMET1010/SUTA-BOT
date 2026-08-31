@@ -68,6 +68,14 @@ describe("loadSutaSystemPrompt", () => {
     expect(prompt).toContain("N'invente JAMAIS de numéro de téléphone");
   });
 
+  it("declines undoable procedures plainly, never via a search", () => {
+    const prompt = loadSutaSystemPrompt();
+    // Recette v3 du 31/08 (C14) : « prends un rendez-vous » recevait une
+    // fiche sur le conseil d'administration au lieu d'un refus clair.
+    expect(prompt).toContain("démarche que tu ne peux pas exécuter");
+    expect(prompt).toContain("ne fais pas la démarche toi-même");
+  });
+
   it("answers identity questions directly, never via a search", () => {
     const prompt = loadSutaSystemPrompt();
     // Terrain du 31/08 : « QUI ES TU ? » recevait « je n'ai pas encore
