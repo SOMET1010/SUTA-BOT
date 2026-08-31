@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { ConversationState } from "@suta/shared";
 import { getEscaladeResponse } from "@/lib/escalade-response";
 import { getIdentityResponse } from "@/lib/identity-response";
-import { composerReponseTexte, enrichirQuestionRecherche, selectionnerPreuves } from "@/lib/realtime/knowledge-context";
+import { composerReponseAvecSuite, composerSuite, enrichirQuestionRecherche, estDemandeDeSuite } from "@/lib/realtime/knowledge-context";
 import { useRealtimeSession } from "@/lib/realtime/useRealtimeSession";
 import { experienceFromKnowledge, type SutaPillar } from "@/lib/suta/experience";
 import { DEFAULT_SUTA_SCENE, type SutaScene } from "@/lib/suta/scene";
@@ -55,6 +55,12 @@ export function useSutaConversation(): SutaConversationController {
   const currentAssistantMsgId = useRef<string | null>(null);
   const pendingSources = useRef<TranscriptSource[] | undefined>(undefined);
   const latestQuestion = useRef("");
+  /** Ce que la dernière réponse texte n'a pas encore dit — la matière que
+   * « dis-moi plus » doit servir (terrain du 31/08 : « dis moi plus » après
+   * « le service universel » partait en recherche vectorielle sur ces trois
+   * mots et récitait la fiche d'un village au hasard). */
+  const suiteRef = useRef<string[]>([]);
+  const aServiUneReponse = useRef(false);
   const sessionContext = useRef<SutaSessionContext>({ ...EMPTY_SUTA_CONTEXT, lastTopics: [] });
   const searchAbort = useRef<AbortController | null>(null);
   const resumeVoiceAfterNetwork = useRef(false);
@@ -119,11 +125,12 @@ export function useSutaConversation(): SutaConversationController {
       // question hors périmètre ou incompréhensible recevait le message
       // d'incertitude MAIS une carte et des sources sans rapport, dérivées
       // des voisins vectoriels bruts.
-      const preuves = selectionnerPreuves(question, data);
-      const comprise = preuves !== null && preuves.length > 0;
+      const { texte, suite, comprise } = composerReponseAvecSuite(question, data);
+      suiteRef.current = suite;
+      aServiUneReponse.current = comprise;
       if (comprise) applyExperience(question, results);
       const sources = comprise ? results.slice(0, 4).map((r) => ({ title: r.title, source: r.source })) : [];
-      respond(composerReponseTexte(question, data), sources.length ? sources : undefined);
+      respond(texte, sources.length ? sources : undefined);
     } catch (error) {
       if (error instanceof DOMException && error.name === "AbortError") return;
       setState(typeof navigator !== "undefined" && !navigator.onLine ? "OFFLINE" : "ERROR");
@@ -310,6 +317,14 @@ export function useSutaConversation(): SutaConversationController {
       respond(escalade);
       return;
     }
+    // « Dis-moi plus » continue la réponse précédente : on sert ce qu'elle
+    // n'a pas encore dit, jamais une recherche sur ces mots-là.
+    if (estDemandeDeSuite(text) && aServiUneReponse.current) {
+      const { texte, suite } = composerSuite(suiteRef.current);
+      suiteRef.current = suite;
+      respond(texte);
+      return;
+    }
     await runSimulatedTurn(text);
   }, [realtime, remember, respond, runSimulatedTurn]);
 
@@ -331,6 +346,8 @@ export function useSutaConversation(): SutaConversationController {
     currentUserMsgId.current = null;
     currentAssistantMsgId.current = null;
     pendingSources.current = undefined;
+    suiteRef.current = [];
+    aServiUneReponse.current = false;
     sessionContext.current = { ...EMPTY_SUTA_CONTEXT, lastTopics: [] };
   }, [clearTimeouts, realtime]);
 

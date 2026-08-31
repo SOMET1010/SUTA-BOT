@@ -2,8 +2,11 @@ import { describe, expect, it } from "vitest";
 import {
   CONSIGNE_INSUFFISANTE,
   CONSIGNE_SYNTHESE,
+  composerReponseAvecSuite,
   composerReponseTexte,
+  composerSuite,
   enrichirQuestionRecherche,
+  estDemandeDeSuite,
   premieresPhrases,
   selectionnerPreuves,
   shapeKnowledgeForModel,
@@ -343,5 +346,74 @@ describe("composerReponseTexte — recette du 31/08 (F08)", () => {
     });
     expect(reponse).toContain("connectivité et le numérique en Côte d'Ivoire");
     expect(reponse).toContain("pas encore d'information fiable");
+  });
+});
+
+describe("« dis-moi plus » — terrain du 31/08 (perte de fil sur le chemin texte)", () => {
+  // Cas réel : « c'est quoi le service universel ? » très bien répondu, puis
+  // « dis moi plus » récitait la fiche « Opérateurs mobiles — Meo (Meo) » —
+  // la continuation partait en recherche vectorielle sur ces trois mots.
+  const FICHE_SERVICE_UNIVERSEL = {
+    title: "Ce que veut dire service universel",
+    content:
+      "Le service universel est le principe selon lequel tout citoyen doit pouvoir accéder aux services " +
+      "essentiels de télécommunications, quel que soit l'endroit où il vit, sa situation sociale ou son " +
+      "niveau de revenu. Cette définition vient de l'Union internationale des télécommunications et des " +
+      "orientations de l'OCDE. En Côte d'Ivoire, c'est l'ANSUT qui est chargée de le mettre en œuvre. " +
+      "Elle finance des programmes de couverture des zones rurales et d'inclusion numérique. " +
+      "Le fonds du service universel est alimenté par les contributions des opérateurs.",
+    score: 0.7,
+  };
+
+  it.each([
+    "dis-moi plus",
+    "dis moi plus",
+    "OK DIS PLUS",
+    "dis-m'en plus",
+    "je veux en savoir plus",
+    "oui",
+    "continuez",
+    "la suite",
+  ])("reconnaît la continuation « %s »", (texte) => {
+    expect(estDemandeDeSuite(texte)).toBe(true);
+  });
+
+  it.each([
+    "c'est quoi le service universel ?",
+    "il n'y a plus de réseau dans mon village",
+    "mon village est-il connecté ?",
+    "oui mais à Korhogo ?",
+  ])("ne confond pas « %s » avec une continuation", (texte) => {
+    expect(estDemandeDeSuite(texte)).toBe(false);
+  });
+
+  it("sert d'abord l'essentiel, puis la suite de la MÊME réponse, puis avoue la fin", () => {
+    const premiere = composerReponseAvecSuite("c'est quoi le service universel ?", {
+      results: [FICHE_SERVICE_UNIVERSEL],
+    });
+    expect(premiere.comprise).toBe(true);
+    expect(premiere.texte).toContain("Le service universel est le principe");
+    expect(premiere.texte).toContain("Je peux vous en dire plus si vous voulez.");
+    expect(premiere.suite.length).toBeGreaterThan(0);
+
+    const deuxieme = composerSuite(premiere.suite);
+    expect(deuxieme.texte).toContain("ANSUT");
+    // La suite reste sur le sujet : jamais un village au hasard.
+    expect(deuxieme.texte).not.toContain("Meo");
+
+    // On épuise la matière : le dernier service avoue la fin sans relancer.
+    let etat = deuxieme;
+    for (let i = 0; i < 10 && etat.suite.length > 0; i += 1) etat = composerSuite(etat.suite);
+    const fin = composerSuite(etat.suite);
+    expect(fin.texte).toContain("l'essentiel de ce que j'ai sur ce sujet");
+    expect(fin.suite).toEqual([]);
+  });
+
+  it("rend comprise=false et une suite vide quand rien n'a été retenu", () => {
+    const reponse = composerReponseAvecSuite("Quelle est la capitale de la France ?", {
+      results: [FICHE_OPERATEURS_GANGBAPLEU],
+    });
+    expect(reponse.comprise).toBe(false);
+    expect(reponse.suite).toEqual([]);
   });
 });

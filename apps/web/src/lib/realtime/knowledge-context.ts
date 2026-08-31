@@ -246,13 +246,18 @@ export function enrichirQuestionRecherche(question: string): string {
   return question;
 }
 
-/** Les premières phrases COMPLÈTES d'un texte, sans jamais couper un mot. */
-export function premieresPhrases(texte: string, maxPhrases: number, maxChars: number): string {
-  const phrases = texte.trim().split(/(?<=[.!?])\s+/).slice(0, maxPhrases);
+const SEPARATEUR_PHRASES = /(?<=[.!?])\s+/;
+
+/** Découpe en premières phrases complètes, en disant combien ont été servies
+ * — c'est ce décompte qui permet de garder LE RESTE pour « dis-moi plus ». */
+function decoupePhrases(texte: string, maxPhrases: number, maxChars: number): { texte: string; nbPhrases: number } {
+  const phrases = texte.trim().split(SEPARATEUR_PHRASES).slice(0, maxPhrases);
   let sortie = "";
+  let nbPhrases = 0;
   for (const phrase of phrases) {
     if (sortie.length > 0 && (sortie + " " + phrase).length > maxChars) break;
     sortie = sortie.length > 0 ? `${sortie} ${phrase}` : phrase;
+    nbPhrases += 1;
   }
   // Première phrase déjà trop longue : repli à la frontière de mot.
   if (sortie.length > maxChars) {
@@ -260,7 +265,85 @@ export function premieresPhrases(texte: string, maxPhrases: number, maxChars: nu
     const dernierEspace = fenetre.lastIndexOf(" ");
     sortie = `${fenetre.slice(0, dernierEspace > 40 ? dernierEspace : maxChars).trimEnd()}…`;
   }
-  return sortie;
+  return { texte: sortie, nbPhrases };
+}
+
+/** Les premières phrases COMPLÈTES d'un texte, sans jamais couper un mot. */
+export function premieresPhrases(texte: string, maxPhrases: number, maxChars: number): string {
+  return decoupePhrases(texte, maxPhrases, maxChars).texte;
+}
+
+/**
+ * Reconnaît une demande de continuation (« dis-moi plus », « OK dis plus »,
+ * « oui », « continuez »…). Terrain du 31/08 : sur le chemin texte, « dis
+ * moi plus » partait en recherche vectorielle SUR CES TROIS MOTS — et la
+ * réponse au « service universel » enchaînait sur la fiche d'un village au
+ * hasard (Meo). Une continuation n'est pas une question : elle se sert dans
+ * ce que la réponse précédente n'a pas encore dit.
+ */
+export function estDemandeDeSuite(texte: string): boolean {
+  const t = texte
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+  if (/^(ok|oui|d accord|vas y|allez y|volontiers|je veux bien|oui merci|ok merci)$/.test(t)) return true;
+  if (/\b(dis|dites) (moi |m en |nous )?(en )?(plus|davantage)\b/.test(t)) return true;
+  if (/\ben (savoir|dire) (plus|davantage)\b/.test(t)) return true;
+  if (/^(encore|continue|continuez|developpe|developpez|poursuis|poursuivez|la suite|et ensuite|et apres|plus de details|des details)$/.test(t)) return true;
+  return false;
+}
+
+export interface ReponseTexteAvecSuite {
+  texte: string;
+  /** Ce que la réponse n'a pas encore dit, dans l'ordre où le servir. */
+  suite: string[];
+}
+
+/**
+ * Comme `composerReponseTexte`, mais rend aussi la matière restante : la fin
+ * de la meilleure preuve, puis les preuves suivantes. C'est elle que « dis-
+ * moi plus » servira — jamais une nouvelle recherche sur des mots vides.
+ */
+export function composerReponseAvecSuite(
+  question: string,
+  result: unknown,
+): ReponseTexteAvecSuite & { comprise: boolean } {
+  const preuves = selectionnerPreuves(question, result);
+  if (preuves === null || preuves.length === 0) {
+    // Recette du 31/08 (F08) : dire aussi le périmètre — une question hors
+    // sujet (« la capitale de la France ») doit entendre de quoi SUTA parle,
+    // pas seulement qu'il manque une information.
+    return {
+      texte:
+        "Je suis l'assistant de l'ANSUT pour la connectivité et le numérique en Côte d'Ivoire, et je n'ai pas encore d'information fiable pour répondre précisément à cette question. Reformulez ou précisez votre localité, et je regarde avec vous.",
+      suite: [],
+      comprise: false,
+    };
+  }
+  const { texte: essentiel, nbPhrases } = decoupePhrases(preuves[0], 2, 320);
+  const restePremiere = preuves[0].trim().split(SEPARATEUR_PHRASES).slice(nbPhrases).join(" ");
+  const suite = [...(restePremiere ? [restePremiere] : []), ...preuves.slice(1)];
+  return { texte: `${essentiel} Je peux vous en dire plus si vous voulez.`, suite, comprise: true };
+}
+
+/** Sert la prochaine tranche de la matière restante. Une suite vide reçoit
+ * un aveu honnête, jamais une recherche sur « dis-moi plus ». */
+export function composerSuite(suite: string[]): ReponseTexteAvecSuite {
+  if (suite.length === 0) {
+    return {
+      texte:
+        "Je vous ai déjà partagé l'essentiel de ce que j'ai sur ce sujet. Posez-moi une autre question, ou dites-moi ce qui vous intéresse en particulier.",
+      suite: [],
+    };
+  }
+  const [tete, ...reste] = suite;
+  const { texte, nbPhrases } = decoupePhrases(tete, 3, 400);
+  const resteTete = tete.trim().split(SEPARATEUR_PHRASES).slice(nbPhrases).join(" ");
+  const nouvelleSuite = [...(resteTete ? [resteTete] : []), ...reste];
+  const offre = nouvelleSuite.length > 0 ? " Je peux continuer si vous voulez." : "";
+  return { texte: `${texte}${offre}`, suite: nouvelleSuite };
 }
 
 /**
@@ -273,13 +356,5 @@ export function premieresPhrases(texte: string, maxPhrases: number, maxChars: nu
  * premières phrases se lisent comme une réponse.
  */
 export function composerReponseTexte(question: string, result: unknown): string {
-  const preuves = selectionnerPreuves(question, result);
-  if (preuves === null || preuves.length === 0) {
-    // Recette du 31/08 (F08) : dire aussi le périmètre — une question hors
-    // sujet (« la capitale de la France ») doit entendre de quoi SUTA parle,
-    // pas seulement qu'il manque une information.
-    return "Je suis l'assistant de l'ANSUT pour la connectivité et le numérique en Côte d'Ivoire, et je n'ai pas encore d'information fiable pour répondre précisément à cette question. Reformulez ou précisez votre localité, et je regarde avec vous.";
-  }
-  const essentiel = premieresPhrases(preuves[0], 2, 320);
-  return `${essentiel} Je peux vous en dire plus si vous voulez.`;
+  return composerReponseAvecSuite(question, result).texte;
 }
