@@ -96,6 +96,8 @@ const JETONS_GENERIQUES = new Set([
   "nord", "sud", "est", "ouest", "ville", "village", "localite",
   "departement", "region", "district", "autonome",
   "zone", "blanche", "grise", "noire",
+  // Familles ajoutées fin août : seule la localité ou la section identifie.
+  "operateurs", "mobiles", "rnhd", "section",
 ]);
 
 /** Même normalisation que la voie géographique : minuscules, sans accents,
@@ -116,7 +118,12 @@ function jetonsSignificatifs(texte: string): string[] {
  * fiche d'un AUTRE village, pire qu'une absence de réponse.
  */
 function estFicheDeLieu(titre: string): boolean {
-  if (/^(localit[ée]|bts|fibre|poste|site|abri|[ée]cole|centre|zone blanche) — /i.test(titre)) return true;
+  // Recette du 31/08 (F08) : « quelle est la capitale de la France ? » a été
+  // « répondue » par la fiche « Opérateurs mobiles — Gangbapleu » — les
+  // familles ajoutées fin août (présence opérateurs, sections RNHD) ne
+  // portaient pas encore leur préfixe ici, donc leurs fiches passaient pour
+  // des fiches de sujet et devenaient des preuves pour n'importe quoi.
+  if (/^(localit[ée]|bts|fibre|poste|site|abri|[ée]cole|centre|zone blanche|op[ée]rateurs mobiles|rnhd) — /i.test(titre)) return true;
   if (/d[ée]partement de /i.test(titre)) return true;
   // Fiches de couverture « NOM DE LOCALITÉ (RÉGION) » : nom tout en capitales
   // suivi d'une parenthèse.
@@ -216,6 +223,29 @@ export function shapeKnowledgeForModel(result: unknown, question = ""): unknown 
   return { preuves, consigne };
 }
 
+/**
+ * Chemin texte uniquement (la voix a un modèle qui reformule lui-même).
+ * Recette du 31/08 (F06) : « Comment puis-je m'équiper ? » tapé librement ne
+ * trouvait rien (tous les scores sous le plancher), alors que le raccourci —
+ * qui envoie « Quels dispositifs peuvent m'aider à m'équiper ? » — répondait
+ * parfaitement. Même intention, requêtes différentes, expériences opposées.
+ * On complète donc la requête vague avec les mots du pilier reconnu ; mesuré
+ * sur la base réelle : 0,29 → 0,65 de score de tête pour l'équipement.
+ */
+export function enrichirQuestionRecherche(question: string): string {
+  const q = question.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
+  if (/equip|smartphone|ordinateur|tablette|telephone/.test(q)) {
+    return `${question} (dispositifs d'aide à l'équipement numérique, programme PASS)`;
+  }
+  if (/\bform|apprendre|competence/.test(q)) {
+    return `${question} (formations au numérique, inclusion numérique)`;
+  }
+  if (/connect|internet|reseau|couverture|fibre/.test(q)) {
+    return `${question} (couverture réseau et connectivité des localités de Côte d'Ivoire)`;
+  }
+  return question;
+}
+
 /** Les premières phrases COMPLÈTES d'un texte, sans jamais couper un mot. */
 export function premieresPhrases(texte: string, maxPhrases: number, maxChars: number): string {
   const phrases = texte.trim().split(/(?<=[.!?])\s+/).slice(0, maxPhrases);
@@ -245,7 +275,10 @@ export function premieresPhrases(texte: string, maxPhrases: number, maxChars: nu
 export function composerReponseTexte(question: string, result: unknown): string {
   const preuves = selectionnerPreuves(question, result);
   if (preuves === null || preuves.length === 0) {
-    return "Je n'ai pas encore d'information fiable pour répondre précisément à cette question. Précisez votre localité ou reformulez, et je regarde avec vous.";
+    // Recette du 31/08 (F08) : dire aussi le périmètre — une question hors
+    // sujet (« la capitale de la France ») doit entendre de quoi SUTA parle,
+    // pas seulement qu'il manque une information.
+    return "Je suis l'assistant de l'ANSUT pour la connectivité et le numérique en Côte d'Ivoire, et je n'ai pas encore d'information fiable pour répondre précisément à cette question. Reformulez ou précisez votre localité, et je regarde avec vous.";
   }
   const essentiel = premieresPhrases(preuves[0], 2, 320);
   return `${essentiel} Je peux vous en dire plus si vous voulez.`;

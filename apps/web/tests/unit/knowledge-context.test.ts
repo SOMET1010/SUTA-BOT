@@ -3,6 +3,7 @@ import {
   CONSIGNE_INSUFFISANTE,
   CONSIGNE_SYNTHESE,
   composerReponseTexte,
+  enrichirQuestionRecherche,
   premieresPhrases,
   selectionnerPreuves,
   shapeKnowledgeForModel,
@@ -263,5 +264,84 @@ describe("shapeKnowledgeForModel", () => {
       error: "indisponible",
     });
     expect(shapeKnowledgeForModel(null, "")).toBeNull();
+  });
+});
+
+/** Recette DTDI du 31/08 — fixtures verbatim de la base réelle. */
+const FICHE_OPERATEURS_GANGBAPLEU = {
+  title: "Opérateurs mobiles — Gangbapleu (Fagnampleu)",
+  content: "À Gangbapleu (sous-préfecture de Fagnampleu), la présence des opérateurs mobiles est relevée en mai 2026.",
+  score: 0.307,
+};
+const FICHE_SECTION_RNHD = {
+  title: "RNHD — section Nassian-Kafolo",
+  content: "La section Nassian-Kafolo fait partie du Réseau National Haut Débit (RNHD).",
+  score: 0.714,
+};
+const FICHE_SYNTHESE_RNHD = {
+  title: "Le RNHD en mai 2026 : l'état réel de la dorsale de fibre optique",
+  content: "Le Réseau National Haut Débit (RNHD) est la dorsale de fibre optique de l'État de Côte d'Ivoire. Le réseau compte 149 sections recensées.",
+  score: 0.736,
+};
+
+describe("selectionnerPreuves — recette du 31/08 (F08)", () => {
+  it("n'offre jamais une fiche de présence opérateurs à une question qui ne nomme pas la localité", () => {
+    // F08 : « quelle est la capitale de la France ? » était « répondue » par
+    // la fiche de Gangbapleu, passée à 0,307 de bruit vectoriel.
+    const preuves = selectionnerPreuves("Quelle est la capitale de la France ?", {
+      results: [FICHE_OPERATEURS_GANGBAPLEU],
+    });
+    expect(preuves).toEqual([]);
+  });
+
+  it("garde la fiche de présence opérateurs quand la localité est nommée", () => {
+    const preuves = selectionnerPreuves("quels opérateurs captent à Gangbapleu ?", {
+      results: [FICHE_OPERATEURS_GANGBAPLEU],
+    });
+    expect(preuves).toEqual([FICHE_OPERATEURS_GANGBAPLEU.content]);
+  });
+
+  it("écarte une section RNHD précise d'une question générale, garde la synthèse", () => {
+    const preuves = selectionnerPreuves("où en est la fibre optique du RNHD ?", {
+      results: [FICHE_SYNTHESE_RNHD, FICHE_SECTION_RNHD],
+    });
+    expect(preuves).toEqual([FICHE_SYNTHESE_RNHD.content]);
+  });
+
+  it("garde la fiche de section quand la question nomme le tronçon", () => {
+    const preuves = selectionnerPreuves("la fibre passe-t-elle entre Nassian et Kafolo ?", {
+      results: [FICHE_SECTION_RNHD],
+    });
+    expect(preuves).toEqual([FICHE_SECTION_RNHD.content]);
+  });
+});
+
+describe("enrichirQuestionRecherche — recette du 31/08 (F06)", () => {
+  it("complète une question d'équipement vague avec les mots du pilier", () => {
+    // F06 : le raccourci répondait, la même question tapée librement non —
+    // mesuré sur la base réelle : score de tête 0,29 → 0,65 avec l'enrichi.
+    expect(enrichirQuestionRecherche("Comment puis-je m'équiper ?")).toContain("programme PASS");
+  });
+
+  it("complète une question de formation", () => {
+    expect(enrichirQuestionRecherche("Où puis-je me former ?")).toContain("inclusion numérique");
+  });
+
+  it("complète une question de connexion", () => {
+    expect(enrichirQuestionRecherche("Mon village est-il connecté ?")).toContain("connectivité des localités");
+  });
+
+  it("laisse intacte une question sans pilier reconnu", () => {
+    expect(enrichirQuestionRecherche("Quelle est la capitale de la France ?")).toBe("Quelle est la capitale de la France ?");
+  });
+});
+
+describe("composerReponseTexte — recette du 31/08 (F08)", () => {
+  it("dit son périmètre quand il n'a pas compris", () => {
+    const reponse = composerReponseTexte("Quelle est la capitale de la France ?", {
+      results: [FICHE_OPERATEURS_GANGBAPLEU],
+    });
+    expect(reponse).toContain("connectivité et le numérique en Côte d'Ivoire");
+    expect(reponse).toContain("pas encore d'information fiable");
   });
 });

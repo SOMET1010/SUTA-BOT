@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { ConversationState } from "@suta/shared";
 import { getIdentityResponse } from "@/lib/identity-response";
-import { composerReponseTexte } from "@/lib/realtime/knowledge-context";
+import { composerReponseTexte, enrichirQuestionRecherche, selectionnerPreuves } from "@/lib/realtime/knowledge-context";
 import { useRealtimeSession } from "@/lib/realtime/useRealtimeSession";
 import { experienceFromKnowledge, type SutaPillar } from "@/lib/suta/experience";
 import { DEFAULT_SUTA_SCENE, type SutaScene } from "@/lib/suta/scene";
@@ -104,7 +104,7 @@ export function useSutaConversation(): SutaConversationController {
       const response = await fetch("/api/tools/search-knowledge", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ query: contextualQuestion(question) }),
+        body: JSON.stringify({ query: contextualQuestion(enrichirQuestionRecherche(question)) }),
         signal: controller.signal,
       });
       if (!response.ok) {
@@ -113,8 +113,15 @@ export function useSutaConversation(): SutaConversationController {
       }
       const data = await response.json() as { results?: SearchResult[] };
       const results = data.results ?? [];
-      applyExperience(question, results);
-      const sources = results.slice(0, 4).map((r) => ({ title: r.title, source: r.source }));
+      // Recette du 31/08 (F08/F10/F11) : carte, pilier et sources ne
+      // s'affichent que si la réponse repose sur de vraies preuves — une
+      // question hors périmètre ou incompréhensible recevait le message
+      // d'incertitude MAIS une carte et des sources sans rapport, dérivées
+      // des voisins vectoriels bruts.
+      const preuves = selectionnerPreuves(question, data);
+      const comprise = preuves !== null && preuves.length > 0;
+      if (comprise) applyExperience(question, results);
+      const sources = comprise ? results.slice(0, 4).map((r) => ({ title: r.title, source: r.source })) : [];
       respond(composerReponseTexte(question, data), sources.length ? sources : undefined);
     } catch (error) {
       if (error instanceof DOMException && error.name === "AbortError") return;
