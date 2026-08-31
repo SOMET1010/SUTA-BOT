@@ -59,6 +59,17 @@ describe("loadSutaSystemPrompt", () => {
     expect(prompt).toContain("Un exemple nommé ne remplace pas un chiffre disponible");
   });
 
+  it("answers identity questions directly, never via a search", () => {
+    const prompt = loadSutaSystemPrompt();
+    // Terrain du 31/08 : « QUI ES TU ? » recevait « je n'ai pas encore
+    // d'information fiable » — l'identité partait en recherche au lieu
+    // d'être portée par la personnalité de l'agent.
+    expect(prompt).toContain("ton identité n'est pas une information à chercher");
+    expect(prompt).toContain("l'assistant intelligent d'ANSUT CONNECTE");
+    expect(prompt).toContain("Ne dis JAMAIS que tu manques d'information sur toi-même");
+    expect(prompt).toContain("ne développe pas l'acronyme SUTA");
+  });
+
   it("keeps the mandatory waiting phrase before every search", () => {
     const prompt = loadSutaSystemPrompt();
     // Sans elle, le silence de trois secondes revient (constaté en test réel).
