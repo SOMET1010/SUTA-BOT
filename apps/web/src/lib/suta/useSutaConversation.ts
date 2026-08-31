@@ -43,6 +43,13 @@ export function useSutaConversation(): SutaConversationController {
   const timeouts = useRef<ReturnType<typeof setTimeout>[]>([]);
   const expectedDisconnect = useRef(false);
   const sessionGeneration = useRef(0);
+  /** Tentatives de reconnexion depuis la dernière connexion réussie : une
+   * coupure inattendue (réseau du salon, session Azure expirée) se répare
+   * d'abord toute seule avant d'avouer une erreur à l'écran. */
+  const reconnectAttempts = useRef(0);
+  /** Auto-référence : la reconnexion est déclenchée depuis un callback créé
+   * DANS startListening — impossible d'y capturer la fonction elle-même. */
+  const startListeningRef = useRef<(() => Promise<void>) | null>(null);
   const currentUserMsgId = useRef<string | null>(null);
   const currentAssistantMsgId = useRef<string | null>(null);
   const pendingSources = useRef<TranscriptSource[] | undefined>(undefined);
@@ -122,20 +129,46 @@ export function useSutaConversation(): SutaConversationController {
       setState("OFFLINE");
       return;
     }
-    const generation = sessionGeneration.current;
+    // Chaque démarrage invalide les callbacks de la session précédente :
+    // realtime.start() déconnecte l'ancien client, dont le « disconnected »
+    // ne doit pas être pris pour une coupure de la nouvelle session.
+    const generation = ++sessionGeneration.current;
     expectedDisconnect.current = false;
     setState("CONNECTING");
     try {
       const result = await realtime.start({
-        onConnectionStateChange: (connected) => {
+        onConnectionStateChange: (connectionState) => {
           if (generation !== sessionGeneration.current) return;
-          if (connected) {
+          // Terrain du 31/08 : ce callback reçoit une CHAÎNE
+          // ("connecting"/"connected"/"disconnected") — l'ancien test de
+          // vérité la trouvait toujours vraie, donc une session morte
+          // affichait « Je vous écoute » et les visiteurs parlaient dans le
+          // vide. On compare désormais les états explicitement.
+          if (connectionState === "connected") {
+            reconnectAttempts.current = 0;
             setIsLive(true);
             setState("LISTENING");
-          } else if (!expectedDisconnect.current) {
-            setIsLive(false);
-            setState(typeof navigator !== "undefined" && !navigator.onLine ? "OFFLINE" : "ERROR");
+            return;
           }
+          if (connectionState !== "disconnected" || expectedDisconnect.current) return;
+          setIsLive(false);
+          if (typeof navigator !== "undefined" && !navigator.onLine) {
+            setState("OFFLINE");
+            return;
+          }
+          if (reconnectAttempts.current < 2) {
+            // Coupure inattendue : on se reconnecte sans rien demander —
+            // startListening réinjecte la mémoire de session (localité,
+            // sujets récents), donc la conversation reprend son fil.
+            reconnectAttempts.current += 1;
+            setState("CONNECTING");
+            const timer = setTimeout(() => { void startListeningRef.current?.(); }, 1000);
+            timeouts.current.push(timer);
+            return;
+          }
+          expectedDisconnect.current = true; // realtime.stop() rappelle ce callback
+          realtime.stop();
+          setState("ERROR");
         },
         onUserTranscriptDelta: () => {},
         onUserTranscriptDone: (text) => {
@@ -230,8 +263,11 @@ export function useSutaConversation(): SutaConversationController {
     }
   }, [applyExperience, realtime, remember]);
 
+  useEffect(() => { startListeningRef.current = startListening; }, [startListening]);
+
   const stopListening = useCallback(async () => {
     resumeVoiceAfterNetwork.current = false;
+    reconnectAttempts.current = 0;
     expectedDisconnect.current = true;
     realtime.stop();
     setIsLive(false);
@@ -268,6 +304,7 @@ export function useSutaConversation(): SutaConversationController {
     searchAbort.current?.abort();
     searchAbort.current = null;
     resumeVoiceAfterNetwork.current = false;
+    reconnectAttempts.current = 0;
     expectedDisconnect.current = true;
     realtime.stop();
     setMessages([]);
