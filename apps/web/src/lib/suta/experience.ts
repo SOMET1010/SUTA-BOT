@@ -114,13 +114,20 @@ function visualFor(
 ): SutaVisual | null {
   const map = visualFromSearchResults(results);
   if (pillar === "connecter" && map) {
+    // Recette v3 du 31/08 (C09) : le bouton « localités proches » envoyait
+    // une requête sans nom de lieu — après Yamoussoukro, la recherche
+    // partait au hasard dans la région Béré. L'action est ancrée à la
+    // localité affichée sur la carte ; sans localité connue, pas de bouton.
+    const lieu = map.points[0]?.label;
     return {
       ...map,
       status: "connected",
       details: results.slice(0, 3).map((r) => r.title),
       actions: [
         { id: "network-details", label: "Voir les détails", prompt: `Donne-moi plus de détails sur ${question}` },
-        { id: "nearby", label: "Autres localités proches", prompt: "Quelles localités proches sont couvertes ?" },
+        ...(lieu
+          ? [{ id: "nearby", label: "Autres localités proches", prompt: `Quelles localités proches de ${lieu} sont couvertes ?` }]
+          : []),
       ],
     };
   }
