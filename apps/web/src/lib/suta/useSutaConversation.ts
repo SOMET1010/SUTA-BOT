@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { ConversationState } from "@suta/shared";
+import { getEscaladeResponse } from "@/lib/escalade-response";
 import { getIdentityResponse } from "@/lib/identity-response";
 import { composerReponseTexte, enrichirQuestionRecherche, selectionnerPreuves } from "@/lib/realtime/knowledge-context";
 import { useRealtimeSession } from "@/lib/realtime/useRealtimeSession";
@@ -300,6 +301,13 @@ export function useSutaConversation(): SutaConversationController {
     const identity = getIdentityResponse(text);
     if (identity) {
       respond(identity);
+      return;
+    }
+    // Recette du 31/08 (A-02) : la demande d'un conseiller humain n'est pas
+    // une recherche documentaire — elle recevait un article sans rapport.
+    const escalade = getEscaladeResponse(text);
+    if (escalade) {
+      respond(escalade);
       return;
     }
     await runSimulatedTurn(text);

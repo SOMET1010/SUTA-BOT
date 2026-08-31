@@ -59,6 +59,15 @@ describe("loadSutaSystemPrompt", () => {
     expect(prompt).toContain("Un exemple nommé ne remplace pas un chiffre disponible");
   });
 
+  it("handles requests for a human advisor without inventing contact channels", () => {
+    const prompt = loadSutaSystemPrompt();
+    // Recette DTDI du 31/08 (A-02) : « je veux parler à un conseiller
+    // humain » recevait un article sans rapport, sans canal d'escalade.
+    expect(prompt).toContain("demande à parler à un conseiller");
+    expect(prompt).toContain("l'équipe de l'ANSUT présente sur place");
+    expect(prompt).toContain("N'invente JAMAIS de numéro de téléphone");
+  });
+
   it("answers identity questions directly, never via a search", () => {
     const prompt = loadSutaSystemPrompt();
     // Terrain du 31/08 : « QUI ES TU ? » recevait « je n'ai pas encore
