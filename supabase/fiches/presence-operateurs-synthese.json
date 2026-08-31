@@ -1,0 +1,10 @@
+[
+ {
+  "id": "presence-operateurs-synthese-2026-05",
+  "title": "La présence des opérateurs mobiles, village par village",
+  "content": "L'ANSUT tient à jour un relevé de la présence des opérateurs de téléphonie mobile dans les localités de Côte d'Ivoire. Dans sa mise à jour de mai 2026, ce relevé couvre 8 114 localités : pour chacune, il indique quels opérateurs y sont relevés, avec la population et le rattachement administratif (sous-préfecture, département, région). Concrètement, vous pouvez demander quels opérateurs captent dans un village précis en donnant son nom, et SUTA répond avec la fiche de cette localité. Un opérateur relevé dans une localité veut dire que son réseau y est constaté — la qualité du signal peut varier selon l'endroit exact où l'on se trouve.",
+  "visibility": "PUBLIC",
+  "region": null,
+  "metadata": { "theme": "Présence des opérateurs mobiles", "statut": "relevé de mai 2026", "date_donnees": "2026-05" }
+ }
+]
