@@ -5,7 +5,7 @@ import type { ConversationState } from "@suta/shared";
 import { getEscaladeResponse } from "@/lib/escalade-response";
 import { getIdentityResponse } from "@/lib/identity-response";
 import { getActionResponse, getSelectionResponse } from "@/lib/reponses-reservees";
-import { composerReponseAvecSuite, composerSuite, enrichirQuestionRecherche, estDemandeDeSuite } from "@/lib/realtime/knowledge-context";
+import { composerReponseAvecSuite, composerSuite, enrichirQuestionRecherche, estDemandeDeSuite, selectionnerPreuves } from "@/lib/realtime/knowledge-context";
 import { useRealtimeSession } from "@/lib/realtime/useRealtimeSession";
 import { experienceFromKnowledge, type SutaPillar } from "@/lib/suta/experience";
 import { DEFAULT_SUTA_SCENE, type SutaScene } from "@/lib/suta/scene";
@@ -126,11 +126,18 @@ export function useSutaConversation(): SutaConversationController {
       // question hors périmètre ou incompréhensible recevait le message
       // d'incertitude MAIS une carte et des sources sans rapport, dérivées
       // des voisins vectoriels bruts.
-      const { texte, suite, comprise } = composerReponseAvecSuite(question, data);
+      const { texte, suite, comprise, retenues } = composerReponseAvecSuite(question, data);
       suiteRef.current = suite;
       aServiUneReponse.current = comprise;
-      if (comprise) applyExperience(question, results);
-      const sources = comprise ? results.slice(0, 4).map((r) => ({ title: r.title, source: r.source })) : [];
+      // Terrain du 01/09 (Moossou) : carte et sources ne montrent QUE les
+      // fiches qui portent la réponse — les voisins vectoriels écartés par
+      // la sélection ne doivent plus poser leurs points sur la carte
+      // (« 4 localités » avec Zoupleu et M'batto pour une question sur
+      // Moossou) ni s'afficher comme sources.
+      const retenus = comprise ? results.filter((r) => retenues.includes(r.content)) : [];
+      const pourAffichage = retenus.length > 0 ? retenus : results;
+      if (comprise) applyExperience(question, pourAffichage);
+      const sources = comprise ? pourAffichage.slice(0, 4).map((r) => ({ title: r.title, source: r.source })) : [];
       respond(texte, sources.length ? sources : undefined);
     } catch (error) {
       if (error instanceof DOMException && error.name === "AbortError") return;
@@ -254,8 +261,15 @@ export function useSutaConversation(): SutaConversationController {
           const data = result as { results?: SearchResult[] };
           const results = Array.isArray(data?.results) ? data.results : [];
           const question = latestQuestion.current;
-          applyExperience(question, results);
-          pendingSources.current = results.slice(0, 4).map((r) => ({ title: r.title, source: r.source }));
+          // Même règle qu'au clavier (terrain du 01/09, Moossou) : carte et
+          // sources ne montrent que les fiches retenues comme preuves, pas
+          // les voisins vectoriels bruts. Si la sélection sur la question
+          // orale ne retient rien (le modèle a reformulé), on garde tout.
+          const retenues = selectionnerPreuves(question, data) ?? [];
+          const retenus = results.filter((r) => retenues.includes(r.content));
+          const pourAffichage = retenus.length > 0 ? retenus : results;
+          applyExperience(question, pourAffichage);
+          pendingSources.current = pourAffichage.slice(0, 4).map((r) => ({ title: r.title, source: r.source }));
         },
       });
 

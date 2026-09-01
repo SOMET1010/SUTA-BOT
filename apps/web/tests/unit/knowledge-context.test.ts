@@ -486,3 +486,37 @@ describe("composerReponseAvecSuite — terrain du 01/09 (Katiola : la fiche, pas
     expect(texte).toContain("61 525 habitants");
   });
 });
+
+describe("retenues — terrain du 01/09 (Moossou : la carte des voisins vectoriels)", () => {
+  // « Moossou est-il en zone blanche ? » affichait « 4 localités » sur la
+  // carte, dont Zoupleu (Tonkpi) et M'batto (Moronou) — écartés de la
+  // réponse mais affichés quand même. `retenues` dit à l'affichage quelles
+  // fiches portent réellement la réponse.
+  const FICHE_MOOSSOU = {
+    title: "Opérateurs mobiles — Moossou (Grand-Bassam)",
+    content: "Moossou, sous-préfecture de Grand-Bassam. Présence des opérateurs mobiles relevée : trois opérateurs présents, 18 sites à moins de 3 km.",
+    score: 0.62,
+  };
+  const FICHE_ZOUPLEU = {
+    title: "Localité — ZOUPLEU (TONKPI)",
+    content: "Village de ZOUPLEU, sous-préfecture de ZOUPLEU. Population : 1 200 habitants.",
+    score: 0.5,
+  };
+
+  it("ne retient que la fiche du village nommé — la carte suivra", () => {
+    const { retenues, comprise } = composerReponseAvecSuite(
+      "Mon village Moossou est-il dans une zone blanche ?",
+      { results: [FICHE_MOOSSOU, FICHE_ZOUPLEU] },
+    );
+    expect(comprise).toBe(true);
+    expect(retenues).toEqual([FICHE_MOOSSOU.content]);
+  });
+
+  it("rend retenues vide quand rien ne répond", () => {
+    const { retenues } = composerReponseAvecSuite(
+      "Quelle est la capitale de la France ?",
+      { results: [FICHE_ZOUPLEU] },
+    );
+    expect(retenues).toEqual([]);
+  });
+});

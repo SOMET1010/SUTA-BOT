@@ -330,7 +330,7 @@ export interface ReponseTexteAvecSuite {
  * le reste dans l'ordre. La voix n'est pas concernée (le modèle synthétise).
  */
 const THEMES_PHRASES = [
-  { question: /fibre|internet|connect|reseau|couvert|couverture|\b[345]g\b|antenne|bts|debit/, phrase: /fibre|\b[345]g\b|antenne|relais|site|distance|reseau|couvert|raccord|hertzien|roaming|internet|exploitation/ },
+  { question: /fibre|internet|connect|reseau|couvert|couverture|zone (blanche|grise)|\b[345]g\b|antenne|bts|debit/, phrase: /fibre|\b[345]g\b|antenne|relais|site|distance|reseau|couvert|raccord|hertzien|roaming|internet|exploitation|operateur/ },
   { question: /electri|courant|lumiere/, phrase: /electri/ },
   { question: /population|habitant/, phrase: /population|habitant/ },
   { question: /ecole|sante|equipement|dispensaire|college|lycee/, phrase: /equipement|ecole|sante/ },
@@ -359,7 +359,7 @@ function ordonnerSelonLaQuestion(question: string, phrases: string[]): string[] 
 export function composerReponseAvecSuite(
   question: string,
   result: unknown,
-): ReponseTexteAvecSuite & { comprise: boolean } {
+): ReponseTexteAvecSuite & { comprise: boolean; retenues: string[] } {
   const preuves = selectionnerPreuves(question, result);
   if (preuves === null || preuves.length === 0) {
     // Recette du 31/08 (F08) : dire aussi le périmètre — une question hors
@@ -370,13 +370,19 @@ export function composerReponseAvecSuite(
         "Je suis l'assistant de l'ANSUT pour la connectivité et le numérique en Côte d'Ivoire, et je n'ai pas encore d'information fiable pour répondre précisément à cette question. Reformulez ou précisez votre localité, et je regarde avec vous.",
       suite: [],
       comprise: false,
+      retenues: [],
     };
   }
   const ordonnees = ordonnerSelonLaQuestion(question, preuves[0].trim().split(SEPARATEUR_PHRASES));
   const { texte: essentiel, nbPhrases } = decoupePhrases(ordonnees.join(" "), 2, 320);
   const restePremiere = ordonnees.slice(nbPhrases).join(" ");
   const suite = [...(restePremiere ? [restePremiere] : []), ...preuves.slice(1)];
-  return { texte: `${essentiel} Je peux vous en dire plus si vous voulez.`, suite, comprise: true };
+  // `retenues` = les contenus des preuves qui portent la réponse : c'est à
+  // eux seuls que carte et sources doivent correspondre (terrain du 01/09 :
+  // « Moossou est-il en zone blanche ? » affichait une carte « 4 localités »
+  // avec Zoupleu et M'batto — des voisins vectoriels écartés de la réponse
+  // mais affichés quand même).
+  return { texte: `${essentiel} Je peux vous en dire plus si vous voulez.`, suite, comprise: true, retenues: preuves };
 }
 
 /** Sert la prochaine tranche de la matière restante. Une suite vide reçoit
