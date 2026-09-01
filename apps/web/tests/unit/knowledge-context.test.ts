@@ -563,3 +563,23 @@ describe("contre-recette v4 — R06/R07 (les chiffres se disent)", () => {
     expect(preuves).toEqual(["Synthèse de la couverture de la région Poro."]);
   });
 });
+
+describe("contre-recette v4 — R11 (« mon village » sans nom)", () => {
+  it("invite à donner le nom du village quand la réponse est générale", () => {
+    const { texte } = composerReponseAvecSuite("Je voudrais savoir si mon village est connecté.", {
+      results: [
+        { title: "Le programme national de couverture", content: "L'ANSUT étend la couverture réseau des localités rurales. Le programme cible les zones encore mal desservies.", score: 0.55 },
+      ],
+    });
+    expect(texte).toContain("Donnez-moi le nom de votre village");
+    expect(texte).toContain("L'ANSUT étend la couverture");
+  });
+
+  it("n'invite pas quand le village est nommé et que sa fiche répond", () => {
+    const { texte } = composerReponseAvecSuite("mon village DJACE est-il connecté ?", {
+      results: [FICHE_DJACE],
+    });
+    expect(texte).not.toContain("Donnez-moi le nom de votre village");
+    expect(texte).toContain("Village de DJACE");
+  });
+});

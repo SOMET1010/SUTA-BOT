@@ -383,12 +383,22 @@ export function composerReponseAvecSuite(
   const { texte: essentiel, nbPhrases } = decoupePhrases(ordonnees.join(" "), 2, 400);
   const restePremiere = ordonnees.slice(nbPhrases).join(" ");
   const suite = [...(restePremiere ? [restePremiere] : []), ...preuves.slice(1)];
+  // Contre-recette v4 (R11) : « mon village est-il connecté ? » sans nom de
+  // village recevait le cadre général SANS demander le nom — la personne ne
+  // savait pas que SUTA peut répondre pour SON village. Quand la question
+  // parle de « mon village » et qu'aucune fiche de lieu ne sert la réponse,
+  // on invite à donner le nom avant le cadre général.
+  const parleDeSonVillage = /\bmon village\b|\bma localite\b|\bma commune\b|\bchez moi\b/.test(sansAccents(question));
+  const sertUneFicheDeLieu = /^(village|commune|localite) de /i.test(sansAccents(preuves[0]));
+  const invite = parleDeSonVillage && !sertUneFicheDeLieu
+    ? "Donnez-moi le nom de votre village et je vérifie précisément pour lui. En attendant, voici le cadre général : "
+    : "";
   // `retenues` = les contenus des preuves qui portent la réponse : c'est à
   // eux seuls que carte et sources doivent correspondre (terrain du 01/09 :
   // « Moossou est-il en zone blanche ? » affichait une carte « 4 localités »
   // avec Zoupleu et M'batto — des voisins vectoriels écartés de la réponse
   // mais affichés quand même).
-  return { texte: `${essentiel} Je peux vous en dire plus si vous voulez.`, suite, comprise: true, retenues: preuves };
+  return { texte: `${invite}${essentiel} Je peux vous en dire plus si vous voulez.`, suite, comprise: true, retenues: preuves };
 }
 
 /** Sert la prochaine tranche de la matière restante. Une suite vide reçoit
