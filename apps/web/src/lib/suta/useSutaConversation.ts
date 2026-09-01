@@ -256,20 +256,24 @@ export function useSutaConversation(): SutaConversationController {
           setIsLive(false);
           setState(typeof navigator !== "undefined" && !navigator.onLine ? "OFFLINE" : "ERROR");
         },
-        onToolResult: (name, result) => {
+        onToolResult: (name, result, query) => {
           if (generation !== sessionGeneration.current || name !== "search_knowledge") return;
           const data = result as { results?: SearchResult[] };
           const results = Array.isArray(data?.results) ? data.results : [];
           const question = latestQuestion.current;
           // Même règle qu'au clavier (terrain du 01/09, Moossou) : carte et
-          // sources ne montrent que les fiches retenues comme preuves, pas
-          // les voisins vectoriels bruts. Si la sélection sur la question
-          // orale ne retient rien (le modèle a reformulé), on garde tout.
-          const retenues = selectionnerPreuves(question, data) ?? [];
+          // sources ne montrent QUE les fiches retenues comme preuves. La
+          // sélection juge sur la requête réelle de l'outil (le modèle y
+          // reformule la question — même base que ce qu'il reçoit), et rien
+          // de retenu = rien d'affiché : plus jamais de repli sur les
+          // voisins vectoriels bruts (Zoupleu revenait par là).
+          const base = typeof query === "string" && query.trim() ? query : question;
+          const retenues = selectionnerPreuves(base, data) ?? [];
           const retenus = results.filter((r) => retenues.includes(r.content));
-          const pourAffichage = retenus.length > 0 ? retenus : results;
-          applyExperience(question, pourAffichage);
-          pendingSources.current = pourAffichage.slice(0, 4).map((r) => ({ title: r.title, source: r.source }));
+          if (retenus.length > 0) applyExperience(question, retenus);
+          pendingSources.current = retenus.length > 0
+            ? retenus.slice(0, 4).map((r) => ({ title: r.title, source: r.source }))
+            : undefined;
         },
       });
 

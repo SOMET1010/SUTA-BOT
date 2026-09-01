@@ -7,7 +7,10 @@ import { SentenceStream } from "@/lib/voice/sentence-stream";
 import { SpeechPlayer } from "@/lib/voice/SpeechPlayer";
 
 export interface StartRealtimeCallbacks extends RealtimeClientCallbacks {
-  onToolResult?: (name: string, result: unknown) => void;
+  /** `query` : la requête réelle envoyée à search-knowledge (le modèle y
+   * reformule la question) — c'est elle qui pilote la sélection des preuves,
+   * l'affichage doit juger sur la même base. */
+  onToolResult?: (name: string, result: unknown, query?: string) => void;
 }
 export interface StartRealtimeResult { simulated: boolean; }
 
@@ -73,14 +76,15 @@ export function useRealtimeSession() {
         webrtcUrl: session.webrtcUrl,
         executeTool: async (name, argumentsJson) => {
           const result = await executeToolByName(name, argumentsJson);
-          callbacks.onToolResult?.(name, result);
           // La requête de l'outil porte l'intention (le modèle y reformule la
-          // question) : c'est elle qui pilote la sélection des preuves.
+          // question) : c'est elle qui pilote la sélection des preuves — et
+          // l'affichage (carte, sources) doit juger sur la même base.
           let query = "";
           try {
             const parsed = JSON.parse(argumentsJson) as { query?: unknown };
             if (typeof parsed.query === "string") query = parsed.query;
           } catch { /* arguments illisibles : sélection sans intention */ }
+          callbacks.onToolResult?.(name, result, query);
           return shapeKnowledgeForModel(result, query);
         },
         callbacks: effectiveCallbacks,
