@@ -255,11 +255,14 @@ export function enrichirQuestionRecherche(question: string): string {
   if (/operateurs?\b|\borange\b|\bmtn\b|\bmoov\b/.test(q)) {
     return `${question} (présence des opérateurs mobiles relevée localité par localité)`;
   }
+  // Terrain du 02/09 (Elvire) : « qu'elle se forme à l'utilisation de son
+  // smartphone » partait vers le PASS — le mot « smartphone » gagnait sur
+  // l'intention de FORMATION. La formation se teste d'abord.
+  if (/\bform|apprendre|competence|initier|alphabetis/.test(q)) {
+    return `${question} (formation aux compétences numériques de base, apprendre à utiliser un smartphone, inclusion numérique)`;
+  }
   if (/equip|smartphone|ordinateur|tablette|telephone/.test(q)) {
     return `${question} (dispositifs d'aide à l'équipement numérique, programme PASS)`;
-  }
-  if (/\bform|apprendre|competence/.test(q)) {
-    return `${question} (formations au numérique, inclusion numérique)`;
   }
   if (/connect|internet|reseau|couverture|fibre/.test(q)) {
     return `${question} (couverture réseau et connectivité des localités de Côte d'Ivoire)`;

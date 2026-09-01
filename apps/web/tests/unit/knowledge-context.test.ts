@@ -330,6 +330,12 @@ describe("enrichirQuestionRecherche — recette du 31/08 (F06)", () => {
     expect(enrichirQuestionRecherche("Où puis-je me former ?")).toContain("inclusion numérique");
   });
 
+  it("la formation gagne sur l'équipement (terrain du 02/09 : « se former au smartphone »)", () => {
+    const enrichie = enrichirQuestionRecherche("des initiatives pour qu'elle se forme à l'utilisation de son smartphone ?");
+    expect(enrichie).toContain("apprendre à utiliser un smartphone");
+    expect(enrichie).not.toContain("programme PASS");
+  });
+
   it("complète une question de connexion", () => {
     expect(enrichirQuestionRecherche("Mon village est-il connecté ?")).toContain("connectivité des localités");
   });
