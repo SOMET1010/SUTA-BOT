@@ -132,25 +132,32 @@ function visualFor(
     };
   }
 
+  // Terrain du 01/09 : « Quelle est la prochaine démarche à faire ? » (le
+  // bouton suggéré, envoyé SANS contexte) partait en recherche sur ces mots
+  // seuls et servait le workshop PwC. Même famille que « localités proches »
+  // (C09) : chaque bouton d'action porte désormais le sujet en cours — le
+  // titre de la fiche de tête, que la recherche retrouve à coup sûr.
   if (pillar === "equiper") {
+    const sujet = results[0]?.title || "ce dispositif";
     return {
       kind: "program",
       title: results[0]?.title || "Dispositifs pour s'équiper",
       pillar: "equiper",
       summary: firstSummary(results),
       benefits: results.slice(0, 3).map((r) => r.title),
-      actions: [{ id: "eligibility", label: "Vérifier mon éligibilité", prompt: "Suis-je éligible à ce dispositif ?" }],
+      actions: [{ id: "eligibility", label: "Vérifier mon éligibilité", prompt: `Qui peut bénéficier de « ${sujet} » et à quelles conditions ?` }],
     };
   }
 
   if (pillar === "former") {
+    const sujet = results[0]?.title || "les formations au numérique";
     return {
       kind: "program",
       title: results[0]?.title || "Formations numériques",
       pillar: "former",
       summary: firstSummary(results),
       benefits: results.slice(0, 3).map((r) => r.title),
-      actions: [{ id: "training-nearby", label: "Trouver une formation", prompt: "Quelle formation est disponible près de moi ?" }],
+      actions: [{ id: "training-nearby", label: "Trouver une formation", prompt: `Comment participer concrètement à « ${sujet} » ?` }],
     };
   }
 
@@ -164,7 +171,7 @@ function visualFor(
     // sous chaque preuve était un label technique sans valeur citoyenne — la
     // valeur n'est affichée que quand elle apporte quelque chose (une région).
     facts: results.slice(1, 4).map((r) => ({ label: r.title, value: r.source === "Corpus ANSUT" ? "" : r.source })),
-    actions: [{ id: "next-step", label: "Que dois-je faire ?", prompt: "Quelle est la prochaine démarche à faire ?" }],
+    actions: [{ id: "next-step", label: "Que dois-je faire ?", prompt: `Concrètement, que peut faire un citoyen concernant « ${results[0]?.title ?? question} » ?` }],
   };
 }
 

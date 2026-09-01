@@ -62,6 +62,11 @@ export function useSutaConversation(): SutaConversationController {
    * mots et récitait la fiche d'un village au hasard). */
   const suiteRef = useRef<string[]>([]);
   const aServiUneReponse = useRef(false);
+  /** Dernier texte servi par le chemin texte — terrain du 01/09 : « où me
+   * former ? » après « des programmes de formation ? » recevait MOT POUR MOT
+   * la même réponse (même fiche gagnante, mêmes phrases servies). Quand la
+   * nouvelle question produirait le texte déjà donné, on sert la suite. */
+  const dernierTexteServi = useRef("");
   const sessionContext = useRef<SutaSessionContext>({ ...EMPTY_SUTA_CONTEXT, lastTopics: [] });
   const searchAbort = useRef<AbortController | null>(null);
   const resumeVoiceAfterNetwork = useRef(false);
@@ -127,8 +132,18 @@ export function useSutaConversation(): SutaConversationController {
       // d'incertitude MAIS une carte et des sources sans rapport, dérivées
       // des voisins vectoriels bruts.
       const { texte, suite, comprise, retenues } = composerReponseAvecSuite(question, data);
+      // Réponse identique à la précédente : ne pas rejouer le disque — la
+      // personne reformulait pour en savoir plus, on sert la suite.
+      if (comprise && texte === dernierTexteServi.current && suiteRef.current.length > 0) {
+        const encore = composerSuite(suiteRef.current);
+        suiteRef.current = encore.suite;
+        dernierTexteServi.current = encore.texte;
+        respond(encore.texte);
+        return;
+      }
       suiteRef.current = suite;
       aServiUneReponse.current = comprise;
+      dernierTexteServi.current = comprise ? texte : "";
       // Terrain du 01/09 (Moossou) : carte et sources ne montrent QUE les
       // fiches qui portent la réponse — les voisins vectoriels écartés par
       // la sélection ne doivent plus poser leurs points sur la carte
@@ -376,6 +391,7 @@ export function useSutaConversation(): SutaConversationController {
     pendingSources.current = undefined;
     suiteRef.current = [];
     aServiUneReponse.current = false;
+    dernierTexteServi.current = "";
     sessionContext.current = { ...EMPTY_SUTA_CONTEXT, lastTopics: [] };
   }, [clearTimeouts, realtime]);
 
