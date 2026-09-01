@@ -265,13 +265,29 @@ export function enrichirQuestionRecherche(question: string): string {
   // qui re-devinait. Les gloses elles-mêmes sont inchangées (mesurées sur la
   // base réelle) ; l'ordre des leçons de terrain (C05, Elvire du 02/09 :
   // formation AVANT équipement) vit désormais dans `detecterIntention`.
+  //
+  // Question LONGUE : la phrase complète d'Elvire (« ma tante a satamasokoro
+  // et elle ne parle que le dioula est ce qu'il y a des initiatives pour
+  // qu'elle se forme… », ~30 mots) noie l'embedding — ZÉRO résultat même
+  // avec la glose accolée, et même réduite à ses mots pleins (mesuré sur la
+  // base réelle le 02/09). Seule la glose pure remonte les bonnes fiches
+  // (littératie 0,70). Pour formation et équipement — où la réponse est un
+  // programme national, pas la fiche d'un village — une question de plus de
+  // quinze mots cherche donc sur la glose seule. Couverture et opérateurs
+  // gardent la question entière : le NOM de la localité y est la clé de la
+  // voie géographique.
+  const estLongue = question.trim().split(/\s+/).length > 15;
   switch (detecterIntention(question)) {
     case "operateurs":
       return `${question} (présence des opérateurs mobiles relevée localité par localité)`;
     case "formation":
-      return `${question} (formation aux compétences numériques de base, apprendre à utiliser un smartphone, inclusion numérique)`;
+      return estLongue
+        ? "formation aux compétences numériques de base, apprendre à utiliser un smartphone, inclusion numérique"
+        : `${question} (formation aux compétences numériques de base, apprendre à utiliser un smartphone, inclusion numérique)`;
     case "equipement":
-      return `${question} (dispositifs d'aide à l'équipement numérique, programme PASS)`;
+      return estLongue
+        ? "dispositifs d'aide à l'équipement numérique, programme PASS, smartphone subventionné"
+        : `${question} (dispositifs d'aide à l'équipement numérique, programme PASS)`;
     case "couverture":
       return `${question} (couverture réseau et connectivité des localités de Côte d'Ivoire)`;
     default:
@@ -397,13 +413,28 @@ function ordonnerLieuxSelonLaQuestion(question: string, lieux: Preuve[]): Preuve
   return [...lieux].sort((a, b) => score(b) - score(a));
 }
 
+/** Vague 3 (rejeu du 02/09) : « quels opérateurs mobiles à Bouaké ? »
+ * servait la POPULATION de Bouaké — la fiche Localité gagnait au simple
+ * recouvrement de mots alors que son contenu ne dit rien des opérateurs.
+ * Une preuve dont le contenu parle du sujet que l'intention demande passe
+ * devant. Motifs écrits sans accents (testés après `sansAccents`). */
+const MOTIF_CONTENU_PAR_INTENTION: Partial<Record<ReturnType<typeof detecterIntention>, RegExp>> = {
+  operateurs: /operateurs?|\bmoov\b|\bmtn\b|\borange\b|sites? mobiles?/,
+  couverture: /fibre|reseau|pylone|antenne|couvert|connect|sites? [aà] moins|zone blanche/,
+};
+
 function ordonnerPreuvesSelonLaQuestion(question: string, preuves: string[]): string[] {
   if (preuves.length < 2) return preuves;
   const jetons = jetonsDeLaQuestion(question);
-  if (jetons.length === 0) return preuves;
+  const motifIntention = MOTIF_CONTENU_PAR_INTENTION[detecterIntention(question)] ?? null;
+  if (jetons.length === 0 && motifIntention === null) return preuves;
   const score = (p: string) => {
     const texte = sansAccents(p);
-    return jetons.filter((j) => texte.includes(j)).length + (/^(village|ville|commune|localite) de /.test(texte) ? 0.5 : 0);
+    return (
+      jetons.filter((j) => texte.includes(j)).length +
+      (motifIntention?.test(texte) ? 2 : 0) +
+      (/^(village|ville|commune|localite) de /.test(texte) ? 0.5 : 0)
+    );
   };
   return [...preuves].sort((a, b) => score(b) - score(a));
 }
@@ -459,8 +490,16 @@ export function composerReponseAvecSuite(
   // savait pas que SUTA peut répondre pour SON village. Quand la question
   // parle de « mon village » et qu'aucune fiche de lieu ne sert la réponse,
   // on invite à donner le nom avant le cadre général.
+  // Rejeu vague 3 du 02/09 : « mon village de Katiola est-il connecté ? »
+  // recevait l'invite ALORS QUE le village était nommé et sa fiche servie —
+  // le test regardait la première preuve AVANT le tri, et ne reconnaissait
+  // que les contenus commençant par « Village de » (les fiches Opérateurs
+  // commencent par « Moossou, sous-préfecture de… », celles de département
+  // par « Le département de… »). On juge la preuve réellement servie, avec
+  // les vraies formes des fiches de lieu.
   const parleDeSonVillage = /\bmon village\b|\bma localite\b|\bma commune\b|\bchez moi\b/.test(sansAccents(question));
-  const sertUneFicheDeLieu = /^(village|commune|localite) de /i.test(sansAccents(preuves[0]));
+  const sertUneFicheDeLieu =
+    /^(le )?(village|commune|localite|departement) de |sous-prefecture de /.test(sansAccents(preuvesOrdonnees[0]).slice(0, 160));
   const invite = parleDeSonVillage && !sertUneFicheDeLieu
     ? "Donnez-moi le nom de votre village et je vérifie précisément pour lui. En attendant, voici le cadre général : "
     : "";

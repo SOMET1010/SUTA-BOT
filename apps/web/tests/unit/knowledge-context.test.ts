@@ -343,6 +343,23 @@ describe("enrichirQuestionRecherche — recette du 31/08 (F06)", () => {
   it("laisse intacte une question sans pilier reconnu", () => {
     expect(enrichirQuestionRecherche("Quelle est la capitale de la France ?")).toBe("Quelle est la capitale de la France ?");
   });
+
+  // Vague 3 (mesuré le 02/09) : la phrase complète d'Elvire noyait
+  // l'embedding — zéro résultat, même glosée, même réduite à ses mots
+  // pleins. Seule la glose pure remonte littératie et inclusion (0,70).
+  it("une longue question de formation cherche sur la glose seule", () => {
+    const enrichie = enrichirQuestionRecherche(
+      "ma tante a satamasokoro et elle ne parle que le dioula est ce qu'il y a des initiatives pour qu'elle se forme à l'utilisation de son smartphone",
+    );
+    expect(enrichie).toBe("formation aux compétences numériques de base, apprendre à utiliser un smartphone, inclusion numérique");
+  });
+
+  it("une longue question de couverture garde le nom du village", () => {
+    const enrichie = enrichirQuestionRecherche(
+      "bonjour je voudrais savoir si mon village de Katiola est bien connecté à la fibre optique parce que chez nous le réseau coupe souvent le soir",
+    );
+    expect(enrichie).toContain("Katiola");
+  });
 });
 
 describe("composerReponseTexte — recette du 31/08 (F08)", () => {
@@ -692,5 +709,65 @@ describe("contre-audit du 01/09 — hors domaine malgré un nom de lieu", () => 
   it("une vraie question de couverture à Abidjan passe toujours", () => {
     const { comprise } = composerReponseAvecSuite("Y a-t-il une antenne à Abidjan-Yopougon ?", RESULTAT_BTS);
     expect(comprise).toBe(true);
+  });
+});
+
+describe("rejeu vague 3 du 02/09 — sur les payloads réels de l'edge", () => {
+  it("« mon village de Katiola » NOMMÉ ne reçoit jamais l'invite à donner le nom", () => {
+    // Le test d'invite regardait la première preuve AVANT le tri : la fiche
+    // Département passait devant et déclenchait « Donnez-moi le nom de votre
+    // village » alors que Katiola était nommé et sa fiche servie.
+    const { texte } = composerReponseAvecSuite("Mon village de Katiola est-il connecté à la fibre ?", {
+      results: [
+        {
+          title: "Département de Katiola — couverture des localités",
+          content: "Le département de Katiola, dans la région HAMBOL, compte 28 localité(s) recensées au recensement de 2021, pour 144 113 habitants.",
+          score: 0.5,
+        },
+        {
+          title: "Localité — KATIOLA (KATIOLA)",
+          content: "Village de KATIOLA, sous-préfecture de KATIOLA, département de KATIOLA, région HAMBOL. Distances aux infrastructures : raccordement fibre 127 m, site 3G le plus proche 336 m.",
+          score: 0.49,
+        },
+      ],
+    });
+    expect(texte).not.toContain("Donnez-moi le nom de votre village");
+    expect(texte).toContain("raccordement fibre 127 m");
+  });
+
+  it("« mon village moossou » servi par sa fiche Opérateurs n'invite pas non plus", () => {
+    const { texte } = composerReponseAvecSuite("mon village moossou est il dans une zone blanche", {
+      results: [
+        {
+          title: "Opérateurs mobiles — Moossou (Grand-Bassam)",
+          content: "Moossou, sous-préfecture de Grand-Bassam, département de Grand-Bassam, région Sud-Comoe. Présence des opérateurs mobiles (données ANSUT au 2 mai 2026) : 18 sites à moins de 3 km de la localité — opérateurs : Moov, MTN et Orange.",
+          score: 0.5,
+        },
+      ],
+    });
+    expect(texte).not.toContain("Donnez-moi le nom de votre village");
+    expect(texte).toContain("18 sites");
+  });
+
+  it("une question d'opérateurs ne reçoit jamais la population en guise de réponse", () => {
+    // Sans fiche Opérateurs pour la ville (cas Bouaké, ligne source à
+    // corriger), la réponse doit venir d'une preuve qui PARLE des opérateurs
+    // — pas des premières lignes de la fiche Localité.
+    const { texte } = composerReponseAvecSuite("Quels opérateurs mobiles à Bouaké ?", {
+      results: [
+        {
+          title: "Localité — BOUAKE (BOUAKE)",
+          content: "Village de BOUAKE, sous-préfecture de BOUAKE, département de BOUAKE, région GBEKE. Population : 728 733 habitants. Distances aux infrastructures : raccordement fibre 464 m.",
+          score: 0.5,
+        },
+        {
+          title: "La présence des opérateurs mobiles, village par village",
+          content: "L'ANSUT tient à jour un relevé de la présence des opérateurs de téléphonie mobile dans les localités de Côte d'Ivoire. Dans sa mise à jour de mai 2026, ce relevé couvre 8 114 localités.",
+          score: 0.653,
+        },
+      ],
+    });
+    expect(texte).toContain("8 114 localités");
+    expect(texte).not.toContain("728 733");
   });
 });
