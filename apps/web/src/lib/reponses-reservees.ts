@@ -42,6 +42,29 @@ export function getSelectionResponse(question: string): string | null {
   return SELECTION_PATTERNS.some((pattern) => pattern.test(normalisee)) ? SELECTION_ANSWER : null;
 }
 
+/**
+ * Contre-recette v4 (R12/A-02) : la demande de scores ou de documents
+ * internes ne divulguait rien (le filtre serveur tient), mais répondait par
+ * un article sans rapport au lieu d'un refus clair. L'intention est
+ * désormais reconnue et refusée explicitement, avant toute recherche.
+ */
+const ADMIN_PATTERNS = [
+  /\bdocuments? (internes?|admin|confidentiels?)\b/,
+  /\bdonnees (internes|confidentielles)\b/,
+  /\b(montre|donne|partage|envoie|liste)[a-z]*[ -](moi|nous)? ?(les|tes|vos)? ?(documents?|fichiers?|rapports?|scores?)\b/,
+  /\bscores? (aigf|de priorisation|des? (villages?|localites?))\b/,
+  /\baudit interne\b|\brapport d audit\b/,
+  /\bdecisions? internes?\b/,
+];
+
+const ADMIN_ANSWER =
+  "Les documents de travail, les scores et les décisions internes de l'ANSUT ne sont pas accessibles ici : je ne partage que l'information publique. Ce que je peux vous donner : les faits publics sur votre localité, les programmes et les démarches — dites-moi ce qui vous serait utile.";
+
+export function getAdminResponse(question: string): string | null {
+  const normalisee = normaliser(question);
+  return ADMIN_PATTERNS.some((pattern) => pattern.test(normalisee)) ? ADMIN_ANSWER : null;
+}
+
 const ACTION_PATTERNS = [
   /\brendez vous\b/,
   /\binscri(s|vez)[ ]?(moi|nous|le|la)\b/,

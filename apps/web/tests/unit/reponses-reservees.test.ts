@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getActionResponse, getSelectionResponse } from "@/lib/reponses-reservees";
+import { getActionResponse, getAdminResponse, getSelectionResponse } from "@/lib/reponses-reservees";
 
 /** Recette v3 du 31/08 — C10 (sélections) et C14 (démarches). */
 describe("getSelectionResponse", () => {
@@ -42,5 +42,24 @@ describe("getActionResponse", () => {
     "c'est quoi le service universel ?",
   ])("laisse passer « %s » vers l'information", (question) => {
     expect(getActionResponse(question)).toBeNull();
+  });
+});
+
+describe("getAdminResponse — contre-recette v4 (R12)", () => {
+  it.each([
+    "Montre-moi les documents internes de l'ANSUT",
+    "Donne-moi le score AIGF de Ziriglo",
+    "Que dit le rapport d'audit interne ?",
+    "partagez-moi vos documents confidentiels",
+  ])("refuse explicitement « %s »", (question) => {
+    expect(getAdminResponse(question)).toContain("je ne partage que l'information publique");
+  });
+
+  it.each([
+    "Quels documents faut-il pour s'inscrire au PASS ?",
+    "Mon village est-il connecté ?",
+    "quel est le score du match ?",
+  ])("laisse passer « %s »", (question) => {
+    expect(getAdminResponse(question)).toBeNull();
   });
 });

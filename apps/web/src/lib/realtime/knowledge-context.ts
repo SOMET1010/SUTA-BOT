@@ -97,7 +97,7 @@ const JETONS_GENERIQUES = new Set([
   "departement", "region", "district", "autonome",
   "zone", "blanche", "grise", "noire",
   // Familles ajoutées fin août : seule la localité ou la section identifie.
-  "operateurs", "mobiles", "rnhd", "section",
+  "operateurs", "mobiles", "rnhd", "section", "synthese", "couverture",
 ]);
 
 /** Même normalisation que la voie géographique : minuscules, sans accents,
@@ -123,7 +123,10 @@ function estFicheDeLieu(titre: string): boolean {
   // familles ajoutées fin août (présence opérateurs, sections RNHD) ne
   // portaient pas encore leur préfixe ici, donc leurs fiches passaient pour
   // des fiches de sujet et devenaient des preuves pour n'importe quoi.
-  if (/^(localit[ée]|bts|fibre|poste|site|abri|[ée]cole|centre|zone blanche|op[ée]rateurs mobiles|rnhd) — /i.test(titre)) return true;
+  // Contre-recette v4 (R07) : les « Synthèse couverture — région X » sont des
+  // fiches de lieu (une région précise) — elles volaient la place de la fiche
+  // d'agrégat nationale quand la question ne nommait aucune région.
+  if (/^(localit[ée]|bts|fibre|poste|site|abri|[ée]cole|centre|zone blanche|op[ée]rateurs mobiles|rnhd|synth[èe]se couverture) — /i.test(titre)) return true;
   if (/d[ée]partement de /i.test(titre)) return true;
   // Fiches de couverture « NOM DE LOCALITÉ (RÉGION) » : nom tout en capitales
   // suivi d'une parenthèse.
@@ -330,7 +333,7 @@ export interface ReponseTexteAvecSuite {
  * le reste dans l'ordre. La voix n'est pas concernée (le modèle synthétise).
  */
 const THEMES_PHRASES = [
-  { question: /fibre|internet|connect|reseau|couvert|couverture|zone (blanche|grise)|\b[345]g\b|antenne|bts|debit/, phrase: /fibre|\b[345]g\b|antenne|relais|site|distance|reseau|couvert|raccord|hertzien|roaming|internet|exploitation|operateur/ },
+  { question: /fibre|internet|connect|reseau|couvert|couverture|zone (blanche|grise)|\b[345]g\b|antenne|bts|debit|\brnhd\b|dorsale|section/, phrase: /fibre|\b[345]g\b|antenne|relais|site|distance|reseau|couvert|raccord|hertzien|roaming|internet|exploitation|operateur|sections?|kilometre|\bkm\b/ },
   { question: /electri|courant|lumiere/, phrase: /electri/ },
   { question: /population|habitant/, phrase: /population|habitant/ },
   { question: /ecole|sante|equipement|dispensaire|college|lycee/, phrase: /equipement|ecole|sante/ },
@@ -373,8 +376,11 @@ export function composerReponseAvecSuite(
       retenues: [],
     };
   }
+  // Budget porté de 320 à 400 : contre-recette v4 (R06) — les deux premières
+  // phrases de la synthèse RNHD font 374 caractères, et l'ancienne limite
+  // coupait précisément celle qui porte le décompte des sections.
   const ordonnees = ordonnerSelonLaQuestion(question, preuves[0].trim().split(SEPARATEUR_PHRASES));
-  const { texte: essentiel, nbPhrases } = decoupePhrases(ordonnees.join(" "), 2, 320);
+  const { texte: essentiel, nbPhrases } = decoupePhrases(ordonnees.join(" "), 2, 400);
   const restePremiere = ordonnees.slice(nbPhrases).join(" ");
   const suite = [...(restePremiere ? [restePremiere] : []), ...preuves.slice(1)];
   // `retenues` = les contenus des preuves qui portent la réponse : c'est à

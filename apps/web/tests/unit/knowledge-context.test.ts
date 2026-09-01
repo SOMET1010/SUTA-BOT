@@ -520,3 +520,46 @@ describe("retenues — terrain du 01/09 (Moossou : la carte des voisins vectorie
     expect(retenues).toEqual([]);
   });
 });
+
+describe("contre-recette v4 — R06/R07 (les chiffres se disent)", () => {
+  // Synthèse RNHD réelle : le décompte est dans la DEUXIÈME phrase (374
+  // caractères à deux — l'ancien budget de 320 la coupait).
+  const FICHE_SYNTHESE_RNHD_COMPLETE = {
+    title: "Le RNHD en mai 2026 : l'état réel de la dorsale de fibre optique",
+    content:
+      "Le Réseau National Haut Débit (RNHD) est la dorsale de fibre optique de l'État de Côte d'Ivoire : " +
+      "elle relie les villes du pays entre elles et transporte l'internet à haut débit que les opérateurs " +
+      "distribuent ensuite localement. Selon la liste des sections mise à jour en mai 2026, le réseau " +
+      "compte 148 sections recensées, totalisant environ 5 314 kilomètres de fibre posée. " +
+      "75 sections, soit environ 2 776 kilomètres, sont en exploitation.",
+    score: 0.75,
+  };
+
+  it("sert le décompte des sections du RNHD dès la première réponse", () => {
+    const { texte } = composerReponseAvecSuite("Combien de sections compte le RNHD ?", {
+      results: [FICHE_SYNTHESE_RNHD_COMPLETE],
+    });
+    expect(texte).toContain("148 sections");
+  });
+
+  it("écarte une synthèse régionale que la question ne nomme pas", () => {
+    // R07 : « Synthèse couverture — région PORO » volait la place de la
+    // fiche d'agrégat nationale des opérateurs.
+    const preuves = selectionnerPreuves("Dans combien de villages connaît-on les opérateurs ?", {
+      results: [
+        { title: "Synthèse couverture — région PORO", content: "Synthèse de la couverture de la région Poro.", score: 0.65 },
+        { title: "La présence des opérateurs mobiles, village par village", content: "L'ANSUT tient à jour un relevé de la présence des opérateurs. Dans sa mise à jour de mai 2026, ce relevé couvre 8 114 localités.", score: 0.6 },
+      ],
+    });
+    expect(preuves).toEqual(["L'ANSUT tient à jour un relevé de la présence des opérateurs. Dans sa mise à jour de mai 2026, ce relevé couvre 8 114 localités."]);
+  });
+
+  it("garde la synthèse régionale quand la région est nommée", () => {
+    const preuves = selectionnerPreuves("quelle est la couverture dans la région du Poro ?", {
+      results: [
+        { title: "Synthèse couverture — région PORO", content: "Synthèse de la couverture de la région Poro.", score: 0.65 },
+      ],
+    });
+    expect(preuves).toEqual(["Synthèse de la couverture de la région Poro."]);
+  });
+});
