@@ -624,3 +624,73 @@ describe("rapport de tests du 01/09 — bloc B (la bonne preuve d'abord)", () =>
     expect(`${texte} ${suite.join(" ")}`).toContain("non renseignée");
   });
 });
+
+describe("contre-audit du 01/09 — la fiche de lieu se choisit selon la question", () => {
+  // Résultats dans l'ordre réel de l'API après la vague 2 : les deux
+  // correspondances géographiques d'abord (scores de voie, pas de sens),
+  // puis les fiches de sujet avec leurs scores sémantiques.
+  const RESULTATS_KORHOGO = {
+    results: [
+      {
+        title: "Localité — KORHOGO (KORHOGO)",
+        content: "Village de KORHOGO, sous-préfecture de KORHOGO, région PORO. Population : 386 586 habitants. Distances aux infrastructures : raccordement fibre 210 m, site 3G le plus proche 250 m.",
+        score: 0.5,
+      },
+      {
+        title: "Opérateurs mobiles — Korhogo (Korhogo)",
+        content: "Korhogo, sous-préfecture de Korhogo, région Poro. Présence des opérateurs mobiles : 26 sites à moins de 3 km de la localité — opérateurs : Moov, MTN et Orange.",
+        score: 0.49,
+      },
+      {
+        title: "Typologie des zones : blanche, grise, noire",
+        content: "La typologie concurrentielle classe chaque localité selon le nombre d'opérateurs mobiles présents (Moov, MTN, Orange), toutes technologies confondues.",
+        score: 0.654,
+      },
+    ],
+  };
+
+  it("« quels opérateurs ? » sert la fiche Opérateurs, pas la fiche Localité", () => {
+    // Le contre-audit montrait la fiche Localité systématiquement servie en
+    // premier : la règle de diversité gardait la première fiche de lieu venue.
+    const { texte } = composerReponseAvecSuite("Quels opérateurs mobiles couvrent Korhogo ?", RESULTATS_KORHOGO);
+    expect(texte).toContain("26 sites");
+    expect(texte).not.toContain("raccordement fibre 210 m");
+  });
+
+  it("« mon village est-il connecté ? » avec le nom sert toujours la fiche Localité", () => {
+    const { texte } = composerReponseAvecSuite("À quelle distance est la fibre de Korhogo ?", RESULTATS_KORHOGO);
+    expect(texte).toContain("raccordement fibre 210 m");
+  });
+});
+
+describe("contre-audit du 01/09 — hors domaine malgré un nom de lieu", () => {
+  const RESULTAT_BTS = {
+    results: [
+      {
+        title: "BTS — PARAE BTS Abidjan-Yopougon",
+        content: "BTS « PARAE BTS Abidjan-Yopougon », département de Abidjan, région Abidjan. Statut : Actif.",
+        score: 0.5,
+      },
+    ],
+  };
+
+  it("la météo n'est pas une question de connectivité, même « à Abidjan »", () => {
+    // Le nom de lieu suffisait à franchir le plancher : « Quel temps fait-il
+    // à Abidjan ? » servait une fiche BTS.
+    const { texte, comprise } = composerReponseAvecSuite("Quel temps fait-il à Abidjan ?", RESULTAT_BTS);
+    expect(comprise).toBe(false);
+    expect(texte).toContain("assistant de l'ANSUT");
+  });
+
+  it("la politique non plus", () => {
+    const { comprise } = composerReponseAvecSuite("Qui est le président de la Côte d'Ivoire ?", {
+      results: [{ title: "Population totale de la Côte d'Ivoire", content: "Population totale : 29 389 150 habitants.", score: 0.544 }],
+    });
+    expect(comprise).toBe(false);
+  });
+
+  it("une vraie question de couverture à Abidjan passe toujours", () => {
+    const { comprise } = composerReponseAvecSuite("Y a-t-il une antenne à Abidjan-Yopougon ?", RESULTAT_BTS);
+    expect(comprise).toBe(true);
+  });
+});

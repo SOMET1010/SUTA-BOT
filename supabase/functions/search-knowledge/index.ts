@@ -143,8 +143,12 @@ function extractLocation(metadata: Record<string, unknown> | null, fallbackLabel
   return { lat, lng, label: typeof nom === "string" && nom.length > 0 ? nom : fallbackLabel };
 }
 
-/** Rend `null` si le résultat est décisionnel (titre) ou vidé par la purge. */
-function formater(row: { document_title: string; section: string | null; content: string; metadata: Record<string, unknown> | null }, score: number) {
+/** Rend `null` si le résultat est décisionnel (titre) ou vidé par la purge.
+ * `voie` documente le canal qui a produit le résultat : les scores des deux
+ * canaux ne sont PAS comparables entre eux (contre-audit du 01/09 — les
+ * correspondances par NOM n'ont pas de score sémantique ; leur rang de
+ * confiance est porté par la voie, pas par le chiffre). */
+function formater(row: { document_title: string; section: string | null; content: string; metadata: Record<string, unknown> | null }, score: number, voie: string) {
   if (TITRE_DECISIONNEL.test(row.document_title)) return null;
   const contenu = purgerDecisions(row.content);
   if (contenu.length === 0) return null;
@@ -153,10 +157,32 @@ function formater(row: { document_title: string; section: string | null; content
     section: row.section,
     source: row.section ?? "Corpus ANSUT",
     score: Math.round(score * 1000) / 1000,
+    voie,
     location: extractLocation(row.metadata, row.document_title),
     content: contenu.slice(0, CONTENU_MAX),
     extrait: contenu.slice(0, 220),
   };
+}
+
+/**
+ * Contre-audit du 01/09 : « quels opérateurs mobiles à Bouaké ? » servait la
+ * fiche Localité avant la fiche Opérateurs — l'ordre interne des
+ * correspondances géographiques ne regardait pas la question. Quand la
+ * requête porte des mots pleins en plus du toponyme, la fiche géo qui les
+ * contient (titre ou contenu) passe devant. Sans mot plein, l'ordre
+ * géographique d'origine est conservé (tri stable).
+ */
+function ordonnerGeoSelonLaQuestion(geoSeuls: GeoChunk[], query: string, toponymes: string[]): GeoChunk[] {
+  if (geoSeuls.length < 2) return geoSeuls;
+  const jetons = query.split(/[^\p{L}-]+/u).map(normaliser).filter((m) =>
+    m.length >= 3 && !MOTS_OUTILS.has(m) && !toponymes.some((t) => t === m || t.includes(m))
+  );
+  if (jetons.length === 0) return geoSeuls;
+  const pertinence = (g: GeoChunk) => {
+    const texte = normaliser(`${g.document_title} ${g.content}`);
+    return jetons.filter((j) => texte.includes(j)).length;
+  };
+  return [...geoSeuls].sort((a, b) => pertinence(b) - pertinence(a));
 }
 
 Deno.serve(async (req: Request) => {
@@ -266,7 +292,11 @@ Deno.serve(async (req: Request) => {
     // village existe même si le vecteur l'a manquée), (3) reste vectoriel.
     const deuxVoies = vectoriels.filter((v) => geoIds.has(v.row.chunk_id));
     const idsRetenus = new Set(deuxVoies.map((v) => v.row.chunk_id));
-    const geoSeuls = geo.filter((g) => !idsRetenus.has(g.chunk_id)).slice(0, GEO_SEULS_MAX);
+    const geoSeuls = ordonnerGeoSelonLaQuestion(
+      geo.filter((g) => !idsRetenus.has(g.chunk_id)),
+      query,
+      toponymesDetectes,
+    ).slice(0, GEO_SEULS_MAX);
     const dejaVus = new Set<string>([...idsRetenus, ...geoSeuls.map((g) => g.chunk_id)]);
     const sujetSeuls = sujets
       .filter((s) => !dejaVus.has(s.row.chunk_id) && !geoIds.has(s.row.chunk_id))
@@ -279,11 +309,11 @@ Deno.serve(async (req: Request) => {
     const vecteurLieuxNonConfirmes = vecteurSeuls.filter((v) => estFicheDeLieu(v.row));
 
     const results = [
-      ...deuxVoies.map((v) => formater(v.row, v.score)),
-      ...geoSeuls.map((g, i) => formater(g, 0.5 - i * 0.01)),
-      ...sujetSeuls.map((s) => formater(s.row, s.score)),
-      ...vecteurSujets.map((v) => formater(v.row, v.score)),
-      ...vecteurLieuxNonConfirmes.map((v) => formater(v.row, v.score)),
+      ...deuxVoies.map((v) => formater(v.row, v.score, "nom+vecteur")),
+      ...geoSeuls.map((g, i) => formater(g, 0.5 - i * 0.01, "nom")),
+      ...sujetSeuls.map((s) => formater(s.row, s.score, "sujet")),
+      ...vecteurSujets.map((v) => formater(v.row, v.score, "vecteur")),
+      ...vecteurLieuxNonConfirmes.map((v) => formater(v.row, v.score, "vecteur")),
     ].filter((r): r is NonNullable<typeof r> => r !== null).slice(0, matchCount);
 
     // Journal temporaire (diagnostic du classement géographique) : jamais de

@@ -39,6 +39,32 @@ describe("sessionContext — scénario Korhogo (5 tours)", () => {
     expect(ctx.locality).toBeUndefined();
   });
 
+  // Contre-audit du 01/09 : « Mon village est connecté ? » mémorisait la
+  // localité « connecté », jamais invalidée ensuite — chaque recherche de la
+  // session partait avec « Localité déjà donnée : connecté ».
+  it("ne prend jamais un état (« connecté », « couvert »…) pour une localité", () => {
+    const debut = { ...EMPTY_SUTA_CONTEXT, lastTopics: [] };
+    expect(updateSessionContext(debut, "Mon village est connecté ?").locality).toBeUndefined();
+    expect(updateSessionContext(debut, "mon village est il connecté").locality).toBeUndefined();
+    expect(updateSessionContext(debut, "est-ce que mon village est connecté à la fibre").locality).toBeUndefined();
+    expect(updateSessionContext(debut, "ma localité est couverte ?").locality).toBeUndefined();
+    expect(updateSessionContext(debut, "je suis bien couvert chez moi ?").locality).toBeUndefined();
+  });
+
+  it("capture toujours les vrais noms, y compris composés", () => {
+    const debut = { ...EMPTY_SUTA_CONTEXT, lastTopics: [] };
+    expect(updateSessionContext(debut, "J'habite à Grand-Bassam.").locality).toBe("Grand-Bassam");
+    expect(updateSessionContext(debut, "mon village s'appelle Tieme").locality).toBe("Tieme");
+  });
+
+  it("une phrase entière après « je suis » n'est pas un nom de localité", () => {
+    const ctx = updateSessionContext(
+      { ...EMPTY_SUTA_CONTEXT, lastTopics: [] },
+      "je suis venu voir le stand avec mes enfants ce matin",
+    );
+    expect(ctx.locality).toBeUndefined();
+  });
+
   it("reste vide tant que rien n'est appris (rien n'est réinjecté)", () => {
     expect(contextForModel({ ...EMPTY_SUTA_CONTEXT, lastTopics: [] })).toBe("");
   });

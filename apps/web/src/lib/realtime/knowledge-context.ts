@@ -170,10 +170,21 @@ function candidats(result: unknown): Preuve[] | null {
     .filter((p) => p.contenu.length > 0);
 }
 
+/** Contre-audit du 01/09 : « quel temps fait-il à Abidjan ? » servait une
+ * fiche BTS — un nom de lieu suffisait à franchir le plancher, qui coupe sur
+ * un chiffre sans juger la pertinence. Les familles de questions
+ * manifestement hors du périmètre ANSUT sont refusées d'emblée : mieux vaut
+ * annoncer le périmètre qu'étirer une fiche voisine. (Le vrai routage
+ * d'intention est la vague 3 — après le 9.) Motifs écrits sans accents :
+ * ils sont testés sur la question passée par `sansAccents`. */
+const QUESTION_HORS_DOMAINE =
+  /quel temps fait|meteo\b|pleuvoir|president de la (republique|cote)|premier ministre|\belection\b|match de|football|coupe d.afrique|capitale d[eu]\b|recette de cuisine|quelle heure/;
+
 /** Exporté pour les tests : la liste des contenus retenus comme preuves. */
 export function selectionnerPreuves(question: string, result: unknown): string[] | null {
   const tous = candidats(result);
   if (tous === null) return null;
+  if (QUESTION_HORS_DOMAINE.test(sansAccents(question))) return [];
 
   const questionNormalisee = normaliser(question);
   const questionGenerale = QUESTION_GENERALE.test(question);
@@ -207,7 +218,11 @@ export function selectionnerPreuves(question: string, result: unknown): string[]
   // remplit le reste.
   const lieux = retenues.filter((p) => estFicheDeLieu(p.titre));
   const sujets = retenues.filter((p) => !estFicheDeLieu(p.titre));
-  const preuves = sujets.length > 0 ? [...lieux.slice(0, 1), ...sujets] : lieux;
+  // Contre-audit du 01/09 : « quels opérateurs mobiles à Bouaké ? » gardait
+  // la fiche Localité et jetait la fiche Opérateurs — la règle de diversité
+  // prenait la première fiche de lieu venue. La fiche de lieu conservée est
+  // celle qui porte les mots pleins de la question (titre compris).
+  const preuves = sujets.length > 0 ? [...ordonnerLieuxSelonLaQuestion(question, lieux).slice(0, 1), ...sujets] : lieux;
   return preuves.slice(0, MAX_PREUVES).map((p) => p.contenu);
 }
 
@@ -364,11 +379,31 @@ const MOTS_VIDES_QUESTION = new Set([
  * « écoles », « électrification »…), avec un léger bonus aux fiches de
  * localité (plus spécifiques qu'un département pour une question de ville).
  */
-function ordonnerPreuvesSelonLaQuestion(question: string, preuves: string[]): string[] {
-  if (preuves.length < 2) return preuves;
-  const jetons = sansAccents(question)
+/** Mots pleins de la question (mêmes règles que `ordonnerPreuvesSelonLaQuestion`). */
+function jetonsDeLaQuestion(question: string): string[] {
+  return sansAccents(question)
     .split(/[^a-z0-9]+/)
     .filter((j) => j.length >= 4 && !MOTS_VIDES_QUESTION.has(j));
+}
+
+/** Départage des fiches de LIEU d'une même localité (Localité, Opérateurs
+ * mobiles, BTS…) : celle dont le titre ou le contenu porte les mots pleins
+ * de la question passe devant. Tri stable — sans mot plein, l'ordre de la
+ * recherche est conservé. */
+function ordonnerLieuxSelonLaQuestion(question: string, lieux: Preuve[]): Preuve[] {
+  if (lieux.length < 2) return lieux;
+  const jetons = jetonsDeLaQuestion(question);
+  if (jetons.length === 0) return lieux;
+  const score = (p: Preuve) => {
+    const texte = sansAccents(`${p.titre} ${p.contenu}`);
+    return jetons.filter((j) => texte.includes(j)).length;
+  };
+  return [...lieux].sort((a, b) => score(b) - score(a));
+}
+
+function ordonnerPreuvesSelonLaQuestion(question: string, preuves: string[]): string[] {
+  if (preuves.length < 2) return preuves;
+  const jetons = jetonsDeLaQuestion(question);
   if (jetons.length === 0) return preuves;
   const score = (p: string) => {
     const texte = sansAccents(p);

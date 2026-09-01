@@ -82,6 +82,8 @@ export function useSutaConversation(): SutaConversationController {
    * une localité (signalement ou point connecté), le prochain message
    * de la personne EST cette localité. */
   const attenteLocalite = useRef<{ action: "signalement"; probleme: ProblemeReseau } | { action: "point" } | null>(null);
+  /** Vrai quand la dernière réponse servie invitait à donner le nom du village. */
+  const attenteNomVillage = useRef(false);
   const sessionContext = useRef<SutaSessionContext>({ ...EMPTY_SUTA_CONTEXT, lastTopics: [] });
   const searchAbort = useRef<AbortController | null>(null);
   const resumeVoiceAfterNetwork = useRef(false);
@@ -168,6 +170,7 @@ export function useSutaConversation(): SutaConversationController {
       const pourAffichage = retenus.length > 0 ? retenus : results;
       if (comprise) applyExperience(question, pourAffichage);
       const sources = comprise ? pourAffichage.slice(0, 4).map((r) => ({ title: r.title, source: r.source })) : [];
+      attenteNomVillage.current = texte.includes("Donnez-moi le nom de votre village");
       respond(texte, sources.length ? sources : undefined);
     } catch (error) {
       if (error instanceof DOMException && error.name === "AbortError") return;
@@ -348,6 +351,17 @@ export function useSutaConversation(): SutaConversationController {
     if (!text) return;
     latestQuestion.current = text;
     remember(text);
+    // Contre-audit du 01/09 : après « Donnez-moi le nom de votre village »,
+    // la réponse (« Bouaké ») n'était jamais mémorisée — seules les tournures
+    // « j'habite à… » l'étaient — et un contexte périmé survivait au tour
+    // suivant. Un nom court donné juste après l'invite EST la localité.
+    if (attenteNomVillage.current) {
+      attenteNomVillage.current = false;
+      const nom = text.replace(/^(c'est|c est|à|a|au village de|le village de|chez nous à)\s+/i, "").trim().replace(/[?.!,;:]+$/, "");
+      if (nom.length >= 3 && nom.length <= 40 && nom.split(/\s+/).length <= 3) {
+        sessionContext.current = { ...sessionContext.current, locality: nom };
+      }
+    }
     setMessages((prev) => [...prev, { id: `user-${Date.now()}`, role: "user", text }]);
     if (realtime.isActive()) {
       setState("THINKING");
@@ -453,6 +467,7 @@ export function useSutaConversation(): SutaConversationController {
     aServiUneReponse.current = false;
     dernierTexteServi.current = "";
     attenteLocalite.current = null;
+    attenteNomVillage.current = false;
     sessionContext.current = { ...EMPTY_SUTA_CONTEXT, lastTopics: [] };
   }, [clearTimeouts, realtime]);
 
