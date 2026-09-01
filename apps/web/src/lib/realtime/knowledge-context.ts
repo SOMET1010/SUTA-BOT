@@ -320,6 +320,38 @@ export interface ReponseTexteAvecSuite {
 }
 
 /**
+ * Terrain du 01/09 : « Mon village de Katiola est-il connecté à la fibre ? »
+ * recevait l'état civil du village (sous-préfecture, population) — la
+ * réponse (« raccordement fibre 127 m ») était la DERNIÈRE phrase de la
+ * fiche, enterrée dans le « dis-moi plus ». Le chemin texte sert les
+ * premières phrases mécaniquement ; on réordonne donc les phrases de la
+ * meilleure preuve selon le thème de la question : l'ancre d'identité
+ * d'abord (« Village de KATIOLA… »), puis les phrases qui répondent, puis
+ * le reste dans l'ordre. La voix n'est pas concernée (le modèle synthétise).
+ */
+const THEMES_PHRASES = [
+  { question: /fibre|internet|connect|reseau|couvert|couverture|\b[345]g\b|antenne|bts|debit/, phrase: /fibre|\b[345]g\b|antenne|relais|site|distance|reseau|couvert|raccord|hertzien|roaming|internet|exploitation/ },
+  { question: /electri|courant|lumiere/, phrase: /electri/ },
+  { question: /population|habitant/, phrase: /population|habitant/ },
+  { question: /ecole|sante|equipement|dispensaire|college|lycee/, phrase: /equipement|ecole|sante/ },
+  { question: /route|acces|praticable/, phrase: /route|praticable/ },
+];
+
+function sansAccents(texte: string): string {
+  return texte.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
+}
+
+function ordonnerSelonLaQuestion(question: string, phrases: string[]): string[] {
+  const theme = THEMES_PHRASES.find((t) => t.question.test(sansAccents(question)));
+  if (!theme || phrases.length < 2) return phrases;
+  const pertinentes = phrases.filter((p) => theme.phrase.test(sansAccents(p)));
+  if (pertinentes.length === 0) return phrases;
+  const tete = pertinentes.includes(phrases[0]) ? [] : [phrases[0]];
+  const reste = phrases.filter((p) => !tete.includes(p) && !pertinentes.includes(p));
+  return [...tete, ...pertinentes, ...reste];
+}
+
+/**
  * Comme `composerReponseTexte`, mais rend aussi la matière restante : la fin
  * de la meilleure preuve, puis les preuves suivantes. C'est elle que « dis-
  * moi plus » servira — jamais une nouvelle recherche sur des mots vides.
@@ -340,8 +372,9 @@ export function composerReponseAvecSuite(
       comprise: false,
     };
   }
-  const { texte: essentiel, nbPhrases } = decoupePhrases(preuves[0], 2, 320);
-  const restePremiere = preuves[0].trim().split(SEPARATEUR_PHRASES).slice(nbPhrases).join(" ");
+  const ordonnees = ordonnerSelonLaQuestion(question, preuves[0].trim().split(SEPARATEUR_PHRASES));
+  const { texte: essentiel, nbPhrases } = decoupePhrases(ordonnees.join(" "), 2, 320);
+  const restePremiere = ordonnees.slice(nbPhrases).join(" ");
   const suite = [...(restePremiere ? [restePremiere] : []), ...preuves.slice(1)];
   return { texte: `${essentiel} Je peux vous en dire plus si vous voulez.`, suite, comprise: true };
 }

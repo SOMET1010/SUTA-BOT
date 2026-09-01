@@ -436,3 +436,53 @@ describe("enrichirQuestionRecherche — recette v3 du 31/08 (C05/C06/C07)", () =
     expect(enrichirQuestionRecherche("Quels opérateurs sont présents dans mon village ?")).toContain("localité par localité");
   });
 });
+
+describe("composerReponseAvecSuite — terrain du 01/09 (Katiola : la fiche, pas la réponse)", () => {
+  // Fiche réelle, verbatim de la base : la réponse fibre est la DERNIÈRE
+  // phrase — l'ancien découpage servait l'état civil et enterrait la fibre.
+  const FICHE_KATIOLA = {
+    title: "Localité — KATIOLA (KATIOLA)",
+    content:
+      "Village de KATIOLA, sous-préfecture de KATIOLA, département de KATIOLA, région HAMBOL. " +
+      "Population : 61 525 habitants. Équipements présents : 31 école(s) 2 centre(s) de santé. " +
+      "Électrification : OUI. Distances aux infrastructures : route praticable 12 m, " +
+      "raccordement fibre 127 m, relais hertzien 647 m, site 3G le plus proche 336 m.",
+    score: 0.7,
+  };
+
+  it("sert la phrase qui répond à la question fibre, ancrée sur le village", () => {
+    const { texte, suite } = composerReponseAvecSuite(
+      "Mon village de Katiola est-il connecté à la fibre ?",
+      { results: [FICHE_KATIOLA] },
+    );
+    expect(texte).toContain("Village de KATIOLA");
+    expect(texte).toContain("raccordement fibre 127 m");
+    expect(texte).not.toContain("61 525"); // la population part dans la suite
+    expect(suite.join(" ")).toContain("61 525");
+  });
+
+  it("sert la population quand c'est elle qu'on demande", () => {
+    const { texte } = composerReponseAvecSuite(
+      "Combien d'habitants compte Katiola ?",
+      { results: [FICHE_KATIOLA] },
+    );
+    expect(texte).toContain("61 525 habitants");
+  });
+
+  it("sert l'électrification quand on demande le courant", () => {
+    const { texte } = composerReponseAvecSuite(
+      "Est-ce que Katiola est électrifié ?",
+      { results: [FICHE_KATIOLA] },
+    );
+    expect(texte).toContain("Électrification : OUI");
+  });
+
+  it("sans thème reconnu, garde l'ordre naturel de la fiche", () => {
+    const { texte } = composerReponseAvecSuite(
+      "Parlez-moi de Katiola.",
+      { results: [FICHE_KATIOLA] },
+    );
+    expect(texte).toContain("Village de KATIOLA");
+    expect(texte).toContain("61 525 habitants");
+  });
+});
