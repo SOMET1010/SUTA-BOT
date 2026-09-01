@@ -33,6 +33,12 @@ const LIMITE_MAX = 8;
  * proche occupent les premiers rangs vectoriels. */
 const PROFONDEUR_VECTEUR = 16;
 const PROFONDEUR_GEO = 6;
+/** Vague 1 de l'analyse Diakité (01/09) : le plancher de pertinence vaut
+ * aussi côté serveur — l'API ne rend plus les voisins vectoriels sous 0,3
+ * (le client filtrait déjà ; les consommateurs directs de l'API voyaient
+ * encore le bruit : « charabia → 5 résultats à 0,189 »). Les résultats
+ * confirmés par la voie géographique (ancrés par un NOM) sont exemptés. */
+const PLANCHER_SERVEUR = 0.3;
 /** Audit du 23/08 : « où me former au numérique à Korhogo ? » remontait six
  * fiches d'infrastructure de Korhogo et zéro fiche formation — la voie géo
  * écrasait le sujet. Les correspondances géo SEULES (non confirmées par le
@@ -191,20 +197,28 @@ Deno.serve(async (req: Request) => {
     const { data } = await embedResponse.json();
     const vector: number[] = data[0].embedding;
 
+    // Vague 2 de l'analyse Diakité (01/09) : les fiches de lieux SORTENT de
+    // la voie vectorielle (`exclure_lieux`) — 23 883 chunks de gabarit sur
+    // 25 996 formaient un plancher de bruit qui attrapait toute requête
+    // vague (« recette du foutou » → un village). Une localité s'interroge
+    // par son NOM : c'est la voie géographique, inchangée, qui les sert.
     const { data: matches, error } = await supabase.rpc("match_chunks", {
       query_embedding: `[${vector.join(",")}]`,
       match_count: PROFONDEUR_VECTEUR,
       allowed_visibility: VISIBILITE_IMPOSEE,
+      exclure_lieux: true,
     });
     if (error) throw new Error(`Recherche : ${error.message}`);
     if (geoResult.error) throw new Error(`Recherche géo : ${geoResult.error.message}`);
 
-    const vectoriels = (matches as MatchedChunk[]).map((m) => ({
-      row: m,
-      score: Math.max(0, Math.min(1, 1 - m.distance)),
-    }));
     const geo = (geoResult.data ?? []) as GeoChunk[];
     const geoIds = new Set(geo.map((g) => g.chunk_id));
+    const vectoriels = (matches as MatchedChunk[])
+      .map((m) => ({
+        row: m,
+        score: Math.max(0, Math.min(1, 1 - m.distance)),
+      }))
+      .filter((v) => geoIds.has(v.row.chunk_id) || v.score >= PLANCHER_SERVEUR);
 
     // Recherche de SUJET : quand un toponyme est détecté, la même question
     // débarrassée du lieu dit le besoin (« où me former au numérique »).
@@ -238,10 +252,11 @@ Deno.serve(async (req: Request) => {
             query_embedding: `[${(dataSujet[0].embedding as number[]).join(",")}]`,
             match_count: PROFONDEUR_VECTEUR,
             allowed_visibility: VISIBILITE_IMPOSEE,
+            exclure_lieux: true,
           });
           sujets = ((matchesSujet ?? []) as MatchedChunk[])
             .map((m) => ({ row: m, score: Math.max(0, Math.min(1, 1 - m.distance)) }))
-            .filter((v) => !estFicheDeLieu(v.row));
+            .filter((v) => !estFicheDeLieu(v.row) && v.score >= PLANCHER_SERVEUR);
         }
       }
     }
