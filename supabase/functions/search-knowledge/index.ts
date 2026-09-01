@@ -95,6 +95,43 @@ const MOTS_OUTILS = new Set([
   "fibre", "mobile", "telephone", "smartphone", "connecte", "connectee",
 ]);
 
+/**
+ * VAGUE 3 — le même routage d'intention que le client
+ * (apps/web/src/lib/realtime/intentions.ts). Dupliqué à dessein : une Edge
+ * Function ne peut pas importer le module de l'app ; les deux copies portent
+ * les mêmes motifs et sont couvertes par les mêmes cas de test côté app.
+ * Toute évolution se fait DES DEUX CÔTÉS.
+ */
+type Intention = "hors_domaine" | "formation" | "operateurs" | "equipement" | "couverture" | "projets" | "generale";
+
+const MARQUEURS_HORS_DOMAINE =
+  /quel temps fait|meteo\b|pleuvoir|president de la (republique|cote)|premier ministre|\belection\b|match de|football|coupe d.afrique|capitale d[eu]\b|recette de cuisine|quelle heure/;
+const LEXIQUE_DOMAINE =
+  /connect|internet|reseau|couverture|fibre|antenne|operateur|\bpass\b|smartphone|telephone|numerique|ansut|zone blanche|debit|\bsite/;
+const MOTIF_FORMATION = /\bform|apprendre|competence|initier|alphabetis|litteratie/;
+const MOTIF_OPERATEURS = /operateurs?\b|\borange\b|\bmtn\b|\bmoov\b|sites? mobiles?/;
+const MOTIF_EQUIPEMENT = /equip|smartphone|ordinateur|tablette|telephone|\bpass\b/;
+const MOTIF_COUVERTURE = /connect|internet|reseau|couverture|fibre|zone blanche|antenne|debit/;
+const MOTIF_PROJETS = /\bptba\b|\bpnd\b|projets?\b|prevoit|programmes?\b|strategie/;
+
+function detecterIntention(question: string): Intention {
+  const q = question.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
+  if (MARQUEURS_HORS_DOMAINE.test(q) && !LEXIQUE_DOMAINE.test(q)) return "hors_domaine";
+  if (MOTIF_FORMATION.test(q)) return "formation";
+  if (MOTIF_OPERATEURS.test(q)) return "operateurs";
+  if (MOTIF_EQUIPEMENT.test(q)) return "equipement";
+  if (MOTIF_COUVERTURE.test(q)) return "couverture";
+  if (MOTIF_PROJETS.test(q)) return "projets";
+  return "generale";
+}
+
+/** Famille de fiche de LIEU que l'intention appelle en premier parmi les
+ * correspondances géographiques d'une même localité. */
+const FAMILLE_LIEU_PAR_INTENTION: Partial<Record<Intention, RegExp>> = {
+  operateurs: /^op[ée]rateurs mobiles — /i,
+  couverture: /^localit[ée] — /i,
+};
+
 interface MatchedChunk {
   chunk_id: string;
   document_title: string;
@@ -167,20 +204,21 @@ function formater(row: { document_title: string; section: string | null; content
 /**
  * Contre-audit du 01/09 : « quels opérateurs mobiles à Bouaké ? » servait la
  * fiche Localité avant la fiche Opérateurs — l'ordre interne des
- * correspondances géographiques ne regardait pas la question. Quand la
- * requête porte des mots pleins en plus du toponyme, la fiche géo qui les
- * contient (titre ou contenu) passe devant. Sans mot plein, l'ordre
- * géographique d'origine est conservé (tri stable).
+ * correspondances géographiques ne regardait pas la question. Vague 3 :
+ * c'est d'abord l'INTENTION qui choisit la famille de fiche ; le
+ * recouvrement des mots pleins départage ensuite. Sans intention marquée ni
+ * mot plein, l'ordre géographique d'origine est conservé (tri stable).
  */
-function ordonnerGeoSelonLaQuestion(geoSeuls: GeoChunk[], query: string, toponymes: string[]): GeoChunk[] {
+function ordonnerGeoSelonLaQuestion(geoSeuls: GeoChunk[], query: string, toponymes: string[], intention: Intention): GeoChunk[] {
   if (geoSeuls.length < 2) return geoSeuls;
+  const famille = FAMILLE_LIEU_PAR_INTENTION[intention] ?? null;
   const jetons = query.split(/[^\p{L}-]+/u).map(normaliser).filter((m) =>
     m.length >= 3 && !MOTS_OUTILS.has(m) && !toponymes.some((t) => t === m || t.includes(m))
   );
-  if (jetons.length === 0) return geoSeuls;
+  if (famille === null && jetons.length === 0) return geoSeuls;
   const pertinence = (g: GeoChunk) => {
     const texte = normaliser(`${g.document_title} ${g.content}`);
-    return jetons.filter((j) => texte.includes(j)).length;
+    return (famille?.test(g.document_title) ? 100 : 0) + jetons.filter((j) => texte.includes(j)).length;
   };
   return [...geoSeuls].sort((a, b) => pertinence(b) - pertinence(a));
 }
@@ -192,6 +230,15 @@ Deno.serve(async (req: Request) => {
       throw new Error('Paramètre "query" requis.');
     }
     const matchCount = Math.min(Math.max(Number(limit) || 5, 1), LIMITE_MAX);
+
+    // VAGUE 3 : l'intention se décide AVANT de chercher. Une question hors
+    // du périmètre ANSUT ne part ni en embedding ni en correspondance géo —
+    // un nom de ville ne suffit plus à franchir le plancher (contre-audit du
+    // 01/09 : « quel temps fait-il à Abidjan ? » servait une fiche BTS).
+    const intention = detecterIntention(query);
+    if (intention === "hors_domaine") {
+      return Response.json({ ok: true, query, intention, results: [] });
+    }
 
     const endpoint = Deno.env.get("AZURE_OPENAI_ENDPOINT") || DEFAULT_ENDPOINT;
     const deployment = Deno.env.get("EMBEDDINGS_DEPLOYMENT") || DEFAULT_DEPLOYMENT;
@@ -296,6 +343,7 @@ Deno.serve(async (req: Request) => {
       geo.filter((g) => !idsRetenus.has(g.chunk_id)),
       query,
       toponymesDetectes,
+      intention,
     ).slice(0, GEO_SEULS_MAX);
     const dejaVus = new Set<string>([...idsRetenus, ...geoSeuls.map((g) => g.chunk_id)]);
     const sujetSeuls = sujets
@@ -320,13 +368,14 @@ Deno.serve(async (req: Request) => {
     // contenu de fiche, uniquement requête, toponymes et titres classés.
     console.log(JSON.stringify({
       query: query.slice(0, 120),
+      intention,
       toponymes: toponymesDetectes,
       querySujet: querySujet || null,
       geoTrouves: geo.length,
       top5: results.slice(0, 5).map((r) => `${r.title} (${r.score})`),
     }));
 
-    return Response.json({ ok: true, query, results });
+    return Response.json({ ok: true, query, intention, results });
   } catch (error) {
     return Response.json(
       { ok: false, error: error instanceof Error ? error.message : String(error) },
