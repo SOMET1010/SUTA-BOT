@@ -343,6 +343,23 @@ describe("enrichirQuestionRecherche — recette du 31/08 (F06)", () => {
   it("laisse intacte une question sans pilier reconnu", () => {
     expect(enrichirQuestionRecherche("Quelle est la capitale de la France ?")).toBe("Quelle est la capitale de la France ?");
   });
+
+  // Rejeu du 02/09 : la phrase complète d'Elvire noyait l'embedding — zéro
+  // résultat, même glosée, même réduite à ses mots pleins. Seule la glose
+  // pure remonte littératie et inclusion (0,70, mesuré sur la base réelle).
+  it("une longue question de formation cherche sur la glose seule", () => {
+    const enrichie = enrichirQuestionRecherche(
+      "ma tante a satamasokoro et elle ne parle que le dioula est ce qu'il y a des initiatives pour qu'elle se forme à l'utilisation de son smartphone",
+    );
+    expect(enrichie).toBe("formation aux compétences numériques de base, apprendre à utiliser un smartphone, inclusion numérique");
+  });
+
+  it("une longue question de connexion garde le nom du village", () => {
+    const enrichie = enrichirQuestionRecherche(
+      "bonjour je voudrais savoir si mon village de Katiola est bien connecté à la fibre optique parce que chez nous le réseau coupe souvent le soir",
+    );
+    expect(enrichie).toContain("Katiola");
+  });
 });
 
 describe("composerReponseTexte — recette du 31/08 (F08)", () => {

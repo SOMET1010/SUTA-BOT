@@ -270,14 +270,29 @@ export function enrichirQuestionRecherche(question: string): string {
   if (/operateurs?\b|\borange\b|\bmtn\b|\bmoov\b/.test(q)) {
     return `${question} (présence des opérateurs mobiles relevée localité par localité)`;
   }
+  // Question LONGUE (rejeu du 02/09) : la phrase complète d'Elvire (« ma
+  // tante a satamasokoro et elle ne parle que le dioula est ce qu'il y a des
+  // initiatives pour qu'elle se forme… », ~30 mots) noyait l'embedding —
+  // ZÉRO résultat même avec la glose accolée, et même réduite à ses mots
+  // pleins (mesuré sur la base réelle). Seule la glose pure remonte les
+  // bonnes fiches (littératie 0,70). Pour la formation et l'équipement — où
+  // la réponse est un programme national, pas la fiche d'un village — une
+  // question de plus de quinze mots cherche donc sur la glose seule. Les
+  // questions de connexion gardent la phrase entière : le NOM de la localité
+  // y est la clé de la voie géographique.
+  const estLongue = question.trim().split(/\s+/).length > 15;
   // Terrain du 02/09 (Elvire) : « qu'elle se forme à l'utilisation de son
   // smartphone » partait vers le PASS — le mot « smartphone » gagnait sur
   // l'intention de FORMATION. La formation se teste d'abord.
   if (/\bform|apprendre|competence|initier|alphabetis/.test(q)) {
-    return `${question} (formation aux compétences numériques de base, apprendre à utiliser un smartphone, inclusion numérique)`;
+    return estLongue
+      ? "formation aux compétences numériques de base, apprendre à utiliser un smartphone, inclusion numérique"
+      : `${question} (formation aux compétences numériques de base, apprendre à utiliser un smartphone, inclusion numérique)`;
   }
   if (/equip|smartphone|ordinateur|tablette|telephone/.test(q)) {
-    return `${question} (dispositifs d'aide à l'équipement numérique, programme PASS)`;
+    return estLongue
+      ? "dispositifs d'aide à l'équipement numérique, programme PASS, smartphone subventionné"
+      : `${question} (dispositifs d'aide à l'équipement numérique, programme PASS)`;
   }
   if (/connect|internet|reseau|couverture|fibre/.test(q)) {
     return `${question} (couverture réseau et connectivité des localités de Côte d'Ivoire)`;
