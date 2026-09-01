@@ -344,6 +344,42 @@ function sansAccents(texte: string): string {
   return texte.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
 }
 
+/** Mots de la question qui portent le sens (pour départager les preuves). */
+const MOTS_VIDES_QUESTION = new Set([
+  "quelle", "quels", "quelles", "combien", "comment", "pourquoi", "quand",
+  "dans", "pour", "avec", "sans", "cette", "votre", "notre", "leur",
+  "village", "ville", "localite", "commune", "elle", "vous", "nous", "bien",
+  "distance", "quel",
+]);
+
+/**
+ * Rapport de tests du 01/09 (bloc B) : « à quelle distance est la fibre de
+ * Bouaké ? » servait la fiche Opérateurs (classée 1re par le vecteur) alors
+ * que la réponse — « raccordement fibre 464 m » — était dans la fiche
+ * Localité, classée 2e. Quand plusieurs preuves sont retenues, on sert
+ * d'abord celle qui contient les mots pleins de la question (« fibre »,
+ * « écoles », « électrification »…), avec un léger bonus aux fiches de
+ * localité (plus spécifiques qu'un département pour une question de ville).
+ */
+function ordonnerPreuvesSelonLaQuestion(question: string, preuves: string[]): string[] {
+  if (preuves.length < 2) return preuves;
+  const jetons = sansAccents(question)
+    .split(/[^a-z0-9]+/)
+    .filter((j) => j.length >= 4 && !MOTS_VIDES_QUESTION.has(j));
+  if (jetons.length === 0) return preuves;
+  const score = (p: string) => {
+    const texte = sansAccents(p);
+    return jetons.filter((j) => texte.includes(j)).length + (/^(village|ville|commune|localite) de /.test(texte) ? 0.5 : 0);
+  };
+  return [...preuves].sort((a, b) => score(b) - score(a));
+}
+
+/** Codes bruts des fiches jamais servis tels quels (bloc B : « Électrification
+ * : DND » affiché à l'écran — un citoyen ne parle pas en codes). */
+function nettoyerCodes(texte: string): string {
+  return texte.replace(/\bDND\b/g, "non renseignée");
+}
+
 function ordonnerSelonLaQuestion(question: string, phrases: string[]): string[] {
   const theme = THEMES_PHRASES.find((t) => t.question.test(sansAccents(question)));
   if (!theme || phrases.length < 2) return phrases;
@@ -379,10 +415,11 @@ export function composerReponseAvecSuite(
   // Budget porté de 320 à 400 : contre-recette v4 (R06) — les deux premières
   // phrases de la synthèse RNHD font 374 caractères, et l'ancienne limite
   // coupait précisément celle qui porte le décompte des sections.
-  const ordonnees = ordonnerSelonLaQuestion(question, preuves[0].trim().split(SEPARATEUR_PHRASES));
+  const preuvesOrdonnees = ordonnerPreuvesSelonLaQuestion(question, preuves).map(nettoyerCodes);
+  const ordonnees = ordonnerSelonLaQuestion(question, preuvesOrdonnees[0].trim().split(SEPARATEUR_PHRASES));
   const { texte: essentiel, nbPhrases } = decoupePhrases(ordonnees.join(" "), 2, 400);
   const restePremiere = ordonnees.slice(nbPhrases).join(" ");
-  const suite = [...(restePremiere ? [restePremiere] : []), ...preuves.slice(1)];
+  const suite = [...(restePremiere ? [restePremiere] : []), ...preuvesOrdonnees.slice(1)];
   // Contre-recette v4 (R11) : « mon village est-il connecté ? » sans nom de
   // village recevait le cadre général SANS demander le nom — la personne ne
   // savait pas que SUTA peut répondre pour SON village. Quand la question

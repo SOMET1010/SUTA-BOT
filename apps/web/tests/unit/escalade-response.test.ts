@@ -32,3 +32,13 @@ describe("getEscaladeResponse", () => {
     expect(getEscaladeResponse(question)).toBeNull();
   });
 });
+
+describe("contact ANSUT — rapport de tests du 01/09 (bloc D)", () => {
+  it.each([
+    "Quel est le numéro de téléphone de l'ANSUT ?",
+    "comment contacter l'ANSUT ?",
+    "quelle est l'adresse du siège ?",
+  ])("oriente « %s » comme une demande de contact", (question) => {
+    expect(getEscaladeResponse(question)).toContain("l'équipe présente sur le stand");
+  });
+});

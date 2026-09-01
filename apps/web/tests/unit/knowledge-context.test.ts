@@ -583,3 +583,38 @@ describe("contre-recette v4 — R11 (« mon village » sans nom)", () => {
     expect(texte).toContain("Village de DJACE");
   });
 });
+
+describe("rapport de tests du 01/09 — bloc B (la bonne preuve d'abord)", () => {
+  const FICHE_OPS_BOUAKE = {
+    title: "Opérateurs mobiles — Bouaké (Bouaké)",
+    content: "Bouaké, sous-préfecture de Bouaké. Présence des opérateurs mobiles : 44 sites à moins de 3 km — opérateurs : Moov, MTN et Orange.",
+    score: 0.694,
+  };
+  const FICHE_LOC_BOUAKE = {
+    title: "Localité — BOUAKE (BOUAKE)",
+    content: "Ville de BOUAKE, département de BOUAKE, région GBEKE. Population : 536 719 habitants. Équipements présents : 141 école(s). Électrification : DND. Distances aux infrastructures : raccordement fibre 464 m.",
+    score: 0.552,
+  };
+
+  it("sert la fiche qui contient le mot de la question (fibre), même classée 2e", () => {
+    const { texte } = composerReponseAvecSuite("À quelle distance est la fibre de Bouaké ?", {
+      results: [FICHE_OPS_BOUAKE, FICHE_LOC_BOUAKE],
+    });
+    expect(texte).toContain("raccordement fibre 464 m");
+  });
+
+  it("sert le décompte d'écoles quand on le demande", () => {
+    const { texte } = composerReponseAvecSuite("Combien d'écoles y a-t-il à Bouaké ?", {
+      results: [FICHE_OPS_BOUAKE, FICHE_LOC_BOUAKE],
+    });
+    expect(texte).toContain("141 école(s)");
+  });
+
+  it("ne sert jamais le code brut DND", () => {
+    const { texte, suite } = composerReponseAvecSuite("Bouaké est-elle électrifiée ?", {
+      results: [FICHE_LOC_BOUAKE],
+    });
+    expect(`${texte} ${suite.join(" ")}`).not.toMatch(/\bDND\b/);
+    expect(`${texte} ${suite.join(" ")}`).toContain("non renseignée");
+  });
+});

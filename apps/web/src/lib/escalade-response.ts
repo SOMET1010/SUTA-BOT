@@ -29,6 +29,13 @@ const ESCALADE_PATTERNS = [
   /\bconseillere? humaine?\b/,
   /\bservice client\b/,
   /\bun humain\b/,
+  // Rapport de tests du 01/09 (bloc D) : « quel est le numéro de téléphone
+  // de l'ANSUT ? » recevait une fiche institutionnelle hors sujet — le
+  // corpus ne contient aucun contact. C'est la même intention que
+  // l'escalade : joindre quelqu'un.
+  /\bnumero\b.{0,30}\bansut\b|\bansut\b.{0,30}\bnumero\b/,
+  /\b(contacter|joindre|appeler|ecrire a) l ansut\b/,
+  /\badresse (de l ansut|du siege)\b/,
 ];
 
 const ESCALADE_ANSWER =
