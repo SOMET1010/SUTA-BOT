@@ -19,6 +19,8 @@
  * Module pur (aucune dépendance React) pour rester testable unitairement.
  */
 
+import { detecterIntention, familleDeLieuPreferee } from "./intentions";
+
 /** Au-delà de trois fiches, le modèle inventorie au lieu de synthétiser. */
 const MAX_PREUVES = 3;
 /** Audit du 23/08 : une question hors périmètre (« qui a gagné le match ? »)
@@ -170,21 +172,14 @@ function candidats(result: unknown): Preuve[] | null {
     .filter((p) => p.contenu.length > 0);
 }
 
-/** Contre-audit du 01/09 : « quel temps fait-il à Abidjan ? » servait une
- * fiche BTS — un nom de lieu suffisait à franchir le plancher, qui coupe sur
- * un chiffre sans juger la pertinence. Les familles de questions
- * manifestement hors du périmètre ANSUT sont refusées d'emblée : mieux vaut
- * annoncer le périmètre qu'étirer une fiche voisine. (Le vrai routage
- * d'intention est la vague 3 — après le 9.) Motifs écrits sans accents :
- * ils sont testés sur la question passée par `sansAccents`. */
-const QUESTION_HORS_DOMAINE =
-  /quel temps fait|meteo\b|pleuvoir|president de la (republique|cote)|premier ministre|\belection\b|match de|football|coupe d.afrique|capitale d[eu]\b|recette de cuisine|quelle heure/;
-
-/** Exporté pour les tests : la liste des contenus retenus comme preuves. */
+/** Exporté pour les tests : la liste des contenus retenus comme preuves.
+ * Vague 3 : le jugement hors-domaine vient du routage d'intention — plus de
+ * liste locale (contre-audit du 01/09 : « quel temps fait-il à Abidjan ? »
+ * servait une fiche BTS, un nom de lieu suffisait à franchir le plancher). */
 export function selectionnerPreuves(question: string, result: unknown): string[] | null {
   const tous = candidats(result);
   if (tous === null) return null;
-  if (QUESTION_HORS_DOMAINE.test(sansAccents(question))) return [];
+  if (detecterIntention(question) === "hors_domaine") return [];
 
   const questionNormalisee = normaliser(question);
   const questionGenerale = QUESTION_GENERALE.test(question);
@@ -266,23 +261,22 @@ export function enrichirQuestionRecherche(question: string): string {
   if (/\brnhd\b|dorsale/.test(q)) {
     return `${question} (Réseau National Haut Débit, dorsale nationale de fibre optique de l'État, état des sections)`;
   }
-  // C05 : le relevé de présence des opérateurs, village par village.
-  if (/operateurs?\b|\borange\b|\bmtn\b|\bmoov\b/.test(q)) {
-    return `${question} (présence des opérateurs mobiles relevée localité par localité)`;
+  // Vague 3 : la glose vient de l'INTENTION — plus une chaîne de si/alors
+  // qui re-devinait. Les gloses elles-mêmes sont inchangées (mesurées sur la
+  // base réelle) ; l'ordre des leçons de terrain (C05, Elvire du 02/09 :
+  // formation AVANT équipement) vit désormais dans `detecterIntention`.
+  switch (detecterIntention(question)) {
+    case "operateurs":
+      return `${question} (présence des opérateurs mobiles relevée localité par localité)`;
+    case "formation":
+      return `${question} (formation aux compétences numériques de base, apprendre à utiliser un smartphone, inclusion numérique)`;
+    case "equipement":
+      return `${question} (dispositifs d'aide à l'équipement numérique, programme PASS)`;
+    case "couverture":
+      return `${question} (couverture réseau et connectivité des localités de Côte d'Ivoire)`;
+    default:
+      return question;
   }
-  // Terrain du 02/09 (Elvire) : « qu'elle se forme à l'utilisation de son
-  // smartphone » partait vers le PASS — le mot « smartphone » gagnait sur
-  // l'intention de FORMATION. La formation se teste d'abord.
-  if (/\bform|apprendre|competence|initier|alphabetis/.test(q)) {
-    return `${question} (formation aux compétences numériques de base, apprendre à utiliser un smartphone, inclusion numérique)`;
-  }
-  if (/equip|smartphone|ordinateur|tablette|telephone/.test(q)) {
-    return `${question} (dispositifs d'aide à l'équipement numérique, programme PASS)`;
-  }
-  if (/connect|internet|reseau|couverture|fibre/.test(q)) {
-    return `${question} (couverture réseau et connectivité des localités de Côte d'Ivoire)`;
-  }
-  return question;
 }
 
 const SEPARATEUR_PHRASES = /(?<=[.!?])\s+/;
@@ -387,16 +381,18 @@ function jetonsDeLaQuestion(question: string): string[] {
 }
 
 /** Départage des fiches de LIEU d'une même localité (Localité, Opérateurs
- * mobiles, BTS…) : celle dont le titre ou le contenu porte les mots pleins
- * de la question passe devant. Tri stable — sans mot plein, l'ordre de la
- * recherche est conservé. */
+ * mobiles, BTS…). Vague 3 : c'est d'abord l'INTENTION qui choisit la famille
+ * (« quels opérateurs ? » → fiche Opérateurs, « suis-je connecté ? » → fiche
+ * Localité) ; le recouvrement des mots pleins départage ensuite. Tri stable
+ * — sans intention marquée ni mot plein, l'ordre de la recherche demeure. */
 function ordonnerLieuxSelonLaQuestion(question: string, lieux: Preuve[]): Preuve[] {
   if (lieux.length < 2) return lieux;
+  const famille = familleDeLieuPreferee(detecterIntention(question));
   const jetons = jetonsDeLaQuestion(question);
-  if (jetons.length === 0) return lieux;
+  if (famille === null && jetons.length === 0) return lieux;
   const score = (p: Preuve) => {
     const texte = sansAccents(`${p.titre} ${p.contenu}`);
-    return jetons.filter((j) => texte.includes(j)).length;
+    return (famille?.test(p.titre) ? 100 : 0) + jetons.filter((j) => texte.includes(j)).length;
   };
   return [...lieux].sort((a, b) => score(b) - score(a));
 }
