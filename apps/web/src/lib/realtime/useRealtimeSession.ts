@@ -14,13 +14,23 @@ export interface StartRealtimeCallbacks extends RealtimeClientCallbacks {
 }
 export interface StartRealtimeResult { simulated: boolean; }
 
+/** Outils exécutables par la boucle vocale → leur route serveur. Le
+ * signalement vocal marque son canal (traçabilité anonyme du Lot Action). */
+const ROUTES_OUTILS: Record<string, { path: string; extra?: Record<string, unknown> }> = {
+  search_knowledge: { path: "/api/tools/search-knowledge" },
+  signaler_zone: { path: "/api/tools/signaler-zone", extra: { canal: "voix" } },
+  point_connecte: { path: "/api/tools/point-connecte" },
+};
+
 async function executeToolByName(name: string, argumentsJson: string): Promise<unknown> {
-  if (name !== "search_knowledge") return { error: `Outil non pris en charge côté client : ${name}` };
+  const route = ROUTES_OUTILS[name];
+  if (!route) return { error: `Outil non pris en charge côté client : ${name}` };
   const args: unknown = JSON.parse(argumentsJson);
-  const response = await fetch("/api/tools/search-knowledge", {
+  const corps = typeof args === "object" && args !== null ? { ...args, ...(route.extra ?? {}) } : args;
+  const response = await fetch(route.path, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(args),
+    body: JSON.stringify(corps),
   });
   return response.json();
 }
@@ -85,7 +95,9 @@ export function useRealtimeSession() {
             if (typeof parsed.query === "string") query = parsed.query;
           } catch { /* arguments illisibles : sélection sans intention */ }
           callbacks.onToolResult?.(name, result, query);
-          return shapeKnowledgeForModel(result, query);
+          // Seule la recherche documentaire passe par la sélection de
+          // preuves ; les outils d'action rendent leur résultat tel quel.
+          return name === "search_knowledge" ? shapeKnowledgeForModel(result, query) : result;
         },
         callbacks: effectiveCallbacks,
       });

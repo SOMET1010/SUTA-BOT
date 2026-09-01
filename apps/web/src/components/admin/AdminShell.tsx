@@ -5,6 +5,7 @@ import { LogoutButton } from "./LogoutButton";
 const NAV_ITEMS = [
   { href: "/admin", label: "Tableau de bord" },
   { href: "/admin/knowledge", label: "Base de connaissances" },
+  { href: "/admin/signalements", label: "Signalements" },
   { href: "/admin/voice-lab", label: "Labo voix" },
   { href: "/admin/voice-casting", label: "Casting" },
   { href: "/admin/diagnostics", label: "Diagnostics" },

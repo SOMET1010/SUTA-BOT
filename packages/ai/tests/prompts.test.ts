@@ -68,6 +68,17 @@ describe("loadSutaSystemPrompt", () => {
     expect(prompt).toContain("N'invente JAMAIS de numéro de téléphone");
   });
 
+  it("gives SUTA its action tools with their guardrails", () => {
+    const prompt = loadSutaSystemPrompt();
+    // Lot Action (arbitrage Patrick du 02/09, démo du 9 septembre).
+    expect(prompt).toContain("# TES ACTIONS");
+    expect(prompt).toContain("signaler_zone");
+    expect(prompt).toContain("point_connecte");
+    expect(prompt).toContain("à vol d'oiseau");
+    expect(prompt).toContain("JAMAIS une promesse d'éligibilité");
+    expect(prompt).toContain("Jamais de nom de personne ni de numéro");
+  });
+
   it("declines undoable procedures plainly, never via a search", () => {
     const prompt = loadSutaSystemPrompt();
     // Recette v3 du 31/08 (C14) : « prends un rendez-vous » recevait une

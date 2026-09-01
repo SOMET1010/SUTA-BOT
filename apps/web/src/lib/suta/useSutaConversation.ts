@@ -5,6 +5,17 @@ import type { ConversationState } from "@suta/shared";
 import { getEscaladeResponse } from "@/lib/escalade-response";
 import { getIdentityResponse } from "@/lib/identity-response";
 import { getActionResponse, getAdminResponse, getSelectionResponse } from "@/lib/reponses-reservees";
+import {
+  DEMANDE_LOCALITE_POINT,
+  DEMANDE_LOCALITE_SIGNALEMENT,
+  REPONSE_PRECHECK_PASS,
+  composerConfirmationSignalement,
+  composerPointConnecte,
+  detecterPassPrecheck,
+  detecterPointConnecte,
+  detecterSignalement,
+  type ProblemeReseau,
+} from "@/lib/suta/actions-citoyennes";
 import { composerReponseAvecSuite, composerSuite, enrichirQuestionRecherche, estDemandeDeSuite, selectionnerPreuves } from "@/lib/realtime/knowledge-context";
 import { useRealtimeSession } from "@/lib/realtime/useRealtimeSession";
 import { experienceFromKnowledge, type SutaPillar } from "@/lib/suta/experience";
@@ -67,6 +78,10 @@ export function useSutaConversation(): SutaConversationController {
    * la même réponse (même fiche gagnante, mêmes phrases servies). Quand la
    * nouvelle question produirait le texte déjà donné, on sert la suite. */
   const dernierTexteServi = useRef("");
+  /** LOT ACTION : parcours à deux tours du chemin texte — SUTA a demandé
+   * une localité (signalement ou point connecté), le prochain message
+   * de la personne EST cette localité. */
+  const attenteLocalite = useRef<{ action: "signalement"; probleme: ProblemeReseau } | { action: "point" } | null>(null);
   const sessionContext = useRef<SutaSessionContext>({ ...EMPTY_SUTA_CONTEXT, lastTopics: [] });
   const searchAbort = useRef<AbortController | null>(null);
   const resumeVoiceAfterNetwork = useRef(false);
@@ -360,6 +375,51 @@ export function useSutaConversation(): SutaConversationController {
       respond(reservee);
       return;
     }
+    // LOT ACTION — deuxième tour d'un parcours : le message EST la localité.
+    if (attenteLocalite.current) {
+      const attente = attenteLocalite.current;
+      attenteLocalite.current = null;
+      const localite = text.replace(/^(c'est|c est|à|a|au village de|le village de|chez nous à)\s+/i, "").trim().slice(0, 80);
+      setState("SEARCHING");
+      try {
+        if (attente.action === "signalement") {
+          const reponse = await fetch("/api/tools/signaler-zone", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ localite, probleme: attente.probleme, canal: "texte" }),
+          });
+          const data = await reponse.json().catch(() => null);
+          respond(composerConfirmationSignalement(localite, reponse.ok ? data : {}));
+        } else {
+          const reponse = await fetch("/api/tools/point-connecte", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ localite }),
+          });
+          const data = await reponse.json().catch(() => null);
+          respond(composerPointConnecte(localite, reponse.ok ? data : {}));
+        }
+      } catch {
+        respond("Le service est momentanément indisponible. Réessayez dans un instant.");
+      }
+      return;
+    }
+    // LOT ACTION — premier tour : détection des intentions d'action.
+    if (detecterPassPrecheck(text)) {
+      respond(REPONSE_PRECHECK_PASS);
+      return;
+    }
+    const probleme = detecterSignalement(text);
+    if (probleme) {
+      attenteLocalite.current = { action: "signalement", probleme };
+      respond(DEMANDE_LOCALITE_SIGNALEMENT);
+      return;
+    }
+    if (detecterPointConnecte(text)) {
+      attenteLocalite.current = { action: "point" };
+      respond(DEMANDE_LOCALITE_POINT);
+      return;
+    }
     // « Dis-moi plus » continue la réponse précédente : on sert ce qu'elle
     // n'a pas encore dit, jamais une recherche sur ces mots-là.
     if (estDemandeDeSuite(text) && aServiUneReponse.current) {
@@ -392,6 +452,7 @@ export function useSutaConversation(): SutaConversationController {
     suiteRef.current = [];
     aServiUneReponse.current = false;
     dernierTexteServi.current = "";
+    attenteLocalite.current = null;
     sessionContext.current = { ...EMPTY_SUTA_CONTEXT, lastTopics: [] };
   }, [clearTimeouts, realtime]);
 
