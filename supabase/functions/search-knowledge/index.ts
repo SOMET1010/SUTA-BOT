@@ -211,16 +211,23 @@ function formater(row: { document_title: string; section: string | null; content
  */
 function ordonnerGeoSelonLaQuestion(geoSeuls: GeoChunk[], query: string, toponymes: string[], intention: Intention): GeoChunk[] {
   if (geoSeuls.length < 2) return geoSeuls;
+  // Terrain du 02/09 (« lakota est-il connecté ? ») : la glose
+  // d'enrichissement du client (« …des localités de Côte d'Ivoire »)
+  // polluait ce tri et faisait couper la fiche de la ville par le plafond.
+  // La glose finale est ignorée, et le rang géographique reste premier :
+  // une correspondance exacte de NOM ne passe jamais derrière une fiche de
+  // département — l'intention et les mots pleins ne départagent qu'à rang
+  // égal (Localité vs Opérateurs d'une même ville).
+  const sansGlose = query.replace(/\s*\([^)]*\)\s*$/, "");
   const famille = FAMILLE_LIEU_PAR_INTENTION[intention] ?? null;
-  const jetons = query.split(/[^\p{L}-]+/u).map(normaliser).filter((m) =>
+  const jetons = sansGlose.split(/[^\p{L}-]+/u).map(normaliser).filter((m) =>
     m.length >= 3 && !MOTS_OUTILS.has(m) && !toponymes.some((t) => t === m || t.includes(m))
   );
-  if (famille === null && jetons.length === 0) return geoSeuls;
   const pertinence = (g: GeoChunk) => {
     const texte = normaliser(`${g.document_title} ${g.content}`);
     return (famille?.test(g.document_title) ? 100 : 0) + jetons.filter((j) => texte.includes(j)).length;
   };
-  return [...geoSeuls].sort((a, b) => pertinence(b) - pertinence(a));
+  return [...geoSeuls].sort((a, b) => a.geo_rank - b.geo_rank || pertinence(b) - pertinence(a));
 }
 
 Deno.serve(async (req: Request) => {
