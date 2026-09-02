@@ -169,20 +169,30 @@ function formater(row: { document_title: string; section: string | null; content
  * fiche Localité avant la fiche Opérateurs — l'ordre interne des
  * correspondances géographiques ne regardait pas la question. Quand la
  * requête porte des mots pleins en plus du toponyme, la fiche géo qui les
- * contient (titre ou contenu) passe devant. Sans mot plein, l'ordre
- * géographique d'origine est conservé (tri stable).
+ * contient (titre ou contenu) passe devant.
+ *
+ * Terrain du 02/09 (« lakota est-il connecté ? ») : la première version de
+ * ce tri se faisait polluer par la glose d'enrichissement du client —
+ * « …des localités de Côte d'Ivoire » faisait remonter les fiches de
+ * DÉPARTEMENT (« couverture des localités ») devant la fiche de la ville,
+ * que le plafond GEO_SEULS_MAX coupait ensuite entièrement. Deux gardes :
+ * la glose entre parenthèses finales est ignorée, et le rang géographique
+ * reste premier — une correspondance exacte de NOM (rang 1) ne passe JAMAIS
+ * derrière une fiche de département ou de titre (rangs 2-4). Le tri par
+ * mots pleins ne départage plus qu'à rang égal (Localité vs Opérateurs
+ * d'une même ville — le cas du contre-audit, préservé).
  */
 function ordonnerGeoSelonLaQuestion(geoSeuls: GeoChunk[], query: string, toponymes: string[]): GeoChunk[] {
   if (geoSeuls.length < 2) return geoSeuls;
-  const jetons = query.split(/[^\p{L}-]+/u).map(normaliser).filter((m) =>
+  const sansGlose = query.replace(/\s*\([^)]*\)\s*$/, "");
+  const jetons = sansGlose.split(/[^\p{L}-]+/u).map(normaliser).filter((m) =>
     m.length >= 3 && !MOTS_OUTILS.has(m) && !toponymes.some((t) => t === m || t.includes(m))
   );
-  if (jetons.length === 0) return geoSeuls;
   const pertinence = (g: GeoChunk) => {
     const texte = normaliser(`${g.document_title} ${g.content}`);
     return jetons.filter((j) => texte.includes(j)).length;
   };
-  return [...geoSeuls].sort((a, b) => pertinence(b) - pertinence(a));
+  return [...geoSeuls].sort((a, b) => a.geo_rank - b.geo_rank || pertinence(b) - pertinence(a));
 }
 
 Deno.serve(async (req: Request) => {
