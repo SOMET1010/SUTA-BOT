@@ -401,17 +401,30 @@ function jetonsDeLaQuestion(question: string): string[] {
     .filter((j) => j.length >= 4 && !MOTS_VIDES_QUESTION.has(j));
 }
 
+/** Population portée par une fiche (« Population : 175 667 habitants »),
+ * 0 quand la fiche n'en dit rien. Balayage du 03/09 : les HOMONYMES —
+ * Soubré existe deux fois, Bondoukou quatre fois ; à nom égal, c'est
+ * presque toujours la localité la plus peuplée que le citoyen demande. */
+function populationDeLaFiche(contenu: string): number {
+  const m = contenu.match(/population : ([\d\s  ]+) habitant/i);
+  return m ? Number(m[1].replace(/\D/g, "")) : 0;
+}
+
 /** Départage des fiches de LIEU d'une même localité (Localité, Opérateurs
  * mobiles, BTS…) : celle dont le titre ou le contenu porte les mots pleins
- * de la question passe devant. Tri stable — sans mot plein, l'ordre de la
- * recherche est conservé. */
+ * de la question passe devant, avec un bonus aux fiches d'une vraie ville
+ * (population ≥ 10 000) — le hameau homonyme d'une grande ville ne vole
+ * plus la réponse. Tri stable — sans signal, l'ordre de la recherche est
+ * conservé (la base sert déjà les localités les plus peuplées d'abord). */
 function ordonnerLieuxSelonLaQuestion(question: string, lieux: Preuve[]): Preuve[] {
   if (lieux.length < 2) return lieux;
   const jetons = jetonsDeLaQuestion(question);
-  if (jetons.length === 0) return lieux;
   const score = (p: Preuve) => {
     const texte = sansAccents(`${p.titre} ${p.contenu}`);
-    return jetons.filter((j) => texte.includes(j)).length;
+    return (
+      jetons.filter((j) => texte.includes(j)).length +
+      (populationDeLaFiche(p.contenu) >= 10000 ? 1 : 0)
+    );
   };
   return [...lieux].sort((a, b) => score(b) - score(a));
 }
@@ -419,10 +432,15 @@ function ordonnerLieuxSelonLaQuestion(question: string, lieux: Preuve[]): Preuve
 function ordonnerPreuvesSelonLaQuestion(question: string, preuves: string[]): string[] {
   if (preuves.length < 2) return preuves;
   const jetons = jetonsDeLaQuestion(question);
-  if (jetons.length === 0) return preuves;
   const score = (p: string) => {
     const texte = sansAccents(p);
-    return jetons.filter((j) => texte.includes(j)).length + (/^(village|ville|commune|localite) de /.test(texte) ? 0.5 : 0);
+    return (
+      jetons.filter((j) => texte.includes(j)).length +
+      (/^(village|ville|commune|localite) de /.test(texte) ? 0.5 : 0) +
+      // Balayage du 03/09 (homonymes) : à mots égaux, la fiche d'une vraie
+      // ville passe devant celle d'un hameau homonyme.
+      (populationDeLaFiche(p) >= 10000 ? 1 : 0)
+    );
   };
   return [...preuves].sort((a, b) => score(b) - score(a));
 }

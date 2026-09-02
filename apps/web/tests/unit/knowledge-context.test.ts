@@ -711,3 +711,26 @@ describe("contre-audit du 01/09 — hors domaine malgré un nom de lieu", () => 
     expect(comprise).toBe(true);
   });
 });
+
+describe("balayage du 03/09 — les homonymes (Soubré, Bondoukou)", () => {
+  it("« soubré est-il connecté ? » sert la ville, pas le hameau homonyme", () => {
+    // Soubré existe deux fois : la ville de la Nawa (175 667 habitants) et
+    // un village d'Aboisso (1 088). Le départage était alphabétique.
+    const { texte } = composerReponseAvecSuite("soubré est-il connecté ?", {
+      results: [
+        {
+          title: "Opérateurs mobiles — Soubre (Soubre)",
+          content: "Soubre, sous-préfecture de Soubre, département de Soubre, région Nawa. Population : 175 667 habitants. Présence des opérateurs mobiles (données ANSUT au 2 mai 2026) : 31 sites à moins de 3 km de la localité — opérateurs : Moov, MTN et Orange.",
+          score: 0.5,
+        },
+        {
+          title: "Localité — SOUBRE (ABOISSO)",
+          content: "Village de SOUBRE, sous-préfecture de BIANOUAN, département de ABOISSO, région SUD-COMOE. Population : 1 088 habitants. Distances aux infrastructures : site 3G le plus proche 2 133 m.",
+          score: 0.49,
+        },
+      ],
+    });
+    expect(texte).toContain("31 sites");
+    expect(texte).not.toContain("2 133 m");
+  });
+});
