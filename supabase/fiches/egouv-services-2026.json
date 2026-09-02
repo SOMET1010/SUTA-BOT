@@ -1,0 +1,18 @@
+[
+  {
+    "id": "egouv-applications-2026",
+    "title": "Les applications eGOUV : ce que l'État fait déjà en ligne",
+    "content": "Le programme eGOUV fait tourner plusieurs applications concrètes de l'administration ivoirienne. eCONSEIL gère la préparation des conseils des ministres et de gouvernement. eCABINET, en phase pilote, dématérialise la gestion des courriers des cabinets. Et surtout, pour les citoyens, la plateforme de dématérialisation des démarches administratives alimente le portail servicespublic.gouv.ci : demander un document ou entamer une démarche en ligne, sans se déplacer. Des services en ligne existent aussi dans des domaines précis, comme le portail des bourses d'études à l'étranger ou les services de l'Agence Emploi Jeunes. Ces applications reposent sur le socle commun eGOUV : la même identité numérique, la même messagerie professionnelle de l'État et les mêmes outils de collaboration pour toutes les administrations.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": { "famille": "egouv", "source": "Présentation infrastructures et services eGOUV (ANSUT/DSIS, 2026)" }
+  },
+  {
+    "id": "egouv-ampleur-2026",
+    "title": "L'ampleur du programme eGOUV dans l'administration",
+    "content": "Le programme eGOUV équipe aujourd'hui plus de soixante ministères et une douzaine d'institutions de la République. L'annuaire numérique de l'État compte environ 45 000 comptes d'agents publics, et l'ambition est d'équiper à terme l'ensemble des agents de l'État — environ 293 000 fonctionnaires et agents publics civils recensés en 2024. Pour relier tout ce monde, les administrations sont interconnectées par des réseaux dédiés, dont un réseau en fibre optique d'environ 80 kilomètres appartenant à l'État de Côte d'Ivoire, qui relie les administrations publiques d'Abidjan et de Grand-Bassam. Les services sont hébergés dans un centre de données de l'État, en service depuis 2012 et dont la modernisation est en cours pour préparer les cinq prochaines années, complété par des services d'informatique en nuage pour la messagerie et la collaboration.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": { "famille": "egouv", "source": "Présentation infrastructures et services eGOUV (ANSUT/DSIS, 2026)" }
+  }
+]
