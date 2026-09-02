@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { ConversationState } from "@suta/shared";
 import { getEscaladeResponse } from "@/lib/escalade-response";
 import { getIdentityResponse } from "@/lib/identity-response";
+import { getAccueilResponse } from "@/lib/suta/accueil-response";
 import { getActionResponse, getAdminResponse, getSelectionResponse } from "@/lib/reponses-reservees";
 import {
   DEMANDE_LOCALITE_POINT,
@@ -387,6 +388,15 @@ export function useSutaConversation(): SutaConversationController {
     const reservee = getSelectionResponse(text) ?? getAdminResponse(text) ?? getActionResponse(text);
     if (reservee) {
       respond(reservee);
+      return;
+    }
+    // Revue d'architecture du 03/09 : une demande LARGE d'orientation
+    // (« expliquez-moi ce qui peut être utile dans ma situation ») partait en
+    // recherche et recevait des fiches prospectives — l'accueil qui oriente
+    // est déterministe, comme sur la voix.
+    const accueil = getAccueilResponse(text);
+    if (accueil) {
+      respond(accueil);
       return;
     }
     // LOT ACTION — deuxième tour d'un parcours : le message EST la localité.
