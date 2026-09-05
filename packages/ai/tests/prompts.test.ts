@@ -98,6 +98,16 @@ describe("loadSutaSystemPrompt", () => {
     expect(prompt).toContain("ne développe pas l'acronyme SUTA");
   });
 
+  it("explains ANSUT CONNECTE and names the DG without a search", () => {
+    const prompt = loadSutaSystemPrompt();
+    // Terrain du 04/09 (test DSIS) : SUTA mentionnait ANSUT CONNECTE sans
+    // savoir l'expliquer, et ignorait qui dirige l'ANSUT.
+    expect(prompt).toContain("ANSUT CONNECTE est le dispositif de l'ANSUT");
+    expect(prompt).toContain("Gilles Thierry Beugré");
+    // Le garde-fou : un seul nom porté par le prompt, jamais d'invention.
+    expect(prompt).toContain("ne cite JAMAIS un nom que tes connaissances ne portent pas");
+  });
+
   it("keeps the mandatory waiting phrase before every search", () => {
     const prompt = loadSutaSystemPrompt();
     // Sans elle, le silence de trois secondes revient (constaté en test réel).

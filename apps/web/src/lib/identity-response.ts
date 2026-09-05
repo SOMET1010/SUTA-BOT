@@ -43,7 +43,38 @@ const IDENTITY_PATTERNS = [
 const IDENTITY_ANSWER =
   "Bonjour. Je suis SUTA, l'assistant intelligent d'ANSUT CONNECTE. Je peux vous aider à découvrir les services, programmes et informations de l'ANSUT. Que souhaitez-vous savoir ?";
 
+/**
+ * Terrain du 04/09 (test DSIS) : SUTA se présente comme « l'assistant
+ * d'ANSUT CONNECTE » mais ne savait pas expliquer ce que c'est, ni dire
+ * qui dirige l'ANSUT. Deux questions de personnalité/institution, pas de
+ * base de connaissances : mêmes réponses déterministes que l'identité.
+ * Le nom du DG vient de la documentation interne ANSUT (Matinales COM).
+ */
+const ANSUT_CONNECTE_PATTERNS = [
+  /\b(c est quoi|qu est ce que|que veut dire|ca veut dire quoi) ansut connecte\b/,
+  /\bansut connecte (c est quoi|ca veut dire quoi|qu est ce que c est)\b/,
+  /\bexplique[sz]? (moi )?ansut connecte\b/,
+];
+
+const ANSUT_CONNECTE_ANSWER =
+  "ANSUT CONNECTE est le dispositif de l'ANSUT qui rapproche le numérique des citoyens : vérifier la couverture réseau de votre localité, vous équiper à petit prix avec le programme PASS, vous orienter vers les formations gratuites au numérique, et transmettre vos signalements quand le réseau manque. Je suis SUTA, son assistant. Que puis-je faire pour vous ?";
+
+const DG_PATTERNS = [
+  /\bqui est le (directeur|directrice) (general|generale)( de l ansut)?\b/,
+  /\bqui est le dg( de l ansut)?\b/,
+  /\bqui dirige l ansut\b/,
+  /\bc est qui le (directeur|dg)( general)?( de l ansut)?\b/,
+  /\b(directeur general|dg) de l ansut c est qui\b/,
+  /\b(nom|identite) du (directeur general|dg)( de l ansut)?\b/,
+];
+
+const DG_ANSWER =
+  "Le Directeur général de l'ANSUT est monsieur Gilles Thierry Beugré. Que puis-je faire d'autre pour vous ?";
+
 export function getIdentityResponse(question: string): string | null {
   const normalisee = normaliser(question);
-  return IDENTITY_PATTERNS.some((pattern) => pattern.test(normalisee)) ? IDENTITY_ANSWER : null;
+  if (IDENTITY_PATTERNS.some((pattern) => pattern.test(normalisee))) return IDENTITY_ANSWER;
+  if (ANSUT_CONNECTE_PATTERNS.some((pattern) => pattern.test(normalisee))) return ANSUT_CONNECTE_ANSWER;
+  if (DG_PATTERNS.some((pattern) => pattern.test(normalisee))) return DG_ANSWER;
+  return null;
 }
