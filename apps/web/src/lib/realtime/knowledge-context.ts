@@ -19,6 +19,8 @@
  * Module pur (aucune dépendance React) pour rester testable unitairement.
  */
 
+import { detecterIntention, familleDeLieuPreferee } from "./intentions";
+
 /** Au-delà de trois fiches, le modèle inventorie au lieu de synthétiser. */
 const MAX_PREUVES = 3;
 /** Audit du 23/08 : une question hors périmètre (« qui a gagné le match ? »)
@@ -170,21 +172,14 @@ function candidats(result: unknown): Preuve[] | null {
     .filter((p) => p.contenu.length > 0);
 }
 
-/** Contre-audit du 01/09 : « quel temps fait-il à Abidjan ? » servait une
- * fiche BTS — un nom de lieu suffisait à franchir le plancher, qui coupe sur
- * un chiffre sans juger la pertinence. Les familles de questions
- * manifestement hors du périmètre ANSUT sont refusées d'emblée : mieux vaut
- * annoncer le périmètre qu'étirer une fiche voisine. (Le vrai routage
- * d'intention est la vague 3 — après le 9.) Motifs écrits sans accents :
- * ils sont testés sur la question passée par `sansAccents`. */
-const QUESTION_HORS_DOMAINE =
-  /quel temps fait|meteo\b|pleuvoir|president de la (republique|cote)|premier ministre|\belection\b|match de|football|coupe d.afrique|capitale d[eu]\b|recette de cuisine|quelle heure/;
-
-/** Exporté pour les tests : la liste des contenus retenus comme preuves. */
+/** Exporté pour les tests : la liste des contenus retenus comme preuves.
+ * Vague 3 : le jugement hors-domaine vient du routage d'intention — plus de
+ * liste locale (contre-audit du 01/09 : « quel temps fait-il à Abidjan ? »
+ * servait une fiche BTS, un nom de lieu suffisait à franchir le plancher). */
 export function selectionnerPreuves(question: string, result: unknown): string[] | null {
   const tous = candidats(result);
   if (tous === null) return null;
-  if (QUESTION_HORS_DOMAINE.test(sansAccents(question))) return [];
+  if (detecterIntention(question) === "hors_domaine") return [];
 
   const questionNormalisee = normaliser(question);
   const questionGenerale = QUESTION_GENERALE.test(question);
@@ -266,38 +261,38 @@ export function enrichirQuestionRecherche(question: string): string {
   if (/\brnhd\b|dorsale/.test(q)) {
     return `${question} (Réseau National Haut Débit, dorsale nationale de fibre optique de l'État, état des sections)`;
   }
-  // C05 : le relevé de présence des opérateurs, village par village.
-  if (/operateurs?\b|\borange\b|\bmtn\b|\bmoov\b/.test(q)) {
-    return `${question} (présence des opérateurs mobiles relevée localité par localité)`;
-  }
-  // Question LONGUE (rejeu du 02/09) : la phrase complète d'Elvire (« ma
-  // tante a satamasokoro et elle ne parle que le dioula est ce qu'il y a des
-  // initiatives pour qu'elle se forme… », ~30 mots) noyait l'embedding —
-  // ZÉRO résultat même avec la glose accolée, et même réduite à ses mots
-  // pleins (mesuré sur la base réelle). Seule la glose pure remonte les
-  // bonnes fiches (littératie 0,70). Pour la formation et l'équipement — où
-  // la réponse est un programme national, pas la fiche d'un village — une
-  // question de plus de quinze mots cherche donc sur la glose seule. Les
-  // questions de connexion gardent la phrase entière : le NOM de la localité
-  // y est la clé de la voie géographique.
+  // Vague 3 : la glose vient de l'INTENTION — plus une chaîne de si/alors
+  // qui re-devinait. Les gloses elles-mêmes sont inchangées (mesurées sur la
+  // base réelle) ; l'ordre des leçons de terrain (C05, Elvire du 02/09 :
+  // formation AVANT équipement) vit désormais dans `detecterIntention`.
+  //
+  // Question LONGUE : la phrase complète d'Elvire (« ma tante a satamasokoro
+  // et elle ne parle que le dioula est ce qu'il y a des initiatives pour
+  // qu'elle se forme… », ~30 mots) noie l'embedding — ZÉRO résultat même
+  // avec la glose accolée, et même réduite à ses mots pleins (mesuré sur la
+  // base réelle le 02/09). Seule la glose pure remonte les bonnes fiches
+  // (littératie 0,70). Pour formation et équipement — où la réponse est un
+  // programme national, pas la fiche d'un village — une question de plus de
+  // quinze mots cherche donc sur la glose seule. Couverture et opérateurs
+  // gardent la question entière : le NOM de la localité y est la clé de la
+  // voie géographique.
   const estLongue = question.trim().split(/\s+/).length > 15;
-  // Terrain du 02/09 (Elvire) : « qu'elle se forme à l'utilisation de son
-  // smartphone » partait vers le PASS — le mot « smartphone » gagnait sur
-  // l'intention de FORMATION. La formation se teste d'abord.
-  if (/\bform|apprendre|competence|initier|alphabetis/.test(q)) {
-    return estLongue
-      ? "formation aux compétences numériques de base, apprendre à utiliser un smartphone, inclusion numérique"
-      : `${question} (formation aux compétences numériques de base, apprendre à utiliser un smartphone, inclusion numérique)`;
+  switch (detecterIntention(question)) {
+    case "operateurs":
+      return `${question} (présence des opérateurs mobiles relevée localité par localité)`;
+    case "formation":
+      return estLongue
+        ? "formation aux compétences numériques de base, apprendre à utiliser un smartphone, inclusion numérique"
+        : `${question} (formation aux compétences numériques de base, apprendre à utiliser un smartphone, inclusion numérique)`;
+    case "equipement":
+      return estLongue
+        ? "dispositifs d'aide à l'équipement numérique, programme PASS, smartphone subventionné"
+        : `${question} (dispositifs d'aide à l'équipement numérique, programme PASS)`;
+    case "couverture":
+      return `${question} (couverture réseau et connectivité des localités de Côte d'Ivoire)`;
+    default:
+      return question;
   }
-  if (/equip|smartphone|ordinateur|tablette|telephone/.test(q)) {
-    return estLongue
-      ? "dispositifs d'aide à l'équipement numérique, programme PASS, smartphone subventionné"
-      : `${question} (dispositifs d'aide à l'équipement numérique, programme PASS)`;
-  }
-  if (/connect|internet|reseau|couverture|fibre/.test(q)) {
-    return `${question} (couverture réseau et connectivité des localités de Côte d'Ivoire)`;
-  }
-  return question;
 }
 
 const SEPARATEUR_PHRASES = /(?<=[.!?])\s+/;
@@ -411,17 +406,20 @@ function populationDeLaFiche(contenu: string): number {
 }
 
 /** Départage des fiches de LIEU d'une même localité (Localité, Opérateurs
- * mobiles, BTS…) : celle dont le titre ou le contenu porte les mots pleins
- * de la question passe devant, avec un bonus aux fiches d'une vraie ville
- * (population ≥ 10 000) — le hameau homonyme d'une grande ville ne vole
- * plus la réponse. Tri stable — sans signal, l'ordre de la recherche est
- * conservé (la base sert déjà les localités les plus peuplées d'abord). */
+ * mobiles, BTS…). Fusion vague 3 + balayage homonymes du 03/09 : c'est
+ * d'abord l'INTENTION qui choisit la famille (« quels opérateurs ? » →
+ * fiche Opérateurs, « suis-je connecté ? » → fiche Localité, poids 100),
+ * le recouvrement des mots pleins départage ensuite, et à signaux égaux la
+ * fiche d'une vraie ville (population ≥ 10 000) passe devant le hameau
+ * homonyme. Tri stable — sans aucun signal, l'ordre de la recherche demeure. */
 function ordonnerLieuxSelonLaQuestion(question: string, lieux: Preuve[]): Preuve[] {
   if (lieux.length < 2) return lieux;
+  const famille = familleDeLieuPreferee(detecterIntention(question));
   const jetons = jetonsDeLaQuestion(question);
   const score = (p: Preuve) => {
     const texte = sansAccents(`${p.titre} ${p.contenu}`);
     return (
+      (famille?.test(p.titre) ? 100 : 0) +
       jetons.filter((j) => texte.includes(j)).length +
       (populationDeLaFiche(p.contenu) >= 10000 ? 1 : 0)
     );
@@ -429,13 +427,25 @@ function ordonnerLieuxSelonLaQuestion(question: string, lieux: Preuve[]): Preuve
   return [...lieux].sort((a, b) => score(b) - score(a));
 }
 
+/** Vague 3 (rejeu du 02/09) : « quels opérateurs mobiles à Bouaké ? »
+ * servait la POPULATION de Bouaké — la fiche Localité gagnait au simple
+ * recouvrement de mots alors que son contenu ne dit rien des opérateurs.
+ * Une preuve dont le contenu parle du sujet que l'intention demande passe
+ * devant. Motifs écrits sans accents (testés après `sansAccents`). */
+const MOTIF_CONTENU_PAR_INTENTION: Partial<Record<ReturnType<typeof detecterIntention>, RegExp>> = {
+  operateurs: /operateurs?|\bmoov\b|\bmtn\b|\borange\b|sites? mobiles?/,
+  couverture: /fibre|reseau|pylone|antenne|couvert|connect|sites? [aà] moins|zone blanche/,
+};
+
 function ordonnerPreuvesSelonLaQuestion(question: string, preuves: string[]): string[] {
   if (preuves.length < 2) return preuves;
   const jetons = jetonsDeLaQuestion(question);
+  const motifIntention = MOTIF_CONTENU_PAR_INTENTION[detecterIntention(question)] ?? null;
   const score = (p: string) => {
     const texte = sansAccents(p);
     return (
       jetons.filter((j) => texte.includes(j)).length +
+      (motifIntention?.test(texte) ? 2 : 0) +
       (/^(village|ville|commune|localite) de /.test(texte) ? 0.5 : 0) +
       // Balayage du 03/09 (homonymes) : à mots égaux, la fiche d'une vraie
       // ville passe devant celle d'un hameau homonyme.
@@ -496,8 +506,16 @@ export function composerReponseAvecSuite(
   // savait pas que SUTA peut répondre pour SON village. Quand la question
   // parle de « mon village » et qu'aucune fiche de lieu ne sert la réponse,
   // on invite à donner le nom avant le cadre général.
+  // Rejeu vague 3 du 02/09 : « mon village de Katiola est-il connecté ? »
+  // recevait l'invite ALORS QUE le village était nommé et sa fiche servie —
+  // le test regardait la première preuve AVANT le tri, et ne reconnaissait
+  // que les contenus commençant par « Village de » (les fiches Opérateurs
+  // commencent par « Moossou, sous-préfecture de… », celles de département
+  // par « Le département de… »). On juge la preuve réellement servie, avec
+  // les vraies formes des fiches de lieu.
   const parleDeSonVillage = /\bmon village\b|\bma localite\b|\bma commune\b|\bchez moi\b/.test(sansAccents(question));
-  const sertUneFicheDeLieu = /^(village|commune|localite) de /i.test(sansAccents(preuves[0]));
+  const sertUneFicheDeLieu =
+    /^(le )?(village|commune|localite|departement) de |sous-prefecture de /.test(sansAccents(preuvesOrdonnees[0]).slice(0, 160));
   const invite = parleDeSonVillage && !sertUneFicheDeLieu
     ? "Donnez-moi le nom de votre village et je vérifie précisément pour lui. En attendant, voici le cadre général : "
     : "";
