@@ -1,0 +1,1267 @@
+[
+  {
+    "id": "ecoles-national-2026",
+    "title": "Écoles et connectivité : l'état des lieux national",
+    "content": "Le recensement du ministère de l'Éducation nationale (MENA, 2026) sur la connectivité scolaire couvre 15 551 écoles primaires et 808 établissements secondaires en Côte d'Ivoire. Côté primaire : 4 979 écoles sont électrifiées (32 %), mais la connexion reste rare — 9 écoles disposent d'une connexion haut débit, 6 d'une connexion satellite, et 111 d'une salle multimédia. Les écoles primaires recensées accueillent 3 803 355 élèves, encadrés par 81 072 enseignants. Côté secondaire : 492 établissements électrifiés sur 808 (61 %), 27 connectés en haut débit, 301 équipés d'une salle multimédia, pour 1 150 043 élèves et 31 003 enseignants. Ce constat mesure le chemin à parcourir pour les écoles connectées : l'électricité progresse, la connexion des établissements reste le grand chantier.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-drena-2026",
+    "title": "Les directions régionales de l'éducation (DRENA) et le réseau de l'État",
+    "content": "L'éducation nationale s'appuie sur 41 directions régionales (DRENA), qui emploient ensemble 2 046 agents administratifs. Sur ces 41 directions, 14 sont raccordées au réseau national de l'État : ABIDJAN 1, ABIDJAN 2, ABIDJAN 3, ABIDJAN 4, BOUAKE 1, BOUAKE 2, BOUNDIALI, DABOU, DALOA, GRAND BASSAM, KORHOGO, ODIENNE, SAN-PEDRO, YAMOUSSOUKRO. Les autres directions régionales ne sont pas encore reliées à ce réseau, qui permet l'accès aux services numériques partagés de l'administration.",
+    "visibility": "PUBLIC",
+    "region": null,
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-abengourou-2026",
+    "title": "Écoles du département de ABENGOUROU : électricité et connexion",
+    "content": "Dans le département de ABENGOUROU (région INDENIE-DJUABLIN), le recensement scolaire du MENA (2026) compte 206 écoles primaires et 12 établissements secondaires. Écoles primaires : 111 sur 206 sont électrifiées (54 %) ; 3 ont une salle multimédia. Elles accueillent 59 832 élèves pour 1 233 enseignants. Établissements secondaires : 11 sur 12 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 24 125 élèves pour 710 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "INDENIE-DJUABLIN",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-abidjan-2026",
+    "title": "Écoles du département de ABIDJAN : électricité et connexion",
+    "content": "Dans le département de ABIDJAN (région ABIDJAN), le recensement scolaire du MENA (2026) compte 1 092 écoles primaires et 56 établissements secondaires. Écoles primaires : 977 sur 1 092 sont électrifiées (89 %) ; 6 ont une connexion haut débit ; 20 ont une salle multimédia. Elles accueillent 396 199 élèves pour 6 604 enseignants. Établissements secondaires : 47 sur 56 sont électrifiés ; 12 sont connectés en haut débit ; 36 ont une salle multimédia ; 33 sont reliés au réseau national de l'État. Ils accueillent 181 718 élèves pour 4 798 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "ABIDJAN",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-aboisso-2026",
+    "title": "Écoles du département de ABOISSO : électricité et connexion",
+    "content": "Dans le département de ABOISSO (région SUD-COMOE), le recensement scolaire du MENA (2026) compte 201 écoles primaires et 15 établissements secondaires. Écoles primaires : 122 sur 201 sont électrifiées (61 %) ; 1 a une salle multimédia. Elles accueillent 51 149 élèves pour 1 050 enseignants. Établissements secondaires : 10 sur 15 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 21 882 élèves pour 633 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "SUD-COMOE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-adiake-2026",
+    "title": "Écoles du département de ADIAKE : électricité et connexion",
+    "content": "Dans le département de ADIAKE (région SUD-COMOE), le recensement scolaire du MENA (2026) compte 69 écoles primaires et 4 établissements secondaires. Écoles primaires : 49 sur 69 sont électrifiées (71 %) ; 6 ont une salle multimédia. Elles accueillent 15 540 élèves pour 373 enseignants. Établissements secondaires : 3 sur 4 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 5 484 élèves pour 172 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "SUD-COMOE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-adzope-2026",
+    "title": "Écoles du département de ADZOPE : électricité et connexion",
+    "content": "Dans le département de ADZOPE (région LA ME), le recensement scolaire du MENA (2026) compte 123 écoles primaires et 12 établissements secondaires. Écoles primaires : 94 sur 123 sont électrifiées (76 %) ; 1 a une salle multimédia. Elles accueillent 36 912 élèves pour 723 enseignants. Établissements secondaires : 9 sur 12 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 18 186 élèves pour 551 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "LA ME",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-agboville-2026",
+    "title": "Écoles du département de AGBOVILLE : électricité et connexion",
+    "content": "Dans le département de AGBOVILLE (région AGNEBY-TIASSA), le recensement scolaire du MENA (2026) compte 264 écoles primaires et 14 établissements secondaires. Écoles primaires : 139 sur 264 sont électrifiées (53 %) ; 1 a une salle multimédia. Elles accueillent 71 229 élèves pour 1 507 enseignants. Établissements secondaires : 10 sur 14 sont électrifiés ; 5 ont une salle multimédia. Ils accueillent 22 188 élèves pour 739 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "AGNEBY-TIASSA",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-agnibilekrou-2026",
+    "title": "Écoles du département de AGNIBILEKROU : électricité et connexion",
+    "content": "Dans le département de AGNIBILEKROU (région INDENIE-DJUABLIN), le recensement scolaire du MENA (2026) compte 107 écoles primaires et 9 établissements secondaires. Écoles primaires : 59 sur 107 sont électrifiées (55 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 25 549 élèves pour 561 enseignants. Établissements secondaires : 5 sur 9 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 11 091 élèves pour 283 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "INDENIE-DJUABLIN",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-akoupe-2026",
+    "title": "Écoles du département de AKOUPE : électricité et connexion",
+    "content": "Dans le département de AKOUPE (région LA ME), le recensement scolaire du MENA (2026) compte 80 écoles primaires et 8 établissements secondaires. Écoles primaires : 69 sur 80 sont électrifiées (86 %) ; 2 ont une salle multimédia. Elles accueillent 24 115 élèves pour 467 enseignants. Établissements secondaires : 5 sur 8 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 8 862 élèves pour 263 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "LA ME",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-alepe-2026",
+    "title": "Écoles du département de ALEPE : électricité et connexion",
+    "content": "Dans le département de ALEPE (région LA ME), le recensement scolaire du MENA (2026) compte 100 écoles primaires et 12 établissements secondaires. Écoles primaires : 42 sur 100 sont électrifiées (42 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 23 626 élèves pour 506 enseignants. Établissements secondaires : 6 sur 12 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 8 985 élèves pour 322 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "LA ME",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-arrah-2026",
+    "title": "Écoles du département de ARRAH : électricité et connexion",
+    "content": "Dans le département de ARRAH (région MORONOU), le recensement scolaire du MENA (2026) compte 45 écoles primaires et 3 établissements secondaires. Écoles primaires : 23 sur 45 sont électrifiées (51 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 16 761 élèves pour 294 enseignants. Établissements secondaires : 3 sur 3 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 5 060 élèves pour 167 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "MORONOU",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-attiegouakro-2026",
+    "title": "Écoles du département de ATTIEGOUAKRO : électricité et connexion",
+    "content": "Dans le département de ATTIEGOUAKRO (région YAMOUSSOUKRO), le recensement scolaire du MENA (2026) compte 46 écoles primaires et 2 établissements secondaires. Écoles primaires : 28 sur 46 sont électrifiées (61 %) ; 2 ont une salle multimédia. Elles accueillent 10 277 élèves pour 251 enseignants. Établissements secondaires : 1 sur 2 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 1 045 élèves pour 62 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "YAMOUSSOUKRO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-bangolo-2026",
+    "title": "Écoles du département de BANGOLO : électricité et connexion",
+    "content": "Dans le département de BANGOLO (région GUEMON), le recensement scolaire du MENA (2026) compte 197 écoles primaires et 9 établissements secondaires. Écoles primaires : 9 sur 197 sont électrifiées (5 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 40 656 élèves pour 908 enseignants. Établissements secondaires : 1 sur 9 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 4 311 élèves pour 143 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GUEMON",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-beoumi-2026",
+    "title": "Écoles du département de BEOUMI : électricité et connexion",
+    "content": "Dans le département de BEOUMI (région GBÊKÊ), le recensement scolaire du MENA (2026) compte 170 écoles primaires et 4 établissements secondaires. Écoles primaires : 23 sur 170 sont électrifiées (14 %) ; 3 ont une salle multimédia. Elles accueillent 36 114 élèves pour 815 enseignants. Établissements secondaires : 3 sur 4 sont électrifiés. Ils accueillent 5 958 élèves pour 133 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GBÊKÊ",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-bettie-2026",
+    "title": "Écoles du département de BETTIE : électricité et connexion",
+    "content": "Dans le département de BETTIE (région INDENIE-DJUABLIN), le recensement scolaire du MENA (2026) compte 37 écoles primaires et 3 établissements secondaires. Écoles primaires : 12 sur 37 sont électrifiées (32 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 9 123 élèves pour 180 enseignants. Établissements secondaires : 1 sur 3 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 2 175 élèves pour 63 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "INDENIE-DJUABLIN",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-biankouma-2026",
+    "title": "Écoles du département de BIANKOUMA : électricité et connexion",
+    "content": "Dans le département de BIANKOUMA (région TONKPI), le recensement scolaire du MENA (2026) compte 157 écoles primaires et 12 établissements secondaires. Écoles primaires : 6 sur 157 sont électrifiées (4 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 39 548 élèves pour 780 enseignants. Établissements secondaires : 3 sur 12 sont électrifiés. Ils accueillent 8 877 élèves pour 206 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "TONKPI",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-blolequin-2026",
+    "title": "Écoles du département de BLOLEQUIN : électricité et connexion",
+    "content": "Dans le département de BLOLEQUIN (région CAVALLY), le recensement scolaire du MENA (2026) compte 108 écoles primaires et 6 établissements secondaires. Écoles primaires : 10 sur 108 sont électrifiées (9 %) ; 1 a une salle multimédia. Elles accueillent 32 272 élèves pour 564 enseignants. Établissements secondaires : 0 sur 6 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 3 663 élèves pour 83 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "CAVALLY",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-bocanda-2026",
+    "title": "Écoles du département de BOCANDA : électricité et connexion",
+    "content": "Dans le département de BOCANDA (région N'ZI), le recensement scolaire du MENA (2026) compte 127 écoles primaires et 4 établissements secondaires. Écoles primaires : 24 sur 127 sont électrifiées (19 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 24 321 élèves pour 579 enseignants. Établissements secondaires : 1 sur 4 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 6 997 élèves pour 137 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "N'ZI",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-bondoukou-2026",
+    "title": "Écoles du département de BONDOUKOU : électricité et connexion",
+    "content": "Dans le département de BONDOUKOU (région GONTOUGO), le recensement scolaire du MENA (2026) compte 303 écoles primaires et 20 établissements secondaires. Écoles primaires : 73 sur 303 sont électrifiées (24 %) ; 1 a une salle multimédia. Elles accueillent 62 465 élèves pour 1 345 enseignants. Établissements secondaires : 10 sur 20 sont électrifiés ; 4 ont une salle multimédia. Ils accueillent 22 023 élèves pour 575 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GONTOUGO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-bongouanou-2026",
+    "title": "Écoles du département de BONGOUANOU : électricité et connexion",
+    "content": "Dans le département de BONGOUANOU (région MORONOU), le recensement scolaire du MENA (2026) compte 108 écoles primaires et 8 établissements secondaires. Écoles primaires : 45 sur 108 sont électrifiées (42 %) ; 1 a une connexion haut débit ; 2 ont une salle multimédia. Elles accueillent 29 699 élèves pour 594 enseignants. Établissements secondaires : 4 sur 8 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 8 388 élèves pour 235 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "MORONOU",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-bonon-2026",
+    "title": "Écoles du département de BONON : électricité et connexion",
+    "content": "Dans le département de BONON (région MARAHOUE), le recensement scolaire du MENA (2026) compte 98 écoles primaires et 2 établissements secondaires. Écoles primaires : 5 sur 98 sont électrifiées (5 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 22 249 élèves pour 539 enseignants. Établissements secondaires : 1 sur 2 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 3 347 élèves pour 102 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "MARAHOUE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-botro-2026",
+    "title": "Écoles du département de BOTRO : électricité et connexion",
+    "content": "Dans le département de BOTRO (région GBÊKÊ), le recensement scolaire du MENA (2026) compte 96 écoles primaires et 3 établissements secondaires. Écoles primaires : 17 sur 96 sont électrifiées (18 %) ; 1 a une connexion satellite. Elles accueillent 23 194 élèves pour 500 enseignants. Établissements secondaires : 2 sur 3 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 5 295 élèves pour 164 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GBÊKÊ",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-bouafle-2026",
+    "title": "Écoles du département de BOUAFLE : électricité et connexion",
+    "content": "Dans le département de BOUAFLE (région MARAHOUE), le recensement scolaire du MENA (2026) compte 224 écoles primaires et 5 établissements secondaires. Écoles primaires : 68 sur 224 sont électrifiées (30 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 52 356 élèves pour 1 210 enseignants. Établissements secondaires : 4 sur 5 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 12 855 élèves pour 365 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "MARAHOUE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-bouake-2026",
+    "title": "Écoles du département de BOUAKE : électricité et connexion",
+    "content": "Dans le département de BOUAKE (région GBÊKÊ), le recensement scolaire du MENA (2026) compte 425 écoles primaires et 15 établissements secondaires. Écoles primaires : 225 sur 425 sont électrifiées (53 %) ; 1 a une connexion haut débit ; 4 ont une salle multimédia. Elles accueillent 108 093 élèves pour 2 412 enseignants. Établissements secondaires : 14 sur 15 sont électrifiés ; 7 sont connectés en haut débit ; 8 ont une salle multimédia ; 7 sont reliés au réseau national de l'État. Ils accueillent 50 732 élèves pour 1 482 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GBÊKÊ",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-bouna-2026",
+    "title": "Écoles du département de BOUNA : électricité et connexion",
+    "content": "Dans le département de BOUNA (région BOUNKANI), le recensement scolaire du MENA (2026) compte 89 écoles primaires et 5 établissements secondaires. Écoles primaires : 15 sur 89 sont électrifiées (17 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 20 809 élèves pour 385 enseignants. Établissements secondaires : 5 sur 5 sont électrifiés ; 4 ont une salle multimédia. Ils accueillent 5 374 élèves pour 118 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BOUNKANI",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-boundiali-2026",
+    "title": "Écoles du département de BOUNDIALI : électricité et connexion",
+    "content": "Dans le département de BOUNDIALI (région BAGOUE), le recensement scolaire du MENA (2026) compte 107 écoles primaires et 12 établissements secondaires. Écoles primaires : 20 sur 107 sont électrifiées (19 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 20 729 élèves pour 549 enseignants. Établissements secondaires : 5 sur 12 sont électrifiés ; 1 est connecté en haut débit ; 9 ont une salle multimédia ; 1 est relié au réseau national de l'État. Ils accueillent 8 009 élèves pour 288 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BAGOUE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-buyo-2026",
+    "title": "Écoles du département de BUYO : électricité et connexion",
+    "content": "Dans le département de BUYO (région NAWA), le recensement scolaire du MENA (2026) compte 116 écoles primaires et 2 établissements secondaires. Écoles primaires : 24 sur 116 sont électrifiées (21 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 25 185 élèves pour 543 enseignants. Établissements secondaires : 1 sur 2 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 3 264 élèves pour 88 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "NAWA",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-dabakala-2026",
+    "title": "Écoles du département de DABAKALA : électricité et connexion",
+    "content": "Dans le département de DABAKALA (région HAMBOL), le recensement scolaire du MENA (2026) compte 211 écoles primaires et 16 établissements secondaires. Écoles primaires : 32 sur 211 sont électrifiées (15 %) ; 1 a une connexion haut débit. Elles accueillent 35 214 élèves pour 889 enseignants. Établissements secondaires : 8 sur 16 sont électrifiés ; 4 ont une salle multimédia. Ils accueillent 10 607 élèves pour 268 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "HAMBOL",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-dabou-2026",
+    "title": "Écoles du département de DABOU : électricité et connexion",
+    "content": "Dans le département de DABOU (région GRANDS PONTS), le recensement scolaire du MENA (2026) compte 130 écoles primaires et 10 établissements secondaires. Écoles primaires : 90 sur 130 sont électrifiées (69 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 33 501 élèves pour 737 enseignants. Établissements secondaires : 6 sur 10 sont électrifiés ; 3 ont une salle multimédia ; 3 sont reliés au réseau national de l'État. Ils accueillent 16 915 élèves pour 602 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GRANDS PONTS",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-daloa-2026",
+    "title": "Écoles du département de DALOA : électricité et connexion",
+    "content": "Dans le département de DALOA (région HAUT-SASSANDRA), le recensement scolaire du MENA (2026) compte 368 écoles primaires et 15 établissements secondaires. Écoles primaires : 109 sur 368 sont électrifiées (30 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 112 658 élèves pour 2 480 enseignants. Établissements secondaires : 15 sur 15 sont électrifiés ; 4 ont une salle multimédia ; 2 sont reliés au réseau national de l'État. Ils accueillent 36 034 élèves pour 1 087 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "HAUT-SASSANDRA",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-danane-2026",
+    "title": "Écoles du département de DANANE : électricité et connexion",
+    "content": "Dans le département de DANANE (région TONKPI), le recensement scolaire du MENA (2026) compte 246 écoles primaires et 9 établissements secondaires. Écoles primaires : 33 sur 246 sont électrifiées (13 %) ; 1 a une connexion satellite. Elles accueillent 60 536 élèves pour 1 240 enseignants. Établissements secondaires : 3 sur 9 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 10 893 élèves pour 190 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "TONKPI",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-daoukro-2026",
+    "title": "Écoles du département de DAOUKRO : électricité et connexion",
+    "content": "Dans le département de DAOUKRO (région IFFOU), le recensement scolaire du MENA (2026) compte 113 écoles primaires et 6 établissements secondaires. Écoles primaires : 37 sur 113 sont électrifiées (33 %) ; 1 a une salle multimédia. Elles accueillent 27 476 élèves pour 614 enseignants. Établissements secondaires : 5 sur 6 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 13 069 élèves pour 364 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "IFFOU",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-dianra-2026",
+    "title": "Écoles du département de DIANRA : électricité et connexion",
+    "content": "Dans le département de DIANRA (région BERE), le recensement scolaire du MENA (2026) compte 73 écoles primaires et 2 établissements secondaires. Écoles primaires : 8 sur 73 sont électrifiées (11 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 13 071 élèves pour 326 enseignants. Établissements secondaires : 2 sur 2 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 3 410 élèves pour 61 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BERE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-didievi-2026",
+    "title": "Écoles du département de DIDIEVI : électricité et connexion",
+    "content": "Dans le département de DIDIEVI (région BELIER), le recensement scolaire du MENA (2026) compte 102 écoles primaires et 8 établissements secondaires. Écoles primaires : 29 sur 102 sont électrifiées (28 %) ; 4 ont une salle multimédia. Elles accueillent 20 051 élèves pour 536 enseignants. Établissements secondaires : 5 sur 8 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 7 112 élèves pour 204 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BELIER",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-dikodougou-2026",
+    "title": "Écoles du département de DIKODOUGOU : électricité et connexion",
+    "content": "Dans le département de DIKODOUGOU (région PORO), le recensement scolaire du MENA (2026) compte 62 écoles primaires et 4 établissements secondaires. Écoles primaires : 2 sur 62 sont électrifiées (3 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 11 619 élèves pour 267 enseignants. Établissements secondaires : 2 sur 4 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 4 413 élèves pour 80 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "PORO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-dimbokro-2026",
+    "title": "Écoles du département de DIMBOKRO : électricité et connexion",
+    "content": "Dans le département de DIMBOKRO (région N'ZI), le recensement scolaire du MENA (2026) compte 105 écoles primaires et 4 établissements secondaires. Écoles primaires : 55 sur 105 sont électrifiées (52 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 19 026 élèves pour 515 enseignants. Établissements secondaires : 3 sur 4 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 9 047 élèves pour 234 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "N'ZI",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-divo-2026",
+    "title": "Écoles du département de DIVO : électricité et connexion",
+    "content": "Dans le département de DIVO (région LÔH-DJIBOUA), le recensement scolaire du MENA (2026) compte 342 écoles primaires et 10 établissements secondaires. Écoles primaires : 77 sur 342 sont électrifiées (23 %) ; 2 ont une salle multimédia. Elles accueillent 86 250 élèves pour 1 989 enseignants. Établissements secondaires : 8 sur 10 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 24 484 élèves pour 685 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "LÔH-DJIBOUA",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-djekanou-2026",
+    "title": "Écoles du département de DJEKANOU : électricité et connexion",
+    "content": "Dans le département de DJEKANOU (région BELIER), le recensement scolaire du MENA (2026) compte 38 écoles primaires et 2 établissements secondaires. Écoles primaires : 21 sur 38 sont électrifiées (55 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 8 123 élèves pour 220 enseignants. Établissements secondaires : 2 sur 2 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 2 654 élèves pour 71 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BELIER",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-doropo-2026",
+    "title": "Écoles du département de DOROPO : électricité et connexion",
+    "content": "Dans le département de DOROPO (région BOUNKANI), le recensement scolaire du MENA (2026) compte 55 écoles primaires et 1 établissements secondaires. Écoles primaires : 11 sur 55 sont électrifiées (20 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 10 582 élèves pour 189 enseignants. Établissements secondaires : 1 sur 1 sont électrifiés. Ils accueillent 1 640 élèves pour 32 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BOUNKANI",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-duekoue-2026",
+    "title": "Écoles du département de DUEKOUE : électricité et connexion",
+    "content": "Dans le département de DUEKOUE (région GUEMON), le recensement scolaire du MENA (2026) compte 259 écoles primaires et 8 établissements secondaires. Écoles primaires : 27 sur 259 sont électrifiées (10 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 60 332 élèves pour 1 373 enseignants. Établissements secondaires : 2 sur 8 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 8 705 élèves pour 177 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GUEMON",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-facobly-2026",
+    "title": "Écoles du département de FACOBLY : électricité et connexion",
+    "content": "Dans le département de FACOBLY (région GUEMON), le recensement scolaire du MENA (2026) compte 74 écoles primaires et 4 établissements secondaires. Écoles primaires : 12 sur 74 sont électrifiées (16 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 15 889 élèves pour 373 enseignants. Établissements secondaires : 2 sur 4 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 3 342 élèves pour 83 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GUEMON",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-ferkessedougou-2026",
+    "title": "Écoles du département de FERKESSEDOUGOU : électricité et connexion",
+    "content": "Dans le département de FERKESSEDOUGOU (région TCHOLOGO), le recensement scolaire du MENA (2026) compte 130 écoles primaires et 9 établissements secondaires. Écoles primaires : 39 sur 130 sont électrifiées (30 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 23 621 élèves pour 664 enseignants. Établissements secondaires : 6 sur 9 sont électrifiés ; 5 ont une salle multimédia. Ils accueillent 12 770 élèves pour 212 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "TCHOLOGO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-fresco-2026",
+    "title": "Écoles du département de FRESCO : électricité et connexion",
+    "content": "Dans le département de FRESCO (région GBOKLE), le recensement scolaire du MENA (2026) compte 79 écoles primaires et 4 établissements secondaires. Écoles primaires : 9 sur 79 sont électrifiées (11 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 14 968 élèves pour 399 enseignants. Établissements secondaires : 1 sur 4 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 3 181 élèves pour 88 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GBOKLE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-gagnoa-2026",
+    "title": "Écoles du département de GAGNOA : électricité et connexion",
+    "content": "Dans le département de GAGNOA (région GÔH), le recensement scolaire du MENA (2026) compte 453 écoles primaires et 19 établissements secondaires. Écoles primaires : 118 sur 453 sont électrifiées (26 %) ; 1 a une connexion satellite ; 1 a une salle multimédia. Elles accueillent 120 633 élèves pour 2 533 enseignants. Établissements secondaires : 15 sur 19 sont électrifiés ; 4 ont une salle multimédia. Ils accueillent 32 915 élèves pour 881 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GÔH",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-gbeleban-2026",
+    "title": "Écoles du département de GBELEBAN : électricité et connexion",
+    "content": "Dans le département de GBELEBAN (région KABADOUGOU), le recensement scolaire du MENA (2026) compte 30 écoles primaires et 3 établissements secondaires. Écoles primaires : 10 sur 30 sont électrifiées (33 %) ; 1 a une salle multimédia. Elles accueillent 4 999 élèves pour 125 enseignants. Établissements secondaires : 3 sur 3 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 917 élèves pour 38 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "KABADOUGOU",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-gohitafla-2026",
+    "title": "Écoles du département de GOHITAFLA : électricité et connexion",
+    "content": "Dans le département de GOHITAFLA (région MARAHOUE), le recensement scolaire du MENA (2026) compte 49 écoles primaires et 5 établissements secondaires. Écoles primaires : 16 sur 49 sont électrifiées (33 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 15 399 élèves pour 258 enseignants. Établissements secondaires : 4 sur 5 sont électrifiés. Ils accueillent 3 511 élèves pour 116 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "MARAHOUE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-grand-bassam-2026",
+    "title": "Écoles du département de GRAND-BASSAM : électricité et connexion",
+    "content": "Dans le département de GRAND-BASSAM (région SUD-COMOE), le recensement scolaire du MENA (2026) compte 114 écoles primaires et 9 établissements secondaires. Écoles primaires : 98 sur 114 sont électrifiées (86 %) ; 6 ont une salle multimédia. Elles accueillent 38 389 élèves pour 715 enseignants. Établissements secondaires : 5 sur 9 sont électrifiés ; 6 ont une salle multimédia ; 3 sont reliés au réseau national de l'État. Ils accueillent 22 580 élèves pour 779 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "SUD-COMOE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-grand-lahou-2026",
+    "title": "Écoles du département de GRAND-LAHOU : électricité et connexion",
+    "content": "Dans le département de GRAND-LAHOU (région GRANDS PONTS), le recensement scolaire du MENA (2026) compte 98 écoles primaires et 6 établissements secondaires. Écoles primaires : 29 sur 98 sont électrifiées (30 %) ; 1 a une salle multimédia. Elles accueillent 22 449 élèves pour 525 enseignants. Établissements secondaires : 5 sur 6 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 6 936 élèves pour 202 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GRANDS PONTS",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-gueyo-2026",
+    "title": "Écoles du département de GUEYO : électricité et connexion",
+    "content": "Dans le département de GUEYO (région NAWA), le recensement scolaire du MENA (2026) compte 80 écoles primaires et 2 établissements secondaires. Écoles primaires : 10 sur 80 sont électrifiées (12 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 17 049 élèves pour 370 enseignants. Établissements secondaires : 2 sur 2 sont électrifiés. Ils accueillent 3 775 élèves pour 74 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "NAWA",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-guiglo-2026",
+    "title": "Écoles du département de GUIGLO : électricité et connexion",
+    "content": "Dans le département de GUIGLO (région CAVALLY), le recensement scolaire du MENA (2026) compte 126 écoles primaires et 9 établissements secondaires. Écoles primaires : 11 sur 126 sont électrifiées (9 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 39 313 élèves pour 705 enseignants. Établissements secondaires : 2 sur 9 sont électrifiés ; 4 ont une salle multimédia. Ils accueillent 9 701 élèves pour 213 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "CAVALLY",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-guitry-2026",
+    "title": "Écoles du département de GUITRY : électricité et connexion",
+    "content": "Dans le département de GUITRY (région LÔH-DJIBOUA), le recensement scolaire du MENA (2026) compte 126 écoles primaires et 3 établissements secondaires. Écoles primaires : 43 sur 126 sont électrifiées (34 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 27 533 élèves pour 639 enseignants. Établissements secondaires : 2 sur 3 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 5 415 élèves pour 114 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "LÔH-DJIBOUA",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-issia-2026",
+    "title": "Écoles du département de ISSIA : électricité et connexion",
+    "content": "Dans le département de ISSIA (région HAUT-SASSANDRA), le recensement scolaire du MENA (2026) compte 343 écoles primaires et 7 établissements secondaires. Écoles primaires : 38 sur 343 sont électrifiées (11 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 78 035 élèves pour 1 745 enseignants. Établissements secondaires : 6 sur 7 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 14 798 élèves pour 439 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "HAUT-SASSANDRA",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-jacqueville-2026",
+    "title": "Écoles du département de JACQUEVILLE : électricité et connexion",
+    "content": "Dans le département de JACQUEVILLE (région GRANDS PONTS), le recensement scolaire du MENA (2026) compte 62 écoles primaires et 4 établissements secondaires. Écoles primaires : 29 sur 62 sont électrifiées (47 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 15 306 élèves pour 314 enseignants. Établissements secondaires : 1 sur 4 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 3 679 élèves pour 147 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GRANDS PONTS",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-kani-2026",
+    "title": "Écoles du département de KANI : électricité et connexion",
+    "content": "Dans le département de KANI (région WORODOUGOU), le recensement scolaire du MENA (2026) compte 84 écoles primaires et 5 établissements secondaires. Écoles primaires : 18 sur 84 sont électrifiées (21 %) ; 1 a une salle multimédia. Elles accueillent 17 121 élèves pour 403 enseignants. Établissements secondaires : 1 sur 5 sont électrifiés. Ils accueillent 3 629 élèves pour 104 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "WORODOUGOU",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-kaniasso-2026",
+    "title": "Écoles du département de KANIASSO : électricité et connexion",
+    "content": "Dans le département de KANIASSO (région FOLON), le recensement scolaire du MENA (2026) compte 59 écoles primaires et 4 établissements secondaires. Écoles primaires : 40 sur 59 sont électrifiées (68 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 8 344 élèves pour 223 enseignants. Établissements secondaires : 1 sur 4 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 2 429 élèves pour 64 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "FOLON",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-katiola-2026",
+    "title": "Écoles du département de KATIOLA : électricité et connexion",
+    "content": "Dans le département de KATIOLA (région HAMBOL), le recensement scolaire du MENA (2026) compte 80 écoles primaires et 4 établissements secondaires. Écoles primaires : 47 sur 80 sont électrifiées (59 %) ; 1 a une salle multimédia. Elles accueillent 19 730 élèves pour 453 enseignants. Établissements secondaires : 4 sur 4 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 8 520 élèves pour 185 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "HAMBOL",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-kong-2026",
+    "title": "Écoles du département de KONG : électricité et connexion",
+    "content": "Dans le département de KONG (région TCHOLOGO), le recensement scolaire du MENA (2026) compte 74 écoles primaires et 6 établissements secondaires. Écoles primaires : 14 sur 74 sont électrifiées (19 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 12 320 élèves pour 272 enseignants. Établissements secondaires : 3 sur 6 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 2 565 élèves pour 76 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "TCHOLOGO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-korhogo-2026",
+    "title": "Écoles du département de KORHOGO : électricité et connexion",
+    "content": "Dans le département de KORHOGO (région PORO), le recensement scolaire du MENA (2026) compte 381 écoles primaires et 26 établissements secondaires. Écoles primaires : 125 sur 381 sont électrifiées (33 %) ; 5 ont une salle multimédia. Elles accueillent 97 642 élèves pour 1 967 enseignants. Établissements secondaires : 22 sur 26 sont électrifiés ; 1 est connecté en haut débit ; 15 ont une salle multimédia ; 2 sont reliés au réseau national de l'État. Ils accueillent 40 954 élèves pour 905 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "PORO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-koro-2026",
+    "title": "Écoles du département de KORO : électricité et connexion",
+    "content": "Dans le département de KORO (région BAFING), le recensement scolaire du MENA (2026) compte 88 écoles primaires et 5 établissements secondaires. Écoles primaires : 9 sur 88 sont électrifiées (10 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 11 046 élèves pour 310 enseignants. Établissements secondaires : 2 sur 5 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 2 643 élèves pour 73 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BAFING",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-kouassi-dabakala-2026",
+    "title": "Écoles du département de KOUASSI-DABAKALA : électricité et connexion",
+    "content": "Dans le département de KOUASSI-DABAKALA (région N'ZI), le recensement scolaire du MENA (2026) compte 37 écoles primaires, et aucun établissement secondaire recensé dans ce canevas. Écoles primaires : 3 sur 37 sont électrifiées (8 %) ; 1 a une salle multimédia. Elles accueillent 6 878 élèves pour 175 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "N'ZI",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-kouassi-kouassikro-2026",
+    "title": "Écoles du département de KOUASSI KOUASSIKRO : électricité et connexion",
+    "content": "Dans le département de KOUASSI KOUASSIKRO (région N'ZI), le recensement scolaire du MENA (2026) compte 0 écoles primaires et 2 établissements secondaires. Établissements secondaires : 1 sur 2 sont électrifiés. Ils accueillent 1 936 élèves pour 54 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "N'ZI",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-kouibly-2026",
+    "title": "Écoles du département de KOUIBLY : électricité et connexion",
+    "content": "Dans le département de KOUIBLY (région GUEMON), le recensement scolaire du MENA (2026) compte 80 écoles primaires et 4 établissements secondaires. Écoles primaires : 3 sur 80 sont électrifiées (4 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 20 242 élèves pour 423 enseignants. Établissements secondaires : 2 sur 4 sont électrifiés ; 4 ont une salle multimédia. Ils accueillent 2 112 élèves pour 87 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GUEMON",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-kounahiri-2026",
+    "title": "Écoles du département de KOUNAHIRI : électricité et connexion",
+    "content": "Dans le département de KOUNAHIRI (région BERE), le recensement scolaire du MENA (2026) compte 81 écoles primaires et 7 établissements secondaires. Écoles primaires : 4 sur 81 sont électrifiées (5 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 20 108 élèves pour 402 enseignants. Établissements secondaires : 1 sur 7 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 3 509 élèves pour 73 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BERE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-koun-fao-2026",
+    "title": "Écoles du département de KOUN-FAO : électricité et connexion",
+    "content": "Dans le département de KOUN-FAO (région GONTOUGO), le recensement scolaire du MENA (2026) compte 130 écoles primaires et 7 établissements secondaires. Écoles primaires : 28 sur 130 sont électrifiées (22 %) ; 3 ont une salle multimédia. Elles accueillent 28 974 élèves pour 641 enseignants. Établissements secondaires : 6 sur 7 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 6 395 élèves pour 201 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GONTOUGO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-kouto-2026",
+    "title": "Écoles du département de KOUTO : électricité et connexion",
+    "content": "Dans le département de KOUTO (région BAGOUE), le recensement scolaire du MENA (2026) compte 86 écoles primaires et 12 établissements secondaires. Écoles primaires : 18 sur 86 sont électrifiées (21 %) ; 1 a une salle multimédia. Elles accueillent 19 086 élèves pour 466 enseignants. Établissements secondaires : 10 sur 12 sont électrifiés ; 11 ont une salle multimédia. Ils accueillent 7 167 élèves pour 289 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BAGOUE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-lakota-2026",
+    "title": "Écoles du département de LAKOTA : électricité et connexion",
+    "content": "Dans le département de LAKOTA (région LÔH-DJIBOUA), le recensement scolaire du MENA (2026) compte 180 écoles primaires et 6 établissements secondaires. Écoles primaires : 61 sur 180 sont électrifiées (34 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 53 021 élèves pour 963 enseignants. Établissements secondaires : 4 sur 6 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 11 434 élèves pour 89 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "LÔH-DJIBOUA",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-madinani-2026",
+    "title": "Écoles du département de MADINANI : électricité et connexion",
+    "content": "Dans le département de MADINANI (région KABADOUGOU), le recensement scolaire du MENA (2026) compte 38 écoles primaires et 4 établissements secondaires. Écoles primaires : 10 sur 38 sont électrifiées (26 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 7 271 élèves pour 164 enseignants. Établissements secondaires : 1 sur 4 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 1 945 élèves pour 64 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "KABADOUGOU",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-man-2026",
+    "title": "Écoles du département de MAN : électricité et connexion",
+    "content": "Dans le département de MAN (région TONKPI), le recensement scolaire du MENA (2026) compte 290 écoles primaires et 14 établissements secondaires. Écoles primaires : 56 sur 290 sont électrifiées (19 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 73 400 élèves pour 1 599 enseignants. Établissements secondaires : 9 sur 14 sont électrifiés ; 1 est connecté en haut débit ; 3 ont une salle multimédia. Ils accueillent 23 498 élèves pour 503 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "TONKPI",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-mankono-2026",
+    "title": "Écoles du département de MANKONO : électricité et connexion",
+    "content": "Dans le département de MANKONO (région BERE), le recensement scolaire du MENA (2026) compte 193 écoles primaires et 13 établissements secondaires. Écoles primaires : 21 sur 193 sont électrifiées (11 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 38 497 élèves pour 938 enseignants. Établissements secondaires : 3 sur 13 sont électrifiés ; 5 ont une salle multimédia. Ils accueillent 10 875 élèves pour 267 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BERE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-m-bahiakro-2026",
+    "title": "Écoles du département de M'BAHIAKRO : électricité et connexion",
+    "content": "Dans le département de M'BAHIAKRO (région IFFOU), le recensement scolaire du MENA (2026) compte 102 écoles primaires et 2 établissements secondaires. Écoles primaires : 26 sur 102 sont électrifiées (25 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 15 690 élèves pour 415 enseignants. Établissements secondaires : 1 sur 2 sont électrifiés. Ils accueillent 3 601 élèves pour 74 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "IFFOU",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-m-batto-2026",
+    "title": "Écoles du département de M'BATTO : électricité et connexion",
+    "content": "Dans le département de M'BATTO (région MORONOU), le recensement scolaire du MENA (2026) compte 88 écoles primaires et 6 établissements secondaires. Écoles primaires : 30 sur 88 sont électrifiées (34 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 23 673 élèves pour 471 enseignants. Établissements secondaires : 6 sur 6 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 6 549 élèves pour 241 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "MORONOU",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-m-bengue-2026",
+    "title": "Écoles du département de M'BENGUE : électricité et connexion",
+    "content": "Dans le département de M'BENGUE (région PORO), le recensement scolaire du MENA (2026) compte 81 écoles primaires et 8 établissements secondaires. Écoles primaires : 20 sur 81 sont électrifiées (25 %) ; 1 a une salle multimédia. Elles accueillent 15 128 élèves pour 317 enseignants. Établissements secondaires : 6 sur 8 sont électrifiés ; 4 ont une salle multimédia. Ils accueillent 3 813 élèves pour 92 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "PORO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-meagui-2026",
+    "title": "Écoles du département de MEAGUI : électricité et connexion",
+    "content": "Dans le département de MEAGUI (région NAWA), le recensement scolaire du MENA (2026) compte 204 écoles primaires et 3 établissements secondaires. Écoles primaires : 26 sur 204 sont électrifiées (13 %) ; 1 a une salle multimédia. Elles accueillent 40 750 élèves pour 993 enseignants. Établissements secondaires : 2 sur 3 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 4 673 élèves pour 97 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "NAWA",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-minignan-2026",
+    "title": "Écoles du département de MINIGNAN : électricité et connexion",
+    "content": "Dans le département de MINIGNAN (région FOLON), le recensement scolaire du MENA (2026) compte 48 écoles primaires et 6 établissements secondaires. Écoles primaires : 16 sur 48 sont électrifiées (33 %) ; 1 a une salle multimédia. Elles accueillent 8 489 élèves pour 192 enseignants. Établissements secondaires : 1 sur 6 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 2 737 élèves pour 69 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "FOLON",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-nassian-2026",
+    "title": "Écoles du département de NASSIAN : électricité et connexion",
+    "content": "Dans le département de NASSIAN (région BOUNKANI), le recensement scolaire du MENA (2026) compte 60 écoles primaires et 4 établissements secondaires. Écoles primaires : 2 sur 60 sont électrifiées (3 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 11 100 élèves pour 265 enseignants. Établissements secondaires : 3 sur 4 sont électrifiés. Ils accueillent 2 810 élèves pour 83 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BOUNKANI",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-niakara-2026",
+    "title": "Écoles du département de NIAKARA : électricité et connexion",
+    "content": "Dans le département de NIAKARA (région HAMBOL), le recensement scolaire du MENA (2026) compte 0 écoles primaires et 9 établissements secondaires. Établissements secondaires : 5 sur 9 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 9 407 élèves pour 222 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "HAMBOL",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-niakaramadougou-2026",
+    "title": "Écoles du département de NIAKARAMADOUGOU : électricité et connexion",
+    "content": "Dans le département de NIAKARAMADOUGOU (région HAMBOL), le recensement scolaire du MENA (2026) compte 107 écoles primaires, et aucun établissement secondaire recensé dans ce canevas. Écoles primaires : 41 sur 107 sont électrifiées (38 %) ; 1 a une salle multimédia. Elles accueillent 27 059 élèves pour 558 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "HAMBOL",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-odienne-2026",
+    "title": "Écoles du département de ODIENNE : électricité et connexion",
+    "content": "Dans le département de ODIENNE (région KABADOUGOU), le recensement scolaire du MENA (2026) compte 113 écoles primaires et 10 établissements secondaires. Écoles primaires : 34 sur 113 sont électrifiées (30 %) ; 1 a une salle multimédia. Elles accueillent 23 676 élèves pour 510 enseignants. Établissements secondaires : 10 sur 10 sont électrifiés ; 1 est connecté en haut débit ; 7 ont une salle multimédia ; 3 sont reliés au réseau national de l'État. Ils accueillent 9 389 élèves pour 252 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "KABADOUGOU",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-ouangolodougou-2026",
+    "title": "Écoles du département de OUANGOLODOUGOU : électricité et connexion",
+    "content": "Dans le département de OUANGOLODOUGOU (région TCHOLOGO), le recensement scolaire du MENA (2026) compte 153 écoles primaires et 13 établissements secondaires. Écoles primaires : 19 sur 153 sont électrifiées (12 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 33 651 élèves pour 697 enseignants. Établissements secondaires : 6 sur 13 sont électrifiés ; 1 est connecté en haut débit ; 7 ont une salle multimédia. Ils accueillent 13 170 élèves pour 273 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "TCHOLOGO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-ouaninou-2026",
+    "title": "Écoles du département de OUANINOU : électricité et connexion",
+    "content": "Dans le département de OUANINOU (région BAFING), le recensement scolaire du MENA (2026) compte 80 écoles primaires et 5 établissements secondaires. Écoles primaires : 13 sur 80 sont électrifiées (16 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 10 586 élèves pour 298 enseignants. Établissements secondaires : 2 sur 5 sont électrifiés. Ils accueillent 2 036 élèves pour 63 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BAFING",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-ouelle-2026",
+    "title": "Écoles du département de OUELLE : électricité et connexion",
+    "content": "Dans le département de OUELLE (région IFFOU), le recensement scolaire du MENA (2026) compte 58 écoles primaires, et aucun établissement secondaire recensé dans ce canevas. Écoles primaires : 15 sur 58 sont électrifiées (26 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 11 017 élèves pour 286 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "IFFOU",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-oume-2026",
+    "title": "Écoles du département de OUME : électricité et connexion",
+    "content": "Dans le département de OUME (région GÔH), le recensement scolaire du MENA (2026) compte 176 écoles primaires et 4 établissements secondaires. Écoles primaires : 39 sur 176 sont électrifiées (22 %) ; 1 a une connexion satellite. Elles accueillent 45 497 élèves pour 943 enseignants. Établissements secondaires : 2 sur 4 sont électrifiés. Ils accueillent 7 826 élèves pour 218 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GÔH",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-prikro-2026",
+    "title": "Écoles du département de PRIKRO : électricité et connexion",
+    "content": "Dans le département de PRIKRO (région IFFOU), le recensement scolaire du MENA (2026) compte 77 écoles primaires et 4 établissements secondaires. Écoles primaires : 15 sur 77 sont électrifiées (19 %) ; 1 a une salle multimédia. Elles accueillent 15 455 élèves pour 329 enseignants. Établissements secondaires : 1 sur 4 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 2 860 élèves pour 81 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "IFFOU",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-sakassou-2026",
+    "title": "Écoles du département de SAKASSOU : électricité et connexion",
+    "content": "Dans le département de SAKASSOU (région GBÊKÊ), le recensement scolaire du MENA (2026) compte 99 écoles primaires et 8 établissements secondaires. Écoles primaires : 33 sur 99 sont électrifiées (33 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 21 680 élèves pour 505 enseignants. Établissements secondaires : 4 sur 8 sont électrifiés ; 5 ont une salle multimédia. Ils accueillent 4 946 élèves pour 114 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GBÊKÊ",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-samatiguila-2026",
+    "title": "Écoles du département de SAMATIGUILA : électricité et connexion",
+    "content": "Dans le département de SAMATIGUILA (région KABADOUGOU), le recensement scolaire du MENA (2026) compte 16 écoles primaires et 2 établissements secondaires. Écoles primaires : 5 sur 16 sont électrifiées (31 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 2 354 élèves pour 53 enseignants. Établissements secondaires : 1 sur 2 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 799 élèves pour 26 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "KABADOUGOU",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-sandegue-2026",
+    "title": "Écoles du département de SANDEGUE : électricité et connexion",
+    "content": "Dans le département de SANDEGUE (région GONTOUGO), le recensement scolaire du MENA (2026) compte 53 écoles primaires et 4 établissements secondaires. Écoles primaires : 9 sur 53 sont électrifiées (17 %) ; 1 a une salle multimédia. Elles accueillent 8 901 élèves pour 223 enseignants. Établissements secondaires : 2 sur 4 sont électrifiés. Ils accueillent 1 997 élèves pour 56 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GONTOUGO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-san-pedro-2026",
+    "title": "Écoles du département de SAN-PEDRO : électricité et connexion",
+    "content": "Dans le département de SAN-PEDRO (région SAN-PEDRO), le recensement scolaire du MENA (2026) compte 367 écoles primaires et 9 établissements secondaires. Écoles primaires : 73 sur 367 sont électrifiées (20 %) ; 2 ont une salle multimédia. Elles accueillent 87 767 élèves pour 1 959 enseignants. Établissements secondaires : 7 sur 9 sont électrifiés ; 1 est connecté en haut débit ; 3 ont une salle multimédia ; 2 sont reliés au réseau national de l'État. Ils accueillent 24 682 élèves pour 530 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "SAN-PEDRO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-sassandra-2026",
+    "title": "Écoles du département de SASSANDRA : électricité et connexion",
+    "content": "Dans le département de SASSANDRA (région GBOKLE), le recensement scolaire du MENA (2026) compte 218 écoles primaires et 8 établissements secondaires. Écoles primaires : 13 sur 218 sont électrifiées (6 %) ; 1 a une connexion satellite ; 4 ont une salle multimédia. Elles accueillent 46 695 élèves pour 1 067 enseignants. Établissements secondaires : 2 sur 8 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 6 989 élèves pour 179 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GBOKLE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-seguela-2026",
+    "title": "Écoles du département de SEGUELA : électricité et connexion",
+    "content": "Dans le département de SEGUELA (région WORODOUGOU), le recensement scolaire du MENA (2026) compte 207 écoles primaires et 17 établissements secondaires. Écoles primaires : 40 sur 207 sont électrifiées (19 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 48 616 élèves pour 994 enseignants. Établissements secondaires : 5 sur 17 sont électrifiés ; 5 ont une salle multimédia. Ils accueillent 12 575 élèves pour 345 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "WORODOUGOU",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-seguelon-2026",
+    "title": "Écoles du département de SEGUELON : électricité et connexion",
+    "content": "Dans le département de SEGUELON (région KABADOUGOU), le recensement scolaire du MENA (2026) compte 29 écoles primaires et 3 établissements secondaires. Écoles primaires : 2 sur 29 sont électrifiées (7 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 4 894 élèves pour 113 enseignants. Établissements secondaires : 2 sur 3 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 1 602 élèves pour 45 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "KABADOUGOU",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-sikensi-2026",
+    "title": "Écoles du département de SIKENSI : électricité et connexion",
+    "content": "Dans le département de SIKENSI (région AGNEBY-TIASSA), le recensement scolaire du MENA (2026) compte 58 écoles primaires et 3 établissements secondaires. Écoles primaires : 38 sur 58 sont électrifiées (66 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 16 833 élèves pour 334 enseignants. Établissements secondaires : 3 sur 3 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 5 355 élèves pour 168 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "AGNEBY-TIASSA",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-sinematiali-2026",
+    "title": "Écoles du département de SINEMATIALI : électricité et connexion",
+    "content": "Dans le département de SINEMATIALI (région PORO), le recensement scolaire du MENA (2026) compte 57 écoles primaires et 5 établissements secondaires. Écoles primaires : 25 sur 57 sont électrifiées (44 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 14 027 élèves pour 263 enseignants. Établissements secondaires : 3 sur 5 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 7 638 élèves pour 198 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "PORO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-sinfra-2026",
+    "title": "Écoles du département de SINFRA : électricité et connexion",
+    "content": "Dans le département de SINFRA (région MARAHOUE), le recensement scolaire du MENA (2026) compte 184 écoles primaires et 5 établissements secondaires. Écoles primaires : 62 sur 184 sont électrifiées (34 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 41 969 élèves pour 1 042 enseignants. Établissements secondaires : 4 sur 5 sont électrifiés ; 4 ont une salle multimédia. Ils accueillent 12 675 élèves pour 294 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "MARAHOUE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-sipilou-2026",
+    "title": "Écoles du département de SIPILOU : électricité et connexion",
+    "content": "Dans le département de SIPILOU (région TONKPI), le recensement scolaire du MENA (2026) compte 41 écoles primaires et 2 établissements secondaires. Écoles primaires : 0 sur 41 sont électrifiées (0 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 10 283 élèves pour 184 enseignants. Établissements secondaires : 0 sur 2 sont électrifiés. Ils accueillent 1 562 élèves pour 7 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "TONKPI",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-soubre-2026",
+    "title": "Écoles du département de SOUBRE : électricité et connexion",
+    "content": "Dans le département de SOUBRE (région NAWA), le recensement scolaire du MENA (2026) compte 344 écoles primaires et 8 établissements secondaires. Écoles primaires : 94 sur 344 sont électrifiées (27 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 77 446 élèves pour 1 825 enseignants. Établissements secondaires : 6 sur 8 sont électrifiés ; 1 est connecté en haut débit ; 4 ont une salle multimédia. Ils accueillent 18 193 élèves pour 489 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "NAWA",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-taabo-2026",
+    "title": "Écoles du département de TAABO : électricité et connexion",
+    "content": "Dans le département de TAABO (région AGNEBY-TIASSA), le recensement scolaire du MENA (2026) compte 76 écoles primaires et 4 établissements secondaires. Écoles primaires : 21 sur 76 sont électrifiées (28 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 17 100 élèves pour 412 enseignants. Établissements secondaires : 2 sur 4 sont électrifiés. Ils accueillent 3 554 élèves pour 122 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "AGNEBY-TIASSA",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-tabou-2026",
+    "title": "Écoles du département de TABOU : électricité et connexion",
+    "content": "Dans le département de TABOU (région SAN-PEDRO), le recensement scolaire du MENA (2026) compte 124 écoles primaires et 2 établissements secondaires. Écoles primaires : 25 sur 124 sont électrifiées (20 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 31 526 élèves pour 632 enseignants. Établissements secondaires : 2 sur 2 sont électrifiés. Ils accueillent 6 407 élèves pour 104 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "SAN-PEDRO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-tai-2026",
+    "title": "Écoles du département de TAÏ : électricité et connexion",
+    "content": "Dans le département de TAÏ (région CAVALLY), le recensement scolaire du MENA (2026) compte 63 écoles primaires et 3 établissements secondaires. Écoles primaires : 8 sur 63 sont électrifiées (13 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 17 796 élèves pour 335 enseignants. Établissements secondaires : 2 sur 3 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 4 310 élèves pour 80 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "CAVALLY",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-tanda-2026",
+    "title": "Écoles du département de TANDA : électricité et connexion",
+    "content": "Dans le département de TANDA (région GONTOUGO), le recensement scolaire du MENA (2026) compte 111 écoles primaires et 6 établissements secondaires. Écoles primaires : 38 sur 111 sont électrifiées (34 %) ; 1 a une connexion satellite ; 1 a une salle multimédia. Elles accueillent 19 910 élèves pour 482 enseignants. Établissements secondaires : 5 sur 6 sont électrifiés ; 4 ont une salle multimédia. Ils accueillent 7 339 élèves pour 223 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GONTOUGO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-tehini-2026",
+    "title": "Écoles du département de TEHINI : électricité et connexion",
+    "content": "Dans le département de TEHINI (région BOUNKANI), le recensement scolaire du MENA (2026) compte 30 écoles primaires et 2 établissements secondaires. Écoles primaires : 0 sur 30 sont électrifiées (0 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 5 296 élèves pour 117 enseignants. Établissements secondaires : 2 sur 2 sont électrifiés. Ils accueillent 837 élèves pour 28 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BOUNKANI",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-tengrela-2026",
+    "title": "Écoles du département de TENGRELA : électricité et connexion",
+    "content": "Dans le département de TENGRELA (région BAGOUE), le recensement scolaire du MENA (2026) compte 73 écoles primaires et 7 établissements secondaires. Écoles primaires : 17 sur 73 sont électrifiées (23 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 14 706 élèves pour 313 enseignants. Établissements secondaires : 3 sur 7 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 3 885 élèves pour 141 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BAGOUE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-tiapoum-2026",
+    "title": "Écoles du département de TIAPOUM : électricité et connexion",
+    "content": "Dans le département de TIAPOUM (région SUD-COMOE), le recensement scolaire du MENA (2026) compte 51 écoles primaires et 3 établissements secondaires. Écoles primaires : 38 sur 51 sont électrifiées (75 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 11 133 élèves pour 252 enseignants. Établissements secondaires : 2 sur 3 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 2 344 élèves pour 80 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "SUD-COMOE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-tiassale-2026",
+    "title": "Écoles du département de TIASSALE : électricité et connexion",
+    "content": "Dans le département de TIASSALE (région AGNEBY-TIASSA), le recensement scolaire du MENA (2026) compte 148 écoles primaires et 11 établissements secondaires. Écoles primaires : 46 sur 148 sont électrifiées (31 %) ; 4 ont une salle multimédia. Elles accueillent 39 533 élèves pour 805 enseignants. Établissements secondaires : 3 sur 11 sont électrifiés ; 5 ont une salle multimédia. Ils accueillent 11 179 élèves pour 323 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "AGNEBY-TIASSA",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-tiebissou-2026",
+    "title": "Écoles du département de TIEBISSOU : électricité et connexion",
+    "content": "Dans le département de TIEBISSOU (région BELIER), le recensement scolaire du MENA (2026) compte 117 écoles primaires et 6 établissements secondaires. Écoles primaires : 46 sur 117 sont électrifiées (39 %) ; 1 a une salle multimédia. Elles accueillent 24 318 élèves pour 599 enseignants. Établissements secondaires : 4 sur 6 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 5 152 élèves pour 170 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BELIER",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-touba-2026",
+    "title": "Écoles du département de TOUBA : électricité et connexion",
+    "content": "Dans le département de TOUBA (région BAFING), le recensement scolaire du MENA (2026) compte 113 écoles primaires et 5 établissements secondaires. Écoles primaires : 50 sur 113 sont électrifiées (44 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 18 469 élèves pour 470 enseignants. Établissements secondaires : 3 sur 5 sont électrifiés ; 4 ont une salle multimédia. Ils accueillent 4 777 élèves pour 100 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BAFING",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-toulepleu-2026",
+    "title": "Écoles du département de TOULEPLEU : électricité et connexion",
+    "content": "Dans le département de TOULEPLEU (région CAVALLY), le recensement scolaire du MENA (2026) compte 65 écoles primaires et 6 établissements secondaires. Écoles primaires : 6 sur 65 sont électrifiées (9 %) ; 1 a une salle multimédia. Elles accueillent 15 747 élèves pour 314 enseignants. Établissements secondaires : 2 sur 6 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 3 700 élèves pour 78 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "CAVALLY",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-toumodi-2026",
+    "title": "Écoles du département de TOUMODI : électricité et connexion",
+    "content": "Dans le département de TOUMODI (région BELIER), le recensement scolaire du MENA (2026) compte 139 écoles primaires et 8 établissements secondaires. Écoles primaires : 53 sur 139 sont électrifiées (38 %) ; 2 ont une salle multimédia. Elles accueillent 31 580 élèves pour 761 enseignants. Établissements secondaires : 7 sur 8 sont électrifiés ; 2 ont une salle multimédia. Ils accueillent 12 403 élèves pour 404 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "BELIER",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-transua-2026",
+    "title": "Écoles du département de TRANSUA : électricité et connexion",
+    "content": "Dans le département de TRANSUA (région GONTOUGO), le recensement scolaire du MENA (2026) compte 100 écoles primaires et 6 établissements secondaires. Écoles primaires : 14 sur 100 sont électrifiées (14 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 19 103 élèves pour 433 enseignants. Établissements secondaires : 5 sur 6 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 5 074 élèves pour 150 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "GONTOUGO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-vavoua-2026",
+    "title": "Écoles du département de VAVOUA : électricité et connexion",
+    "content": "Dans le département de VAVOUA (région HAUT-SASSANDRA), le recensement scolaire du MENA (2026) compte 280 écoles primaires et 5 établissements secondaires. Écoles primaires : 17 sur 280 sont électrifiées (6 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 71 254 élèves pour 1 425 enseignants. Établissements secondaires : 1 sur 5 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 7 601 élèves pour 158 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "HAUT-SASSANDRA",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-yakasse-attobrou-2026",
+    "title": "Écoles du département de YAKASSE ATTOBROU : électricité et connexion",
+    "content": "Dans le département de YAKASSE ATTOBROU (région LA ME), le recensement scolaire du MENA (2026) compte 49 écoles primaires et 5 établissements secondaires. Écoles primaires : 22 sur 49 sont électrifiées (45 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 14 007 élèves pour 287 enseignants. Établissements secondaires : 2 sur 5 sont électrifiés ; 1 a une salle multimédia. Ils accueillent 4 072 élèves pour 121 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "LA ME",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-yamoussoukro-2026",
+    "title": "Écoles du département de YAMOUSSOUKRO : électricité et connexion",
+    "content": "Dans le département de YAMOUSSOUKRO (région YAMOUSSOUKRO), le recensement scolaire du MENA (2026) compte 166 écoles primaires et 11 établissements secondaires. Écoles primaires : 98 sur 166 sont électrifiées (59 %) ; 12 ont une salle multimédia. Elles accueillent 49 996 élèves pour 986 enseignants. Établissements secondaires : 9 sur 11 sont électrifiés ; 1 est connecté en haut débit ; 5 ont une salle multimédia ; 2 sont reliés au réseau national de l'État. Ils accueillent 20 730 élèves pour 797 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "YAMOUSSOUKRO",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-zouan-hounien-2026",
+    "title": "Écoles du département de ZOUAN-HOUNIEN : électricité et connexion",
+    "content": "Dans le département de ZOUAN-HOUNIEN (région TONKPI), le recensement scolaire du MENA (2026) compte 183 écoles primaires et 7 établissements secondaires. Écoles primaires : 23 sur 183 sont électrifiées (13 %) ; 2 ont une salle multimédia. Elles accueillent 40 439 élèves pour 884 enseignants. Établissements secondaires : 1 sur 7 sont électrifiés. Ils accueillent 8 505 élèves pour 109 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "TONKPI",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-zoukougbeu-2026",
+    "title": "Écoles du département de ZOUKOUGBEU : électricité et connexion",
+    "content": "Dans le département de ZOUKOUGBEU (région HAUT-SASSANDRA), le recensement scolaire du MENA (2026) compte 74 écoles primaires et 3 établissements secondaires. Écoles primaires : 3 sur 74 sont électrifiées (4 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 18 982 élèves pour 399 enseignants. Établissements secondaires : 0 sur 3 sont électrifiés. Ils accueillent 2 800 élèves pour 105 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "HAUT-SASSANDRA",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  },
+  {
+    "id": "ecoles-dep-zuenoula-2026",
+    "title": "Écoles du département de ZUENOULA : électricité et connexion",
+    "content": "Dans le département de ZUENOULA (région MARAHOUE), le recensement scolaire du MENA (2026) compte 125 écoles primaires et 5 établissements secondaires. Écoles primaires : 25 sur 125 sont électrifiées (20 %) ; aucune n'est encore connectée ni équipée d'une salle multimédia. Elles accueillent 35 520 élèves pour 719 enseignants. Établissements secondaires : 2 sur 5 sont électrifiés ; 3 ont une salle multimédia. Ils accueillent 5 482 élèves pour 137 enseignants.",
+    "visibility": "PUBLIC",
+    "region": "MARAHOUE",
+    "metadata": {
+      "famille": "ecoles",
+      "source": "Recensement des établissements scolaires — canevas MENA (2026)"
+    }
+  }
+]
