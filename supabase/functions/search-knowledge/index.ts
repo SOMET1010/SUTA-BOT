@@ -202,6 +202,26 @@ function formater(row: { document_title: string; section: string | null; content
 }
 
 /**
+ * CONTRÔLE D'ANCRAGE (F9, premier étage — 08/09) : le chargement des fiches
+ * écoles a rendu le défaut visible — « où me former à Korhogo ? » recevait
+ * les écoles de Dabou, Facobly et Man : la voie sujet (débarrassée du
+ * toponyme) accroche n'importe quel département. Une fiche de sujet dont le
+ * titre nomme un AUTRE département que celui demandé est écartée. Sans
+ * toponyme détecté (question nationale), tout passe.
+ */
+const TITRE_DEPARTEMENT = /d[ée]partement de ([^:—()]+)/i;
+function bienAncre(titre: string, toponymes: string[]): boolean {
+  if (toponymes.length === 0) return true;
+  const m = TITRE_DEPARTEMENT.exec(titre);
+  if (!m) return true;
+  const dep = normaliser(m[1]).replace(/ /g, "");
+  return toponymes.some((t) => {
+    const tc = t.replace(/ /g, "");
+    return dep === tc || dep.startsWith(tc) || tc.startsWith(dep);
+  });
+}
+
+/**
  * Contre-audit du 01/09 : « quels opérateurs mobiles à Bouaké ? » servait la
  * fiche Localité avant la fiche Opérateurs — l'ordre interne des
  * correspondances géographiques ne regardait pas la question. Vague 3 :
@@ -355,12 +375,15 @@ Deno.serve(async (req: Request) => {
     const dejaVus = new Set<string>([...idsRetenus, ...geoSeuls.map((g) => g.chunk_id)]);
     const sujetSeuls = sujets
       .filter((s) => !dejaVus.has(s.row.chunk_id) && !geoIds.has(s.row.chunk_id))
+      .filter((s) => bienAncre(s.row.document_title, toponymesDetectes))
       .slice(0, SUJETS_MAX);
     sujetSeuls.forEach((s) => dejaVus.add(s.row.chunk_id));
     const vecteurSeuls = vectoriels.filter((v) => !geoIds.has(v.row.chunk_id) && !dejaVus.has(v.row.chunk_id));
     // Les fiches de sujet passent avant les fiches d'un lieu que la géo n'a
     // pas confirmé (mauvais village accroché par le nom).
-    const vecteurSujets = vecteurSeuls.filter((v) => !estFicheDeLieu(v.row));
+    const vecteurSujets = vecteurSeuls
+      .filter((v) => !estFicheDeLieu(v.row))
+      .filter((v) => bienAncre(v.row.document_title, toponymesDetectes));
     const vecteurLieuxNonConfirmes = vecteurSeuls.filter((v) => estFicheDeLieu(v.row));
 
     const results = [

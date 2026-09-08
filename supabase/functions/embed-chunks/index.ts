@@ -13,6 +13,12 @@
  * Idempotente : relancer la fonction reprend simplement là où elle s'est
  * arrêtée.
  *
+ * v6 (08/09) — paramètre optionnel `chunkIds` : depuis le nettoyage du
+ * 03/09, 518 fragments de la famille masquée ont un embedding VOLONTAIREMENT
+ * néant (retirés de l'index). Le mode historique « tout ce qui est null »
+ * les réindexerait ; le chargement de nouvelles fiches passe donc par une
+ * liste explicite d'identifiants — seuls ces fragments-là sont embarqués.
+ *
  * Seul `AZURE_OPENAI_API_KEY` doit être renseigné en secret (Dashboard →
  * Edge Functions → Secrets). L'endpoint et le nom du déploiement ne sont pas
  * des secrets : ils ont une valeur par défaut ci-dessous, surchargeable par
@@ -80,6 +86,9 @@ Deno.serve(async (req: Request) => {
     const options = await req.json().catch(() => ({}));
     const batchSize: number = options.batch ?? DEFAULT_BATCH;
     const maxSeconds: number = options.maxSeconds ?? DEFAULT_MAX_SECONDS;
+    const chunkIds: string[] | null = Array.isArray(options.chunkIds) && options.chunkIds.length > 0
+      ? options.chunkIds.map(String)
+      : null;
 
     const endpoint = Deno.env.get("AZURE_OPENAI_ENDPOINT") || DEFAULT_ENDPOINT;
     const deployment = Deno.env.get("EMBEDDINGS_DEPLOYMENT") || DEFAULT_DEPLOYMENT;
@@ -94,11 +103,13 @@ Deno.serve(async (req: Request) => {
     let dimensions: number | null = null;
 
     while ((Date.now() - startedAt) / 1000 < maxSeconds) {
-      const { data: pending, error } = await supabase
+      let requete = supabase
         .from("document_chunks")
         .select("id, content")
         .is("embedding", null)
         .limit(batchSize);
+      if (chunkIds) requete = requete.in("id", chunkIds);
+      const { data: pending, error } = await requete;
 
       if (error) throw new Error(`Lecture des fragments : ${error.message}`);
       if (!pending || pending.length === 0) break;
@@ -122,15 +133,18 @@ Deno.serve(async (req: Request) => {
       processed += pending.length;
     }
 
-    const { count: remaining } = await supabase
+    let compte = supabase
       .from("document_chunks")
       .select("id", { count: "exact", head: true })
       .is("embedding", null);
+    if (chunkIds) compte = compte.in("id", chunkIds);
+    const { count: remaining } = await compte;
 
     return Response.json({
       ok: true,
       processed,
       remaining: remaining ?? 0,
+      cible: chunkIds ? chunkIds.length : null,
       dimensions,
       elapsedSeconds: Math.round((Date.now() - startedAt) / 1000),
     });
