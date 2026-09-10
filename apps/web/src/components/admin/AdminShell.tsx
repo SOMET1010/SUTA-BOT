@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { href: "/admin/signalements", label: "Signalements" },
   { href: "/admin/voice-lab", label: "Labo voix" },
   { href: "/admin/voice-casting", label: "Casting" },
+  { href: "/admin/labo-langues", label: "Labo langues" },
   { href: "/admin/diagnostics", label: "Diagnostics" },
   { href: "/admin/settings", label: "Paramètres" },
 ];
