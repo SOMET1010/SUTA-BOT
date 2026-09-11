@@ -1,5 +1,6 @@
-import { createResilientRealtimeProvider, loadSutaSystemPrompt } from "@suta/ai";
+import { createResilientRealtimeProvider, loadCockpitSystemPrompt, loadSutaSystemPrompt } from "@suta/ai";
 import { SUTA_TOOLS, describeTool } from "@suta/tools";
+import { COCKPIT_TOOL_DESCRIPTOR, modeCockpitActif } from "@/lib/cockpit/contrat";
 import { voiceEngine } from "@/lib/voice/azure-tts";
 
 // Les voix réellement servies par gpt-realtime (GA) sur Azure — le casting
@@ -24,10 +25,15 @@ export async function POST(request: Request) {
     // Azure Speech côté client (via /api/voice/speak). Défaut : realtime,
     // strictement identique à avant.
     const engine = voiceEngine(process.env as Record<string, string | undefined>);
+    // SUTA Cockpit (fiche du 11/09) : la même base de code sert deux
+    // instances séparées, choisies par SUTA_MODE au déploiement. Zéro pont :
+    // en mode cockpit, AUCUN outil citoyen n'est exposé (et réciproquement,
+    // l'outil cockpit n'existe pas côté citoyen — sa route répond 404).
+    const cockpit = modeCockpitActif(process.env as Record<string, string | undefined>);
     const session = await provider.createSession({
       conversationId,
-      instructions: loadSutaSystemPrompt(),
-      tools: SUTA_TOOLS.map(describeTool),
+      instructions: cockpit ? loadCockpitSystemPrompt() : loadSutaSystemPrompt(),
+      tools: cockpit ? [COCKPIT_TOOL_DESCRIPTOR] : SUTA_TOOLS.map(describeTool),
       ...(engine === "azure-tts" ? { outputModalities: ["text" as const] } : {}),
     });
 

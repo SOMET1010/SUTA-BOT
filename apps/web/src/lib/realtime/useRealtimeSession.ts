@@ -20,6 +20,9 @@ const ROUTES_OUTILS: Record<string, { path: string; extra?: Record<string, unkno
   search_knowledge: { path: "/api/tools/search-knowledge" },
   signaler_zone: { path: "/api/tools/signaler-zone", extra: { canal: "voix" } },
   point_connecte: { path: "/api/tools/point-connecte" },
+  // Instance SUTA Cockpit uniquement : côté citoyen le modèle ne reçoit pas
+  // cet outil et la route répond 404 (zéro pont).
+  cockpit_interroger: { path: "/api/tools/cockpit" },
 };
 
 async function executeToolByName(name: string, argumentsJson: string): Promise<unknown> {
