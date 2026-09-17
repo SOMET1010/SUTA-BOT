@@ -1,0 +1,97 @@
+:root {
+  --fond: #f6f7f9;
+  --carte: #ffffff;
+  --texte: #14181f;
+  --doux: #5a6472;
+  --trait: #d9dee6;
+  --accent: #0b1f3a;
+  --ok: #0f6b3f;
+  --echec: #9c2626;
+  --attente: #8a5a00;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fond: #0d1117;
+    --carte: #161b22;
+    --texte: #e6edf3;
+    --doux: #9aa5b1;
+    --trait: #2a323c;
+    --accent: #9ec5ff;
+    --ok: #4ec97f;
+    --echec: #ff8080;
+    --attente: #ffcc66;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 16px;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1 { font-size: 1.25rem; margin: 0 0 4px; }
+h2 { font-size: 0.95rem; margin: 0 0 8px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--doux); }
+p.sous { margin: 0 0 16px; color: var(--doux); font-size: 0.9rem; }
+
+section {
+  background: var(--carte);
+  border: 1px solid var(--trait);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+button {
+  font: inherit;
+  /* 48px : la cible tactile minimale recommandée, sur un téléphone d'entrée
+     de gamme tenu d'une main. */
+  min-height: 48px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--trait);
+  background: var(--fond);
+  color: var(--texte);
+  cursor: pointer;
+}
+
+button.principal { background: var(--accent); color: var(--fond); border-color: var(--accent); font-weight: 600; }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+
+label { display: block; font-size: 0.85rem; color: var(--doux); margin: 10px 0 4px; }
+
+input, select {
+  font: inherit;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--trait);
+  background: var(--fond);
+  color: var(--texte);
+}
+
+.capacites { display: flex; flex-wrap: wrap; gap: 6px; }
+.puce { font-size: 0.8rem; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--trait); }
+.puce.oui { color: var(--ok); border-color: var(--ok); }
+.puce.non { color: var(--echec); border-color: var(--echec); }
+
+.journal { margin: 0; padding: 0; list-style: none; font-size: 0.85rem; }
+.journal li { padding: 8px 0; border-bottom: 1px solid var(--trait); }
+.journal li:last-child { border-bottom: 0; }
+.journal .ok { color: var(--ok); }
+.journal .echec { color: var(--echec); }
+.journal .attente { color: var(--attente); }
+.journal code { font-size: 0.78rem; color: var(--doux); word-break: break-all; }
+
+.confirmation { border: 1px solid var(--attente); border-radius: 10px; padding: 12px; margin-top: 10px; }
+.confirmation p { margin: 0 0 10px; font-weight: 600; }
+.confirmation .grille { grid-template-columns: 1fr 1fr; }

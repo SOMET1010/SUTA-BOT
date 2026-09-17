@@ -1,0 +1,11 @@
+# Sorties de Next
+.next/
+out/
+
+# Dépendances
+node_modules/
+
+# Le dossier des greffons Cordova est REGÉNÉRÉ par `cap sync` (le .gitignore
+# d'Android l'exclut déjà). Conséquence pour qui clone le dépôt : lancer
+# `npm run pass:sync` AVANT toute compilation Android, sinon Gradle échoue sur
+# un projet `:capacitor-cordova-android-plugins` introuvable.

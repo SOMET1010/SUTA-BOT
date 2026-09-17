@@ -2,7 +2,7 @@
   "name": "suta-bot",
   "version": "0.1.0",
   "private": true,
-  "description": "SUTA — agent conversationnel vocal d'ANSUT CONNECTE",
+  "description": "SUTA \u2014 agent conversationnel vocal d'ANSUT CONNECTE",
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -20,7 +20,10 @@
     "db:seed": "dotenv -e .env.local -- npm run db:seed --workspace=@suta/database",
     "knowledge:ingest": "dotenv -e .env.local -- npm run ingest --workspace=@suta/knowledge",
     "knowledge:ingest-jsonl": "dotenv -e .env.local -- npm run ingest-jsonl --workspace=@suta/knowledge",
-    "knowledge:reindex": "dotenv -e .env.local -- npm run reindex --workspace=@suta/knowledge"
+    "knowledge:reindex": "dotenv -e .env.local -- npm run reindex --workspace=@suta/knowledge",
+    "build:pass": "npm run build --workspace=pass",
+    "pass:sync": "npm run cap:sync --workspace=pass",
+    "pass:apk": "npm run apk:debug --workspace=pass"
   },
   "engines": {
     "node": ">=20"

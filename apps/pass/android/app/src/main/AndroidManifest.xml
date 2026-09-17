@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode|navigation|density"
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBarLaunch"
+            android:launchMode="singleTask"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
+    </application>
+
+    <!-- ================= Permissions ================= -->
+
+    <!-- Chargement des ressources web empaquetées et, plus tard, du service
+         de transcription en ligne. Posée par le gabarit Capacitor. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Savoir si le terminal est en ligne : le lot suivant s'en servira pour
+         choisir entre la reconnaissance embarquée et le service distant. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Retrouver un contact par son nom prononcé. Un refus n'est PAS une
+         panne : le pont rend `permission_refusee` et SUTA l'explique. -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!-- Prendre une photo. Même règle en cas de refus. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- VOLONTAIREMENT ABSENTE : android.permission.CALL_PHONE.
+         PASS n'émet jamais un appel — il ouvre le composeur PRÉ-REMPLI
+         (ACTION_DIAL) et la personne appuie. Cette permission serait donc
+         inutile, et elle est de surcroît restreinte par Google Play.
+
+         VOLONTAIREMENT ABSENTE : android.permission.QUERY_ALL_PACKAGES.
+         La déclaration <queries> ci-dessous suffit à lister les applications
+         lançables, sans réclamer une permission que Google Play restreint. -->
+
+    <!-- ============ Visibilité des paquets (Android 11+) ============ -->
+    <queries>
+        <!-- Les applications que la personne peut ouvrir depuis son écran
+             d'accueil : c'est le filtre qu'emploient les lanceurs. -->
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+        <!-- Le composeur téléphonique, pour ACTION_DIAL. -->
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+            <data android:scheme="tel" />
+        </intent>
+    </queries>
+</manifest>

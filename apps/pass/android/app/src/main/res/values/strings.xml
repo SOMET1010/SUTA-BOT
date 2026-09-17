@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SUTA PASS</string>
+    <string name="title_activity_main">SUTA PASS</string>
+    <string name="package_name">ci.ansut.suta.pass</string>
+    <string name="custom_url_scheme">ci.ansut.suta.pass</string>
+</resources>
