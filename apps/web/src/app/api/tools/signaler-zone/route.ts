@@ -1,5 +1,6 @@
 import { signalerZoneInputSchema } from "@suta/tools";
 import { edgeFunctionUrl, edgeHeaders } from "@/lib/supabase-edge";
+import { gardeInstance } from "@/lib/pass/mode";
 
 /**
  * Outil `signaler_zone` côté serveur — appelé par le chemin texte et par la
@@ -11,6 +12,10 @@ import { edgeFunctionUrl, edgeHeaders } from "@/lib/supabase-edge";
 const EDGE_TIMEOUT_MS = 9_000;
 
 export async function POST(request: Request) {
+  // Isolation réciproque des instances (SUTA_MODE) : un déploiement PASS ou
+  // Cockpit n'atteint pas les outils citoyens, même par une requête directe.
+  const horsInstance = gardeInstance(process.env as Record<string, string | undefined>, "citoyen");
+  if (horsInstance) return horsInstance;
   const body: unknown = await request.json().catch(() => null);
   const parsed = signalerZoneInputSchema.safeParse(body);
   if (!parsed.success) {

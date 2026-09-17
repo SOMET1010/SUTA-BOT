@@ -16,6 +16,7 @@
     "@suta/auth": "*",
     "@suta/database": "*",
     "@suta/knowledge": "*",
+    "@suta/pass": "*",
     "@suta/shared": "*",
     "@suta/tools": "*",
     "leaflet": "^1.9.4",

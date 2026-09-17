@@ -1,6 +1,14 @@
-import { createResilientRealtimeProvider, loadCockpitSystemPrompt, loadSutaSystemPrompt } from "@suta/ai";
+import {
+  createResilientRealtimeProvider,
+  loadCockpitSystemPrompt,
+  loadPassSystemPrompt,
+  loadSutaSystemPrompt,
+  type RealtimeToolDescriptor,
+} from "@suta/ai";
+import { decrireActionsPass } from "@suta/pass";
 import { SUTA_TOOLS, describeTool } from "@suta/tools";
-import { COCKPIT_TOOL_DESCRIPTOR, modeCockpitActif } from "@/lib/cockpit/contrat";
+import { COCKPIT_TOOL_DESCRIPTOR } from "@/lib/cockpit/contrat";
+import { modeSuta, type ModeSuta } from "@/lib/pass/mode";
 import { voiceEngine } from "@/lib/voice/azure-tts";
 
 // Les voix réellement servies par gpt-realtime (GA) sur Azure — le casting
@@ -9,11 +17,53 @@ const CASTING_VOICES = new Set([
   "alloy", "ash", "ballad", "cedar", "coral", "echo", "marin", "sage", "shimmer", "verse",
 ]);
 
+/** Le prompt système de chaque instance. Trois modes, trois prompts, zéro pont. */
+function promptDuMode(mode: ModeSuta): string {
+  switch (mode) {
+    case "cockpit":
+      return loadCockpitSystemPrompt();
+    case "pass":
+      return loadPassSystemPrompt();
+    case "citoyen":
+      return loadSutaSystemPrompt();
+  }
+}
+
+/**
+ * Les outils de chaque instance. L'isolation se joue ICI : une instance ne
+ * reçoit QUE ses propres outils, et jamais ceux d'une autre. Un déploiement
+ * PASS n'a aucun moyen d'atteindre la base de connaissances citoyenne, et
+ * réciproquement l'instance citoyenne ne peut pas piloter un téléphone.
+ */
+function outilsDuMode(mode: ModeSuta): RealtimeToolDescriptor[] {
+  switch (mode) {
+    case "cockpit":
+      return [COCKPIT_TOOL_DESCRIPTOR];
+    case "pass":
+      return decrireActionsPass();
+    case "citoyen":
+      return SUTA_TOOLS.map(describeTool);
+  }
+}
+
 export async function POST(request: Request) {
   const body: unknown = await request.json().catch(() => null);
   const parsed = body && typeof body === "object" ? (body as { conversationId?: unknown; voice?: unknown }) : {};
   const conversationId = typeof parsed.conversationId === "string" ? parsed.conversationId : undefined;
   const requestedVoice = typeof parsed.voice === "string" && CASTING_VOICES.has(parsed.voice) ? parsed.voice : undefined;
+
+  // Trois instances sur une seule base de code, choisies par SUTA_MODE au
+  // déploiement (fiche du 11/09 pour Cockpit, plan PASS du 17/09 pour PASS).
+  // Un mode inconnu N'EST PAS traité comme citoyen : voir `lib/pass/mode.ts`,
+  // la panne doit être bruyante plutôt que servir la mauvaise instance.
+  const mode = modeSuta(process.env as Record<string, string | undefined>);
+  if (mode === "inconnu") {
+    console.error("[api/realtime/session] SUTA_MODE inconnu :", process.env.SUTA_MODE);
+    return Response.json(
+      { error: "Cette instance est mal configurée. Contactez l'équipe technique." },
+      { status: 503 },
+    );
+  }
 
   try {
     const provider = createResilientRealtimeProvider({
@@ -25,15 +75,10 @@ export async function POST(request: Request) {
     // Azure Speech côté client (via /api/voice/speak). Défaut : realtime,
     // strictement identique à avant.
     const engine = voiceEngine(process.env as Record<string, string | undefined>);
-    // SUTA Cockpit (fiche du 11/09) : la même base de code sert deux
-    // instances séparées, choisies par SUTA_MODE au déploiement. Zéro pont :
-    // en mode cockpit, AUCUN outil citoyen n'est exposé (et réciproquement,
-    // l'outil cockpit n'existe pas côté citoyen — sa route répond 404).
-    const cockpit = modeCockpitActif(process.env as Record<string, string | undefined>);
     const session = await provider.createSession({
       conversationId,
-      instructions: cockpit ? loadCockpitSystemPrompt() : loadSutaSystemPrompt(),
-      tools: cockpit ? [COCKPIT_TOOL_DESCRIPTOR] : SUTA_TOOLS.map(describeTool),
+      instructions: promptDuMode(mode),
+      tools: outilsDuMode(mode),
       ...(engine === "azure-tts" ? { outputModalities: ["text" as const] } : {}),
     });
 

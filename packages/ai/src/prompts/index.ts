@@ -1,4 +1,5 @@
 import { COCKPIT_SYSTEM_PROMPT } from "./cockpit-system";
+import { PASS_SYSTEM_PROMPT } from "./pass-system";
 import { SUTA_SYSTEM_PROMPT } from "./suta-system";
 
 /**
@@ -15,4 +16,11 @@ export function loadSutaSystemPrompt(): string {
  * déploiement, zéro pont entre les deux. */
 export function loadCockpitSystemPrompt(): string {
   return COCKPIT_SYSTEM_PROMPT;
+}
+
+/** Prompt de l'instance SUTA PASS (assistant du téléphone) — jamais servi à
+ * l'instance citoyenne ni au Cockpit : le choix se fait par SUTA_MODE au
+ * niveau du déploiement, zéro pont entre les trois. */
+export function loadPassSystemPrompt(): string {
+  return PASS_SYSTEM_PROMPT;
 }

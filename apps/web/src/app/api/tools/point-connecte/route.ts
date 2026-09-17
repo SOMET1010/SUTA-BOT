@@ -1,5 +1,6 @@
 import { pointConnecteInputSchema } from "@suta/tools";
 import { edgeFunctionUrl, edgeHeaders } from "@/lib/supabase-edge";
+import { gardeInstance } from "@/lib/pass/mode";
 
 /**
  * Outil `point_connecte` côté serveur — « où est-ce que ça capte près de
@@ -9,6 +10,10 @@ import { edgeFunctionUrl, edgeHeaders } from "@/lib/supabase-edge";
 const EDGE_TIMEOUT_MS = 9_000;
 
 export async function POST(request: Request) {
+  // Isolation réciproque des instances (SUTA_MODE) : un déploiement PASS ou
+  // Cockpit n'atteint pas les outils citoyens, même par une requête directe.
+  const horsInstance = gardeInstance(process.env as Record<string, string | undefined>, "citoyen");
+  if (horsInstance) return horsInstance;
   const body: unknown = await request.json().catch(() => null);
   const parsed = pointConnecteInputSchema.safeParse(body);
   if (!parsed.success) {

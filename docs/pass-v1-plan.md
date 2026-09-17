@@ -1,8 +1,8 @@
 # SUTA PASS V1 — plan de modification du dépôt
 
-> **Statut : PROPOSITION, non validée.** Aucune ligne de code n'est écrite tant que
-> Patrick n'a pas tranché les arbitrages du §8. Document rédigé le 17/09/2026 après
-> lecture du dépôt.
+> **Statut : VALIDÉ le 17/09/2026.** Les quatre arbitrages du §8 sont tranchés
+> (voir §8bis). Le lot 1 est lancé ; les lots 2 à 4 restent à ouvrir.
+> Document rédigé le 17/09/2026 après lecture du dépôt.
 
 **Périmètre produit V1** : français + dioula + baoulé.
 **Démarrage technique** : dioula seul.
@@ -37,20 +37,32 @@ impossibles dans un navigateur**, quelle que soit la qualité du code.
 
 ---
 
-## 1. Le second blocage : le dioula hors ligne
+## 1. Le second point dur : le dioula hors ligne
 
-> ⚠️ **« 5 intentions hors ligne en dioula » n'est pas atteignable en V1.**
+> ⚠️ **« 5 intentions hors ligne en dioula » n'est pas atteignable pour la V1** — avec
+> ce qui est disponible aujourd'hui, et sur ce qui est mesuré aujourd'hui.
+>
+> 🟡 **Ce n'est PAS une impossibilité définitive, et rien ici ne doit être gravé
+> comme tel.** « Omnilingual ASR ne tient pas sur un téléphone » est une
+> **hypothèse à mesurer sur le terminal PASS**, pas un fait établi. Elle n'a jamais
+> été testée sur l'appareil cible. Le dioula hors ligne reste un **objectif de lot
+> ultérieur**, pas une porte fermée.
 
-La raison est documentée dans le dépôt lui-même. `apps/web/src/lib/langues/labo-langues.ts`
+Ce qui est effectivement documenté dans le dépôt : `apps/web/src/lib/langues/labo-langues.ts`
 le dit noir sur blanc : le service de transcription *« n'existe pas encore : il sera
-hébergé par l'équipe sur Azure après la migration (prérequis GPU) »*. Omnilingual
-ASR ne tourne pas sur un téléphone. Et le `SpeechRecognizer` d'Android ne connaît
-pas le dioula — ni en ligne, ni hors ligne.
+hébergé par l'équipe sur Azure après la migration (prérequis GPU) »*. C'est un **prérequis GPU côté serveur**, ce qui est
+une contrainte d'hébergement — **pas une mesure d'empreinte sur téléphone**. Ce qui
+est en revanche vérifié : le `SpeechRecognizer` d'Android ne connaît pas le dioula,
+ni en ligne, ni hors ligne.
 
-Il n'existe donc **aucune oreille dioula embarquable** aujourd'hui. L'audit
-linguistique (`SUTA-LANGUES/docs/suta-vision-perimetre.md`) ne fait que confirmer :
-ce qui est libre est liturgique, ce qui est vivant est malien, et rien de tout cela
-n'est un modèle qui tient dans 200 Mo sur un smartphone d'entrée de gamme.
+Il n'existe donc **aucune oreille dioula embarquable prête à l'emploi** aujourd'hui.
+L'audit linguistique (`SUTA-LANGUES/docs/suta-vision-perimetre.md`) explique
+pourquoi : ce qui est libre est liturgique, ce qui est vivant est malien.
+
+🔵 **À MESURER, et à inscrire au lot 4** : l'empreinte réelle d'Omnilingual ASR
+(et de toute alternative quantifiée) sur le terminal cible — PASS 4 Go de RAM,
+64 Go de stockage. Tant que cette mesure n'est pas faite, aucune conclusion sur la
+faisabilité embarquée n'est acquise, ni dans un sens ni dans l'autre.
 
 ### Les trois options, et ma recommandation
 
@@ -267,3 +279,23 @@ Une fois ces quatre points tranchés, je propose le séquencement suivant :
 Le lot 1 ne dépend d'**aucun** des quatre arbitrages. Si tu veux gagner du temps,
 je peux le démarrer dès ton feu vert sur le principe, pendant que les trois autres
 points se règlent.
+
+---
+
+## 8bis. Arbitrages rendus (17/09/2026)
+
+| # | Décision |
+|---|---|
+| 1 | **Dioula hors ligne : option A** pour la V1 — français hors ligne, dioula en ligne via SUTA-LANGUES. Le dioula hors ligne reste un **objectif de lot ultérieur**, conditionné à une mesure sur le terminal, pas une impossibilité. |
+| 2 | **Coquille Android : Capacitor.** Meilleur compromis pour conserver le TypeScript existant et ajouter les ponts natifs. |
+| 3 | **Terminal cible : le PASS, 4 Go de RAM / 64 Go.** Machine de référence. Le développement démarre sans appareil ; **toute validation Android devra se faire sur un terminal réel de cette classe.** |
+| 4 | **APK : build local d'abord, signature de développement uniquement.** Aucun keystore de production dans le dépôt. CI et signature de production traitées après validation du prototype. |
+
+### Périmètre explicite du lot 1
+
+**Dedans** : `SUTA_MODE=pass` · `packages/pass` · les 5 intentions et leurs schémas ·
+isolation stricte PASS / citoyen / cockpit · garde 404 · tests unitaires ·
+non-régression complète des tests existants.
+
+**Dehors** : Capacitor, Kotlin, APK, `apps/pass`, reconnaissance vocale réelle,
+appel au service SUTA-LANGUES. Rien de tout cela n'entre dans ce lot.
