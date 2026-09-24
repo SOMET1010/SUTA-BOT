@@ -11,9 +11,11 @@ import {
   resoudreAction,
   type ActionPass,
   type CapacitesPont,
+  type LanguePass,
   type PontNatif,
 } from "@suta/pass";
 import { obtenirPont } from "@/lib/bridge";
+import { EXEMPLES, NOM_LANGUE } from "@/lib/exemples";
 
 /**
  * Banc technique SUTA PASS.
@@ -39,22 +41,12 @@ interface Ligne {
   titre: string;
   detail?: string;
 }
-
-const EXEMPLES = [
-  "appelle Awa",
-  "ouvre WhatsApp",
-  "monte le son",
-  "mets le volume à 30",
-  "prends une photo",
-  "aide-moi",
-  "quel temps fait-il",
-];
-
 export default function BancTechnique() {
   const [pont, setPont] = useState<PontNatif | null>(null);
   const [natif, setNatif] = useState(false);
   const [capacites, setCapacites] = useState<CapacitesPont | null>(null);
   const [commande, setCommande] = useState("appelle Awa");
+  const [langue, setLangue] = useState<LanguePass>("fr");
   const [nom, setNom] = useState("Awa");
   const [application, setApplication] = useState("WhatsApp");
   const [niveau, setNiveau] = useState(30);
@@ -114,18 +106,26 @@ export default function BancTechnique() {
 
   /** Chaîne complète : la commande écrite est routée comme le sera la parole. */
   const router = useCallback(async () => {
-    const resolution = resoudreAction(commande);
+    // La langue est un PARAMÈTRE de `resoudreAction`, pas une devinette : sans
+    // elle, une commande dioula serait lue avec les motifs français, donc
+    // refusée. Le journal la mentionne pour que le testeur sache ce qui a été
+    // appliqué à son énoncé.
+    const resolution = resoudreAction(commande, langue);
     if (resolution.statut === "refusee") {
-      tracer("echec", messageRefus().texte, "hors_perimetre");
+      tracer("echec", messageRefus().texte, `hors_perimetre · ${NOM_LANGUE[langue]}`);
       return;
     }
     if (resolution.statut === "precision") {
-      tracer("attente", resolution.question, resolution.intention);
+      tracer("attente", resolution.question, `${resolution.intention} · ${NOM_LANGUE[langue]}`);
       return;
     }
-    tracer("ok", `Routé : ${resolution.intention}`, JSON.stringify(resolution.action.entree));
+    tracer(
+      "ok",
+      `Routé : ${resolution.intention}`,
+      `${NOM_LANGUE[langue]} · ${JSON.stringify(resolution.action.entree)}`,
+    );
     await executer(resolution.action, false);
-  }, [commande, executer, tracer]);
+  }, [commande, langue, executer, tracer]);
 
   const pret = pont !== null && capacites !== null;
 
@@ -154,6 +154,28 @@ export default function BancTechnique() {
 
       <section>
         <h2>Chaîne complète — commande → @suta/pass → pont</h2>
+        <label>Langue de la session</label>
+        <div className="grille">
+          {(["fr", "dyu"] as const).map((code) => (
+            <button
+              key={code}
+              className={langue === code ? "principal" : undefined}
+              onClick={() => {
+                setLangue(code);
+                setCommande(EXEMPLES[code][0]);
+              }}
+            >
+              {NOM_LANGUE[code]}
+            </button>
+          ))}
+        </div>
+        {langue === "dyu" ? (
+          <p className="sous">
+            Le français reste actif en session dioula : l&apos;alternance codique est la norme, une
+            commande qui mêle les deux doit passer. Les formes dioula proposées ci-dessous ne sont
+            <strong> pas validées</strong> — c&apos;est à un locuteur natif de les corriger.
+          </p>
+        ) : null}
         <label htmlFor="commande">Ce que la personne aurait dit</label>
         <input
           id="commande"
@@ -168,7 +190,7 @@ export default function BancTechnique() {
         </div>
         <label>Exemples</label>
         <div className="grille">
-          {EXEMPLES.map((exemple) => (
+          {EXEMPLES[langue].map((exemple) => (
             <button key={exemple} onClick={() => setCommande(exemple)}>
               {exemple}
             </button>
