@@ -4,6 +4,8 @@ import {
   VOIX_TEST_STANDARD,
   azureSpeechConfigured,
   construireRequeteTts,
+  construireRequeteVoix,
+  filtrerVoix,
   voiceEngine,
   voixValide,
 } from "@/lib/voice/azure-tts";
@@ -79,5 +81,67 @@ describe("construireRequeteTts", () => {
 
   it("refuse net une configuration incomplète", () => {
     expect(() => construireRequeteTts({ texte: "x" }, { AZURE_SPEECH_REGION: "westeurope" })).toThrow();
+  });
+});
+
+describe("découverte des voix disponibles", () => {
+  const env = { AZURE_SPEECH_KEY: "k", AZURE_SPEECH_REGION: "westeurope" };
+
+  it("interroge le même hôte que la synthèse", () => {
+    expect(construireRequeteVoix(env).url).toBe(
+      "https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list",
+    );
+  });
+
+  it("n'expose la clé que dans l'en-tête", () => {
+    const r = construireRequeteVoix(env);
+    expect(r.headers["Ocp-Apim-Subscription-Key"]).toBe("k");
+    expect(r.url).not.toContain("k");
+  });
+
+  it("refuse de construire une requête sans configuration", () => {
+    expect(() => construireRequeteVoix({})).toThrow();
+  });
+
+  it("déduit la région de l'endpoint quand AZURE_SPEECH_REGION manque", () => {
+    expect(
+      construireRequeteVoix({
+        AZURE_SPEECH_KEY: "k",
+        AZURE_SPEECH_ENDPOINT: "https://francecentral.api.cognitive.microsoft.com/",
+      }).url,
+    ).toContain("francecentral.tts.speech.microsoft.com");
+  });
+});
+
+describe("filtrage du catalogue", () => {
+  const brut = [
+    { ShortName: "fr-FR-DeniseNeural", Locale: "fr-FR", LocalName: "Denise", Gender: "Female" },
+    { ShortName: "fr-CA-SylvieNeural", Locale: "fr-CA", LocalName: "Sylvie", Gender: "Female" },
+    { ShortName: "fr-BE-CharlineNeural", Locale: "fr-BE", LocalName: "Charline", Gender: "Female" },
+    { ShortName: "en-US-JennyNeural", Locale: "en-US", LocalName: "Jenny", Gender: "Female" },
+    { ShortName: "malformé !", Locale: "fr-FR" },
+    null,
+  ];
+
+  it("ne garde que les locales demandées, triées", () => {
+    expect(filtrerVoix(brut, ["fr"]).map((v) => v.nom)).toEqual([
+      "fr-BE-CharlineNeural",
+      "fr-CA-SylvieNeural",
+      "fr-FR-DeniseNeural",
+    ]);
+  });
+
+  it("écarte les noms qui ne passeraient pas dans le SSML", () => {
+    expect(filtrerVoix(brut, ["fr"]).some((v) => v.nom.includes("!"))).toBe(false);
+  });
+
+  it("garderait une locale africaine le jour où elle existerait", () => {
+    const avecAfricaine = [...brut, { ShortName: "fr-CI-AyaNeural", Locale: "fr-CI", LocalName: "Aya", Gender: "Female" }];
+    expect(filtrerVoix(avecAfricaine, ["fr"]).map((v) => v.locale)).toContain("fr-CI");
+  });
+
+  it("supporte une réponse inattendue sans exploser", () => {
+    expect(filtrerVoix(null)).toEqual([]);
+    expect(filtrerVoix({ oops: true })).toEqual([]);
   });
 });

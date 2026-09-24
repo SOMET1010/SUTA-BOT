@@ -14,12 +14,49 @@ const SCRIPT =
 
 const VOIX_DEFAUT = "fr-FR-DeniseNeural";
 
+interface VoixDisponible {
+  nom: string;
+  locale: string;
+  libelle: string;
+  genre: string;
+}
+
 export default function VoiceLabPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [texte, setTexte] = useState(SCRIPT);
   const [voix, setVoix] = useState(VOIX_DEFAUT);
   const [enCours, setEnCours] = useState(false);
   const [status, setStatus] = useState("La bouche Azure Speech, en direct — la voix custom Jùlaba s'écoutera ici.");
+  const [catalogue, setCatalogue] = useState<VoixDisponible[]>([]);
+  const [chargement, setChargement] = useState(false);
+
+  /** Demande au service ce qu'il offre vraiment.
+   *
+   * Cette page ne proposait qu'un seul nom en dur, et rien ne disait lequel
+   * d'autre existait. Une liste figée dans le code vieillirait, et un nom
+   * inexact fait échouer le SSML sans message utile — d'où la découverte. */
+  async function chargerCatalogue() {
+    setChargement(true);
+    try {
+      const reponse = await fetch("/api/voice/voices");
+      const donnees = (await reponse.json()) as
+        | { voix: VoixDisponible[]; total: number; locales: string[] }
+        | { error: string };
+      if (!reponse.ok || "error" in donnees) {
+        throw new Error("error" in donnees ? donnees.error : `Erreur ${reponse.status}`);
+      }
+      setCatalogue(donnees.voix);
+      setStatus(
+        donnees.voix.length
+          ? `${donnees.voix.length} voix françaises sur ${donnees.total} — locales : ${donnees.locales.join(", ")}.`
+          : "Aucune voix française retournée par la ressource.",
+      );
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : "Catalogue indisponible");
+    } finally {
+      setChargement(false);
+    }
+  }
 
   async function ecouter() {
     setEnCours(true); setStatus("Synthèse en cours…");
@@ -52,9 +89,23 @@ export default function VoiceLabPage() {
     <h1 className="mt-2 text-4xl font-semibold">Labo voix native</h1>
     <p className="mt-3 text-ansut-text-muted">Ressource DTDI-AZURESPEECH-SUTA-01. La clé reste côté serveur : cette page n&apos;envoie que du texte.</p>
     <section className="mt-8 rounded-3xl border border-ansut-border bg-white p-6">
-      <label className="block text-sm font-semibold" htmlFor="voix">Voix Azure (standard ou custom)</label>
+      <div className="flex items-center justify-between gap-3">
+        <label className="block text-sm font-semibold" htmlFor="voix">Voix Azure (standard ou custom)</label>
+        <button onClick={chargerCatalogue} disabled={chargement}
+          className="rounded-full border border-ansut-border px-4 py-1.5 text-xs font-semibold disabled:opacity-50">
+          {chargement ? "Lecture…" : "Voir les voix disponibles"}
+        </button>
+      </div>
       <input id="voix" value={voix} onChange={(e) => setVoix(e.target.value)} placeholder={VOIX_DEFAUT}
         className="mt-2 w-full rounded-xl border border-ansut-border px-4 py-2.5" />
+      {catalogue.length > 0 && (
+        <select aria-label="Voix disponibles" value={voix} onChange={(e) => setVoix(e.target.value)}
+          className="mt-2 w-full rounded-xl border border-ansut-border px-4 py-2.5">
+          {catalogue.map((v) => (
+            <option key={v.nom} value={v.nom}>{v.locale} — {v.libelle} ({v.genre}) — {v.nom}</option>
+          ))}
+        </select>
+      )}
       <label className="mt-5 block text-sm font-semibold" htmlFor="texte">Texte à prononcer</label>
       <textarea id="texte" value={texte} onChange={(e) => setTexte(e.target.value)} rows={4} maxLength={600}
         className="mt-2 w-full rounded-xl border border-ansut-border px-4 py-2.5 leading-7" />
