@@ -16,6 +16,13 @@ import {
 } from "@suta/pass";
 import { obtenirPont } from "@/lib/bridge";
 import { EXEMPLES, NOM_LANGUE } from "@/lib/exemples";
+import {
+  PHRASE_EPREUVE,
+  TOPONYMES_EPREUVE,
+  filtrerFrancaises,
+  verdictMoteur,
+  type VoixTerminal,
+} from "@/lib/voix";
 
 /**
  * Banc technique SUTA PASS.
@@ -41,12 +48,22 @@ interface Ligne {
   titre: string;
   detail?: string;
 }
+/** Le seul endroit qui touche au type DOM : `voix.ts` reste pur, donc testable. */
+const enVoixTerminal = (voix: SpeechSynthesisVoice): VoixTerminal => ({
+  nom: voix.name,
+  langue: voix.lang,
+  horsLigne: voix.localService,
+});
+
 export default function BancTechnique() {
   const [pont, setPont] = useState<PontNatif | null>(null);
   const [natif, setNatif] = useState(false);
   const [capacites, setCapacites] = useState<CapacitesPont | null>(null);
   const [commande, setCommande] = useState("appelle Awa");
   const [langue, setLangue] = useState<LanguePass>("fr");
+  const [voixBrutes, setVoixBrutes] = useState<SpeechSynthesisVoice[]>([]);
+  const [voixChoisie, setVoixChoisie] = useState("");
+  const [texteAVoix, setTexteAVoix] = useState<string>(PHRASE_EPREUVE);
   const [nom, setNom] = useState("Awa");
   const [application, setApplication] = useState("WhatsApp");
   const [niveau, setNiveau] = useState(30);
@@ -73,6 +90,30 @@ export default function BancTechnique() {
       vivant = false;
     };
   }, [tracer]);
+
+  /**
+   * Les voix du terminal n'arrivent pas toujours au premier rendu : le moteur
+   * les charge en différé et prévient par `voiceschanged`. Lire une seule fois
+   * conclurait à tort qu'il n'y a aucune voix.
+   */
+  useEffect(() => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+    const lire = () => {
+      const lues = window.speechSynthesis.getVoices();
+      if (lues.length === 0) return;
+      setVoixBrutes(lues);
+      setVoixChoisie((precedente) => {
+        if (precedente) return precedente;
+        const francaises = filtrerFrancaises(lues.map(enVoixTerminal));
+        // À défaut de française, on ne choisit rien : mieux vaut un choix vide
+        // qu'une voix anglaise qui ferait croire à un français raté.
+        return francaises[0]?.nom ?? "";
+      });
+    };
+    lire();
+    window.speechSynthesis.addEventListener("voiceschanged", lire);
+    return () => window.speechSynthesis.removeEventListener("voiceschanged", lire);
+  }, []);
 
   /** Remet une action au pont, après confirmation si elle l'exige. */
   const executer = useCallback(
@@ -104,6 +145,33 @@ export default function BancTechnique() {
     [pont, capacites, tracer],
   );
 
+  /** Fait dire un texte par le moteur du terminal, et consigne QUELLE voix a parlé. */
+  const parler = useCallback(
+    (texte: string) => {
+      if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+        tracer("echec", "Ce terminal n'expose aucun moteur de synthèse.");
+        return;
+      }
+      const choisie = voixBrutes.find((voix) => voix.name === voixChoisie);
+      const enonce = new SpeechSynthesisUtterance(texte);
+      if (choisie) {
+        enonce.voice = choisie;
+        enonce.lang = choisie.lang;
+      }
+      enonce.onerror = (evenement) => tracer("echec", `Synthèse en échec : « ${texte} »`, evenement.error);
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(enonce);
+      tracer(
+        "ok",
+        `Dit : « ${texte} »`,
+        choisie
+          ? `${choisie.name} · ${choisie.lang} · ${choisie.localService ? "hors ligne" : "distante"}`
+          : "voix par défaut du terminal",
+      );
+    },
+    [voixBrutes, voixChoisie, tracer],
+  );
+
   /** Chaîne complète : la commande écrite est routée comme le sera la parole. */
   const router = useCallback(async () => {
     // La langue est un PARAMÈTRE de `resoudreAction`, pas une devinette : sans
@@ -128,6 +196,7 @@ export default function BancTechnique() {
   }, [commande, langue, executer, tracer]);
 
   const pret = pont !== null && capacites !== null;
+  const verdict = verdictMoteur(voixBrutes.map(enVoixTerminal));
 
   return (
     <main>
@@ -285,6 +354,66 @@ export default function BancTechnique() {
           </div>
         </div>
       ) : null}
+
+      <section>
+        <h2>La bouche — moteur de synthèse du terminal</h2>
+        <p className="sous">
+          Le moteur du <strong>système</strong>, celui qu&apos;une application peut appeler — pas celui de
+          Chrome, dont les voix ne sont pas exposées aux applications tierces. Seule une voix{" "}
+          <strong>hors ligne</strong> est utilisable par PASS.
+        </p>
+        <div className="capacites">
+          <span className={`puce ${verdict.francaisesHorsLigne > 0 ? "oui" : "non"}`}>
+            {verdict.francaisesHorsLigne} française(s) hors ligne
+          </span>
+          <span className="puce">{verdict.francaises} française(s)</span>
+          <span className="puce">{verdict.total} voix au total</span>
+          {verdict.codesRencontres.map((code) => (
+            <span key={code} className="puce">
+              {code}
+            </span>
+          ))}
+        </div>
+        <p className="sous">{verdict.conclusion}</p>
+
+        <label htmlFor="voix">Voix</label>
+        <select id="voix" value={voixChoisie} onChange={(evenement) => setVoixChoisie(evenement.target.value)}>
+          <option value="">— voix par défaut du terminal —</option>
+          {voixBrutes.map((voix) => (
+            <option key={`${voix.name}-${voix.lang}`} value={voix.name}>
+              {voix.name} — {voix.lang}
+              {voix.localService ? " — hors ligne" : " — distante"}
+            </option>
+          ))}
+        </select>
+
+        <label htmlFor="texteVoix">Texte à dire</label>
+        <input
+          id="texteVoix"
+          value={texteAVoix}
+          onChange={(evenement) => setTexteAVoix(evenement.target.value)}
+        />
+        <div className="grille" style={{ marginTop: 10 }}>
+          <button className="principal" onClick={() => parler(texteAVoix)}>
+            Faire parler
+          </button>
+        </div>
+
+        <label>Les six noms de l&apos;épreuve</label>
+        <div className="grille">
+          {TOPONYMES_EPREUVE.map((nom) => (
+            <button
+              key={nom}
+              onClick={() => {
+                setTexteAVoix(nom);
+                parler(nom);
+              }}
+            >
+              {nom}
+            </button>
+          ))}
+        </div>
+      </section>
 
       <section>
         <h2>Journal</h2>
